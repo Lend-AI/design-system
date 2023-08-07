@@ -2,11 +2,24 @@
   "name": "@lendai/design-system",
   "version": "0.0.1",
   "peerDependencies": {
+    "@angular/cdk": "^15.2.9",
     "@angular/common": "^15.2.0",
-    "@angular/core": "^15.2.0"
+    "@angular/core": "^15.2.0",
+    "@angular/forms": "^15.2.0",
+    "@angular/material": "^15.2.9",
+    "@lendai/cdk": "^0.0.1",
+    "rxjs": "~7.8.0"
   },
   "dependencies": {
+    "flag-icons": "^6.9.3",
+    "libphonenumber-js": "^1.10.39",
+    "ngx-mask": "^15.1.5",
     "tslib": "^2.3.0"
+  },
+  "exports": {
+    ".": {
+      "sass": "./scss/foundations/index.scss"
+    }
   },
   "sideEffects": false
 }

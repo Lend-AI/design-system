@@ -1,0 +1,42 @@
+@use 'color' as c;
+@use 'radius' as r;
+@use 'breakpoints' as b;
+
+:host {
+  @include r.radius(r.$md);
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid c.color('gray', 200);
+  padding: 24px;
+  width: 220px;
+  box-sizing: border-box;
+  gap: 16px;
+
+  &.checked {
+    border-color: c.$purple;
+  }
+
+  @include b.mobile {
+    width: 156px;
+    padding: 12px;
+    gap: 12px;
+  }
+}
+
+.image {
+  height: 60px;
+  width: 132px;
+
+  @include b.mobile {
+    height: 40px;
+    width: 88px;
+  }
+}
+
+.label {
+  text-align: center;
+  flex: 1;
+}

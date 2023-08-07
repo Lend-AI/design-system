@@ -1,0 +1,15 @@
+<lai-tab-group-header>
+  <lai-tab-label
+    *ngFor="let tab of tabs; let index = index"
+    [tab]="tab"
+    [selected]="tab === selectedTab"
+    (selectedChange)="onSelectedChange(index)"
+    (remove)="onRemove(index)">
+  </lai-tab-label>
+
+  <div class="spacer"></div>
+</lai-tab-group-header>
+
+<lai-tab-group-body
+  *ngIf="selectedTab"
+  [tab]="selectedTab"></lai-tab-group-body>

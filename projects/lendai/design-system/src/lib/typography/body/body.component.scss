@@ -1,0 +1,31 @@
+@use 'typography' as t;
+@use 'color' as c;
+
+$typographies: (
+  '1': t.$body-1,
+  '2': t.$body-2,
+  '3': t.$body-3,
+  '4': t.$body-4,
+  '5': t.$body-5,
+  '6': t.$body-6,
+);
+
+$weights: (
+  'regular': 400,
+  'medium': 500,
+  'semibold': 600,
+);
+
+:host {
+  @include t.attributeToTypography($typographies, 'level');
+
+  letter-spacing: 0rem;
+  @each $key, $value in $weights {
+    &[weight='#{$key}'] {
+      font-weight: $value;
+    }
+  }
+
+  display: inline-block;
+  color: c.$gray;
+}

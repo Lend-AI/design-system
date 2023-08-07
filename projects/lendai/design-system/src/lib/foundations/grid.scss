@@ -1,0 +1,20 @@
+@use 'gap' as g;
+@use 'breakpoints' as b;
+
+@mixin grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: g.$grid-gap;
+  @include b.mobile {
+    grid-gap: g.$grid-gap-mobile;
+  }
+}
+
+@mixin grid-areas($areas, $prefix) {
+  @each $area in $areas {
+    .#{$prefix}--#{$area} {
+      grid-area: $area;
+    }
+  }
+}

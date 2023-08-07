@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.countries-button {
+  ::ng-deep .mdc-button__label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+}
+
+::ng-deep .phone-input__countries-menu {
+  max-height: 500px !important;
+}

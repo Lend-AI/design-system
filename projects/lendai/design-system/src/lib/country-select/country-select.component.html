@@ -1,0 +1,32 @@
+<mat-form-field>
+  <mat-label>{{ label }}</mat-label>
+  <mat-icon
+    *ngIf="tooltip"
+    class="lai-tooltip"
+    matSuffix
+    [matTooltip]="tooltip">
+    info_outline
+  </mat-icon>
+  <mat-select
+    [placeholder]="placeholder"
+    [value]="selectedCountry?.alpha2Code"
+    [required]="required"
+    (selectionChange)="change($event)">
+    <mat-select-trigger class="trigger">
+      <ng-container *ngIf="selectedCountry">
+        <lai-flag
+          class="flag"
+          [country]="selectedCountry.alpha2Code"></lai-flag>
+        <span>{{ selectedCountry.name }}</span>
+      </ng-container>
+    </mat-select-trigger>
+
+    <mat-option
+      *ngFor="let country of countryList"
+      class="option"
+      [value]="country.alpha2Code">
+      <lai-flag [country]="country.alpha2Code"></lai-flag>
+      <span>{{ country.name }}</span>
+    </mat-option>
+  </mat-select>
+</mat-form-field>

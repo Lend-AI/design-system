@@ -1,0 +1,20 @@
+@use 'typography' as t;
+@use 'color' as c;
+
+$typographies: (
+  '1': t.$headline-1,
+  '2': t.$headline-2,
+  '3': t.$headline-3,
+  '4': t.$headline-4,
+  '5': t.$headline-5,
+);
+
+:host {
+  @include t.attributeToTypography($typographies, 'level');
+
+  letter-spacing: -0.02rem;
+  font-weight: 700;
+
+  display: inline;
+  color: c.$dark-blue;
+}

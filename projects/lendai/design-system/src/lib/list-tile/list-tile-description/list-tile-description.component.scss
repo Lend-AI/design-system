@@ -1,0 +1,19 @@
+@use 'color' as c;
+@use 'breakpoints' as b;
+
+:host {
+  border-style: solid;
+  border-width: 0 0 0 1px;
+  border-color: c.color('gray', 200);
+  display: flex;
+  align-items: center;
+  padding: 16px;
+
+  @include b.mobile{
+    padding: 12px;
+  }
+
+  lai-body {
+    color: c.color('blue', 900);
+  }
+}

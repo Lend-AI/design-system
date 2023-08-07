@@ -1,0 +1,76 @@
+@use '@angular/material' as mat;
+
+$lai-primary: (
+  50: #f6ebff,
+  100: #e8cdff,
+  200: #d8abff,
+  300: #c889ff,
+  400: #bd70ff,
+  500: #b157ff,
+  600: #aa4fff,
+  700: #a146ff,
+  800: #983cff,
+  900: #882cff,
+  A100: #ffffff,
+  A200: #ffffff,
+  A400: #e8d8ff,
+  A700: #d9beff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+$lai-red: (
+  50: #fdebe9,
+  100: #facdc7,
+  200: #f7aca2,
+  300: #f48b7c,
+  400: #f17260,
+  500: #ef5944,
+  600: #ed513e,
+  700: #eb4835,
+  800: #e83e2d,
+  900: #e42e1f,
+  A100: #ffffff,
+  A200: #ffe9e7,
+  A400: #ffb9b4,
+  A700: #ffa19b,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$lai-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: mat.define-palette($lai-primary),
+      accent: mat.define-palette($lai-primary),
+      warn: mat.define-palette($lai-red),
+    ),
+  )
+);

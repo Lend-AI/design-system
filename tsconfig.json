@@ -3,6 +3,9 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
+      "@lendai/cdk": [
+        "dist/lendai/cdk"
+      ],
       "@lendai/design-system": [
         "dist/lendai/design-system"
       ]

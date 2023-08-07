@@ -1,0 +1,306 @@
+@use 'sass:map';
+@use 'breakpoints' as b;
+
+@mixin attributeToTypography($typographies, $attribute-name) {
+  font-family: Poppins;
+  font-style: normal;
+
+  @each $attribute-value, $typography in $typographies {
+    &[#{$attribute-name}='#{$attribute-value}'] {
+      font-size: map.get($typography, 'desktop', 'font-size');
+      line-height: map.get($typography, 'desktop', 'line-height');
+
+      @include b.mobile {
+        font-size: map.get($typography, 'mobile', 'font-size');
+        line-height: map.get($typography, 'mobile', 'line-height');
+      }
+    }
+  }
+}
+
+@mixin typography($typography) {
+  font-family: Poppins;
+  font-style: normal;
+  font-size: map.get($typography, 'font-size');
+  line-height: map.get($typography, 'line-height');
+}
+
+$display-1: (
+  'desktop': (
+    'font-size': 4.75rem,
+    'line-height': 5.75rem,
+  ),
+  'mobile': (
+    'font-size': 2.25rem,
+    'line-height': 3.375rem,
+  ),
+);
+$display-2: (
+  'desktop': (
+    'font-size': 4rem,
+    'line-height': 5.25rem,
+  ),
+  'mobile': (
+    'font-size': 2.25rem,
+    'line-height': 3rem,
+  ),
+);
+$display-3: (
+  'desktop': (
+    'font-size': 3.75rem,
+    'line-height': 4.75rem,
+  ),
+  'mobile': (
+    'font-size': 2rem,
+    'line-height': 2.75rem,
+  ),
+);
+
+$headline-1: (
+  'desktop': (
+    'font-size': 3rem,
+    'line-height': 3.875rem,
+  ),
+  'mobile': (
+    'font-size': 1.75rem,
+    'line-height': 2.375rem,
+  ),
+);
+$headline-2: (
+  'desktop': (
+    'font-size': 2.5rem,
+    'line-height': 3.375rem,
+  ),
+  'mobile': (
+    'font-size': 1.5rem,
+    'line-height': 2.125rem,
+  ),
+);
+$headline-3: (
+  'desktop': (
+    'font-size': 2rem,
+    'line-height': 2.75rem,
+  ),
+  'mobile': (
+    'font-size': 1.25rem,
+    'line-height': 1.75rem,
+  ),
+);
+$headline-4: (
+  'desktop': (
+    'font-size': 1.5rem,
+    'line-height': 2.125rem,
+  ),
+  'mobile': (
+    'font-size': 1rem,
+    'line-height': 1.5rem,
+  ),
+);
+$headline-5: (
+  'desktop': (
+    'font-size': 1.25rem,
+    'line-height': 1.75rem,
+  ),
+  'mobile': (
+    'font-size': 0.875rem,
+    'line-height': 1.25rem,
+  ),
+);
+
+$card-title-1: (
+  'desktop': (
+    'font-size': 1.25rem,
+    'line-height': 2.125rem,
+  ),
+  'mobile': (
+    'font-size': 1.25rem,
+    'line-height': 1.75rem,
+  ),
+);
+$card-title-2: (
+  'desktop': (
+    'font-size': 1.25rem,
+    'line-height': 1.75rem,
+  ),
+  'mobile': (
+    'font-size': 1.125rem,
+    'line-height': 1.625rem,
+  ),
+);
+$card-title-3: (
+  'desktop': (
+    'font-size': 1.125rem,
+    'line-height': 1.625rem,
+  ),
+  'mobile': (
+    'font-size': 1rem,
+    'line-height': 1.5rem,
+  ),
+);
+$card-title-4: (
+  'desktop': (
+    'font-size': 1rem,
+    'line-height': 1.5rem,
+  ),
+  'mobile': (
+    'font-size': 0.875rem,
+    'line-height': 1.25rem,
+  ),
+);
+$card-title-5: (
+  'desktop': (
+    'font-size': 0.875rem,
+    'line-height': 1.25rem,
+  ),
+  'mobile': (
+    'font-size': 0.75rem,
+    'line-height': 1.125rem,
+  ),
+);
+
+$body-1: (
+  'desktop': (
+    'font-size': 1.5rem,
+    'line-height': 2.25rem,
+  ),
+  'mobile': (
+    'font-size': 1.25rem,
+    'line-height': 1.875rem,
+  ),
+);
+$body-2: (
+  'desktop': (
+    'font-size': 1.25rem,
+    'line-height': 1.875rem,
+  ),
+  'mobile': (
+    'font-size': 1.125rem,
+    'line-height': 1.625rem,
+  ),
+);
+$body-3: (
+  'desktop': (
+    'font-size': 1.125rem,
+    'line-height': 1.75rem,
+  ),
+  'mobile': (
+    'font-size': 0.875rem,
+    'line-height': 1.5rem,
+  ),
+);
+$body-4: (
+  'desktop': (
+    'font-size': 1rem,
+    'line-height': 1.5rem,
+  ),
+  'mobile': (
+    'font-size': 0.875rem,
+    'line-height': 1.25rem,
+  ),
+);
+$body-5: (
+  'desktop': (
+    'font-size': 0.875rem,
+    'line-height': 1.25rem,
+  ),
+  'mobile': (
+    'font-size': 0.75rem,
+    'line-height': 1.125rem,
+  ),
+);
+$body-6: (
+  'desktop': (
+    'font-size': 0.75rem,
+    'line-height': 1.125rem,
+  ),
+  'mobile': (
+    'font-size': 0.625rem,
+    'line-height': 1rem,
+  ),
+);
+
+$caption-lg: (
+  // MISSING SIZES
+  'desktop':
+    (
+      'font-size': 14px,
+      'line-height': 1.2em,
+    ),
+  'mobile': (
+    'font-size': 12px,
+  )
+);
+$caption-md: (
+  // MISSING SIZES
+  'desktop':
+    (
+      'font-size': 12px,
+      'line-height': 1.2em,
+    ),
+  'mobile': (
+    'font-size': 10px,
+  )
+);
+$caption-sm: (
+  // MISSING SIZES
+  'desktop':
+    (
+      'font-size': 10px,
+      'line-height': 1.2em,
+    ),
+  'mobile': (
+    'font-size': 8px,
+  )
+);
+
+// on design system "button" is now "label". MISSING MOBILE
+$button-md: (
+  'desktop': (
+    'font-size': 16px,
+    'line-height': 1.2em,
+  ),
+  'mobile': (
+    'font-size': 12px,
+  ),
+);
+$button-sm: (
+  'desktop': (
+    'font-size': 14px,
+    'line-height': 1.2em,
+  ),
+  'mobile': (
+    'font-size': 12px,
+  ),
+);
+$button-xs: (
+  'desktop': (
+    'font-size': 12px,
+    'line-height': 1.2em,
+  ),
+  'mobile': (
+    'font-size': 12px,
+  ),
+);
+
+$overline-lg: (
+  // MISSING SIZES
+  'desktop':
+    (
+      'font-size': 14px,
+      'line-height': 1.2px,
+    ),
+  'mobile': (
+    'font-size': 12px,
+  )
+);
+$overline-sm: (
+  // MISSING SIZES
+  'desktop':
+    (
+      'font-size': 12px,
+      'line-height': 1.2px,
+    ),
+  'mobile': (
+    'font-size': 10px,
+  )
+);

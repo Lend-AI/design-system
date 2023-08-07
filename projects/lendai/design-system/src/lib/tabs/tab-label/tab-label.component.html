@@ -1,0 +1,16 @@
+<lai-icon
+  *ngIf="tab.iconGlyph"
+  class="tab-icon"
+  [glyph]="tab.iconGlyph"
+  [size]="iconSize"></lai-icon>
+
+<lai-body [level]="bodyLevel">
+  {{ tab.label }}
+</lai-body>
+
+<lai-icon
+  *ngIf="tab.removable"
+  class="remove-icon"
+  glyph="close"
+  size="xs"
+  (click)="onRemove($event)"></lai-icon>

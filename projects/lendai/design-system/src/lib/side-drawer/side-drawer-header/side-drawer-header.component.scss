@@ -1,0 +1,17 @@
+@use 'color' as c;
+@use 'radius' as r;
+@use 'breakpoints' as b;
+
+:host {
+  @include r.radius(r.$md);
+
+  padding: 32px 24px;
+  background-color: c.color('blue', 75);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  @include b.mobile {
+    padding: 16px;
+  }
+}

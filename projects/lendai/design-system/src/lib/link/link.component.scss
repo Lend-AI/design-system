@@ -1,0 +1,54 @@
+@use 'typography' as t;
+@use 'color' as c;
+
+$typographies: (
+  'sm': t.$button-xs,
+  'md': t.$button-sm,
+  'lg': t.$button-md,
+);
+
+:host {
+  @include t.attributeToTypography($typographies, 'level');
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: c.$blue;
+  text-decoration: none;
+
+  &:hover {
+    color: c.color('blue', 600);
+
+    &:visited {
+      color: c.color('purple', 600);
+    }
+  }
+
+  &:focus {
+    outline: 1px solid c.$blue;
+  }
+
+  &:active {
+    color: c.color('blue', 800);
+  }
+
+  &:visited {
+    color: c.$purple;
+  }
+
+  &[level='sm'],
+  &[level='md'] {
+    padding: 4px;
+  }
+
+  &[level='lg'] {
+    padding: 8px;
+  }
+}
+
+.label {
+  :host[type='inline'] &,
+  :host[type='standalone']:hover & {
+    text-decoration: underline;
+  }
+}

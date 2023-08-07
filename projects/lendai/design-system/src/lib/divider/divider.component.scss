@@ -1,0 +1,59 @@
+@use 'color' as c;
+
+:host {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  &:not(.empty) {
+    gap: 12px;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    flex-grow: 1;
+  }
+
+  &[type='horizontal'] {
+    flex-direction: row;
+    width: 100%;
+
+    &::before,
+    &::after {
+      height: 1px;
+    }
+  }
+
+  &[type='vertical'] {
+    flex-direction: column;
+    height: 100%;
+
+    &::before,
+    &::after {
+      width: 1px;
+    }
+  }
+
+  &[background='dark'] {
+    &::before,
+    &::after {
+      background-color: rgba(c.$white, 20%);
+    }
+
+    lai-body {
+      color: rgba(c.$white, 20%);
+    }
+  }
+
+  &[background='light'] {
+    &::before,
+    &::after {
+      background-color: c.color('gray', 300);
+    }
+
+    lai-body {
+      color: c.color('gray', 300);
+    }
+  }
+}

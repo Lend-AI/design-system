@@ -1,0 +1,42 @@
+<mat-form-field floatLabel="always">
+  <mat-label>
+    {{ label }}
+  </mat-label>
+
+  <button
+    type="button"
+    mat-button
+    class="countries-button"
+    matPrefix
+    [disabled]="isDisabled || isReadonly"
+    [matMenuTriggerFor]="countriesMenu"
+    (click)="!isDisabled && onTouched(); $event.stopPropagation()">
+    <lai-flag [country]="flag"></lai-flag>
+    <lai-icon glyph="expand-arrow"></lai-icon>
+  </button>
+
+  <span matTextPrefix>+</span>
+
+  <input
+    #input
+    matInput
+    [(ngModel)]="value"
+    [disabled]="isDisabled"
+    [readonly]="isReadonly"
+    [required]="isRequired"
+    [placeholder]="placeholder | mask : mask"
+    (blur)="onTouched()"
+    autocomplete="new-password"
+    [mask]="mask" />
+</mat-form-field>
+
+<mat-menu #countriesMenu class="phone-input__countries-menu">
+  <button
+    (keydown)="$event.stopPropagation()"
+    *ngFor="let country of countries"
+    mat-menu-item
+    (click)="countrySelected(country)">
+    <lai-flag [country]="country.alpha2Code"></lai-flag>
+    {{ country.name }} ({{ country.callingCode }})
+  </button>
+</mat-menu>

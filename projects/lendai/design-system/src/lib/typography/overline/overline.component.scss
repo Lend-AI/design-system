@@ -1,0 +1,15 @@
+@use 'typography' as t;
+@use 'color' as c;
+
+$typographies: (
+  'lg': t.$overline-lg,
+  'sm': t.$overline-sm,
+);
+
+:host {
+  @include t.attributeToTypography($typographies, 'level');
+
+  display: inline;
+  color: c.$purple;
+  text-transform: uppercase;
+}

@@ -1,0 +1,43 @@
+@use 'color' as c;
+@use 'radius' as r;
+@use 'typography' as t;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.sidenav-items-category {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidenav-item {
+  @include r.radius(r.$sm);
+  @include t.typography(t.$body-5);
+
+  color: rgba(c.$white, 70%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  box-sizing: border-box;
+  text-decoration: none;
+  min-height: 48px; // to make sure inactive items are the same size as active ones
+
+  .text {
+    flex: 1;
+  }
+
+  &.active {
+    @include t.typography(t.$button-sm);
+
+    background-color: rgba(c.$white, 10%);
+    color: c.$white;
+  }
+}

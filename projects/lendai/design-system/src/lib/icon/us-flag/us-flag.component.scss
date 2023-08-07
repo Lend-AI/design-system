@@ -1,0 +1,25 @@
+$sizes: (
+  'xs': 18px,
+  's': 24px,
+  'm': 32px,
+  'l': 38px,
+  'xl': 42px,
+);
+
+:host {
+  @each $key, $value in $sizes {
+    &[size='#{$key}'] {
+        display: inline-block;
+        width: $value;
+    }
+  }
+
+  &[type='circle'] {
+    overflow: hidden;
+    background-size: cover;
+  }
+
+  &>img{
+    width: 100%;
+  }
+}

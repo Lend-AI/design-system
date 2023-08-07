@@ -1,0 +1,19 @@
+@use 'color' as c;
+@use 'radius' as r;
+
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-icon {
+  color: c.$blue;
+}
+
+.trigger,
+.option ::ng-deep .mdc-list-item__primary-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}

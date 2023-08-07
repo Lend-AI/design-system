@@ -1,0 +1,12 @@
+@use 'breakpoints' as b;
+
+:host {
+  display: flex;
+  gap: 40px;
+  width: fit-content;
+
+  @include b.mobile {
+    flex-direction: column;
+    gap: 28px;
+  }
+}

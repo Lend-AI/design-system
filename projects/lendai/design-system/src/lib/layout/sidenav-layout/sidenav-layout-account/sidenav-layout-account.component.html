@@ -1,0 +1,16 @@
+<lai-avatar size="sm" [initials]="firstName[0] + lastName[0] | uppercase">
+</lai-avatar>
+
+<div class="info" (click)="service.accountCallBack()">
+  <lai-caption level="lg"> {{ firstName }} {{ lastName }} </lai-caption>
+  <lai-caption level="sm" class="sub-info"> {{ accountInfo }} </lai-caption>
+</div>
+
+<button
+  *ngIf="(isHandset$ | async) === false"
+  laiIconButton
+  class="logout"
+  hierarchy="tertiary"
+  (click)="service.logoutCallBack()">
+  <lai-icon glyph="logout"></lai-icon>
+</button>

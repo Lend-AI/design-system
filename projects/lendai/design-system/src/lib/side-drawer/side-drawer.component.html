@@ -1,0 +1,20 @@
+<div class="wrapper">
+  <ng-content select="lai-side-drawer-header"></ng-content>
+
+  <ng-container *ngFor="let warning of warnings">
+    <ng-container *ngTemplateOutlet="warning.templateRef"></ng-container>
+  </ng-container>
+
+  <div class="content">
+    <ng-content></ng-content>
+  </div>
+
+  <button
+    *laiLet="isHandset$ | async as isHandset"
+    class="close-button"
+    [class.close-button--handset]="isHandset"
+    [class.close-button--desktop]="!isHandset"
+    (click)="close()">
+    <lai-icon glyph="close" [size]="isHandset ? 'md' : 'xl'"></lai-icon>
+  </button>
+</div>

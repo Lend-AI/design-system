@@ -1,0 +1,7 @@
+@use 'color' as c;
+
+
+:host {
+  display: flex;
+  color: c.$dark-blue;
+}

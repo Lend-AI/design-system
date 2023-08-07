@@ -1,0 +1,8 @@
+<img class="image" [src]="finalImage" />
+
+<lai-caption class="label" level="lg">{{ label }}</lai-caption>
+
+<mat-checkbox
+  [checked]="checked"
+  (change)="change()"
+  (click)="$event.stopPropagation()"></mat-checkbox>

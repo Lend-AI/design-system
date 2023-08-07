@@ -1,0 +1,10 @@
+<lai-logo class="logo"></lai-logo>
+<ng-container *laiLet="isHandset$ | async as isHandset">
+  <lai-headline *ngIf="title && !isHandset" class="title" level="3">
+    {{ title }}
+  </lai-headline>
+</ng-container>
+<div class="spacer"></div>
+<div class="body">
+  <ng-content></ng-content>
+</div>

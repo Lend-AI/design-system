@@ -1,0 +1,15 @@
+@use 'typography' as t;
+@use 'color' as c;
+
+$typographies: (
+  'lg': t.$caption-lg,
+  'md': t.$caption-md,
+  'sm': t.$caption-sm,
+);
+
+:host {
+  @include t.attributeToTypography($typographies, 'level');
+
+  display: inline;
+  color: c.$gray;
+}

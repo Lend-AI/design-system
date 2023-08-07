@@ -1,0 +1,6 @@
+@use '@angular/material' as mat;
+@use 'theme' as t;
+
+@include mat.all-component-themes(t.$lai-theme);
+@include mat.all-component-typographies();
+@include mat.core();

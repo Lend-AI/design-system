@@ -1,0 +1,52 @@
+<div
+  class="sidenav"
+  *laiLet="isHandset$ | async as isHandset"
+  [class.open]="status">
+  <div class="header">
+    <lai-logo class="logo" routerLink="/"></lai-logo>
+    <lai-icon
+      *ngIf="isHandset"
+      [glyph]="icon"
+      size="sm"
+      (click)="clickEvent()"></lai-icon>
+  </div>
+  <div class="nav-menu" *ngIf="status">
+    <lai-divider background="dark"></lai-divider>
+    <lai-sidenav-layout-categories
+      class="categories"></lai-sidenav-layout-categories>
+    <lai-divider background="dark"></lai-divider>
+    <lai-sidenav-layout-account></lai-sidenav-layout-account>
+    <button
+      *ngIf="isHandset"
+      laiIconButton
+      class="logout"
+      hierarchy="tertiary"
+      size="md"
+      (click)="service.logoutCallBack()">
+      <lai-icon glyph="logout"></lai-icon>
+      {{ logOutText }}
+    </button>
+  </div>
+</div>
+
+<div class="main">
+  <div class="main-header" [laiHidden]="isHeaderHidden">
+    <div class="title">
+      <ng-content select="lai-sidenav-layout-avatar"></ng-content>
+      <ng-content select="lai-sidenav-layout-title"></ng-content>
+      <ng-content select="lai-sidenav-layout-subtitle"></ng-content>
+    </div>
+
+    <lai-button-bar>
+      <ng-content select="lai-sidenav-layout-actions"></ng-content>
+    </lai-button-bar>
+  </div>
+
+  <ng-container *ngIf="contentComponent; else simpleContent">
+    <ng-content select="lai-sidenav-layout-content"></ng-content>
+  </ng-container>
+
+  <ng-template #simpleContent>
+    <ng-content></ng-content>
+  </ng-template>
+</div>

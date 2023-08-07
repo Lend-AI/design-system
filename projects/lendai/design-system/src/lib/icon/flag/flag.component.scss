@@ -1,0 +1,40 @@
+$sizes: (
+  'xs': 12px,
+  's': 18px,
+  'm': 24px,
+  'l': 30px,
+  'xl': 36px,
+);
+
+$types: (
+  'rectangle': 4px,
+  'circle': 50%,
+);
+
+:host {
+  @each $key, $value in $sizes {
+    &[size='#{$key}'] {
+      font-size: $value;
+
+      &[type='circle'] {
+        width: $value;
+        height: $value;
+      }
+    }
+  }
+
+  @each $key, $value in $types {
+    &[type='#{$key}'] {
+      border-radius: $value;
+    }
+  }
+
+  &[type='circle'] {
+    overflow: hidden;
+    background-size: cover;
+  }
+
+  &.unknown-country {
+    background-image: url(/assets/images/flags/unknown-country.svg);
+  }
+}

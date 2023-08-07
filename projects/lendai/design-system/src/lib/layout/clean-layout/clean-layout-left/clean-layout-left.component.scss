@@ -1,0 +1,55 @@
+@use 'color' as c;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: c.$dark-blue;
+  padding: 48px;
+  gap: 16px;
+  position: relative;
+
+  &:before{
+    content: "";
+    background: linear-gradient(171.23deg, rgba(1, 29, 63, 0) 39.69%, rgba(1, 29, 63, 0.8) 93.32%),
+    linear-gradient(156.89deg, rgba(1, 29, 63, 0.7) 10.85%, rgba(1, 29, 63, 0) 55.12%);    
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+}
+
+.body{
+  z-index: 2;
+}
+
+:host-context(.handset) {
+  padding: 32px 48px 32px 24px;
+  background-position: 90% 18%;
+  background-size: 155%;
+  &:before {
+    background: linear-gradient(131.88deg, #011D3F 8.7%, rgba(1, 29, 63, 0.65) 83.1%);
+  }
+}
+
+.logo {
+  height: 38px;
+  z-index: 2;
+
+  :host-context(.handset) & {
+    height: 24px;
+  }
+}
+
+.title {
+  color: c.$white;
+  z-index: 2;
+}
+
+.spacer {
+  flex: 1;
+}

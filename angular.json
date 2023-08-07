@@ -46,7 +46,16 @@
               "-d",
               "projects/lendai/design-system"
             ],
-            "port": 6006
+            "port": 6006,
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "projects/lendai/design-system/src/lib/foundations"
+              ]
+            },
+            "styles": [
+              "projects/lendai/design-system/.storybook/styles.scss",
+              "node_modules/flag-icons/css/flag-icons.min.css"
+            ]
           }
         },
         "build-storybook": {
@@ -63,8 +72,64 @@
             ],
             "outputDir": "storybook-static"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/lendai/design-system/**/*.ts",
+              "projects/lendai/design-system/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "@lendai/cdk": {
+      "projectType": "library",
+      "root": "projects/lendai/cdk",
+      "sourceRoot": "projects/lendai/cdk/src",
+      "prefix": "lai",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/lendai/cdk/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/lendai/cdk/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/lendai/cdk/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/lendai/cdk/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/lendai/cdk/**/*.ts",
+              "projects/lendai/cdk/**/*.html"
+            ]
+          }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

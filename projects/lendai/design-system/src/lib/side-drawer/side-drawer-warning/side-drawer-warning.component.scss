@@ -1,0 +1,13 @@
+@use 'color' as c;
+@use 'radius' as r;
+
+.content {
+  @include r.radius(r.$md);
+
+  padding: 16px 24px;
+  display: flex;
+
+  &[color='orange'] {
+    background-color: c.color('orange', 50);
+  }
+}

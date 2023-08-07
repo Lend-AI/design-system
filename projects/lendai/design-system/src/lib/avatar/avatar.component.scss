@@ -1,0 +1,30 @@
+@use 'color' as c;
+
+$sizes: (
+  'xs': 32px,
+  'sm': 40px,
+  'md': 48px,
+  'lg': 56px,
+  'xl': 64px,
+  'xxl': 72px,
+);
+
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Poppins;
+  border-radius: 50%;
+  background-color: c.color('blue', 300);
+
+  @each $key, $value in $sizes {
+    &[size='#{$key}'] {
+      width: $value;
+      height: $value;
+    }
+  }
+}
+
+lai-title {
+  color: c.$white;
+}
