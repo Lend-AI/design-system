@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "build": "ng build",
+    "build": "ng build @lendai/design-system:storybook",
     "test": "ng test",
     "storybook": "ng run @lendai/design-system:storybook",
     "build-storybook": "ng run @lendai/design-system:build-storybook",
