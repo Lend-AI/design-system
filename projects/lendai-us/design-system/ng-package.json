@@ -1,6 +1,6 @@
 {
   "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../../dist/lendai/design-system",
+  "dest": "../../../dist/lendai-us/design-system",
   "assets": [
     {
       "input": "./src/assets",
@@ -15,13 +15,7 @@
   ],
   "lib": {
     "entryFile": "src/public-api.ts",
-    "styleIncludePaths": [
-      "src/lib/foundations"
-    ]
+    "styleIncludePaths": ["src/lib/foundations"]
   },
-  "allowedNonPeerDependencies": [
-    "flag-icons",
-    "libphonenumber-js",
-    "ngx-mask"
-  ]
+  "allowedNonPeerDependencies": ["flag-icons", "libphonenumber-js", "ngx-mask"]
 }

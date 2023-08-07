@@ -1,5 +1,5 @@
 {
-  "name": "@lendai/cdk",
+  "name": "@lendai-us/cdk",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/cdk": "^15.2.9",

@@ -3,11 +3,11 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "@lendai/cdk": [
-        "dist/lendai/cdk"
+      "@lendai-us/cdk": [
+        "dist/lendai-us/cdk"
       ],
-      "@lendai/design-system": [
-        "dist/lendai/design-system"
+      "@lendai-us/design-system": [
+        "dist/lendai-us/design-system"
       ]
     },
     "baseUrl": "./",

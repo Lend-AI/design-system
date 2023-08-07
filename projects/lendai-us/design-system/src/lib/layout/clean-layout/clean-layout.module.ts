@@ -5,7 +5,7 @@ import { CleanLayoutLeftComponent } from './clean-layout-left/clean-layout-left.
 import { CleanLayoutRightComponent } from './clean-layout-right/clean-layout-right.component';
 import { LogoComponent } from '../../logo';
 import { HeadlineComponent } from '../../typography';
-import { LetDirective } from '@lendai/cdk';
+import { LetDirective } from '@lendai-us/cdk';
 
 @NgModule({
   declarations: [

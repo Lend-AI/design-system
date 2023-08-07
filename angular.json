@@ -3,23 +3,23 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "@lendai/design-system": {
+    "@lendai-us/design-system": {
       "projectType": "library",
-      "root": "projects/lendai/design-system",
-      "sourceRoot": "projects/lendai/design-system/src",
+      "root": "projects/lendai-us/design-system",
+      "sourceRoot": "projects/lendai-us/design-system/src",
       "prefix": "lai",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/lendai/design-system/ng-package.json"
+            "project": "projects/lendai-us/design-system/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/lendai/design-system/tsconfig.lib.prod.json"
+              "tsConfig": "projects/lendai-us/design-system/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/lendai/design-system/tsconfig.lib.json"
+              "tsConfig": "projects/lendai-us/design-system/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -27,33 +27,30 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/lendai/design-system/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
+            "tsConfig": "projects/lendai-us/design-system/tsconfig.spec.json",
+            "polyfills": ["zone.js", "zone.js/testing"]
           }
         },
         "storybook": {
           "builder": "@storybook/angular:start-storybook",
           "options": {
-            "configDir": "projects/lendai/design-system/.storybook",
-            "browserTarget": "@lendai/design-system:build",
+            "configDir": "projects/lendai-us/design-system/.storybook",
+            "browserTarget": "@lendai-us/design-system:build",
             "compodoc": true,
             "compodocArgs": [
               "-e",
               "json",
               "-d",
-              "projects/lendai/design-system"
+              "projects/lendai-us/design-system"
             ],
             "port": 6006,
             "stylePreprocessorOptions": {
               "includePaths": [
-                "projects/lendai/design-system/src/lib/foundations"
+                "projects/lendai-us/design-system/src/lib/foundations"
               ]
             },
             "styles": [
-              "projects/lendai/design-system/.storybook/styles.scss",
+              "projects/lendai-us/design-system/.storybook/styles.scss",
               "node_modules/flag-icons/css/flag-icons.min.css"
             ]
           }
@@ -61,14 +58,14 @@
         "build-storybook": {
           "builder": "@storybook/angular:build-storybook",
           "options": {
-            "configDir": "projects/lendai/design-system/.storybook",
-            "browserTarget": "@lendai/design-system:build",
+            "configDir": "projects/lendai-us/design-system/.storybook",
+            "browserTarget": "@lendai-us/design-system:build",
             "compodoc": true,
             "compodocArgs": [
               "-e",
               "json",
               "-d",
-              "projects/lendai/design-system"
+              "projects/lendai-us/design-system"
             ],
             "outputDir": "storybook-static"
           }
@@ -77,30 +74,30 @@
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "projects/lendai/design-system/**/*.ts",
-              "projects/lendai/design-system/**/*.html"
+              "projects/lendai-us/design-system/**/*.ts",
+              "projects/lendai-us/design-system/**/*.html"
             ]
           }
         }
       }
     },
-    "@lendai/cdk": {
+    "@lendai-us/cdk": {
       "projectType": "library",
-      "root": "projects/lendai/cdk",
-      "sourceRoot": "projects/lendai/cdk/src",
+      "root": "projects/lendai-us/cdk",
+      "sourceRoot": "projects/lendai-us/cdk/src",
       "prefix": "lai",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/lendai/cdk/ng-package.json"
+            "project": "projects/lendai-us/cdk/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/lendai/cdk/tsconfig.lib.prod.json"
+              "tsConfig": "projects/lendai-us/cdk/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/lendai/cdk/tsconfig.lib.json"
+              "tsConfig": "projects/lendai-us/cdk/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -108,19 +105,16 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/lendai/cdk/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
+            "tsConfig": "projects/lendai-us/cdk/tsconfig.spec.json",
+            "polyfills": ["zone.js", "zone.js/testing"]
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "projects/lendai/cdk/**/*.ts",
-              "projects/lendai/cdk/**/*.html"
+              "projects/lendai-us/cdk/**/*.ts",
+              "projects/lendai-us/cdk/**/*.html"
             ]
           }
         }
@@ -128,8 +122,6 @@
     }
   },
   "cli": {
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ]
+    "schematicCollections": ["@angular-eslint/schematics"]
   }
 }

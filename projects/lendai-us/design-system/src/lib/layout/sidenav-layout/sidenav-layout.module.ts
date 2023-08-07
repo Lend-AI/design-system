@@ -12,7 +12,7 @@ import { SidenavLayoutAccountComponent } from './sidenav-layout-account/sidenav-
 import { SidenavLayoutSubtitleComponent } from './sidenav-layout-subtitle/sidenav-layout-subtitle.component';
 import { SidenavLayoutTitleComponent } from './sidenav-layout-title/sidenav-layout-title.component';
 import { SidenavLayoutActionsComponent } from './sidenav-layout-actions/sidenav-layout-actions.component';
-import { HiddenDirective, LetDirective } from '@lendai/cdk';
+import { HiddenDirective, LetDirective } from '@lendai-us/cdk';
 import { SidenavLayoutContentComponent } from './sidenav-layout-content/sidenav-layout-content.component';
 import { SidenavLayoutAvatarComponent } from './sidenav-layout-avatar/sidenav-layout-avatar.component';
 import { IconComponent } from '../../icon';
