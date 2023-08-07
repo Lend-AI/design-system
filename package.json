@@ -3,14 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "build": "ng build @lendai/design-system",
-    "test": "ng test @lendai/design-system",
+    "build": "ng build",
+    "test": "ng test",
     "storybook": "ng run @lendai/design-system:storybook",
     "build-storybook": "ng run @lendai/design-system:build-storybook",
     "prepare": "husky install",
-    "lint": "ng lint @lendai/design-system",
-    "lint:fix": "ng lint @lendai/design-system --fix",
-    "lint:ci": "ng lint"
+    "lint": "ng lint",
+    "lint:fix": "ng lint --fix"
   },
   "private": true,
   "dependencies": {
