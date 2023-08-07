@@ -9,7 +9,8 @@
     "build-storybook": "ng run @lendai-us/design-system:build-storybook",
     "prepare": "husky install",
     "lint": "ng lint",
-    "lint:fix": "ng lint --fix"
+    "lint:fix": "ng lint --fix",
+    "verdaccio": "verdaccio"
   },
   "private": true,
   "dependencies": {
@@ -68,6 +69,7 @@
     "react-dom": "^18.2.0",
     "storybook": "^7.2.1",
     "storybook-addon-pseudo-states": "^2.1.0",
-    "typescript": "~4.9.4"
+    "typescript": "~4.9.4",
+    "verdaccio": "^5.26.1"
   }
 }
