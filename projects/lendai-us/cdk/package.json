@@ -1,6 +1,6 @@
 {
   "name": "@lendai-us/cdk",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "peerDependencies": {
     "@angular/cdk": "^15.2.9",
     "@angular/common": "^15.2.0",
@@ -10,6 +10,14 @@
   },
   "dependencies": {
     "tslib": "^2.3.0"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lend-AI/design-system"
   },
   "sideEffects": false
 }

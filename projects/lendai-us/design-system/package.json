@@ -1,13 +1,13 @@
 {
   "name": "@lendai-us/design-system",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "peerDependencies": {
     "@angular/cdk": "^15.2.9",
     "@angular/common": "^15.2.0",
     "@angular/core": "^15.2.0",
     "@angular/forms": "^15.2.0",
     "@angular/material": "^15.2.9",
-    "@lendai-us/cdk": "^0.0.1",
+    "@lendai-us/cdk": "^0.0.4",
     "rxjs": "~7.8.0"
   },
   "dependencies": {
@@ -20,6 +20,14 @@
     ".": {
       "sass": "./scss/foundations/index.scss"
     }
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lend-AI/design-system"
   },
   "sideEffects": false
 }
