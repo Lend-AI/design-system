@@ -67,7 +67,16 @@
               "-d",
               "projects/lendai-us/design-system"
             ],
-            "outputDir": "storybook-static"
+            "outputDir": "storybook-static",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "projects/lendai-us/design-system/src/lib/foundations"
+              ]
+            },
+            "styles": [
+              "projects/lendai-us/design-system/.storybook/styles.scss",
+              "node_modules/flag-icons/css/flag-icons.min.css"
+            ]
           }
         },
         "lint": {
