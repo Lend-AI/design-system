@@ -7208,21 +7208,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/typography/display/display.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<DisplayComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Typography/Display',\n  decorators: [\n    moduleMetadata({\n      imports: [DisplayComponent],\n    }),\n  ],\n  argTypes: {\n    level: {\n      options: DISPLAY_LEVELS,\n      control: { type: 'select' },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/typography/headline/headline.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<HeadlineComponent>",
                 "defaultValue": "{\n  title: 'Atoms/Typography/Headline',\n  decorators: [\n    moduleMetadata({\n      imports: [HeadlineComponent],\n    }),\n  ],\n  argTypes: {\n    level: {\n      options: HEADLINE_LEVELS,\n      control: { type: 'select' },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/typography/display/display.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<DisplayComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Typography/Display',\n  decorators: [\n    moduleMetadata({\n      imports: [DisplayComponent],\n    }),\n  ],\n  argTypes: {\n    level: {\n      options: DISPLAY_LEVELS,\n      control: { type: 'select' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -8058,8 +8058,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<DisplayComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/typography/display/display.stories.ts",
+                "rawtype": "StoryObj<HeadlineComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/typography/headline/headline.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -8069,8 +8069,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<HeadlineComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/typography/headline/headline.stories.ts",
+                "rawtype": "StoryObj<DisplayComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/typography/display/display.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -9760,19 +9760,6 @@
                     "kind": 180
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/typography/display/display.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<DisplayComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/typography/display/display.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/typography/headline/headline.stories.ts": [
                 {
                     "name": "Story",
@@ -9780,6 +9767,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<HeadlineComponent>",
                     "file": "projects/lendai-us/design-system/src/lib/typography/headline/headline.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/typography/display/display.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<DisplayComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/typography/display/display.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
