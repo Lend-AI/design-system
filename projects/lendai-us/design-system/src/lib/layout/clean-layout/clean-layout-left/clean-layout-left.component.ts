@@ -17,6 +17,6 @@ export class CleanLayoutLeftComponent {
 
   @HostBinding('style.background-image')
   get backgroundImage(): string {
-    return `url(/assets/images/${this.background})`;
+    return `url(../../../assets/images/${this.background})`;
   }
 }

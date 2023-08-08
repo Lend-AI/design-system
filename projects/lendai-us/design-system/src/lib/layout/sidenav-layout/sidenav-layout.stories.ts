@@ -42,7 +42,7 @@ class DummyService implements SidenavService {
 }
 
 const meta: Meta<SidenavLayoutComponent> = {
-  title: 'WIP/Layout',
+  title: 'Templates/SidenavLayout',
   parameters: {
     layout: 'fullscreen',
   },

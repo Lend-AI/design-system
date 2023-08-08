@@ -360,12 +360,12 @@
     "classes": [
         {
             "name": "DummyService",
-            "id": "class-DummyService-ab75ec56d7ed16639aaab58dad5111596a076f77300008b2814c844b49d3e8bdb936f9253d9478b22bf5369c6a88846ba96a43a5da588c5ccc86e062af75828a",
+            "id": "class-DummyService-2ea7daeea9b15b1a0e169dd60c18abf9c3b67484504afba966485b3591985a7259de87409b392fa08b629e10ceb7465d12f79857dc2ab1b8f58fe04ad4c01620",
             "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';\nimport { SidenavLayoutModule } from './sidenav-layout.module';\nimport {\n  SIDENAV_SERVICE,\n  SidenavCategory,\n  SidenavService,\n} from './sidenav-layout-service';\nimport { SidenavLayoutComponent } from './sidenav-layout.component';\nimport { of } from 'rxjs';\nimport { RouterTestingModule } from '@angular/router/testing';\nimport { ButtonComponent } from '../../button';\n\nconst sidenavItems: SidenavCategory[] = [\n  {\n    icon: 'dashboard',\n    route: '/dashboard',\n    title: 'Dashboard',\n  },\n  {\n    icon: 'loan-applications',\n    route: '/loan-applications',\n    title: 'Loan Applications',\n  },\n  {\n    icon: 'loan-policy',\n    route: '/loan-policy',\n    title: 'Loan Policy',\n  },\n];\nclass DummyService implements SidenavService {\n  firstName$ = of('nof');\n  lastName$ = of('sh');\n  accountInfo$ = of('View profile');\n  logOutText$ = of('Log Out');\n  sidenavCategories$ = of(sidenavItems);\n  async accountCallBack(): Promise<void> {\n    console.log('account call back');\n  }\n  async logoutCallBack(): Promise<void> {\n    console.log('logout call back');\n  }\n}\n\nconst meta: Meta<SidenavLayoutComponent> = {\n  title: 'WIP/Layout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: SidenavLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [SidenavLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: SIDENAV_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n};\nexport default meta;\n\ntype Story = StoryObj<SidenavLayoutComponent>;\n\nexport const SidenavLayout: Story = {\n  render: props => ({\n    props,\n    template: `\n    <lai-sidenav-layout>\n      <lai-sidenav-layout-avatar initials=\"NS\"></lai-sidenav-layout-avatar>\n      <lai-sidenav-layout-title>Header Title</lai-sidenav-layout-title>\n      <lai-sidenav-layout-subtitle>Header Subtitle</lai-sidenav-layout-subtitle>\n      <lai-sidenav-layout-actions>\n        <button laiButton>\n          New Application\n        </button>\n      </lai-sidenav-layout-actions>\n      <lai-sidenav-layout-content>\n        <div style=\"height: 500px;\">Some content</div>\n      </lai-sidenav-layout-content>\n    </lai-sidenav-layout>\n  `,\n  }),\n};\n",
+            "sourceCode": "import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';\nimport { SidenavLayoutModule } from './sidenav-layout.module';\nimport {\n  SIDENAV_SERVICE,\n  SidenavCategory,\n  SidenavService,\n} from './sidenav-layout-service';\nimport { SidenavLayoutComponent } from './sidenav-layout.component';\nimport { of } from 'rxjs';\nimport { RouterTestingModule } from '@angular/router/testing';\nimport { ButtonComponent } from '../../button';\n\nconst sidenavItems: SidenavCategory[] = [\n  {\n    icon: 'dashboard',\n    route: '/dashboard',\n    title: 'Dashboard',\n  },\n  {\n    icon: 'loan-applications',\n    route: '/loan-applications',\n    title: 'Loan Applications',\n  },\n  {\n    icon: 'loan-policy',\n    route: '/loan-policy',\n    title: 'Loan Policy',\n  },\n];\nclass DummyService implements SidenavService {\n  firstName$ = of('nof');\n  lastName$ = of('sh');\n  accountInfo$ = of('View profile');\n  logOutText$ = of('Log Out');\n  sidenavCategories$ = of(sidenavItems);\n  async accountCallBack(): Promise<void> {\n    console.log('account call back');\n  }\n  async logoutCallBack(): Promise<void> {\n    console.log('logout call back');\n  }\n}\n\nconst meta: Meta<SidenavLayoutComponent> = {\n  title: 'Templates/SidenavLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: SidenavLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [SidenavLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: SIDENAV_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n};\nexport default meta;\n\ntype Story = StoryObj<SidenavLayoutComponent>;\n\nexport const SidenavLayout: Story = {\n  render: props => ({\n    props,\n    template: `\n    <lai-sidenav-layout>\n      <lai-sidenav-layout-avatar initials=\"NS\"></lai-sidenav-layout-avatar>\n      <lai-sidenav-layout-title>Header Title</lai-sidenav-layout-title>\n      <lai-sidenav-layout-subtitle>Header Subtitle</lai-sidenav-layout-subtitle>\n      <lai-sidenav-layout-actions>\n        <button laiButton>\n          New Application\n        </button>\n      </lai-sidenav-layout-actions>\n      <lai-sidenav-layout-content>\n        <div style=\"height: 500px;\">Some content</div>\n      </lai-sidenav-layout-content>\n    </lai-sidenav-layout>\n  `,\n  }),\n};\n",
             "properties": [
                 {
                     "name": "accountInfo$",
@@ -1066,7 +1066,7 @@
         },
         {
             "name": "CleanLayoutLeftComponent",
-            "id": "component-CleanLayoutLeftComponent-a57b0c6945b60e7343b6b1b388eb205303c2b5da731547710903aa8b61b77235843d1b9c3b878c7f40c755bfbfe3a2cfcdcfac780518448eb497fdcf33b4e3e4",
+            "id": "component-CleanLayoutLeftComponent-8aca06bbcf67e872d6dec0133b70823a10ff55e10e69c120c1925580f99ff1c8a78b17a3ca29e8ba6a327eb6d23ae9f158b88c63f33133ce613271b9eb47860f",
             "file": "projects/lendai-us/design-system/src/lib/layout/clean-layout/clean-layout-left/clean-layout-left.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1150,7 +1150,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, HostBinding, Input, inject } from '@angular/core';\nimport { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';\nimport { Observable, map } from 'rxjs';\n\n@Component({\n  selector: 'lai-clean-layout-left',\n  templateUrl: './clean-layout-left.component.html',\n  styleUrls: ['./clean-layout-left.component.scss'],\n})\nexport class CleanLayoutLeftComponent {\n  @Input() background!: string;\n  @Input() title?: string;\n  private readonly breakpointObserver = inject(BreakpointObserver);\n  readonly isHandset$: Observable<boolean> = this.breakpointObserver\n    .observe(Breakpoints.Handset)\n    .pipe(map(({ matches }) => matches));\n\n  @HostBinding('style.background-image')\n  get backgroundImage(): string {\n    return `url(/assets/images/${this.background})`;\n  }\n}\n",
+            "sourceCode": "import { Component, HostBinding, Input, inject } from '@angular/core';\nimport { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';\nimport { Observable, map } from 'rxjs';\n\n@Component({\n  selector: 'lai-clean-layout-left',\n  templateUrl: './clean-layout-left.component.html',\n  styleUrls: ['./clean-layout-left.component.scss'],\n})\nexport class CleanLayoutLeftComponent {\n  @Input() background!: string;\n  @Input() title?: string;\n  private readonly breakpointObserver = inject(BreakpointObserver);\n  readonly isHandset$: Observable<boolean> = this.breakpointObserver\n    .observe(Breakpoints.Handset)\n    .pipe(map(({ matches }) => matches));\n\n  @HostBinding('style.background-image')\n  get backgroundImage(): string {\n    return `url(../../../assets/images/${this.background})`;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1838,7 +1838,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "$sizes: (\n  'xs': 12px,\n  's': 18px,\n  'm': 24px,\n  'l': 30px,\n  'xl': 36px,\n);\n\n$types: (\n  'rectangle': 4px,\n  'circle': 50%,\n);\n\n:host {\n  @each $key, $value in $sizes {\n    &[size='#{$key}'] {\n      font-size: $value;\n\n      &[type='circle'] {\n        width: $value;\n        height: $value;\n      }\n    }\n  }\n\n  @each $key, $value in $types {\n    &[type='#{$key}'] {\n      border-radius: $value;\n    }\n  }\n\n  &[type='circle'] {\n    overflow: hidden;\n    background-size: cover;\n  }\n\n  &.unknown-country {\n    background-image: url(/assets/images/flags/unknown-country.svg);\n  }\n}\n",
+                    "data": "$sizes: (\n  'xs': 12px,\n  's': 18px,\n  'm': 24px,\n  'l': 30px,\n  'xl': 36px,\n);\n\n$types: (\n  'rectangle': 4px,\n  'circle': 50%,\n);\n\n:host {\n  @each $key, $value in $sizes {\n    &[size='#{$key}'] {\n      font-size: $value;\n\n      &[type='circle'] {\n        width: $value;\n        height: $value;\n      }\n    }\n  }\n\n  @each $key, $value in $types {\n    &[type='#{$key}'] {\n      border-radius: $value;\n    }\n  }\n\n  &[type='circle'] {\n    overflow: hidden;\n    background-size: cover;\n  }\n\n  &.unknown-country {\n    background-image: url(../../../assets/images/flags/unknown-country.svg);\n  }\n}\n",
                     "styleUrl": "./flag.component.scss"
                 }
             ],
@@ -2026,7 +2026,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'sass:map';\n\n$glyphs: (\n  'back': '\\e900',\n  'comments': '\\e901',\n  'communication': '\\e902',\n  'edit': '\\e903',\n  'dashboard': '\\e904',\n  'filter': '\\e905',\n  'forward': '\\e906',\n  'logout': '\\e907',\n  'trash': '\\e908',\n  'upload': '\\e909',\n  'loan-policy': '\\e90a',\n  'cv': '\\e90b',\n  'external-link': '\\e90c',\n  'close': '\\e90d',\n  'loan-applications': '\\e90e',\n  'calendar': '\\e90f',\n  'mail': '\\e910',\n  'phone': '\\e911',\n  'close-circle': '\\e912',\n  'checkmark': '\\e913',\n  'add': '\\e914',\n  'remove': '\\e915',\n  'info': '\\e916',\n  'error': '\\e917',\n  'expand-arrow': '\\e918',\n  'reset': '\\e919',\n  'bars': '\\e91a'\n);\n\n$sizes: (\n  'xs': 12px,\n  'sm': 16px,\n  'md': 20px,\n  'lg': 24px,\n  'xl': 28px,\n  'xxl': 32px,\n);\n\n@font-face {\n  font-family: icomoon;\n  src: url('/assets/fonts/icomoon.eot?' + length($glyphs));\n  src: url('/assets/fonts/icomoon.eot?' + length($glyphs) + ('#iefix'))\n      format('embedded-opentype'),\n    url('/assets/fonts/icomoon.ttf?' + length($glyphs)) format('truetype'),\n    url('/assets/fonts/icomoon.woff?' + length($glyphs)) format('woff'),\n    url('/assets/fonts/icomoon.svg?' + length($glyphs) + ('#icomoon'))\n      format('svg');\n  font-weight: normal;\n  font-style: normal;\n  font-display: block;\n}\n\n:host {\n  /* use !important to prevent issues with browser extensions that change fonts */\n  font-family: icomoon !important;\n  font-style: normal;\n  font-weight: normal;\n  font-variant: normal;\n  text-transform: none;\n  line-height: 1;\n\n  /* Better Font Rendering =========== */\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  display: inline;\n\n  @each $key, $value in $glyphs {\n    &[glyph='#{$key}']:before {\n      content: $value;\n    }\n  }\n\n  @each $key, $value in $sizes {\n    &[size='#{$key}'] {\n      font-size: $value;\n    }\n  }\n}\n\n:host-context([laiIconButton]) {\n  font-size: var(--icon-button-font-size);\n}\n",
+                    "data": "@use 'sass:map';\n\n$glyphs: (\n  'back': '\\e900',\n  'comments': '\\e901',\n  'communication': '\\e902',\n  'edit': '\\e903',\n  'dashboard': '\\e904',\n  'filter': '\\e905',\n  'forward': '\\e906',\n  'logout': '\\e907',\n  'trash': '\\e908',\n  'upload': '\\e909',\n  'loan-policy': '\\e90a',\n  'cv': '\\e90b',\n  'external-link': '\\e90c',\n  'close': '\\e90d',\n  'loan-applications': '\\e90e',\n  'calendar': '\\e90f',\n  'mail': '\\e910',\n  'phone': '\\e911',\n  'close-circle': '\\e912',\n  'checkmark': '\\e913',\n  'add': '\\e914',\n  'remove': '\\e915',\n  'info': '\\e916',\n  'error': '\\e917',\n  'expand-arrow': '\\e918',\n  'reset': '\\e919',\n  'bars': '\\e91a',\n);\n\n$sizes: (\n  'xs': 12px,\n  'sm': 16px,\n  'md': 20px,\n  'lg': 24px,\n  'xl': 28px,\n  'xxl': 32px,\n);\n\n@font-face {\n  font-family: icomoon;\n  src: url('../../../assets/fonts/icomoon.eot?' + length($glyphs));\n  src:\n    url('../../../assets/fonts/icomoon.eot?' + length($glyphs) + ('#iefix'))\n      format('embedded-opentype'),\n    url('../../../assets/fonts/icomoon.ttf?' + length($glyphs))\n      format('truetype'),\n    url('../../../assets/fonts/icomoon.woff?' + length($glyphs)) format('woff'),\n    url('../../../assets/fonts/icomoon.svg?' + length($glyphs) + ('#icomoon'))\n      format('svg');\n  font-weight: normal;\n  font-style: normal;\n  font-display: block;\n}\n\n:host {\n  /* use !important to prevent issues with browser extensions that change fonts */\n  font-family: icomoon !important;\n  font-style: normal;\n  font-weight: normal;\n  font-variant: normal;\n  text-transform: none;\n  line-height: 1;\n\n  /* Better Font Rendering =========== */\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  display: inline;\n\n  @each $key, $value in $glyphs {\n    &[glyph='#{$key}']:before {\n      content: $value;\n    }\n  }\n\n  @each $key, $value in $sizes {\n    &[size='#{$key}'] {\n      font-size: $value;\n    }\n  }\n}\n\n:host-context([laiIconButton]) {\n  font-size: var(--icon-button-font-size);\n}\n",
                     "styleUrl": "./icon.component.scss"
                 }
             ],
@@ -6130,7 +6130,7 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<ng-container>\n  <img src=\"/assets/images/us-flags/{{ state }}.svg\" />\n</ng-container>\n"
+            "templateData": "<ng-container>\n  <img src=\"assets/images/us-flags/{{ state }}.svg\" />\n</ng-container>\n"
         }
     ],
     "modules": [
@@ -6588,21 +6588,21 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<AvatarComponent>",
-                "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Partial<CardComponent>",
                 "defaultValue": "{\n  radius: 'sm',\n  size: 'md',\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<AvatarComponent>",
+                "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
             },
             {
                 "name": "args",
@@ -7088,16 +7088,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<AvatarComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -7113,6 +7103,16 @@
                 "deprecationMessage": "",
                 "type": "Meta<CardComponent>",
                 "defaultValue": "{\n  title: 'WIP/Card',\n  component: CardComponent,\n  decorators: [\n    componentWrapperDecorator(story => {\n      return `<style>\n          lai-card {\n            width: 100px;\n            height: 100px;\n          }\n        </style>\n        ${story}`;\n    }),\n  ],\n  argTypes: {\n    radius: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n    size: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<AvatarComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -7182,7 +7182,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<CleanLayoutComponent>",
-                "defaultValue": "{\n  title: 'WIP/Layout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: CleanLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CleanLayoutModule, RouterTestingModule, BodyComponent],\n    }),\n  ],\n}"
+                "defaultValue": "{\n  title: 'Templates/CleanLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: CleanLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CleanLayoutModule, RouterTestingModule, BodyComponent],\n    }),\n  ],\n}"
             },
             {
                 "name": "meta",
@@ -7192,7 +7192,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<SidenavLayoutComponent>",
-                "defaultValue": "{\n  title: 'WIP/Layout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: SidenavLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [SidenavLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: SIDENAV_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n}"
+                "defaultValue": "{\n  title: 'Templates/SidenavLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: SidenavLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [SidenavLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: SIDENAV_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n}"
             },
             {
                 "name": "meta",
@@ -7272,7 +7272,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Preview",
-                "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: '^on[A-Z].*' },\n    layout: 'centered',\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/,\n      },\n    },\n    docs: { inlineStories: true },\n    options: {\n      storySort: {\n        order: ['Atoms', 'Molecules', 'Organisms', 'WIP'],\n      },\n    },\n  },\n}"
+                "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: '^on[A-Z].*' },\n    layout: 'centered',\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/,\n      },\n    },\n    docs: { inlineStories: true },\n    options: {\n      storySort: {\n        order: ['Atoms', 'Molecules', 'Organisms', 'Templates', 'WIP'],\n      },\n    },\n  },\n}"
             },
             {
                 "name": "Removable",
@@ -7926,17 +7926,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<AvatarComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<BadgeComponent>",
                 "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
                 "deprecated": false,
@@ -7950,6 +7939,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<CardComponent>",
                 "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<AvatarComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -8145,38 +8145,6 @@
         ],
         "enumerations": [],
         "groupedVariables": {
-            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<AvatarComponent>",
-                    "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
-                },
-                {
-                    "name": "Avatar",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args,\n  render: props => ({\n    props,\n  }),\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<AvatarComponent>",
-                    "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/card/card.stories.ts": [
                 {
                     "name": "args",
@@ -8207,6 +8175,38 @@
                     "deprecationMessage": "",
                     "type": "Meta<CardComponent>",
                     "defaultValue": "{\n  title: 'WIP/Card',\n  component: CardComponent,\n  decorators: [\n    componentWrapperDecorator(story => {\n      return `<style>\n          lai-card {\n            width: 100px;\n            height: 100px;\n          }\n        </style>\n        ${story}`;\n    }),\n  ],\n  argTypes: {\n    radius: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n    size: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n  },\n}"
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<AvatarComponent>",
+                    "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
+                },
+                {
+                    "name": "Avatar",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args,\n  render: props => ({\n    props,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<AvatarComponent>",
+                    "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
                 }
             ],
             "projects/lendai-us/design-system/src/lib/tabs/tab-group.stories.ts": [
@@ -8508,7 +8508,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<CleanLayoutComponent>",
-                    "defaultValue": "{\n  title: 'WIP/Layout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: CleanLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CleanLayoutModule, RouterTestingModule, BodyComponent],\n    }),\n  ],\n}"
+                    "defaultValue": "{\n  title: 'Templates/CleanLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: CleanLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CleanLayoutModule, RouterTestingModule, BodyComponent],\n    }),\n  ],\n}"
                 }
             ],
             "projects/lendai-us/design-system/src/lib/country-select/country-select.component.ts": [
@@ -9082,7 +9082,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<SidenavLayoutComponent>",
-                    "defaultValue": "{\n  title: 'WIP/Layout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: SidenavLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [SidenavLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: SIDENAV_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n}"
+                    "defaultValue": "{\n  title: 'Templates/SidenavLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: SidenavLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [SidenavLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: SIDENAV_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n}"
                 },
                 {
                     "name": "sidenavItems",
@@ -9158,7 +9158,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Preview",
-                    "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: '^on[A-Z].*' },\n    layout: 'centered',\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/,\n      },\n    },\n    docs: { inlineStories: true },\n    options: {\n      storySort: {\n        order: ['Atoms', 'Molecules', 'Organisms', 'WIP'],\n      },\n    },\n  },\n}"
+                    "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: '^on[A-Z].*' },\n    layout: 'centered',\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/,\n      },\n    },\n    docs: { inlineStories: true },\n    options: {\n      storySort: {\n        order: ['Atoms', 'Molecules', 'Organisms', 'Templates', 'WIP'],\n      },\n    },\n  },\n}"
                 }
             ],
             "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout-service.ts": [
@@ -9604,19 +9604,6 @@
                     "kind": 198
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<AvatarComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
                 {
                     "name": "Story",
@@ -9637,6 +9624,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<CardComponent>",
                     "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<AvatarComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",

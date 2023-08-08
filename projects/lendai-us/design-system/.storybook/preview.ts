@@ -16,7 +16,7 @@ const preview: Preview = {
     docs: { inlineStories: true },
     options: {
       storySort: {
-        order: ['Atoms', 'Molecules', 'Organisms', 'WIP'],
+        order: ['Atoms', 'Molecules', 'Organisms', 'Templates', 'WIP'],
       },
     },
   },

@@ -5,7 +5,7 @@ import { CleanLayoutModule } from './clean-layout.module';
 import { BodyComponent } from '../../typography';
 
 const meta: Meta<CleanLayoutComponent> = {
-  title: 'WIP/Layout',
+  title: 'Templates/CleanLayout',
   parameters: {
     layout: 'fullscreen',
   },
