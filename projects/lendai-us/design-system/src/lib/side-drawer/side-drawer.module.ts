@@ -5,7 +5,8 @@ import { SideDrawerHeaderComponent } from './side-drawer-header/side-drawer-head
 import { SideDrawerComponent } from './side-drawer.component';
 import { SideDrawerWarningComponent } from './side-drawer-warning/side-drawer-warning.component';
 import { DialogModule } from '@angular/cdk/dialog';
-import { LetDirective } from '@lendai-us/cdk';
+import { LetDirective } from 'projects/lendai-us/cdk/src/public-api';
+// import { LetDirective } from '@lendai-us/cdk'; --not working
 
 @NgModule({
   declarations: [

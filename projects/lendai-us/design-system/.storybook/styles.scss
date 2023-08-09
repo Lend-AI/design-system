@@ -1,6 +1,21 @@
 @use '@angular/material' as mat;
 @use 'theme' as t;
+@use 'color' as c;
 
 @include mat.all-component-themes(t.$lai-theme);
 @include mat.all-component-typographies();
 @include mat.core();
+
+$config: (
+    'primary': c.$prebuilt-purple,
+    'info': c.$prebuilt-blue,
+    'error': c.$prebuilt-red,
+    'success': c.$prebuilt-aqua,
+    'warning': c.$prebuilt-orange,
+    'gray': c.$prebuilt-gray,
+    'pink': c.$prebuilt-pink,
+);
+
+:root {
+    @include c.applyTheme($config);
+}
