@@ -1,0 +1,13 @@
+@use 'color' as c;
+
+:host{
+    padding: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid c.color('gray', 200);
+
+    lai-body{
+        color: c.color('gray', 400);
+    }
+}
