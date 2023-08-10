@@ -9,7 +9,9 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./logo.component.scss'],
 })
 export class LogoComponent {
-  @Input() style: LogoStyle = 'dark';
-}
+  @Input() logoPath!: string;
 
-export type LogoStyle = 'light' | 'dark';
+  get logoURL(): string {
+    return this.logoPath;
+  }
+}
