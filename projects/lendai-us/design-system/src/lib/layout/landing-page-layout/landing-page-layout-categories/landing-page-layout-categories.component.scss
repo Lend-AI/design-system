@@ -1,0 +1,35 @@
+@use 'color' as c;
+@use 'radius' as r;
+@use 'typography' as t;
+
+.sidenav-items-category {
+  display: flex;
+  gap: 48px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidenav-item {
+  @include r.radius(r.$sm);
+  @include t.typography(t.$button-sm);
+  
+  color: rgba(c.$white, 70%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
+  text-decoration: none;
+  min-height: 48px; // to make sure inactive items are the same size as active ones
+
+  .text {
+    color: c.$gray;
+  }
+
+  &.active {
+    @include t.typography(t.$button-sm);
+
+    background-color: rgba(c.$white, 10%);
+    color: c.$white;
+  }
+}

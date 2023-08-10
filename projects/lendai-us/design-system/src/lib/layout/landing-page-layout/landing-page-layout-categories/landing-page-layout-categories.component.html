@@ -1,0 +1,13 @@
+<ul class="sidenav-items-category">
+  <ng-container *ngFor="let category of landingPageCategories">
+    <li>
+      <a
+        class="sidenav-item"
+        [routerLink]="category.route"
+        routerLinkActive="active"
+        #rla="routerLinkActive">
+        <span class="text">{{ category.title }}</span>
+      </a>
+    </li>
+  </ng-container>
+</ul>
