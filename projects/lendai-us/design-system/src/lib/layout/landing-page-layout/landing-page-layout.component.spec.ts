@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SidenavLayoutComponent } from './landing-page-layout.component';
+import { LandingPageLayoutComponent } from './landing-page-layout.component';
 
 describe('DefaultLayoutComponent', () => {
-  let component: SidenavLayoutComponent;
-  let fixture: ComponentFixture<SidenavLayoutComponent>;
+  let component: LandingPageLayoutComponent;
+  let fixture: ComponentFixture<LandingPageLayoutComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SidenavLayoutComponent],
+      declarations: [LandingPageLayoutComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SidenavLayoutComponent);
+    fixture = TestBed.createComponent(LandingPageLayoutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

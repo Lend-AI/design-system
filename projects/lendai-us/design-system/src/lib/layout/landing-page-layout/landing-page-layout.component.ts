@@ -11,6 +11,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable, Subscription, map } from 'rxjs';
 import { LANDING_PAGE_SERVICE } from './landing-page-layout-service';
 import { IconGlyph } from '../../icon';
+import { LandingPageLayoutFooterComponent } from './landing-page-layout-footer/landing-page-layout-footer.component';
 
 @Component({
   selector: 'lai-landing-page-layout',
@@ -22,6 +23,8 @@ export class LandingPageLayoutComponent implements OnInit, OnDestroy {
   private readonly actionsComponent?: LandingPageLayoutActionsComponent;
   @ContentChild(LandingPageLayoutContentComponent)
   public readonly contentComponent?: LandingPageLayoutContentComponent;
+  @ContentChild(LandingPageLayoutFooterComponent)
+  public readonly footerComponent?: LandingPageLayoutFooterComponent;
 
   get isHeaderHidden(): boolean {
     return !this.actionsComponent;

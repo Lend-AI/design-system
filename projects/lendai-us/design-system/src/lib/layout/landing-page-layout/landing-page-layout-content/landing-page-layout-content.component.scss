@@ -1,12 +1,4 @@
-@use 'radius' as r;
-@use 'color' as c;
-
 :host {
-  @include r.radius(r.$md);
-
-  background-color: c.$white;
-  border: 1px solid c.color('gray', 200);
-  overflow-y: auto;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
 }

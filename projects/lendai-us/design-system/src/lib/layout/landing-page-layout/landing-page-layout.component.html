@@ -5,6 +5,11 @@
 
   <div class="header">
     <lai-landing-page-layout-logo [logoPath]="logoPath"></lai-landing-page-layout-logo>
+    <lai-icon
+    *ngIf="isHandset"
+    [glyph]="icon"
+    size="sm"
+    (click)="clickEvent()"></lai-icon>
   </div>
 
   <div class="nav-menu" *ngIf="status">
@@ -16,7 +21,6 @@
       <ng-content select="lai-landing-page-layout-actions"></ng-content>
     </lai-button-bar>
   </div>
-
 </div>
 
 <div class="main">
@@ -27,4 +31,8 @@
   <ng-template #simpleContent>
     <ng-content></ng-content>
   </ng-template>
+</div>
+
+<div class="footer">
+    <lai-landing-page-layout-footer></lai-landing-page-layout-footer>
 </div>

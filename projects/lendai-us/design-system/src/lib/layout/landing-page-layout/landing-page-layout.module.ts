@@ -21,6 +21,7 @@ import {
   HeadlineComponent,
 } from '../../typography';
 import { LogoComponent } from '../../logo';
+import { LandingPageLayoutFooterComponent } from './landing-page-layout-footer/landing-page-layout-footer.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { LogoComponent } from '../../logo';
     LandingPageLayoutActionsComponent,
     LandingPageLayoutContentComponent,
     LandingPageLayoutLogoComponent,
+    LandingPageLayoutFooterComponent,
   ],
   imports: [
     CommonModule,
@@ -54,6 +56,7 @@ import { LogoComponent } from '../../logo';
     LandingPageLayoutActionsComponent,
     LandingPageLayoutContentComponent,
     LandingPageLayoutLogoComponent,
+    LandingPageLayoutFooterComponent,
   ],
 })
 export class LandingPageLayoutModule {}
