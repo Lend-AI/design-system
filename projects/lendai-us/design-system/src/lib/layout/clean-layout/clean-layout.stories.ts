@@ -23,12 +23,13 @@ export const CleanLayout: Story = {
   args: {
     title: 'Your title',
     backgroundImage: 'auth-background.png',
+    logoPath: '/assets/images/logo/dark.svg',
   },
   render: props => ({
     props,
     template: `
     <lai-clean-layout>
-      <lai-clean-layout-left [background]="backgroundImage" [title]="title">
+      <lai-clean-layout-left [logoPath]="logoPath" [background]="backgroundImage" [title]="title">
         <lai-body level="sm" style="color: white">
           Your slogan goes here!
         </lai-body>

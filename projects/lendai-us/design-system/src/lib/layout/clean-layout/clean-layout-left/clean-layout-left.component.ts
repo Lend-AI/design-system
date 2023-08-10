@@ -10,6 +10,7 @@ import { Observable, map } from 'rxjs';
 export class CleanLayoutLeftComponent {
   @Input() background!: string;
   @Input() title?: string;
+  @Input() logoPath!: string;
   private readonly breakpointObserver = inject(BreakpointObserver);
   readonly isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
