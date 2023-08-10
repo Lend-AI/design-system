@@ -10,6 +10,6 @@ $typographies: (
   @include t.attributeToTypography($typographies, 'level');
 
   display: inline;
-  color: c.$purple;
+  color: c.$primary;
   text-transform: uppercase;
 }

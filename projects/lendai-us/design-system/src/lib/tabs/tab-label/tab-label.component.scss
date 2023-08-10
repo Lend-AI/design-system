@@ -16,17 +16,17 @@ $sizes: (
   border-right-width: 1.5px;
 
   &:hover {
-    border-bottom-color: c.color('purple', 400) !important;
-    border-top-color: c.color('purple', 400) !important;
+    border-bottom-color: c.color('primary', 400) !important;
+    border-top-color: c.color('primary', 400) !important;
   }
 
   &:focus {
-    outline: 1px solid c.$blue;
+    outline: 1px solid c.$info;
   }
 
   &.selected {
-    border-bottom-color: c.$purple !important;
-    border-top-color: c.$purple !important;
+    border-bottom-color: c.$primary !important;
+    border-top-color: c.$primary !important;
   }
 
   &[disabled='true'] {
@@ -82,7 +82,7 @@ lai-body,
   }
 
   :host(.selected) & {
-    color: c.$purple;
+    color: c.$primary;
   }
 
   :host-context(lai-tab-group[type='line'])[disabled='true'] & {

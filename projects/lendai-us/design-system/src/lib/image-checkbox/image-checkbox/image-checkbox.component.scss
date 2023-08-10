@@ -16,7 +16,7 @@
   gap: 16px;
 
   &.checked {
-    border-color: c.$purple;
+    border-color: c.$primary;
   }
 
   @include b.mobile {

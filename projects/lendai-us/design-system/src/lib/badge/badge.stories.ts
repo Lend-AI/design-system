@@ -21,7 +21,15 @@ const meta: Meta<BadgeComponent> = {
   }),
   argTypes: {
     color: {
-      options: ['blue', 'purple', 'aqua', 'gray', 'orange', 'pink', 'red'],
+      options: [
+        'primary',
+        'info',
+        'error',
+        'success',
+        'warning',
+        'gray',
+        'pink',
+      ],
       control: { type: 'select' },
     },
     radius: {
@@ -40,7 +48,7 @@ type Story = StoryObj<BadgeComponent>;
 export const Badge: Story = {
   args: {
     radius: 'xs',
-    color: 'blue',
+    color: 'info',
     type: 'transparent',
   },
 };

@@ -6,7 +6,7 @@
   @include r.radius(r.$md);
 
   padding: 32px 24px;
-  background-color: c.color('blue', 75);
+  background-color: c.color('info', 75);
   display: flex;
   align-items: center;
   gap: 16px;

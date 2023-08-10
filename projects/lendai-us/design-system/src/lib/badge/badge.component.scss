@@ -9,33 +9,33 @@ $radiuses: (
 );
 
 $colors: (
-  'blue': (
-    'background': c.color('blue', 100),
-    'foreground': c.color('blue', 700),
+  'info': (
+    'background': c.color('info', 100),
+    'foreground': c.color('info', 700),
   ),
-  'purple': (
-    'background': c.color('purple', 100),
-    'foreground': c.color('purple', 700),
+  'primary': (
+    'background': c.color('primary', 100),
+    'foreground': c.color('primary', 700),
   ),
-  'aqua': (
-    'background': c.color('aqua', 50),
-    'foreground': c.color('aqua', 700),
+  'success': (
+    'background': c.color('success', 50),
+    'foreground': c.color('success', 700),
   ),
   'gray': (
     'background': c.color('gray', 50),
     'foreground': c.color('gray', 700),
   ),
-  'orange': (
-    'background': c.color('orange', 100),
-    'foreground': c.color('orange', 700),
+  'warning': (
+    'background': c.color('warning', 100),
+    'foreground': c.color('warning', 700),
   ),
   'pink': (
     'background': c.color('pink', 50),
     'foreground': c.color('pink', 600),
   ),
-  'red': (
-    'background': c.color('red', 100),
-    'foreground': c.color('red', 500),
+  'error': (
+    'background': c.color('error', 100),
+    'foreground': c.color('error', 500),
   ),
 );
 

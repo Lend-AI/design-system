@@ -7,7 +7,7 @@
   padding: 16px 24px;
   display: flex;
 
-  &[color='orange'] {
-    background-color: c.color('orange', 50);
+  &[color='warning'] {
+    background-color: c.color('warning', 50);
   }
 }

@@ -2,91 +2,79 @@
 
 // SOURCE: Design System 2.0 / Colors
 $palette: (
+  'primary': (
+    50: var(--lai-palette-primary-50),
+    100: var(--lai-palette-primary-100),
+    200: var(--lai-palette-primary-200),
+    300: var(--lai-palette-primary-300),
+    400: var(--lai-palette-primary-400),
+    500: var(--lai-palette-primary-500),
+    600: var(--lai-palette-primary-600),
+    700: var(--lai-palette-primary-700),
+    800: var(--lai-palette-primary-800),
+    900: var(--lai-palette-primary-900),
+  ),
+  'info': (
+    50: var(--lai-palette-info-50),
+    75: var(--lai-palette-info-75),
+    100: var(--lai-palette-info-100),
+    200: var(--lai-palette-info-200),
+    300: var(--lai-palette-info-300),
+    400: var(--lai-palette-info-400),
+    500: var(--lai-palette-info-500),
+    600: var(--lai-palette-info-600),
+    700: var(--lai-palette-info-700),
+    800: var(--lai-palette-info-800),
+    900: var(--lai-palette-info-900),
+  ),
+  'error': (
+    50: var(--lai-palette-error-50),
+    100: var(--lai-palette-error-100),
+    200: var(--lai-palette-error-200),
+    300: var(--lai-palette-error-300),
+    400: var(--lai-palette-error-400),
+    500: var(--lai-palette-error-500),
+    600: var(--lai-palette-error-600),
+    700: var(--lai-palette-error-700),
+    800: var(--lai-palette-error-800),
+    900: var(--lai-palette-error-900),
+  ),
+  'success': (
+    50: var(--lai-palette-success-50),
+    100: var(--lai-palette-success-100),
+    200: var(--lai-palette-success-200),
+    300: var(--lai-palette-success-300),
+    400: var(--lai-palette-success-400),
+    500: var(--lai-palette-success-500),
+    600: var(--lai-palette-success-600),
+    700: var(--lai-palette-success-700),
+    800: var(--lai-palette-success-800),
+    900: var(--lai-palette-success-900),
+  ),
+  'warning': (
+    50: var(--lai-palette-warning-50),
+    100: var(--lai-palette-warning-100),
+    200: var(--lai-palette-warning-200),
+    300: var(--lai-palette-warning-300),
+    400: var(--lai-palette-warning-400),
+    500: var(--lai-palette-warning-500),
+    600: var(--lai-palette-warning-600),
+    700: var(--lai-palette-warning-700),
+    800: var(--lai-palette-warning-800),
+    900: var(--lai-palette-warning-900),
+  ),   
   'gray': (
-    50: var(--lai-palette-gray-50),
-    75: var(--lai-palette-gray-75),
-    100: var(--lai-palette-gray-100),
-    200: var(--lai-palette-gray-200),
-    300: var(--lai-palette-gray-300),
-    400: var(--lai-palette-gray-400),
-    500: var(--lai-palette-gray-500),
-    600: var(--lai-palette-gray-600),
-    700: var(--lai-palette-gray-700),
-    800: var(--lai-palette-gray-800),
-    900: var(--lai-palette-gray-900),
-  ),
-  'purple': (
-    50: var(--lai-palette-purple-50),
-    100: var(--lai-palette-purple-100),
-    200: var(--lai-palette-purple-200),
-    300: var(--lai-palette-purple-300),
-    400: var(--lai-palette-purple-400),
-    500: var(--lai-palette-purple-500),
-    600: var(--lai-palette-purple-600),
-    700: var(--lai-palette-purple-700),
-    800: var(--lai-palette-purple-800),
-    900: var(--lai-palette-purple-900),
-  ),
-  'blue': (
-    50: var(--lai-palette-blue-50),
-    75: var(--lai-palette-blue-75),
-    100: var(--lai-palette-blue-100),
-    200: var(--lai-palette-blue-200),
-    300: var(--lai-palette-blue-300),
-    400: var(--lai-palette-blue-400),
-    500: var(--lai-palette-blue-500),
-    600: var(--lai-palette-blue-600),
-    700: var(--lai-palette-blue-700),
-    800: var(--lai-palette-blue-800),
-    900: var(--lai-palette-blue-900),
-  ),
-  'red': (
-    50: var(--lai-palette-red-50),
-    100: var(--lai-palette-red-100),
-    200: var(--lai-palette-red-200),
-    300: var(--lai-palette-red-300),
-    400: var(--lai-palette-red-400),
-    500: var(--lai-palette-red-500),
-    600: var(--lai-palette-red-600),
-    700: var(--lai-palette-red-700),
-    800: var(--lai-palette-red-800),
-    900: var(--lai-palette-red-900),
-  ),
-  'aqua': (
-    50: var(--lai-palette-aqua-50),
-    100: var(--lai-palette-aqua-100),
-    200: var(--lai-palette-aqua-200),
-    300: var(--lai-palette-aqua-300),
-    400: var(--lai-palette-aqua-400),
-    500: var(--lai-palette-aqua-500),
-    600: var(--lai-palette-aqua-600),
-    700: var(--lai-palette-aqua-700),
-    800: var(--lai-palette-aqua-800),
-    900: var(--lai-palette-aqua-900),
-  ),
-  'orange': (
-    50: var(--lai-palette-orange-50),
-    100: var(--lai-palette-orange-100),
-    200: var(--lai-palette-orange-200),
-    300: var(--lai-palette-orange-300),
-    400: var(--lai-palette-orange-400),
-    500: var(--lai-palette-orange-500),
-    600: var(--lai-palette-orange-600),
-    700: var(--lai-palette-orange-700),
-    800: var(--lai-palette-orange-800),
-    900: var(--lai-palette-orange-900),
-  ),
-  'pink': (
-    50: var(--lai-palette-pink-50),
-    100: var(--lai-palette-pink-100),
-    200: var(--lai-palette-pink-200),
-    300: var(--lai-palette-pink-300),
-    400: var(--lai-palette-pink-400),
-    500: var(--lai-palette-pink-500),
-    600: var(--lai-palette-pink-600),
-    700: var(--lai-palette-pink-700),
-    800: var(--lai-palette-pink-800),
-    900: var(--lai-palette-pink-900),
+    50: #f7f8f9,
+    75: #e4e7ed,
+    100: #eef0f3,
+    200: #d5dae1,
+    300: #bbc3cf,
+    400: #8896ab,
+    500: #556987,
+    600: #4d5f7a,
+    700: #404f65,
+    800: #333f51,
+    900: #2a3342,
   ),
 );
 
@@ -95,90 +83,68 @@ $palette: (
 }
 
 $white: #fff;
-$dark-blue: color('blue', 900);
+$dark-blue: #011d3f;
 $gray: color('gray', 500);
-$purple: color('purple', 500);
-$blue: color('blue', 500);
+
+$primary: color('primary', 500);
+$info: color('info', 500);
 
 @mixin applyTheme($config) {
-  --lai-palette-purple-50: #{map.get($config, 'primary', 50)};
-  --lai-palette-purple-100: #{map.get($config, 'primary', 100)};
-  --lai-palette-purple-200: #{map.get($config, 'primary', 200)};
-  --lai-palette-purple-300: #{map.get($config, 'primary', 300)};
-  --lai-palette-purple-400: #{map.get($config, 'primary', 400)};
-  --lai-palette-purple-500: #{map.get($config, 'primary', 500)};
-  --lai-palette-purple-600: #{map.get($config, 'primary', 600)};
-  --lai-palette-purple-700: #{map.get($config, 'primary', 700)};
-  --lai-palette-purple-800: #{map.get($config, 'primary', 800)};
-  --lai-palette-purple-900: #{map.get($config, 'primary', 900)};
+  --lai-palette-primary-50: #{map.get($config, 'primary', 50)};
+  --lai-palette-primary-100: #{map.get($config, 'primary', 100)};
+  --lai-palette-primary-200: #{map.get($config, 'primary', 200)};
+  --lai-palette-primary-300: #{map.get($config, 'primary', 300)};
+  --lai-palette-primary-400: #{map.get($config, 'primary', 400)};
+  --lai-palette-primary-500: #{map.get($config, 'primary', 500)};
+  --lai-palette-primary-600: #{map.get($config, 'primary', 600)};
+  --lai-palette-primary-700: #{map.get($config, 'primary', 700)};
+  --lai-palette-primary-800: #{map.get($config, 'primary', 800)};
+  --lai-palette-primary-900: #{map.get($config, 'primary', 900)};
 
-  --lai-palette-blue-50: #{map.get($config, 'info', 50)};
-  --lai-palette-blue-75: #{map.get($config, 'info', 75)};
-  --lai-palette-blue-100: #{map.get($config, 'info', 100)};
-  --lai-palette-blue-200: #{map.get($config, 'info', 200)};
-  --lai-palette-blue-300: #{map.get($config, 'info', 300)};
-  --lai-palette-blue-400: #{map.get($config, 'info', 400)};
-  --lai-palette-blue-500: #{map.get($config, 'info', 500)};
-  --lai-palette-blue-600: #{map.get($config, 'info', 600)};
-  --lai-palette-blue-700: #{map.get($config, 'info', 700)};
-  --lai-palette-blue-800: #{map.get($config, 'info', 800)};
-  --lai-palette-blue-900: #{map.get($config, 'info', 900)};
+  --lai-palette-info-50: #{map.get($config, 'info', 50)};
+  --lai-palette-info-75: #{map.get($config, 'info', 75)};
+  --lai-palette-info-100: #{map.get($config, 'info', 100)};
+  --lai-palette-info-200: #{map.get($config, 'info', 200)};
+  --lai-palette-info-300: #{map.get($config, 'info', 300)};
+  --lai-palette-info-400: #{map.get($config, 'info', 400)};
+  --lai-palette-info-500: #{map.get($config, 'info', 500)};
+  --lai-palette-info-600: #{map.get($config, 'info', 600)};
+  --lai-palette-info-700: #{map.get($config, 'info', 700)};
+  --lai-palette-info-800: #{map.get($config, 'info', 800)};
+  --lai-palette-info-900: #{map.get($config, 'info', 900)};
 
-  --lai-palette-red-50: #{map.get($config, 'error', 50)};
-  --lai-palette-red-100: #{map.get($config, 'error', 100)};
-  --lai-palette-red-200: #{map.get($config, 'error', 200)};
-  --lai-palette-red-300: #{map.get($config, 'error', 300)};
-  --lai-palette-red-400: #{map.get($config, 'error', 400)};
-  --lai-palette-red-500: #{map.get($config, 'error', 500)};
-  --lai-palette-red-600: #{map.get($config, 'error', 600)};
-  --lai-palette-red-700: #{map.get($config, 'error', 700)};
-  --lai-palette-red-800: #{map.get($config, 'error', 800)};
-  --lai-palette-red-900: #{map.get($config, 'error', 900)};
+  --lai-palette-error-50: #{map.get($config, 'error', 50)};
+  --lai-palette-error-100: #{map.get($config, 'error', 100)};
+  --lai-palette-error-200: #{map.get($config, 'error', 200)};
+  --lai-palette-error-300: #{map.get($config, 'error', 300)};
+  --lai-palette-error-400: #{map.get($config, 'error', 400)};
+  --lai-palette-error-500: #{map.get($config, 'error', 500)};
+  --lai-palette-error-600: #{map.get($config, 'error', 600)};
+  --lai-palette-error-700: #{map.get($config, 'error', 700)};
+  --lai-palette-error-800: #{map.get($config, 'error', 800)};
+  --lai-palette-error-900: #{map.get($config, 'error', 900)};
 
-  --lai-palette-aqua-50: #{map.get($config, 'success', 50)};
-  --lai-palette-aqua-100: #{map.get($config, 'success', 100)};
-  --lai-palette-aqua-200: #{map.get($config, 'success', 200)};
-  --lai-palette-aqua-300: #{map.get($config, 'success', 300)};
-  --lai-palette-aqua-400: #{map.get($config, 'success', 400)};
-  --lai-palette-aqua-500: #{map.get($config, 'success', 500)};
-  --lai-palette-aqua-600: #{map.get($config, 'success', 600)};
-  --lai-palette-aqua-700: #{map.get($config, 'success', 700)};
-  --lai-palette-aqua-800: #{map.get($config, 'success', 800)};
-  --lai-palette-aqua-900: #{map.get($config, 'success', 900)};
+  --lai-palette-success-50: #{map.get($config, 'success', 50)};
+  --lai-palette-success-100: #{map.get($config, 'success', 100)};
+  --lai-palette-success-200: #{map.get($config, 'success', 200)};
+  --lai-palette-success-300: #{map.get($config, 'success', 300)};
+  --lai-palette-success-400: #{map.get($config, 'success', 400)};
+  --lai-palette-success-500: #{map.get($config, 'success', 500)};
+  --lai-palette-success-600: #{map.get($config, 'success', 600)};
+  --lai-palette-success-700: #{map.get($config, 'success', 700)};
+  --lai-palette-success-800: #{map.get($config, 'success', 800)};
+  --lai-palette-success-900: #{map.get($config, 'success', 900)};
 
-  --lai-palette-orange-50: #{map.get($config, 'warning', 50)};
-  --lai-palette-orange-100: #{map.get($config, 'warning', 100)};
-  --lai-palette-orange-200: #{map.get($config, 'warning', 200)};
-  --lai-palette-orange-300: #{map.get($config, 'warning', 300)};
-  --lai-palette-orange-400: #{map.get($config, 'warning', 400)};
-  --lai-palette-orange-500: #{map.get($config, 'warning', 500)};
-  --lai-palette-orange-600: #{map.get($config, 'warning', 600)};
-  --lai-palette-orange-700: #{map.get($config, 'warning', 700)};
-  --lai-palette-orange-800: #{map.get($config, 'warning', 800)};
-  --lai-palette-orange-900: #{map.get($config, 'warning', 900)};
-
-  --lai-palette-gray-50: #{map.get($config, 'gray', 50)};
-  --lai-palette-gray-75: #{map.get($config, 'gray', 75)};
-  --lai-palette-gray-100: #{map.get($config, 'gray', 100)};
-  --lai-palette-gray-200: #{map.get($config, 'gray', 200)};
-  --lai-palette-gray-300: #{map.get($config, 'gray', 300)};
-  --lai-palette-gray-400: #{map.get($config, 'gray', 400)};
-  --lai-palette-gray-500: #{map.get($config, 'gray', 500)};
-  --lai-palette-gray-600: #{map.get($config, 'gray', 600)};
-  --lai-palette-gray-700: #{map.get($config, 'gray', 700)};
-  --lai-palette-gray-800: #{map.get($config, 'gray', 800)};
-  --lai-palette-gray-900: #{map.get($config, 'gray', 900)};
-
-  --lai-palette-pink-50: #{map.get($config, 'pink', 50)};
-  --lai-palette-pink-100: #{map.get($config, 'pink', 100)};
-  --lai-palette-pink-200: #{map.get($config, 'pink', 200)};
-  --lai-palette-pink-300: #{map.get($config, 'pink', 300)};
-  --lai-palette-pink-400: #{map.get($config, 'pink', 400)};
-  --lai-palette-pink-500: #{map.get($config, 'pink', 500)};
-  --lai-palette-pink-600: #{map.get($config, 'pink', 600)};
-  --lai-palette-pink-700: #{map.get($config, 'pink', 700)};
-  --lai-palette-pink-800: #{map.get($config, 'pink', 800)};
-  --lai-palette-pink-900: #{map.get($config, 'pink', 900)};
+  --lai-palette-warning-50: #{map.get($config, 'warning', 50)};
+  --lai-palette-warning-100: #{map.get($config, 'warning', 100)};
+  --lai-palette-warning-200: #{map.get($config, 'warning', 200)};
+  --lai-palette-warning-300: #{map.get($config, 'warning', 300)};
+  --lai-palette-warning-400: #{map.get($config, 'warning', 400)};
+  --lai-palette-warning-500: #{map.get($config, 'warning', 500)};
+  --lai-palette-warning-600: #{map.get($config, 'warning', 600)};
+  --lai-palette-warning-700: #{map.get($config, 'warning', 700)};
+  --lai-palette-warning-800: #{map.get($config, 'warning', 800)};
+  --lai-palette-warning-900: #{map.get($config, 'warning', 900)};
 }
 
 $prebuilt-purple: (
@@ -221,20 +187,6 @@ $prebuilt-red: (
   900: #752c21,
 );
 
-$prebuilt-gray: (
-  50: #f7f8f9,
-  75: #e4e7ed,
-  100: #eef0f3,
-  200: #d5dae1,
-  300: #bbc3cf,
-  400: #8896ab,
-  500: #556987,
-  600: #4d5f7a,
-  700: #404f65,
-  800: #333f51,
-  900: #2a3342,
-);
-
 $prebuilt-aqua: (
   50: #dffff9,
   100: #cafff6,
@@ -259,6 +211,20 @@ $prebuilt-orange: (
   700: #b87708,
   800: #935f07,
   900: #784d05,
+);
+
+$prebuilt-gray: (
+  50: #f7f8f9,
+  75: #e4e7ed,
+  100: #eef0f3,
+  200: #d5dae1,
+  300: #bbc3cf,
+  400: #8896ab,
+  500: #556987,
+  600: #4d5f7a,
+  700: #404f65,
+  800: #333f51,
+  900: #2a3342,
 );
 
 $prebuilt-pink: (

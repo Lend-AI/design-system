@@ -15,7 +15,7 @@ $sizes: (
   justify-content: center;
   font-family: Poppins;
   border-radius: 50%;
-  background-color: c.color('blue', 300);
+  background-color: c.color('info', 300);
 
   @each $key, $value in $sizes {
     &[size='#{$key}'] {

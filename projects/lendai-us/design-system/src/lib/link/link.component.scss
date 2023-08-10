@@ -13,27 +13,27 @@ $typographies: (
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: c.$blue;
+  color: c.$info;
   text-decoration: none;
 
   &:hover {
-    color: c.color('blue', 600);
+    color: c.color('info', 600);
 
     &:visited {
-      color: c.color('purple', 600);
+      color: c.color('primary', 600);
     }
   }
 
   &:focus {
-    outline: 1px solid c.$blue;
+    outline: 1px solid c.$info;
   }
 
   &:active {
-    color: c.color('blue', 800);
+    color: c.color('info', 800);
   }
 
   &:visited {
-    color: c.$purple;
+    color: c.$primary;
   }
 
   &[level='sm'],

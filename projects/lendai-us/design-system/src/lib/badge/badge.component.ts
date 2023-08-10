@@ -12,7 +12,7 @@ import { CaptionComponent } from '../typography';
 export class BadgeComponent {
   @HostBinding('attr.color')
   @Input()
-  color: BadgeColor = 'blue';
+  color: BadgeColor = 'info';
 
   @HostBinding('attr.radius')
   @Input()
@@ -24,13 +24,13 @@ export class BadgeComponent {
 }
 
 export type BadgeColor =
-  | 'blue'
-  | 'purple'
-  | 'aqua'
+  | 'primary'
+  | 'info'
+  | 'error'
+  | 'success'
+  | 'warning'
   | 'gray'
-  | 'orange'
-  | 'pink'
-  | 'red';
+  | 'pink';
 
 export type BadgeRadius = 'xs' | 'sm';
 
