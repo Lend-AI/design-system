@@ -37,6 +37,7 @@ export class SidenavLayoutComponent implements OnInit, OnDestroy {
 
   protected readonly service = inject(SIDENAV_SERVICE);
   private readonly sub$ = new Subscription();
+  logoPath!: string;
   firstName!: string;
   lastName!: string;
   accountInfo!: string;
@@ -46,6 +47,9 @@ export class SidenavLayoutComponent implements OnInit, OnDestroy {
   icon: IconGlyph = 'bars';
 
   ngOnInit(): void {
+    this.sub$.add(
+      this.service.logoPath$.subscribe(logoPath => (this.logoPath = logoPath))
+    );
     this.sub$.add(
       this.service.firstName$.subscribe(
         firstName => (this.firstName = firstName)

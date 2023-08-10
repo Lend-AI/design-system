@@ -9,6 +9,7 @@ export interface SidenavCategory {
 }
 
 export interface SidenavService {
+  logoPath$: Observable<string>;
   firstName$: Observable<string>;
   lastName$: Observable<string>;
   accountInfo$: Observable<string>;
