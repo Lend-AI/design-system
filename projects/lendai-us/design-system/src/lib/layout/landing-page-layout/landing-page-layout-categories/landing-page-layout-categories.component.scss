@@ -3,14 +3,19 @@
 @use 'typography' as t;
 @use 'breakpoints' as b;
 
+
+:host{
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
 .sidenav-items-category {
   display: flex;
   gap: 48px;
   list-style-type: none;
   padding: 0;
   margin: 0;
-  align-items:center;
-  text-align: center;
 
   @include b.mobile {
     width: 100%;
@@ -23,7 +28,7 @@
   @include r.radius(r.$sm);
   @include t.typography(t.$button-sm);
   
-  color: rgba(c.$white, 70%);
+  color: c.$gray;
   display: flex;
   align-items: center;
   gap: 12px;

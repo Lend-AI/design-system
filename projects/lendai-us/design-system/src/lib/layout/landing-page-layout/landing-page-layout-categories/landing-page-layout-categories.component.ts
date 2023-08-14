@@ -3,7 +3,8 @@ import {
   LANDING_PAGE_SERVICE,
   LandingPageCategory,
 } from '../landing-page-layout-service';
-import { Subscription } from 'rxjs';
+import { map, Observable, Subscription } from 'rxjs';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'lai-landing-page-layout-categories',
@@ -15,6 +16,8 @@ export class LandingPageLayoutCategoriesComponent implements OnInit, OnDestroy {
   private readonly sub$ = new Subscription();
 
   landingPageCategories: LandingPageCategory[] = [];
+  isHandset!: boolean;
+  status!: boolean;
 
   ngOnInit(): void {
     this.sub$.add(
@@ -23,9 +26,19 @@ export class LandingPageLayoutCategoriesComponent implements OnInit, OnDestroy {
           (this.landingPageCategories = landingPageCategories)
       )
     );
+    this.sub$.add(
+      this.isHandset$.subscribe(isHandset => {
+        this.status = !isHandset;
+      })
+    );
   }
 
   ngOnDestroy(): void {
     this.sub$.unsubscribe();
   }
+
+  private readonly breakpointObserver = inject(BreakpointObserver);
+  readonly isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(map(({ matches }) => matches));
 }

@@ -12,12 +12,15 @@ $gap: 24px;
 
 .header {
   justify-content: space-between;
+  padding: 24px 32px;
   display: flex;
   align-items: center;
-  
+  box-sizing: border-box;   
 
   @include b.mobile {
+    z-index: 999;
     width: 100%;
+    padding: $gap;
   }
 }
 
@@ -29,25 +32,47 @@ $gap: 24px;
   gap: 12px;
 }
 
-
 .sidenav {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   height: fit-content;
   background-color: c.$white;
-  padding: 30px 48px;
   align-items: center;
 
   @include b.mobile {
-    display: flex;
+    z-index: 999;
     flex-direction: column;
-    padding: 24px;
-  }
+    
+    &.open {
+      height: 100%;
+      position: fixed;
+    }
+}
 }
 
 .logo {
   height: 36px;
   align-self: flex-start;
+  @include b.mobile {
+    height: 20px;
+  }
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  padding-right: $gap;
+
+  @include b.mobile {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+    padding: $gap;
+  }    
 }
 
 .main {
@@ -64,11 +89,8 @@ $gap: 24px;
   }
 }
 
-.title {
-  flex: 1;
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto auto;
-  column-gap: 16px;
+.apply{
+  @include b.mobile {
+  display: none;
+  }
 }

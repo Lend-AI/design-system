@@ -11,7 +11,6 @@ import { LandingPageLayoutCategoriesComponent } from './landing-page-layout-cate
 import { LandingPageLayoutActionsComponent } from './landing-page-layout-actions/landing-page-layout-actions.component';
 import { HiddenDirective, LetDirective } from '@lendai-us/cdk';
 import { LandingPageLayoutContentComponent } from './landing-page-layout-content/landing-page-layout-content.component';
-import { LandingPageLayoutLogoComponent } from './landing-page-layout-logo/landing-page-layout-logo.component';
 import { IconComponent } from '../../icon';
 import { DividerComponent } from '../../divider';
 import { ButtonBarComponent, ButtonComponent } from '../../button';
@@ -29,7 +28,6 @@ import { LandingPageLayoutFooterComponent } from './landing-page-layout-footer/l
     LandingPageLayoutCategoriesComponent,
     LandingPageLayoutActionsComponent,
     LandingPageLayoutContentComponent,
-    LandingPageLayoutLogoComponent,
     LandingPageLayoutFooterComponent,
   ],
   imports: [
@@ -55,7 +53,6 @@ import { LandingPageLayoutFooterComponent } from './landing-page-layout-footer/l
     LandingPageLayoutComponent,
     LandingPageLayoutActionsComponent,
     LandingPageLayoutContentComponent,
-    LandingPageLayoutLogoComponent,
     LandingPageLayoutFooterComponent,
   ],
 })
