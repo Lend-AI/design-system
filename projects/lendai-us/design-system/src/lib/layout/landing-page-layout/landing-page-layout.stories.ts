@@ -12,14 +12,17 @@ import { LandingPageLayoutComponent } from './landing-page-layout.component';
 
 const landingPageItems: LandingPageCategory[] = [
   {
+    icon: 'briefcase',
     route: '/#loan-programs',
     title: 'Loan Programs',
   },
   {
+    icon: 'dashboard',
     route: '/#why',
     title: 'Why Finance?',
   },
   {
+    icon: 'help',
     route: '/#how',
     title: 'How Does It Works?',
   },
@@ -67,7 +70,7 @@ export const LandingPageLayout: Story = {
         <button laiButton>
           "Lang-switcher"
         </button>
-        <button laiButton>
+        <button laiButton class="apply">
           Apply Now
         </button>
       </lai-landing-page-layout-actions>

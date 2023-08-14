@@ -1,7 +1,9 @@
 import { InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IconGlyph } from '../../icon';
 
 export interface LandingPageCategory {
+  icon: IconGlyph;
   title: string;
   route: string;
 }
