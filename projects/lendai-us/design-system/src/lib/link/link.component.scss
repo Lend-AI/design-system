@@ -26,6 +26,15 @@ $typographies: (
 
   &:focus {
     outline: 1px solid c.$blue;
+
+    &[level='sm'],
+    &[level='md'] {
+      padding: 4px;
+    }
+
+    &[level='lg'] {
+      padding: 8px;
+    }
   }
 
   &:active {
@@ -34,15 +43,6 @@ $typographies: (
 
   &:visited {
     color: c.$purple;
-  }
-
-  &[level='sm'],
-  &[level='md'] {
-    padding: 4px;
-  }
-
-  &[level='lg'] {
-    padding: 8px;
   }
 }
 
