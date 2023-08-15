@@ -9,15 +9,15 @@ $radiuses: (
 );
 
 $colors: (
-  'info': (
+  'blue': (
     'background': c.color('info', 100),
     'foreground': c.color('info', 700),
   ),
-  'primary': (
+  'purple': (
     'background': c.color('primary', 100),
     'foreground': c.color('primary', 700),
   ),
-  'success': (
+  'green': (
     'background': c.color('success', 50),
     'foreground': c.color('success', 700),
   ),
@@ -25,7 +25,7 @@ $colors: (
     'background': c.color('gray', 50),
     'foreground': c.color('gray', 700),
   ),
-  'warning': (
+  'orange': (
     'background': c.color('warning', 100),
     'foreground': c.color('warning', 700),
   ),
@@ -33,7 +33,7 @@ $colors: (
     'background': c.color('pink', 50),
     'foreground': c.color('pink', 600),
   ),
-  'error': (
+  'red': (
     'background': c.color('error', 100),
     'foreground': c.color('error', 500),
   ),

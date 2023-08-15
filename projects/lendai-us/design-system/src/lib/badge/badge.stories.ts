@@ -48,7 +48,7 @@ type Story = StoryObj<BadgeComponent>;
 export const Badge: Story = {
   args: {
     radius: 'xs',
-    color: 'info',
+    color: 'blue',
     type: 'transparent',
   },
 };
