@@ -30,10 +30,7 @@ export class SidenavLayoutComponent implements OnInit, OnDestroy {
   @ContentChild(SidenavLayoutActionsComponent)
   private readonly actionsComponent?: SidenavLayoutActionsComponent;
 
-  isHandset$: Observable<boolean> = this.breakpointObserver
-    .observe(Breakpoints.Handset)
-    .pipe(map(({ matches }) => matches));
-
+  logoPath!: string;
   firstName!: string;
   lastName!: string;
   accountInfo!: string;
@@ -42,8 +39,11 @@ export class SidenavLayoutComponent implements OnInit, OnDestroy {
   status!: boolean;
   icon: IconGlyph = 'bars';
 
-  protected readonly service = inject(SIDENAV_LAYOUT_SERVICE);
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(map(({ matches }) => matches));
 
+  protected readonly service = inject(SIDENAV_LAYOUT_SERVICE);
   private readonly sub$ = new Subscription();
 
   constructor(private readonly breakpointObserver: BreakpointObserver) {}
@@ -55,6 +55,9 @@ export class SidenavLayoutComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.sub$.add(
+      this.service.logoPath$.subscribe(logoPath => (this.logoPath = logoPath))
+    );
     this.sub$.add(
       this.service.firstName$.subscribe(
         firstName => (this.firstName = firstName)

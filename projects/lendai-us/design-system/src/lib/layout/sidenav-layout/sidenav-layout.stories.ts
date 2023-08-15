@@ -2,7 +2,7 @@ import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
 import { SidenavLayoutModule } from './sidenav-layout.module';
 import {
   SIDENAV_LAYOUT_SERVICE,
-  SidenavCategory,
+  SidenavLayoutCategory,
   SidenavLayoutService,
 } from './sidenav-layout.service';
 import { SidenavLayoutComponent } from './sidenav-layout.component';
@@ -10,7 +10,7 @@ import { of } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ButtonComponent } from '../../button';
 
-const sidenavItems: SidenavCategory[] = [
+const sidenavItems: SidenavLayoutCategory[] = [
   {
     icon: 'dashboard',
     route: '/dashboard',
@@ -28,6 +28,7 @@ const sidenavItems: SidenavCategory[] = [
   },
 ];
 class DummyService implements SidenavLayoutService {
+  logoPath$ = of('/assets/images/logo/dark.svg');
   firstName$ = of('nof');
   lastName$ = of('sh');
   accountInfo$ = of('View profile');

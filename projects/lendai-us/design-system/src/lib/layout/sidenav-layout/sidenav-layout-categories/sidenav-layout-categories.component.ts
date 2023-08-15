@@ -1,7 +1,7 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import {
   SIDENAV_LAYOUT_SERVICE,
-  SidenavCategory,
+  SidenavLayoutCategory,
 } from '../sidenav-layout.service';
 import { Subscription } from 'rxjs';
 
@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./sidenav-layout-categories.component.scss'],
 })
 export class SidenavLayoutCategoriesComponent implements OnInit, OnDestroy {
-  sidenavCategories: SidenavCategory[] = [];
+  sidenavCategories: SidenavLayoutCategory[] = [];
 
   private readonly service = inject(SIDENAV_LAYOUT_SERVICE);
   private readonly sub$ = new Subscription();

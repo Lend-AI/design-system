@@ -4,12 +4,6 @@ import { LogoComponent } from './logo.component';
 export default {
   title: 'WIP/Logo',
   component: LogoComponent,
-  argTypes: {
-    style: {
-      options: ['dark', 'light'],
-      control: { type: 'select' },
-    },
-  },
 } as Meta;
 
 const Template: StoryFn = args => ({
@@ -17,5 +11,5 @@ const Template: StoryFn = args => ({
 });
 export const Logo = Template.bind({});
 Logo.args = {
-  style: 'light',
+  logoPath: '/assets/images/logo/light.svg',
 };

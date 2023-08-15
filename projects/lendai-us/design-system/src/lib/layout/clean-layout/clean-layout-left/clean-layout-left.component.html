@@ -1,4 +1,4 @@
-<lai-logo class="logo"></lai-logo>
+<lai-logo class="logo" [logoPath]="logoPath"></lai-logo>
 <ng-container *laiLet="isHandset$ | async as isHandset">
   <lai-headline *ngIf="title && !isHandset" class="title" level="3">
     {{ title }}
