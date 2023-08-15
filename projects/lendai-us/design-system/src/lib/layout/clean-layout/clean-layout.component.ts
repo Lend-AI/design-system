@@ -5,4 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './clean-layout.component.html',
   styleUrls: ['./clean-layout.component.scss'],
 })
-export class CleanLayoutComponent {}
+export class CleanLayoutComponent {
+  title?: string;
+  backgroundImage?: string;
+}

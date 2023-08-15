@@ -3,6 +3,15 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { CleanLayoutComponent } from './clean-layout.component';
 import { CleanLayoutModule } from './clean-layout.module';
 import { BodyComponent } from '../../typography';
+import {
+  CLEAN_LAYOUT_SERVICE,
+  CleanLayoutService,
+} from './clean-layout.service';
+import { of } from 'rxjs';
+
+class DummyService implements CleanLayoutService {
+  logoPath$ = of('/assets/images/logo/dark.svg');
+}
 
 const meta: Meta<CleanLayoutComponent> = {
   title: 'Templates/CleanLayout',
@@ -13,6 +22,12 @@ const meta: Meta<CleanLayoutComponent> = {
   decorators: [
     moduleMetadata({
       imports: [CleanLayoutModule, RouterTestingModule, BodyComponent],
+      providers: [
+        {
+          provide: CLEAN_LAYOUT_SERVICE,
+          useClass: DummyService,
+        },
+      ],
     }),
   ],
 };
@@ -23,13 +38,12 @@ export const CleanLayout: Story = {
   args: {
     title: 'Your title',
     backgroundImage: 'auth-background.png',
-    logoPath: '/assets/images/logo/dark.svg',
   },
   render: props => ({
     props,
     template: `
     <lai-clean-layout>
-      <lai-clean-layout-left [logoPath]="logoPath" [background]="backgroundImage" [title]="title">
+      <lai-clean-layout-left [background]="backgroundImage" [title]="title">
         <lai-body level="sm" style="color: white">
           Your slogan goes here!
         </lai-body>

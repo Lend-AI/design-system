@@ -68,7 +68,7 @@ export const SidenavLayout: Story = {
   render: props => ({
     props,
     template: `
-    <lai-sidenav-layout [logoPath]="logoPath">
+    <lai-sidenav-layout>
       <lai-sidenav-layout-avatar initials="NS"></lai-sidenav-layout-avatar>
       <lai-sidenav-layout-title>Header Title</lai-sidenav-layout-title>
       <lai-sidenav-layout-subtitle>Header Subtitle</lai-sidenav-layout-subtitle>

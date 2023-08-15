@@ -65,7 +65,7 @@ export const LandingPageLayout: Story = {
   render: props => ({
     props,
     template: `
-    <lai-landing-page-layout [logoPath]="logoPath">
+    <lai-landing-page-layout>
       <lai-landing-page-layout-actions>
         <button laiButton>
           "Lang-switcher"
