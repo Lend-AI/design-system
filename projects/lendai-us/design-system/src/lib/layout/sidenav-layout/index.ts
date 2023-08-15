@@ -6,6 +6,6 @@ export * from './sidenav-layout-content/sidenav-layout-content.component';
 export * from './sidenav-layout-subtitle/sidenav-layout-subtitle.component';
 export * from './sidenav-layout-title/sidenav-layout-title.component';
 
-export * from './sidenav-layout-service';
+export * from './sidenav-layout.service';
 export * from './sidenav-layout.component';
 export * from './sidenav-layout.module';

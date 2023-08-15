@@ -11,17 +11,16 @@ import { coerceNumberProperty } from '@angular/cdk/coercion';
   styleUrls: ['./headline.component.scss'],
 })
 export class HeadlineComponent implements TypographyComponent<HeadlineLevel> {
+  private _level: HeadlineLevel = 1;
+
   @HostBinding('attr.level')
   @Input()
-  set level(value: HeadlineLevel | string) {
-    this._level = coerceNumberProperty(value, 1) as HeadlineLevel;
-  }
-
   get level(): HeadlineLevel {
     return this._level;
   }
-
-  private _level: HeadlineLevel = 1;
+  set level(value: HeadlineLevel | string) {
+    this._level = coerceNumberProperty(value, 1) as HeadlineLevel;
+  }
 }
 
 export const HEADLINE_LEVELS = [1, 2, 3, 4, 5];

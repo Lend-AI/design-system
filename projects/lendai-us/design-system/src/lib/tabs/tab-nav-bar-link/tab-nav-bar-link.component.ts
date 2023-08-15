@@ -14,13 +14,13 @@ import {
   styleUrls: ['./tab-nav-bar-link.component.scss'],
 })
 export class TabNavBarLinkComponent {
-  parent: TabNavBarComponent = inject(TabNavBarComponent);
-
   @Input() iconGlyph?: IconGlyph;
 
   @HostBinding('attr.disabled')
   @Input()
   disabled = false;
+
+  parent: TabNavBarComponent = inject(TabNavBarComponent);
 
   get bodyLevel(): BodyLevel {
     return TAB_GROUP_SIZE_TO_BODY_LEVEL[this.parent.size];

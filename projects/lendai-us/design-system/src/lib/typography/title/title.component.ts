@@ -11,17 +11,16 @@ import { coerceNumberProperty } from '@angular/cdk/coercion';
   styleUrls: ['./title.component.scss'],
 })
 export class TitleComponent implements TypographyComponent<TitleLevel> {
+  private _level: TitleLevel = 1;
+
   @HostBinding('attr.level')
   @Input()
-  set level(value: TitleLevel | string) {
-    this._level = coerceNumberProperty(value, 1) as TitleLevel;
-  }
-
   get level(): TitleLevel {
     return this._level;
   }
-
-  private _level: TitleLevel = 1;
+  set level(value: TitleLevel | string) {
+    this._level = coerceNumberProperty(value, 1) as TitleLevel;
+  }
 }
 
 export const TITLE_LEVELS = [1, 2, 3, 4, 5] as const;

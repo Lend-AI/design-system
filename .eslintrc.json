@@ -32,6 +32,9 @@
         ],
         "@typescript-eslint/explicit-function-return-type": [
           "error"
+        ],
+        "@typescript-eslint/member-ordering": [
+          "error"
         ]
       }
     },
