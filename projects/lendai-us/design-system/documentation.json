@@ -310,13 +310,13 @@
             ]
         },
         {
-            "name": "SidenavCategory",
-            "id": "interface-SidenavCategory-c7516007ba16c721c040ffcb88213c6a39b1608a1e6d89af8dd486253946a25d297637998d3533b788f3e778c7f0733849415913bca36124285595227e1b01cd",
+            "name": "SidenavLayoutCategory",
+            "id": "interface-SidenavLayoutCategory-0470d2b23e10c76a9d12d93ba943557eb9ad06011f345cd5476602b4e1198704080bebb9ecbbb8e447f8a1ab0527d5589b617c69ad36991f4426cfba1837c749",
             "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.service.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { IconGlyph } from '../../icon';\n\nexport interface SidenavCategory {\n  icon: IconGlyph;\n  title: string;\n  route: string;\n}\n\nexport interface SidenavLayoutService {\n  logoPath$: Observable<string>;\n  firstName$: Observable<string>;\n  lastName$: Observable<string>;\n  accountInfo$: Observable<string>;\n  logOutText$: Observable<string>;\n  sidenavCategories$: Observable<SidenavCategory[]>;\n  accountCallBack(): Promise<void>;\n  logoutCallBack(): Promise<void>;\n}\n\nexport const SIDENAV_LAYOUT_SERVICE = new InjectionToken<SidenavLayoutService>(\n  `_SIDENAV_LAYOUT_SERVICE`\n);\n",
+            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { IconGlyph } from '../../icon';\n\nexport interface SidenavLayoutCategory {\n  icon: IconGlyph;\n  title: string;\n  route: string;\n}\n\nexport interface SidenavLayoutService {\n  logoPath$: Observable<string>;\n  firstName$: Observable<string>;\n  lastName$: Observable<string>;\n  accountInfo$: Observable<string>;\n  logOutText$: Observable<string>;\n  sidenavCategories$: Observable<SidenavLayoutCategory[]>;\n  accountCallBack(): Promise<void>;\n  logoutCallBack(): Promise<void>;\n}\n\nexport const SIDENAV_LAYOUT_SERVICE = new InjectionToken<SidenavLayoutService>(\n  `_SIDENAV_LAYOUT_SERVICE`\n);\n",
             "properties": [
                 {
                     "name": "icon",
@@ -352,12 +352,12 @@
         },
         {
             "name": "SidenavLayoutService",
-            "id": "interface-SidenavLayoutService-c7516007ba16c721c040ffcb88213c6a39b1608a1e6d89af8dd486253946a25d297637998d3533b788f3e778c7f0733849415913bca36124285595227e1b01cd",
+            "id": "interface-SidenavLayoutService-0470d2b23e10c76a9d12d93ba943557eb9ad06011f345cd5476602b4e1198704080bebb9ecbbb8e447f8a1ab0527d5589b617c69ad36991f4426cfba1837c749",
             "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.service.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { IconGlyph } from '../../icon';\n\nexport interface SidenavCategory {\n  icon: IconGlyph;\n  title: string;\n  route: string;\n}\n\nexport interface SidenavLayoutService {\n  logoPath$: Observable<string>;\n  firstName$: Observable<string>;\n  lastName$: Observable<string>;\n  accountInfo$: Observable<string>;\n  logOutText$: Observable<string>;\n  sidenavCategories$: Observable<SidenavCategory[]>;\n  accountCallBack(): Promise<void>;\n  logoutCallBack(): Promise<void>;\n}\n\nexport const SIDENAV_LAYOUT_SERVICE = new InjectionToken<SidenavLayoutService>(\n  `_SIDENAV_LAYOUT_SERVICE`\n);\n",
+            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { IconGlyph } from '../../icon';\n\nexport interface SidenavLayoutCategory {\n  icon: IconGlyph;\n  title: string;\n  route: string;\n}\n\nexport interface SidenavLayoutService {\n  logoPath$: Observable<string>;\n  firstName$: Observable<string>;\n  lastName$: Observable<string>;\n  accountInfo$: Observable<string>;\n  logOutText$: Observable<string>;\n  sidenavCategories$: Observable<SidenavLayoutCategory[]>;\n  accountCallBack(): Promise<void>;\n  logoutCallBack(): Promise<void>;\n}\n\nexport const SIDENAV_LAYOUT_SERVICE = new InjectionToken<SidenavLayoutService>(\n  `_SIDENAV_LAYOUT_SERVICE`\n);\n",
             "properties": [
                 {
                     "name": "accountInfo$",
@@ -408,7 +408,7 @@
                     "name": "sidenavCategories$",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Observable<SidenavCategory[]>",
+                    "type": "Observable<SidenavLayoutCategory[]>",
                     "optional": false,
                     "description": "",
                     "line": 17
@@ -605,12 +605,12 @@
         },
         {
             "name": "DummyService",
-            "id": "class-DummyService-d6ed17fb8ca9870f3bbf32354bceee3d0529aabf029416bc58a6372b42dbbfe0747b5dd47962dba42e283d3ffe3895a96e60a609018112b5b27822b211cb7325-2",
+            "id": "class-DummyService-4ee2da70a5a934b8d2a5c8ef68373e364fbfaf2ea0b5a16a548fef23afabc24b8d1eb084ae09fd1fea8e63630033b8c061d28d7f6fc8011c799ff05e26aa08ad-2",
             "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';\nimport { SidenavLayoutModule } from './sidenav-layout.module';\nimport {\n  SIDENAV_LAYOUT_SERVICE,\n  SidenavCategory,\n  SidenavLayoutService,\n} from './sidenav-layout.service';\nimport { SidenavLayoutComponent } from './sidenav-layout.component';\nimport { of } from 'rxjs';\nimport { RouterTestingModule } from '@angular/router/testing';\nimport { ButtonComponent } from '../../button';\n\nconst sidenavItems: SidenavCategory[] = [\n  {\n    icon: 'dashboard',\n    route: '/dashboard',\n    title: 'Dashboard',\n  },\n  {\n    icon: 'loan-applications',\n    route: '/loan-applications',\n    title: 'Loan Applications',\n  },\n  {\n    icon: 'loan-policy',\n    route: '/loan-policy',\n    title: 'Loan Policy',\n  },\n];\nclass DummyService implements SidenavLayoutService {\n  logoPath$ = of('/assets/images/logo/dark.svg');\n  firstName$ = of('nof');\n  lastName$ = of('sh');\n  accountInfo$ = of('View profile');\n  logOutText$ = of('Log Out');\n  sidenavCategories$ = of(sidenavItems);\n  async accountCallBack(): Promise<void> {\n    console.log('account call back');\n  }\n  async logoutCallBack(): Promise<void> {\n    console.log('logout call back');\n  }\n}\n\nconst meta: Meta<SidenavLayoutComponent> = {\n  title: 'Templates/SidenavLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: SidenavLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [SidenavLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: SIDENAV_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n};\nexport default meta;\n\ntype Story = StoryObj<SidenavLayoutComponent>;\n\nexport const SidenavLayout: Story = {\n  render: props => ({\n    props,\n    template: `\n    <lai-sidenav-layout>\n      <lai-sidenav-layout-avatar initials=\"NS\"></lai-sidenav-layout-avatar>\n      <lai-sidenav-layout-title>Header Title</lai-sidenav-layout-title>\n      <lai-sidenav-layout-subtitle>Header Subtitle</lai-sidenav-layout-subtitle>\n      <lai-sidenav-layout-actions>\n        <button laiButton>\n          New Application\n        </button>\n      </lai-sidenav-layout-actions>\n      <lai-sidenav-layout-content>\n        <div style=\"height: 500px;\">Some content</div>\n      </lai-sidenav-layout-content>\n    </lai-sidenav-layout>\n  `,\n  }),\n};\n",
+            "sourceCode": "import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';\nimport { SidenavLayoutModule } from './sidenav-layout.module';\nimport {\n  SIDENAV_LAYOUT_SERVICE,\n  SidenavLayoutCategory,\n  SidenavLayoutService,\n} from './sidenav-layout.service';\nimport { SidenavLayoutComponent } from './sidenav-layout.component';\nimport { of } from 'rxjs';\nimport { RouterTestingModule } from '@angular/router/testing';\nimport { ButtonComponent } from '../../button';\n\nconst sidenavItems: SidenavLayoutCategory[] = [\n  {\n    icon: 'dashboard',\n    route: '/dashboard',\n    title: 'Dashboard',\n  },\n  {\n    icon: 'loan-applications',\n    route: '/loan-applications',\n    title: 'Loan Applications',\n  },\n  {\n    icon: 'loan-policy',\n    route: '/loan-policy',\n    title: 'Loan Policy',\n  },\n];\nclass DummyService implements SidenavLayoutService {\n  logoPath$ = of('/assets/images/logo/dark.svg');\n  firstName$ = of('nof');\n  lastName$ = of('sh');\n  accountInfo$ = of('View profile');\n  logOutText$ = of('Log Out');\n  sidenavCategories$ = of(sidenavItems);\n  async accountCallBack(): Promise<void> {\n    console.log('account call back');\n  }\n  async logoutCallBack(): Promise<void> {\n    console.log('logout call back');\n  }\n}\n\nconst meta: Meta<SidenavLayoutComponent> = {\n  title: 'Templates/SidenavLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: SidenavLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [SidenavLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: SIDENAV_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n};\nexport default meta;\n\ntype Story = StoryObj<SidenavLayoutComponent>;\n\nexport const SidenavLayout: Story = {\n  render: props => ({\n    props,\n    template: `\n    <lai-sidenav-layout>\n      <lai-sidenav-layout-avatar initials=\"NS\"></lai-sidenav-layout-avatar>\n      <lai-sidenav-layout-title>Header Title</lai-sidenav-layout-title>\n      <lai-sidenav-layout-subtitle>Header Subtitle</lai-sidenav-layout-subtitle>\n      <lai-sidenav-layout-actions>\n        <button laiButton>\n          New Application\n        </button>\n      </lai-sidenav-layout-actions>\n      <lai-sidenav-layout-content>\n        <div style=\"height: 500px;\">Some content</div>\n      </lai-sidenav-layout-content>\n    </lai-sidenav-layout>\n  `,\n  }),\n};\n",
             "properties": [
                 {
                     "name": "accountInfo$",
@@ -1281,7 +1281,7 @@
         },
         {
             "name": "CleanLayoutComponent",
-            "id": "component-CleanLayoutComponent-859cf0c408994b241b34cdc3fa08e52a592f8f5e4bac4259c3c131b14b7470e2f77b5383763d64640a53f7b00a5839c854946681774391b27868128b6c20521f",
+            "id": "component-CleanLayoutComponent-88d587ad02d5650c0ced46c2f7345d128a817cd6f81bbd934344b343292e5120ef22e180cd714e27af2f2bc8d188268d5df6c786b293dac15f33fc84f5f1df45",
             "file": "projects/lendai-us/design-system/src/lib/layout/clean-layout/clean-layout.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1300,26 +1300,7 @@
             "hostDirectives": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "backgroundImage",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "optional": true,
-                    "description": "",
-                    "line": 10
-                },
-                {
-                    "name": "title",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "optional": true,
-                    "description": "",
-                    "line": 9
-                }
-            ],
+            "propertiesClass": [],
             "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
@@ -1330,7 +1311,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lai-clean-layout',\n  templateUrl: './clean-layout.component.html',\n  styleUrls: ['./clean-layout.component.scss'],\n})\nexport class CleanLayoutComponent {\n  title?: string;\n  backgroundImage?: string;\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lai-clean-layout',\n  templateUrl: './clean-layout.component.html',\n  styleUrls: ['./clean-layout.component.scss'],\n})\nexport class CleanLayoutComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1559,7 +1540,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ":host {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 40px 20px;\n}\n",
+                    "data": "@use 'breakpoints' as b;\n\n:host {\n  display: flex;\n  flex-direction: column;\n  padding-left: 15%;\n\n  @include b.mobile {\n    padding: 0 24px;\n  }\n}\n",
                     "styleUrl": "./clean-layout-right.component.scss"
                 }
             ],
@@ -3606,7 +3587,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'typography' as t;\n@use 'color' as c;\n\n$typographies: (\n  'sm': t.$button-xs,\n  'md': t.$button-sm,\n  'lg': t.$button-md,\n);\n\n:host {\n  @include t.attributeToTypography($typographies, 'level');\n\n  display: inline-flex;\n  align-items: center;\n  gap: 10px;\n  color: c.$blue;\n  text-decoration: none;\n\n  &:hover {\n    color: c.color('blue', 600);\n\n    &:visited {\n      color: c.color('purple', 600);\n    }\n  }\n\n  &:focus {\n    outline: 1px solid c.$blue;\n  }\n\n  &:active {\n    color: c.color('blue', 800);\n  }\n\n  &:visited {\n    color: c.$purple;\n  }\n\n  &[level='sm'],\n  &[level='md'] {\n    padding: 4px;\n  }\n\n  &[level='lg'] {\n    padding: 8px;\n  }\n}\n\n.label {\n  :host[type='inline'] &,\n  :host[type='standalone']:hover & {\n    text-decoration: underline;\n  }\n}\n",
+                    "data": "@use 'typography' as t;\n@use 'color' as c;\n\n$typographies: (\n  'sm': t.$button-xs,\n  'md': t.$button-sm,\n  'lg': t.$button-md,\n);\n\n:host {\n  @include t.attributeToTypography($typographies, 'level');\n\n  display: inline-flex;\n  align-items: center;\n  gap: 10px;\n  color: c.$blue;\n  text-decoration: none;\n\n  &:hover {\n    color: c.color('blue', 600);\n\n    &:visited {\n      color: c.color('purple', 600);\n    }\n  }\n\n  &:focus {\n    outline: 1px solid c.$blue;\n\n    &[level='sm'],\n    &[level='md'] {\n      padding: 4px;\n    }\n\n    &[level='lg'] {\n      padding: 8px;\n    }\n  }\n\n  &:active {\n    color: c.color('blue', 800);\n  }\n\n  &:visited {\n    color: c.$purple;\n  }\n}\n\n.label {\n  :host[type='inline'] &,\n  :host[type='standalone']:hover & {\n    text-decoration: underline;\n  }\n}\n",
                     "styleUrl": "./link.component.scss"
                 }
             ],
@@ -5502,7 +5483,7 @@
         },
         {
             "name": "SidenavLayoutCategoriesComponent",
-            "id": "component-SidenavLayoutCategoriesComponent-ed22beef6adebba3fdd6623ccb6bfcd74754f058d7a2791d8d1761eaff64f52edc21a67b31509be8f230685f52450cf6ac7766cc08afe4c92b94955b94bd619e",
+            "id": "component-SidenavLayoutCategoriesComponent-6aa5c185c0f495686fa3c3bcaadcbfe69081ad0b76ea138d0c66ef61a20c2aa30bc3a240e7eb568b3bc381991f85333859e88a895c4e6fe48a96aa4f110bbe9b",
             "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout-categories/sidenav-layout-categories.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -5541,7 +5522,7 @@
                     "defaultValue": "[]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "SidenavCategory[]",
+                    "type": "SidenavLayoutCategory[]",
                     "optional": false,
                     "description": "",
                     "line": 14
@@ -5592,7 +5573,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, inject, OnDestroy, OnInit } from '@angular/core';\nimport {\n  SIDENAV_LAYOUT_SERVICE,\n  SidenavCategory,\n} from '../sidenav-layout.service';\nimport { Subscription } from 'rxjs';\n\n@Component({\n  selector: 'lai-sidenav-layout-categories',\n  templateUrl: './sidenav-layout-categories.component.html',\n  styleUrls: ['./sidenav-layout-categories.component.scss'],\n})\nexport class SidenavLayoutCategoriesComponent implements OnInit, OnDestroy {\n  sidenavCategories: SidenavCategory[] = [];\n\n  private readonly service = inject(SIDENAV_LAYOUT_SERVICE);\n  private readonly sub$ = new Subscription();\n\n  ngOnInit(): void {\n    this.sub$.add(\n      this.service.sidenavCategories$.subscribe(\n        sidenavCategories => (this.sidenavCategories = sidenavCategories)\n      )\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n}\n",
+            "sourceCode": "import { Component, inject, OnDestroy, OnInit } from '@angular/core';\nimport {\n  SIDENAV_LAYOUT_SERVICE,\n  SidenavLayoutCategory,\n} from '../sidenav-layout.service';\nimport { Subscription } from 'rxjs';\n\n@Component({\n  selector: 'lai-sidenav-layout-categories',\n  templateUrl: './sidenav-layout-categories.component.html',\n  styleUrls: ['./sidenav-layout-categories.component.scss'],\n})\nexport class SidenavLayoutCategoriesComponent implements OnInit, OnDestroy {\n  sidenavCategories: SidenavLayoutCategory[] = [];\n\n  private readonly service = inject(SIDENAV_LAYOUT_SERVICE);\n  private readonly sub$ = new Subscription();\n\n  ngOnInit(): void {\n    this.sub$.add(\n      this.service.sidenavCategories$.subscribe(\n        sidenavCategories => (this.sidenavCategories = sidenavCategories)\n      )\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -8031,21 +8012,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<AvatarComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<BadgeComponent>",
                 "defaultValue": "{\n  title: 'WIP/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: ['blue', 'purple', 'aqua', 'gray', 'orange', 'pink', 'red'],\n      control: { type: 'select' },\n    },\n    radius: {\n      options: ['xs', 'sm'],\n      control: { type: 'select' },\n    },\n    type: {\n      options: ['transparent', 'solid'],\n      control: { type: 'select' },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<AvatarComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -8264,7 +8245,7 @@
                 "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "SidenavCategory[]",
+                "type": "SidenavLayoutCategory[]",
                 "defaultValue": "[\n  {\n    icon: 'dashboard',\n    route: '/dashboard',\n    title: 'Dashboard',\n  },\n  {\n    icon: 'loan-applications',\n    route: '/loan-applications',\n    title: 'Loan Applications',\n  },\n  {\n    icon: 'loan-policy',\n    route: '/loan-policy',\n    title: 'Loan Policy',\n  },\n]"
             },
             {
@@ -8868,8 +8849,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<AvatarComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                "rawtype": "StoryObj<BadgeComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -8879,8 +8860,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<BadgeComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                "rawtype": "StoryObj<AvatarComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -10100,7 +10081,7 @@
                     "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "SidenavCategory[]",
+                    "type": "SidenavLayoutCategory[]",
                     "defaultValue": "[\n  {\n    icon: 'dashboard',\n    route: '/dashboard',\n    title: 'Dashboard',\n  },\n  {\n    icon: 'loan-applications',\n    route: '/loan-applications',\n    title: 'Loan Applications',\n  },\n  {\n    icon: 'loan-policy',\n    route: '/loan-policy',\n    title: 'Loan Policy',\n  },\n]"
                 },
                 {
@@ -10600,19 +10581,6 @@
                     "kind": 198
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<AvatarComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
                 {
                     "name": "Story",
@@ -10620,6 +10588,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<BadgeComponent>",
                     "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<AvatarComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -11436,7 +11417,7 @@
                 "linktype": "component",
                 "name": "CleanLayoutComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -11675,7 +11656,7 @@
                 "filePath": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.service.ts",
                 "type": "interface",
                 "linktype": "interface",
-                "name": "SidenavCategory",
+                "name": "SidenavLayoutCategory",
                 "coveragePercent": 0,
                 "coverageCount": "0/4",
                 "status": "low"
