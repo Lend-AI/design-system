@@ -2,7 +2,7 @@ import { InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IconGlyph } from '../../icon';
 
-export interface SidenavCategory {
+export interface SidenavLayoutCategory {
   icon: IconGlyph;
   title: string;
   route: string;
@@ -14,7 +14,7 @@ export interface SidenavLayoutService {
   lastName$: Observable<string>;
   accountInfo$: Observable<string>;
   logOutText$: Observable<string>;
-  sidenavCategories$: Observable<SidenavCategory[]>;
+  sidenavCategories$: Observable<SidenavLayoutCategory[]>;
   accountCallBack(): Promise<void>;
   logoutCallBack(): Promise<void>;
 }
