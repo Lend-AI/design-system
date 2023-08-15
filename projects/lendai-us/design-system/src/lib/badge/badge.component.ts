@@ -23,15 +23,19 @@ export class BadgeComponent {
   type: BadgeType = 'transparent';
 }
 
-export type BadgeColor =
-  | 'purple'
-  | 'blue'
-  | 'red'
-  | 'green'
-  | 'orange'
-  | 'gray'
-  | 'pink';
+export const BADGE_RADIUSES = ['xs', 'sm'] as const;
+export type BadgeRadius = (typeof BADGE_RADIUSES)[number];
 
-export type BadgeRadius = 'xs' | 'sm';
+export const BADGE_TYPES = ['transparent', 'solid'] as const;
+export type BadgeType = (typeof BADGE_TYPES)[number];
 
-export type BadgeType = 'transparent' | 'solid';
+export const BADGE_COLORS = [
+  'purple',
+  'blue',
+  'red',
+  'aqua',
+  'orange',
+  'gray',
+  'pink',
+] as const;
+export type BadgeColor = (typeof BADGE_COLORS)[number];
