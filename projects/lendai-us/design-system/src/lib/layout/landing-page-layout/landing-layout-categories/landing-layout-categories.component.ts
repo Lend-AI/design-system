@@ -1,7 +1,7 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import {
-  LANDING_PAGE_SERVICE,
-  LandingPageCategory,
+  LANDING_LAYOUT_SERVICE,
+  LandingLayoutCategory,
 } from '../landing-layout.service';
 import { map, Observable, Subscription } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
@@ -12,18 +12,23 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   styleUrls: ['./landing-layout-categories.component.scss'],
 })
 export class LandingLayoutCategoriesComponent implements OnInit, OnDestroy {
-  private readonly service = inject(LANDING_PAGE_SERVICE);
+  status!: boolean;
+  landingLayoutCategories: LandingLayoutCategory[] = [];
+
+  readonly isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(map(({ matches }) => matches));
+
+  private readonly service = inject(LANDING_LAYOUT_SERVICE);
   private readonly sub$ = new Subscription();
 
-  landingPageCategories: LandingPageCategory[] = [];
-
-  status!: boolean;
+  constructor(private readonly breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
     this.sub$.add(
-      this.service.landingPageCategories$.subscribe(
-        landingPageCategories =>
-          (this.landingPageCategories = landingPageCategories)
+      this.service.landingLayoutCategories$.subscribe(
+        landingLayoutCategories =>
+          (this.landingLayoutCategories = landingLayoutCategories)
       )
     );
     this.sub$.add(
@@ -36,9 +41,4 @@ export class LandingLayoutCategoriesComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.sub$.unsubscribe();
   }
-
-  private readonly breakpointObserver = inject(BreakpointObserver);
-  readonly isHandset$: Observable<boolean> = this.breakpointObserver
-    .observe(Breakpoints.Handset)
-    .pipe(map(({ matches }) => matches));
 }

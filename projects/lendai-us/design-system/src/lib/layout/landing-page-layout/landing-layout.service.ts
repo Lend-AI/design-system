@@ -2,20 +2,20 @@ import { InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IconGlyph } from '../../icon';
 
-export interface LandingPageCategory {
+export interface LandingLayoutCategory {
   icon: IconGlyph;
   title: string;
   route: string;
 }
 
-export interface LandingPageService {
+export interface LandingLayoutService {
   logoPath$: Observable<string>;
   logOutText$: Observable<string>;
-  landingPageCategories$: Observable<LandingPageCategory[]>;
+  landingLayoutCategories$: Observable<LandingLayoutCategory[]>;
   accountCallBack(): Promise<void>;
   logoutCallBack(): Promise<void>;
 }
 
-export const LANDING_PAGE_SERVICE = new InjectionToken<LandingPageService>(
-  `_LANDING_PAGE_SERVICE`
+export const LANDING_LAYOUT_SERVICE = new InjectionToken<LandingLayoutService>(
+  `_LANDING_LAYOUT_SERVICE`
 );

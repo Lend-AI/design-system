@@ -11,7 +11,7 @@ import { SidenavLayoutActionsComponent } from './sidenav-layout-actions/sidenav-
 import { SidenavLayoutContentComponent } from './sidenav-layout-content/sidenav-layout-content.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable, Subscription, map } from 'rxjs';
-import { SIDENAV_SERVICE } from './sidenav-layout-service';
+import { SIDENAV_LAYOUT_SERVICE } from './sidenav-layout.service';
 import { IconGlyph } from '../../icon';
 
 @Component({
@@ -20,23 +20,16 @@ import { IconGlyph } from '../../icon';
   styleUrls: ['./sidenav-layout.component.scss'],
 })
 export class SidenavLayoutComponent implements OnInit, OnDestroy {
+  @ContentChild(SidenavLayoutContentComponent)
+  readonly contentComponent?: SidenavLayoutContentComponent;
+
   @ContentChild(SidenavLayoutTitleComponent)
   private readonly titleComponent?: SidenavLayoutTitleComponent;
   @ContentChild(SidenavLayoutSubtitleComponent)
   private readonly subtitleComponent?: SidenavLayoutSubtitleComponent;
   @ContentChild(SidenavLayoutActionsComponent)
   private readonly actionsComponent?: SidenavLayoutActionsComponent;
-  @ContentChild(SidenavLayoutContentComponent)
-  public readonly contentComponent?: SidenavLayoutContentComponent;
 
-  get isHeaderHidden(): boolean {
-    return (
-      !this.titleComponent && !this.subtitleComponent && !this.actionsComponent
-    );
-  }
-
-  protected readonly service = inject(SIDENAV_SERVICE);
-  private readonly sub$ = new Subscription();
   logoPath!: string;
   firstName!: string;
   lastName!: string;
@@ -45,6 +38,21 @@ export class SidenavLayoutComponent implements OnInit, OnDestroy {
   isHandset!: boolean;
   status!: boolean;
   icon: IconGlyph = 'bars';
+
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(map(({ matches }) => matches));
+
+  protected readonly service = inject(SIDENAV_LAYOUT_SERVICE);
+  private readonly sub$ = new Subscription();
+
+  constructor(private readonly breakpointObserver: BreakpointObserver) {}
+
+  get isHeaderHidden(): boolean {
+    return (
+      !this.titleComponent && !this.subtitleComponent && !this.actionsComponent
+    );
+  }
 
   ngOnInit(): void {
     this.sub$.add(
@@ -78,11 +86,6 @@ export class SidenavLayoutComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.sub$.unsubscribe();
   }
-
-  private readonly breakpointObserver = inject(BreakpointObserver);
-  readonly isHandset$: Observable<boolean> = this.breakpointObserver
-    .observe(Breakpoints.Handset)
-    .pipe(map(({ matches }) => matches));
 
   clickEvent(): void {
     this.status = !this.status;

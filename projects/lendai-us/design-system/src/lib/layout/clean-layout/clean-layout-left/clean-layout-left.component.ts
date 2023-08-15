@@ -16,12 +16,24 @@ import { CLEAN_LAYOUT_SERVICE } from '../clean-layout.service';
   styleUrls: ['./clean-layout-left.component.scss'],
 })
 export class CleanLayoutLeftComponent implements OnInit, OnDestroy {
-  protected readonly service = inject(CLEAN_LAYOUT_SERVICE);
-  private readonly sub$ = new Subscription();
-
   @Input() background!: string;
   @Input() title?: string;
   logoPath!: string;
+
+  readonly isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(map(({ matches }) => matches));
+
+  protected readonly service = inject(CLEAN_LAYOUT_SERVICE);
+
+  private readonly sub$ = new Subscription();
+
+  constructor(private readonly breakpointObserver: BreakpointObserver) {}
+
+  @HostBinding('style.background-image')
+  get backgroundImage(): string {
+    return `url(assets/images/${this.background})`;
+  }
 
   ngOnInit(): void {
     this.sub$.add(
@@ -31,15 +43,5 @@ export class CleanLayoutLeftComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.sub$.unsubscribe();
-  }
-
-  private readonly breakpointObserver = inject(BreakpointObserver);
-  readonly isHandset$: Observable<boolean> = this.breakpointObserver
-    .observe(Breakpoints.Handset)
-    .pipe(map(({ matches }) => matches));
-
-  @HostBinding('style.background-image')
-  get backgroundImage(): string {
-    return `url(assets/images/${this.background})`;
   }
 }

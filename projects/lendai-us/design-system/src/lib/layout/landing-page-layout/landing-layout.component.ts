@@ -9,7 +9,7 @@ import { LandingLayoutActionsComponent } from './landing-layout-actions/landing-
 import { LandingLayoutContentComponent } from './landing-layout-content/landing-layout-content.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable, Subscription, map } from 'rxjs';
-import { LANDING_PAGE_SERVICE } from './landing-layout.service';
+import { LANDING_LAYOUT_SERVICE } from './landing-layout.service';
 import { IconGlyph } from '../../icon';
 import { LandingLayoutFooterComponent } from './landing-layout-footer/landing-layout-footer.component';
 
@@ -19,23 +19,31 @@ import { LandingLayoutFooterComponent } from './landing-layout-footer/landing-la
   styleUrls: ['./landing-layout.component.scss'],
 })
 export class LandingLayoutComponent implements OnInit, OnDestroy {
-  @ContentChild(LandingLayoutActionsComponent)
-  private readonly actionsComponent?: LandingLayoutActionsComponent;
   @ContentChild(LandingLayoutContentComponent)
   public readonly contentComponent?: LandingLayoutContentComponent;
   @ContentChild(LandingLayoutFooterComponent)
   public readonly footerComponent?: LandingLayoutFooterComponent;
+  @ContentChild(LandingLayoutActionsComponent)
+  private readonly actionsComponent?: LandingLayoutActionsComponent;
 
-  get isHeaderHidden(): boolean {
-    return !this.actionsComponent;
-  }
-
-  protected readonly service = inject(LANDING_PAGE_SERVICE);
-  private readonly sub$ = new Subscription();
   logoPath!: string;
   isHandset!: boolean;
   status!: boolean;
   icon: IconGlyph = 'bars';
+
+  readonly isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(map(({ matches }) => matches));
+
+  protected readonly service = inject(LANDING_LAYOUT_SERVICE);
+
+  private readonly sub$ = new Subscription();
+
+  constructor(private readonly breakpointObserver: BreakpointObserver) {}
+
+  get isHeaderHidden(): boolean {
+    return !this.actionsComponent;
+  }
 
   ngOnInit(): void {
     this.sub$.add(
@@ -51,11 +59,6 @@ export class LandingLayoutComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.sub$.unsubscribe();
   }
-
-  private readonly breakpointObserver = inject(BreakpointObserver);
-  readonly isHandset$: Observable<boolean> = this.breakpointObserver
-    .observe(Breakpoints.Handset)
-    .pipe(map(({ matches }) => matches));
 
   clickEvent(): void {
     this.status = !this.status;

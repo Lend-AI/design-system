@@ -1,8 +1,8 @@
 import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
 import {
-  LANDING_PAGE_SERVICE,
-  LandingPageCategory,
-  LandingPageService,
+  LANDING_LAYOUT_SERVICE,
+  LandingLayoutCategory,
+  LandingLayoutService,
 } from './landing-layout.service';
 import { of } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -10,7 +10,7 @@ import { ButtonComponent } from '../../button';
 import { LandingLayoutModule } from './landing-layout.module';
 import { LandingLayoutComponent } from './landing-layout.component';
 
-const landingPageItems: LandingPageCategory[] = [
+const landingPageItems: LandingLayoutCategory[] = [
   {
     icon: 'briefcase',
     route: '/#loan-programs',
@@ -27,10 +27,10 @@ const landingPageItems: LandingPageCategory[] = [
     title: 'How Does It Works?',
   },
 ];
-class DummyService implements LandingPageService {
+class DummyService implements LandingLayoutService {
   logoPath$ = of('/assets/images/logo/light.svg');
   logOutText$ = of('Log Out');
-  landingPageCategories$ = of(landingPageItems);
+  landingLayoutCategories$ = of(landingPageItems);
   async accountCallBack(): Promise<void> {
     console.log('account call back');
   }
@@ -50,7 +50,7 @@ const meta: Meta<LandingLayoutComponent> = {
       imports: [LandingLayoutModule, ButtonComponent, RouterTestingModule],
       providers: [
         {
-          provide: LANDING_PAGE_SERVICE,
+          provide: LANDING_LAYOUT_SERVICE,
           useClass: DummyService,
         },
       ],

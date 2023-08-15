@@ -75,6 +75,15 @@ export class PhoneInputComponent
   @Input() isReadonly = false;
   @Input() isRequired = false;
 
+  @ViewChild('input', { static: true })
+  private readonly inputRef!: ElementRef<HTMLInputElement>;
+  @ViewChild(NgModel, { static: true })
+  private readonly ngModel!: NgModel;
+
+  onChange!: (value: unknown) => void;
+  onTouched!: () => void;
+  onValidatorChange!: () => void;
+
   protected readonly countries = inject(COUNTRY_LIST);
   // template binding is via template driven forms and not via render.setProperty,
   // because of ngx-mask, that is overriding inner input value and resets it in case it is default to 1
@@ -85,17 +94,8 @@ export class PhoneInputComponent
   protected readonly mask =
     '0 000 000 00 00||000 00 000 0000||00 0 00 0000 0000';
 
-  // private readonly parent = inject(NgControl, { self: true, optional: true });
-  @ViewChild('input', { static: true })
-  private readonly inputRef!: ElementRef<HTMLInputElement>;
-  @ViewChild(NgModel, { static: true })
-  private readonly ngModel!: NgModel;
   private readonly externalFormat: NumberFormat = 'E.164';
   private readonly sub$ = new Subscription();
-
-  onChange!: (value: unknown) => void;
-  onTouched!: () => void;
-  onValidatorChange!: () => void;
 
   ngOnInit(): void {
     this.sub$.add(

@@ -22,8 +22,6 @@ import { TAB_GROUP, TabGroup } from '../tab-group/tab-group';
   styleUrls: ['./tab-label.component.scss'],
 })
 export class TabLabelComponent {
-  parent: TabGroup = inject(TAB_GROUP);
-
   @HostBinding('class.selected')
   @Input()
   selected = false;
@@ -33,13 +31,7 @@ export class TabLabelComponent {
   @Output() selectedChange = new EventEmitter<void>();
   @Output() remove = new EventEmitter<void>();
 
-  get bodyLevel(): BodyLevel {
-    return TAB_GROUP_SIZE_TO_BODY_LEVEL[this.parent.size];
-  }
-
-  get iconSize(): IconSize {
-    return TAB_GROUP_SIZE_TO_ICON_SIZE[this.parent.size];
-  }
+  parent: TabGroup = inject(TAB_GROUP);
 
   @HostBinding('attr.disabled')
   get disabled(): boolean {
@@ -50,6 +42,14 @@ export class TabLabelComponent {
   @HostBinding('attr.tabindex')
   get tabIndex(): number {
     return this.disabled ? -1 : 0;
+  }
+
+  get bodyLevel(): BodyLevel {
+    return TAB_GROUP_SIZE_TO_BODY_LEVEL[this.parent.size];
+  }
+
+  get iconSize(): IconSize {
+    return TAB_GROUP_SIZE_TO_ICON_SIZE[this.parent.size];
   }
 
   @HostListener('click')
