@@ -542,7 +542,7 @@
         },
         {
             "name": "BadgeComponent",
-            "id": "component-BadgeComponent-36900b54fecfd3fa8762f65f580d23aa62b19e89ee8855a3434047006fdda0e279db32467e647b7ec505a137b628d1ea72654ccb7197443fa1014d9043a710bb",
+            "id": "component-BadgeComponent-1ca0a2677b907c4e1ba10642902963d7abdef7541430e995d7e226844f19d2c56d0dd58af9a78f238284012fca82d99a837b78738c7e7c02cd4d903d780a011c",
             "file": "projects/lendai-us/design-system/src/lib/badge/badge.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -562,7 +562,7 @@
             "inputsClass": [
                 {
                     "name": "color",
-                    "defaultValue": "'info'",
+                    "defaultValue": "'blue'",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 15,
@@ -609,11 +609,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { CaptionComponent } from '../typography';\n\n@Component({\n  selector: 'lai-badge',\n  standalone: true,\n  imports: [CommonModule, CaptionComponent],\n  templateUrl: './badge.component.html',\n  styleUrls: ['./badge.component.scss'],\n})\nexport class BadgeComponent {\n  @HostBinding('attr.color')\n  @Input()\n  color: BadgeColor = 'info';\n\n  @HostBinding('attr.radius')\n  @Input()\n  radius: BadgeRadius = 'xs';\n\n  @HostBinding('attr.type')\n  @Input()\n  type: BadgeType = 'transparent';\n}\n\nexport type BadgeColor =\n  | 'primary'\n  | 'info'\n  | 'error'\n  | 'success'\n  | 'warning'\n  | 'gray'\n  | 'pink';\n\nexport type BadgeRadius = 'xs' | 'sm';\n\nexport type BadgeType = 'transparent' | 'solid';\n",
+            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { CaptionComponent } from '../typography';\n\n@Component({\n  selector: 'lai-badge',\n  standalone: true,\n  imports: [CommonModule, CaptionComponent],\n  templateUrl: './badge.component.html',\n  styleUrls: ['./badge.component.scss'],\n})\nexport class BadgeComponent {\n  @HostBinding('attr.color')\n  @Input()\n  color: BadgeColor = 'blue';\n\n  @HostBinding('attr.radius')\n  @Input()\n  radius: BadgeRadius = 'xs';\n\n  @HostBinding('attr.type')\n  @Input()\n  type: BadgeType = 'transparent';\n}\n\nexport type BadgeColor =\n  | 'purple'\n  | 'blue'\n  | 'red'\n  | 'green'\n  | 'orange'\n  | 'gray'\n  | 'pink';\n\nexport type BadgeRadius = 'xs' | 'sm';\n\nexport type BadgeType = 'transparent' | 'solid';\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'sass:map';\n@use 'color' as c;\n@use 'typography' as t;\n@use 'radius' as r;\n\n$radiuses: (\n  'xs': r.$xs,\n  'sm': r.$sm,\n);\n\n$colors: (\n  'info': (\n    'background': c.color('info', 100),\n    'foreground': c.color('info', 700),\n  ),\n  'primary': (\n    'background': c.color('primary', 100),\n    'foreground': c.color('primary', 700),\n  ),\n  'success': (\n    'background': c.color('success', 50),\n    'foreground': c.color('success', 700),\n  ),\n  'gray': (\n    'background': c.color('gray', 50),\n    'foreground': c.color('gray', 700),\n  ),\n  'warning': (\n    'background': c.color('warning', 100),\n    'foreground': c.color('warning', 700),\n  ),\n  'pink': (\n    'background': c.color('pink', 50),\n    'foreground': c.color('pink', 600),\n  ),\n  'error': (\n    'background': c.color('error', 100),\n    'foreground': c.color('error', 500),\n  ),\n);\n\n:host {\n  @include t.typography(t.$caption-md);\n  @include r.attributeToRadius($radiuses, 'radius');\n\n  display: inline-block;\n  padding: 4px 12px;\n\n  &[type='transparent'] {\n    @each $key, $value in $colors {\n      &[color='#{$key}'] {\n        background-color: map.get($value, 'background');\n        color: map.get($value, 'foreground');\n      }\n    }\n  }\n\n  &[type='solid'] {\n    @each $key, $value in $colors {\n      &[color='#{$key}'] {\n        background-color: c.color($key, 500);\n        color: c.$white;\n      }\n    }\n  }\n}\n",
+                    "data": "@use 'sass:map';\n@use 'color' as c;\n@use 'typography' as t;\n@use 'radius' as r;\n\n$radiuses: (\n  'xs': r.$xs,\n  'sm': r.$sm,\n);\n\n$colors: (\n  'blue': (\n    'background': c.color('info', 100),\n    'foreground': c.color('info', 700),\n  ),\n  'purple': (\n    'background': c.color('primary', 100),\n    'foreground': c.color('primary', 700),\n  ),\n  'green': (\n    'background': c.color('success', 50),\n    'foreground': c.color('success', 700),\n  ),\n  'gray': (\n    'background': c.color('gray', 50),\n    'foreground': c.color('gray', 700),\n  ),\n  'orange': (\n    'background': c.color('warning', 100),\n    'foreground': c.color('warning', 700),\n  ),\n  'pink': (\n    'background': c.color('pink', 50),\n    'foreground': c.color('pink', 600),\n  ),\n  'red': (\n    'background': c.color('error', 100),\n    'foreground': c.color('error', 500),\n  ),\n);\n\n:host {\n  @include t.typography(t.$caption-md);\n  @include r.attributeToRadius($radiuses, 'radius');\n\n  display: inline-block;\n  padding: 4px 12px;\n\n  &[type='transparent'] {\n    @each $key, $value in $colors {\n      &[color='#{$key}'] {\n        background-color: map.get($value, 'background');\n        color: map.get($value, 'foreground');\n      }\n    }\n  }\n\n  &[type='solid'] {\n    @each $key, $value in $colors {\n      &[color='#{$key}'] {\n        background-color: c.color($key, 500);\n        color: c.$white;\n      }\n    }\n  }\n}\n",
                     "styleUrl": "./badge.component.scss"
                 }
             ],
@@ -6652,7 +6652,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    radius: 'xs',\n    color: 'info',\n    type: 'transparent',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    radius: 'xs',\n    color: 'blue',\n    type: 'transparent',\n  },\n}"
             },
             {
                 "name": "Body",
@@ -7088,6 +7088,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<BadgeComponent>",
+                "defaultValue": "{\n  title: 'WIP/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: [\n        'primary',\n        'info',\n        'error',\n        'success',\n        'warning',\n        'gray',\n        'pink',\n      ],\n      control: { type: 'select' },\n    },\n    radius: {\n      options: ['xs', 'sm'],\n      control: { type: 'select' },\n    },\n    type: {\n      options: ['transparent', 'solid'],\n      control: { type: 'select' },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -7103,16 +7113,6 @@
                 "deprecationMessage": "",
                 "type": "Meta<CardComponent>",
                 "defaultValue": "{\n  title: 'WIP/Card',\n  component: CardComponent,\n  decorators: [\n    componentWrapperDecorator(story => {\n      return `<style>\n          lai-card {\n            width: 100px;\n            height: 100px;\n          }\n        </style>\n        ${story}`;\n    }),\n  ],\n  argTypes: {\n    radius: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n    size: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<BadgeComponent>",
-                "defaultValue": "{\n  title: 'WIP/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: [\n        'primary',\n        'info',\n        'error',\n        'success',\n        'warning',\n        'gray',\n        'pink',\n      ],\n      control: { type: 'select' },\n    },\n    radius: {\n      options: ['xs', 'sm'],\n      control: { type: 'select' },\n    },\n    type: {\n      options: ['transparent', 'solid'],\n      control: { type: 'select' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -7640,7 +7640,7 @@
                 "name": "BadgeColor",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "\"primary\" | \"info\" | \"error\" | \"success\" | \"warning\" | \"gray\" | \"pink\"",
+                "rawtype": "\"purple\" | \"blue\" | \"red\" | \"green\" | \"orange\" | \"gray\" | \"pink\"",
                 "file": "projects/lendai-us/design-system/src/lib/badge/badge.component.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -7926,6 +7926,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<BadgeComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<AvatarComponent>",
                 "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                 "deprecated": false,
@@ -7939,17 +7950,6 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<CardComponent>",
                 "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<BadgeComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -8334,7 +8334,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    radius: 'xs',\n    color: 'info',\n    type: 'transparent',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    radius: 'xs',\n    color: 'blue',\n    type: 'transparent',\n  },\n}"
                 },
                 {
                     "name": "meta",
@@ -9293,7 +9293,7 @@
                     "name": "BadgeColor",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "\"primary\" | \"info\" | \"error\" | \"success\" | \"warning\" | \"gray\" | \"pink\"",
+                    "rawtype": "\"purple\" | \"blue\" | \"red\" | \"green\" | \"orange\" | \"gray\" | \"pink\"",
                     "file": "projects/lendai-us/design-system/src/lib/badge/badge.component.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
@@ -9604,6 +9604,19 @@
                     "kind": 198
                 }
             ],
+            "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<BadgeComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
             "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
                 {
                     "name": "Story",
@@ -9624,19 +9637,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<CardComponent>",
                     "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<BadgeComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",

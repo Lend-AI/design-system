@@ -2,40 +2,32 @@
 @use 'theme' as t;
 @use 'color' as c;
 @use 'sass:map';
-@import 'theme.scss';
-@import '@angular/material/theming';
 
-@include mat-core();
-@include mat.all-component-typographies();
-@include mat.core();
-
-$config: (
-    'primary': c.$prebuilt-purple,
-    'info': c.$prebuilt-blue,
-    'error': c.$prebuilt-red,
-    'success': c.$prebuilt-aqua,
-    'warning': c.$prebuilt-orange,
-    'gray': c.$prebuilt-gray,
+$design-system-theme: (
+  'primary': c.$prebuilt-purple,
+  'info': c.$prebuilt-blue,
+  'error': c.$prebuilt-red,
+  'success': c.$prebuilt-aqua,
+  'warning': c.$prebuilt-orange,
+  'gray': c.$prebuilt-gray,
 );
 
-$primary-color: map.get($config, 'primary', 500);
-$primary-palette: createPalette($primary-color);
+:root {
+  @include c.applyTheme($design-system-theme);
+}
 
-$warn: mat-palette($mat-red);
-$primary: mat-palette($primary-palette);
-
-$lai-theme: mat.define-light-theme(
+$mat-primary: t.createPalette(map.get(c.$prebuilt-purple, 500));
+$mat-warn: t.createPalette(map.get(c.$prebuilt-red, 500));
+$mat-theme: mat.define-light-theme(
   (
     color: (
-      primary: mat.define-palette($primary),
-      accent: mat.define-palette($primary),
-      warn: mat.define-palette($warn),
+      primary: mat.define-palette($mat-primary),
+      accent: mat.define-palette($mat-primary),
+      warn: mat.define-palette($mat-warn),
     ),
   )
 );
 
-@include angular-material-theme($lai-theme);
-
-:root {
-    @include c.applyTheme($config);
-}
+@include mat.all-component-themes($mat-theme);
+@include mat.all-component-typographies();
+@include mat.core();
