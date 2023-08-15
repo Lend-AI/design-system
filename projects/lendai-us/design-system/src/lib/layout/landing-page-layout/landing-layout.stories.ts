@@ -3,12 +3,12 @@ import {
   LANDING_PAGE_SERVICE,
   LandingPageCategory,
   LandingPageService,
-} from './landing-page-layout-service';
+} from './landing-layout.service';
 import { of } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ButtonComponent } from '../../button';
-import { LandingPageLayoutModule } from './landing-page-layout.module';
-import { LandingPageLayoutComponent } from './landing-page-layout.component';
+import { LandingLayoutModule } from './landing-layout.module';
+import { LandingLayoutComponent } from './landing-layout.component';
 
 const landingPageItems: LandingPageCategory[] = [
   {
@@ -39,15 +39,15 @@ class DummyService implements LandingPageService {
   }
 }
 
-const meta: Meta<LandingPageLayoutComponent> = {
-  title: 'Templates/LandingPageLayout',
+const meta: Meta<LandingLayoutComponent> = {
+  title: 'Templates/LandingLayout',
   parameters: {
     layout: 'fullscreen',
   },
-  component: LandingPageLayoutComponent,
+  component: LandingLayoutComponent,
   decorators: [
     moduleMetadata({
-      imports: [LandingPageLayoutModule, ButtonComponent, RouterTestingModule],
+      imports: [LandingLayoutModule, ButtonComponent, RouterTestingModule],
       providers: [
         {
           provide: LANDING_PAGE_SERVICE,
@@ -59,25 +59,25 @@ const meta: Meta<LandingPageLayoutComponent> = {
 };
 export default meta;
 
-type Story = StoryObj<LandingPageLayoutComponent>;
+type Story = StoryObj<LandingLayoutComponent>;
 
-export const LandingPageLayout: Story = {
+export const LandingLayout: Story = {
   render: props => ({
     props,
     template: `
-    <lai-landing-page-layout>
-      <lai-landing-page-layout-actions>
+    <lai-landing-layout>
+      <lai-landing-layout-actions>
         <button laiButton>
           "Lang-switcher"
         </button>
         <button laiButton class="apply">
           Apply Now
         </button>
-      </lai-landing-page-layout-actions>
-      <lai-landing-page-layout-content>
+      </lai-landing-layout-actions>
+      <lai-landing-layout-content>
         <div style="height: 500px;">Some content</div>
-      </lai-landing-page-layout-content>
-    </lai-landing-page-layout>
+      </lai-landing-layout-content>
+    </lai-landing-layout>
   `,
   }),
 };

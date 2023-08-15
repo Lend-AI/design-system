@@ -2,21 +2,21 @@ import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import {
   LANDING_PAGE_SERVICE,
   LandingPageCategory,
-} from '../landing-page-layout-service';
+} from '../landing-layout.service';
 import { map, Observable, Subscription } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
-  selector: 'lai-landing-page-layout-categories',
-  templateUrl: './landing-page-layout-categories.component.html',
-  styleUrls: ['./landing-page-layout-categories.component.scss'],
+  selector: 'lai-landing-layout-categories',
+  templateUrl: './landing-layout-categories.component.html',
+  styleUrls: ['./landing-layout-categories.component.scss'],
 })
-export class LandingPageLayoutCategoriesComponent implements OnInit, OnDestroy {
+export class LandingLayoutCategoriesComponent implements OnInit, OnDestroy {
   private readonly service = inject(LANDING_PAGE_SERVICE);
   private readonly sub$ = new Subscription();
 
   landingPageCategories: LandingPageCategory[] = [];
-  isHandset!: boolean;
+
   status!: boolean;
 
   ngOnInit(): void {

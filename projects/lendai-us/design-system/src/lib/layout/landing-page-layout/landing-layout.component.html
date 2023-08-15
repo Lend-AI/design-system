@@ -13,10 +13,10 @@
   </div>
 
   <div class="nav-menu" *ngIf="status">
-    <lai-landing-page-layout-categories class="categories"></lai-landing-page-layout-categories>
+    <lai-landing-layout-categories class="categories"></lai-landing-layout-categories>
     <div class="actions">
       <lai-button-bar>
-        <ng-content select="lai-landing-page-layout-actions"></ng-content>
+        <ng-content select="lai-landing-layout-actions"></ng-content>
       </lai-button-bar>
     </div>
   </div>
@@ -24,7 +24,7 @@
 
 <div class="main">
   <ng-container *ngIf="contentComponent; else simpleContent">
-    <ng-content select="lai-landing-page-layout-content"></ng-content>
+    <ng-content select="lai-landing-layout-content"></ng-content>
   </ng-container>
 
   <ng-template #simpleContent>
@@ -33,5 +33,5 @@
 </div>
 
 <div class="footer">
-    <lai-landing-page-layout-footer></lai-landing-page-layout-footer>
+    <lai-landing-layout-footer></lai-landing-layout-footer>
 </div>

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LandingPageLayoutComponent } from './landing-page-layout.component';
+import { LandingPageLayoutComponent } from './landing-layout.component';
 
 describe('DefaultLayoutComponent', () => {
   let component: LandingPageLayoutComponent;

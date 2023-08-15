@@ -1,8 +1,8 @@
-export * from './landing-page-layout-actions/landing-page-layout-actions.component';
-export * from './landing-page-layout-categories/landing-page-layout-categories.component';
-export * from './landing-page-layout-content/landing-page-layout-content.component';
-export * from './landing-page-layout-footer/landing-page-layout-footer.component';
+export * from './landing-layout-actions/landing-layout-actions.component';
+export * from './landing-layout-categories/landing-layout-categories.component';
+export * from './landing-layout-content/landing-layout-content.component';
+export * from './landing-layout-footer/landing-layout-footer.component';
 
-export * from './landing-page-layout-service';
-export * from './landing-page-layout.component';
-export * from './landing-page-layout.module';
+export * from './landing-layout.service';
+export * from './landing-layout.component';
+export * from './landing-layout.module';

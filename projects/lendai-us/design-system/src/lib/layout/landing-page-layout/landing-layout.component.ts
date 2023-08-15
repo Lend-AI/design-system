@@ -5,26 +5,26 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { LandingPageLayoutActionsComponent } from './landing-page-layout-actions/landing-page-layout-actions.component';
-import { LandingPageLayoutContentComponent } from './landing-page-layout-content/landing-page-layout-content.component';
+import { LandingLayoutActionsComponent } from './landing-layout-actions/landing-layout-actions.component';
+import { LandingLayoutContentComponent } from './landing-layout-content/landing-layout-content.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable, Subscription, map } from 'rxjs';
-import { LANDING_PAGE_SERVICE } from './landing-page-layout-service';
+import { LANDING_PAGE_SERVICE } from './landing-layout.service';
 import { IconGlyph } from '../../icon';
-import { LandingPageLayoutFooterComponent } from './landing-page-layout-footer/landing-page-layout-footer.component';
+import { LandingLayoutFooterComponent } from './landing-layout-footer/landing-layout-footer.component';
 
 @Component({
-  selector: 'lai-landing-page-layout',
-  templateUrl: './landing-page-layout.component.html',
-  styleUrls: ['./landing-page-layout.component.scss'],
+  selector: 'lai-landing-layout',
+  templateUrl: './landing-layout.component.html',
+  styleUrls: ['./landing-layout.component.scss'],
 })
-export class LandingPageLayoutComponent implements OnInit, OnDestroy {
-  @ContentChild(LandingPageLayoutActionsComponent)
-  private readonly actionsComponent?: LandingPageLayoutActionsComponent;
-  @ContentChild(LandingPageLayoutContentComponent)
-  public readonly contentComponent?: LandingPageLayoutContentComponent;
-  @ContentChild(LandingPageLayoutFooterComponent)
-  public readonly footerComponent?: LandingPageLayoutFooterComponent;
+export class LandingLayoutComponent implements OnInit, OnDestroy {
+  @ContentChild(LandingLayoutActionsComponent)
+  private readonly actionsComponent?: LandingLayoutActionsComponent;
+  @ContentChild(LandingLayoutContentComponent)
+  public readonly contentComponent?: LandingLayoutContentComponent;
+  @ContentChild(LandingLayoutFooterComponent)
+  public readonly footerComponent?: LandingLayoutFooterComponent;
 
   get isHeaderHidden(): boolean {
     return !this.actionsComponent;
