@@ -46,6 +46,9 @@ export const ICON_GLYPHS = [
   'expand-arrow',
   'reset',
   'bars',
+  'help',
+  'briefcase',
+  'wallet',
 ] as const;
 export type IconGlyph = (typeof ICON_GLYPHS)[number];
 

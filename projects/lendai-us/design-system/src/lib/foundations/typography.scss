@@ -21,8 +21,13 @@
 @mixin typography($typography) {
   font-family: Poppins;
   font-style: normal;
-  font-size: map.get($typography, 'font-size');
-  line-height: map.get($typography, 'line-height');
+  font-size: map.get($typography, 'desktop', 'font-size');
+  line-height: map.get($typography, 'desktop', 'line-height');
+  
+  @include b.mobile {
+    font-size: map.get($typography, 'mobile', 'font-size');
+    line-height: map.get($typography, 'mobile', 'line-height');
+  }
 }
 
 $display-1: (

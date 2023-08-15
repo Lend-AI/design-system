@@ -1,0 +1,37 @@
+<div
+  class="nav"
+  *laiLet="isHandset$ | async as isHandset"
+  [class.open]="status">
+
+  <div class="header">
+    <lai-logo class="logo" [logoPath]="logoPath" routerLink="/"></lai-logo>
+    <lai-icon
+    *ngIf="isHandset"
+    [glyph]="icon"
+    size="sm"
+    (click)="clickEvent()"></lai-icon>
+  </div>
+
+  <div class="nav-menu" *ngIf="status">
+    <lai-landing-layout-categories class="categories"></lai-landing-layout-categories>
+    <div class="actions">
+      <lai-button-bar>
+        <ng-content select="lai-landing-layout-actions"></ng-content>
+      </lai-button-bar>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+  <ng-container *ngIf="contentComponent; else simpleContent">
+    <ng-content select="lai-landing-layout-content"></ng-content>
+  </ng-container>
+
+  <ng-template #simpleContent>
+    <ng-content></ng-content>
+  </ng-template>
+</div>
+
+<div class="footer">
+    <lai-landing-layout-footer></lai-landing-layout-footer>
+</div>

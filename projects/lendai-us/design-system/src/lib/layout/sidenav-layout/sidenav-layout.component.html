@@ -3,7 +3,7 @@
   *laiLet="isHandset$ | async as isHandset"
   [class.open]="status">
   <div class="header">
-    <lai-logo class="logo" routerLink="/"></lai-logo>
+    <lai-logo class="logo" [logoPath]="logoPath" routerLink="/"></lai-logo>
     <lai-icon
       *ngIf="isHandset"
       [glyph]="icon"

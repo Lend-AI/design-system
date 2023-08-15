@@ -2,6 +2,29 @@
     "pipes": [],
     "interfaces": [
         {
+            "name": "CleanLayoutService",
+            "id": "interface-CleanLayoutService-228a78eaddb81eeb8e8ff174ddfaa7ca829244704490f24a1f540b983015a900b4bff69464e42fdc7372fc3a7d57888286a32a71682b5df28d3b005a4b990540",
+            "file": "projects/lendai-us/design-system/src/lib/layout/clean-layout/clean-layout.service.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\n\nexport interface CleanLayoutService {\n  logoPath$: Observable<string>;\n}\n\nexport const CLEAN_LAYOUT_SERVICE = new InjectionToken<CleanLayoutService>(\n  `_CLEAN_LAYOUT_SERVICE`\n);\n",
+            "properties": [
+                {
+                    "name": "logoPath$",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Observable<string>",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 168,
+            "methods": []
+        },
+        {
             "name": "Country",
             "id": "interface-Country-71dd3d34c874b72c35ef7cbb88baa5d180cec494901f8a77fb39f0eb3fccfd1978c3370b6cac9db26448848b6daf7a197463b969915720bb5b559c0c1a591c79",
             "file": "projects/lendai-us/design-system/src/lib/country-select/country-select.component.ts",
@@ -184,13 +207,116 @@
             "methods": []
         },
         {
-            "name": "SidenavCategory",
-            "id": "interface-SidenavCategory-9ada4214d13b8cbcba6865b1798d767891ed57b0174fcac9272dc0a060dbcf4bfba45e999d6dc48a73905b3023513dc76f814092e578e8707fa48f565688e799",
+            "name": "LandingLayoutCategory",
+            "id": "interface-LandingLayoutCategory-615f2eaaaf926061acb49e3f76a86aa4a1a03fcac6fca2b0a8460d9a0673d2fdcb2abe8b96b73c6d1e9769dcb0997d1450927bb52dec485def7fb660bdaba19c",
+            "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.service.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { IconGlyph } from '../../icon';\n\nexport interface LandingLayoutCategory {\n  icon: IconGlyph;\n  title: string;\n  route: string;\n}\n\nexport interface LandingLayoutService {\n  logoPath$: Observable<string>;\n  logOutText$: Observable<string>;\n  landingLayoutCategories$: Observable<LandingLayoutCategory[]>;\n  accountCallBack(): Promise<void>;\n  logoutCallBack(): Promise<void>;\n}\n\nexport const LANDING_LAYOUT_SERVICE = new InjectionToken<LandingLayoutService>(\n  `_LANDING_LAYOUT_SERVICE`\n);\n",
+            "properties": [
+                {
+                    "name": "icon",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "IconGlyph",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "route",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 8
+                },
+                {
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 168,
+            "methods": []
+        },
+        {
+            "name": "LandingLayoutService",
+            "id": "interface-LandingLayoutService-615f2eaaaf926061acb49e3f76a86aa4a1a03fcac6fca2b0a8460d9a0673d2fdcb2abe8b96b73c6d1e9769dcb0997d1450927bb52dec485def7fb660bdaba19c",
+            "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.service.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { IconGlyph } from '../../icon';\n\nexport interface LandingLayoutCategory {\n  icon: IconGlyph;\n  title: string;\n  route: string;\n}\n\nexport interface LandingLayoutService {\n  logoPath$: Observable<string>;\n  logOutText$: Observable<string>;\n  landingLayoutCategories$: Observable<LandingLayoutCategory[]>;\n  accountCallBack(): Promise<void>;\n  logoutCallBack(): Promise<void>;\n}\n\nexport const LANDING_LAYOUT_SERVICE = new InjectionToken<LandingLayoutService>(\n  `_LANDING_LAYOUT_SERVICE`\n);\n",
+            "properties": [
+                {
+                    "name": "landingLayoutCategories$",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Observable<LandingLayoutCategory[]>",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                },
+                {
+                    "name": "logoPath$",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Observable<string>",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
+                },
+                {
+                    "name": "logOutText$",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Observable<string>",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 170,
+            "methods": [
+                {
+                    "name": "accountCallBack",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<void>",
+                    "typeParameters": [],
+                    "line": 15,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "logoutCallBack",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<void>",
+                    "typeParameters": [],
+                    "line": 16,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ]
+        },
+        {
+            "name": "SidenavLayoutCategory",
+            "id": "interface-SidenavLayoutCategory-0470d2b23e10c76a9d12d93ba943557eb9ad06011f345cd5476602b4e1198704080bebb9ecbbb8e447f8a1ab0527d5589b617c69ad36991f4426cfba1837c749",
             "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.service.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { IconGlyph } from '../../icon';\n\nexport interface SidenavCategory {\n  icon: IconGlyph;\n  title: string;\n  route: string;\n}\n\nexport interface SidenavLayoutService {\n  firstName$: Observable<string>;\n  lastName$: Observable<string>;\n  accountInfo$: Observable<string>;\n  logOutText$: Observable<string>;\n  sidenavCategories$: Observable<SidenavCategory[]>;\n  accountCallBack(): Promise<void>;\n  logoutCallBack(): Promise<void>;\n}\n\nexport const SIDENAV_LAYOUT_SERVICE = new InjectionToken<SidenavLayoutService>(\n  `_SIDENAV_LAYOUT_SERVICE`\n);\n",
+            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { IconGlyph } from '../../icon';\n\nexport interface SidenavLayoutCategory {\n  icon: IconGlyph;\n  title: string;\n  route: string;\n}\n\nexport interface SidenavLayoutService {\n  logoPath$: Observable<string>;\n  firstName$: Observable<string>;\n  lastName$: Observable<string>;\n  accountInfo$: Observable<string>;\n  logOutText$: Observable<string>;\n  sidenavCategories$: Observable<SidenavLayoutCategory[]>;\n  accountCallBack(): Promise<void>;\n  logoutCallBack(): Promise<void>;\n}\n\nexport const SIDENAV_LAYOUT_SERVICE = new InjectionToken<SidenavLayoutService>(\n  `_SIDENAV_LAYOUT_SERVICE`\n);\n",
             "properties": [
                 {
                     "name": "icon",
@@ -226,12 +352,12 @@
         },
         {
             "name": "SidenavLayoutService",
-            "id": "interface-SidenavLayoutService-9ada4214d13b8cbcba6865b1798d767891ed57b0174fcac9272dc0a060dbcf4bfba45e999d6dc48a73905b3023513dc76f814092e578e8707fa48f565688e799",
+            "id": "interface-SidenavLayoutService-0470d2b23e10c76a9d12d93ba943557eb9ad06011f345cd5476602b4e1198704080bebb9ecbbb8e447f8a1ab0527d5589b617c69ad36991f4426cfba1837c749",
             "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.service.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { IconGlyph } from '../../icon';\n\nexport interface SidenavCategory {\n  icon: IconGlyph;\n  title: string;\n  route: string;\n}\n\nexport interface SidenavLayoutService {\n  firstName$: Observable<string>;\n  lastName$: Observable<string>;\n  accountInfo$: Observable<string>;\n  logOutText$: Observable<string>;\n  sidenavCategories$: Observable<SidenavCategory[]>;\n  accountCallBack(): Promise<void>;\n  logoutCallBack(): Promise<void>;\n}\n\nexport const SIDENAV_LAYOUT_SERVICE = new InjectionToken<SidenavLayoutService>(\n  `_SIDENAV_LAYOUT_SERVICE`\n);\n",
+            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { IconGlyph } from '../../icon';\n\nexport interface SidenavLayoutCategory {\n  icon: IconGlyph;\n  title: string;\n  route: string;\n}\n\nexport interface SidenavLayoutService {\n  logoPath$: Observable<string>;\n  firstName$: Observable<string>;\n  lastName$: Observable<string>;\n  accountInfo$: Observable<string>;\n  logOutText$: Observable<string>;\n  sidenavCategories$: Observable<SidenavLayoutCategory[]>;\n  accountCallBack(): Promise<void>;\n  logoutCallBack(): Promise<void>;\n}\n\nexport const SIDENAV_LAYOUT_SERVICE = new InjectionToken<SidenavLayoutService>(\n  `_SIDENAV_LAYOUT_SERVICE`\n);\n",
             "properties": [
                 {
                     "name": "accountInfo$",
@@ -240,7 +366,7 @@
                     "type": "Observable<string>",
                     "optional": false,
                     "description": "",
-                    "line": 14
+                    "line": 15
                 },
                 {
                     "name": "firstName$",
@@ -249,7 +375,7 @@
                     "type": "Observable<string>",
                     "optional": false,
                     "description": "",
-                    "line": 12
+                    "line": 13
                 },
                 {
                     "name": "lastName$",
@@ -258,7 +384,16 @@
                     "type": "Observable<string>",
                     "optional": false,
                     "description": "",
-                    "line": 13
+                    "line": 14
+                },
+                {
+                    "name": "logoPath$",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Observable<string>",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
                 },
                 {
                     "name": "logOutText$",
@@ -267,16 +402,16 @@
                     "type": "Observable<string>",
                     "optional": false,
                     "description": "",
-                    "line": 15
+                    "line": 16
                 },
                 {
                     "name": "sidenavCategories$",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Observable<SidenavCategory[]>",
+                    "type": "Observable<SidenavLayoutCategory[]>",
                     "optional": false,
                     "description": "",
-                    "line": 16
+                    "line": 17
                 }
             ],
             "indexSignatures": [],
@@ -288,7 +423,7 @@
                     "optional": false,
                     "returnType": "Promise<void>",
                     "typeParameters": [],
-                    "line": 17,
+                    "line": 18,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -298,7 +433,7 @@
                     "optional": false,
                     "returnType": "Promise<void>",
                     "typeParameters": [],
-                    "line": 18,
+                    "line": 19,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -360,16 +495,46 @@
     "classes": [
         {
             "name": "DummyService",
-            "id": "class-DummyService-828e287420ead60d4f9c7e129f93305a0c0f47bf148fdcf2182ac70fbcc456b2c58feb47c2a56c1124d646f1febe923745468171153ceb8e2475c348cc0f86f6",
-            "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts",
+            "id": "class-DummyService-899bac6fc6980be51e70ac0fdd26275f52c0f3851ae382997a0b6a60368dfc9c3234ce023042107cf674135c3aadc5413f845541d66dc0c3353e998957d1fdc6",
+            "file": "projects/lendai-us/design-system/src/lib/layout/clean-layout/clean-layout.stories.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';\nimport { SidenavLayoutModule } from './sidenav-layout.module';\nimport {\n  SIDENAV_LAYOUT_SERVICE,\n  SidenavCategory,\n  SidenavLayoutService,\n} from './sidenav-layout.service';\nimport { SidenavLayoutComponent } from './sidenav-layout.component';\nimport { of } from 'rxjs';\nimport { RouterTestingModule } from '@angular/router/testing';\nimport { ButtonComponent } from '../../button';\n\nconst sidenavItems: SidenavCategory[] = [\n  {\n    icon: 'dashboard',\n    route: '/dashboard',\n    title: 'Dashboard',\n  },\n  {\n    icon: 'loan-applications',\n    route: '/loan-applications',\n    title: 'Loan Applications',\n  },\n  {\n    icon: 'loan-policy',\n    route: '/loan-policy',\n    title: 'Loan Policy',\n  },\n];\nclass DummyService implements SidenavLayoutService {\n  firstName$ = of('nof');\n  lastName$ = of('sh');\n  accountInfo$ = of('View profile');\n  logOutText$ = of('Log Out');\n  sidenavCategories$ = of(sidenavItems);\n  async accountCallBack(): Promise<void> {\n    console.log('account call back');\n  }\n  async logoutCallBack(): Promise<void> {\n    console.log('logout call back');\n  }\n}\n\nconst meta: Meta<SidenavLayoutComponent> = {\n  title: 'Templates/SidenavLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: SidenavLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [SidenavLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: SIDENAV_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n};\nexport default meta;\n\ntype Story = StoryObj<SidenavLayoutComponent>;\n\nexport const SidenavLayout: Story = {\n  render: props => ({\n    props,\n    template: `\n    <lai-sidenav-layout>\n      <lai-sidenav-layout-avatar initials=\"NS\"></lai-sidenav-layout-avatar>\n      <lai-sidenav-layout-title>Header Title</lai-sidenav-layout-title>\n      <lai-sidenav-layout-subtitle>Header Subtitle</lai-sidenav-layout-subtitle>\n      <lai-sidenav-layout-actions>\n        <button laiButton>\n          New Application\n        </button>\n      </lai-sidenav-layout-actions>\n      <lai-sidenav-layout-content>\n        <div style=\"height: 500px;\">Some content</div>\n      </lai-sidenav-layout-content>\n    </lai-sidenav-layout>\n  `,\n  }),\n};\n",
+            "sourceCode": "import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';\nimport { RouterTestingModule } from '@angular/router/testing';\nimport { CleanLayoutComponent } from './clean-layout.component';\nimport { CleanLayoutModule } from './clean-layout.module';\nimport { BodyComponent } from '../../typography';\nimport {\n  CLEAN_LAYOUT_SERVICE,\n  CleanLayoutService,\n} from './clean-layout.service';\nimport { of } from 'rxjs';\n\nclass DummyService implements CleanLayoutService {\n  logoPath$ = of('/assets/images/logo/dark.svg');\n}\n\nconst meta: Meta<CleanLayoutComponent> = {\n  title: 'Templates/CleanLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: CleanLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CleanLayoutModule, RouterTestingModule, BodyComponent],\n      providers: [\n        {\n          provide: CLEAN_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n};\nexport default meta;\ntype Story = StoryObj<CleanLayoutComponent>;\n\nexport const CleanLayout: Story = {\n  args: {\n    title: 'Your title',\n    backgroundImage: 'auth-background.png',\n  },\n  render: props => ({\n    props,\n    template: `\n    <lai-clean-layout>\n      <lai-clean-layout-left [background]=\"backgroundImage\" [title]=\"title\">\n        <lai-body level=\"sm\" style=\"color: white\">\n          Your slogan goes here!\n        </lai-body>\n      </lai-clean-layout-left>\n      <lai-clean-layout-right>\n        Your content goes here!\n      </lai-clean-layout-right>\n    </lai-clean-layout>\n  `,\n  }),\n};\n",
             "properties": [
                 {
-                    "name": "accountInfo$",
-                    "defaultValue": "of('View profile')",
+                    "name": "logoPath$",
+                    "defaultValue": "of('/assets/images/logo/dark.svg')",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "implements": [
+                "CleanLayoutService"
+            ]
+        },
+        {
+            "name": "DummyService",
+            "id": "class-DummyService-97d16e82bca6113229d46050dd4388eddcb1941f13c307129ab55e4476300fa2e378b2a6ecefe5d23562b14f36248b37fc7693d47b9630bf5df5e83433dbf870-1",
+            "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';\nimport {\n  LANDING_LAYOUT_SERVICE,\n  LandingLayoutCategory,\n  LandingLayoutService,\n} from './landing-layout.service';\nimport { of } from 'rxjs';\nimport { RouterTestingModule } from '@angular/router/testing';\nimport { ButtonComponent } from '../../button';\nimport { LandingLayoutModule } from './landing-layout.module';\nimport { LandingLayoutComponent } from './landing-layout.component';\n\nconst landingPageItems: LandingLayoutCategory[] = [\n  {\n    icon: 'briefcase',\n    route: '/#loan-programs',\n    title: 'Loan Programs',\n  },\n  {\n    icon: 'wallet',\n    route: '/#why',\n    title: 'Why Finance?',\n  },\n  {\n    icon: 'help',\n    route: '/#how',\n    title: 'How Does It Works?',\n  },\n];\nclass DummyService implements LandingLayoutService {\n  logoPath$ = of('/assets/images/logo/light.svg');\n  logOutText$ = of('Log Out');\n  landingLayoutCategories$ = of(landingPageItems);\n  async accountCallBack(): Promise<void> {\n    console.log('account call back');\n  }\n  async logoutCallBack(): Promise<void> {\n    console.log('logout call back');\n  }\n}\n\nconst meta: Meta<LandingLayoutComponent> = {\n  title: 'Templates/LandingLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: LandingLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [LandingLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: LANDING_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n};\nexport default meta;\n\ntype Story = StoryObj<LandingLayoutComponent>;\n\nexport const LandingLayout: Story = {\n  render: props => ({\n    props,\n    template: `\n    <lai-landing-layout>\n      <lai-landing-layout-actions>\n        <button laiButton>\n          \"Lang-switcher\"\n        </button>\n        <button laiButton class=\"apply\">\n          Apply Now\n        </button>\n      </lai-landing-layout-actions>\n      <lai-landing-layout-content>\n        <div style=\"height: 500px;\">Some content</div>\n      </lai-landing-layout-content>\n    </lai-landing-layout>\n  `,\n  }),\n};\n",
+            "properties": [
+                {
+                    "name": "landingLayoutCategories$",
+                    "defaultValue": "of(landingPageItems)",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -378,24 +543,14 @@
                     "line": 33
                 },
                 {
-                    "name": "firstName$",
-                    "defaultValue": "of('nof')",
+                    "name": "logoPath$",
+                    "defaultValue": "of('/assets/images/logo/light.svg')",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
                     "optional": false,
                     "description": "",
                     "line": 31
-                },
-                {
-                    "name": "lastName$",
-                    "defaultValue": "of('sh')",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 32
                 },
                 {
                     "name": "logOutText$",
@@ -405,17 +560,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 34
-                },
-                {
-                    "name": "sidenavCategories$",
-                    "defaultValue": "of(sidenavItems)",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 35
+                    "line": 32
                 }
             ],
             "methods": [
@@ -425,7 +570,7 @@
                     "optional": false,
                     "returnType": "Promise<void>",
                     "typeParameters": [],
-                    "line": 36,
+                    "line": 34,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -438,7 +583,117 @@
                     "optional": false,
                     "returnType": "Promise<void>",
                     "typeParameters": [],
-                    "line": 39,
+                    "line": 37,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        132
+                    ]
+                }
+            ],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "implements": [
+                "LandingLayoutService"
+            ],
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "DummyService-1"
+        },
+        {
+            "name": "DummyService",
+            "id": "class-DummyService-4ee2da70a5a934b8d2a5c8ef68373e364fbfaf2ea0b5a16a548fef23afabc24b8d1eb084ae09fd1fea8e63630033b8c061d28d7f6fc8011c799ff05e26aa08ad-2",
+            "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';\nimport { SidenavLayoutModule } from './sidenav-layout.module';\nimport {\n  SIDENAV_LAYOUT_SERVICE,\n  SidenavLayoutCategory,\n  SidenavLayoutService,\n} from './sidenav-layout.service';\nimport { SidenavLayoutComponent } from './sidenav-layout.component';\nimport { of } from 'rxjs';\nimport { RouterTestingModule } from '@angular/router/testing';\nimport { ButtonComponent } from '../../button';\n\nconst sidenavItems: SidenavLayoutCategory[] = [\n  {\n    icon: 'dashboard',\n    route: '/dashboard',\n    title: 'Dashboard',\n  },\n  {\n    icon: 'loan-applications',\n    route: '/loan-applications',\n    title: 'Loan Applications',\n  },\n  {\n    icon: 'loan-policy',\n    route: '/loan-policy',\n    title: 'Loan Policy',\n  },\n];\nclass DummyService implements SidenavLayoutService {\n  logoPath$ = of('/assets/images/logo/dark.svg');\n  firstName$ = of('nof');\n  lastName$ = of('sh');\n  accountInfo$ = of('View profile');\n  logOutText$ = of('Log Out');\n  sidenavCategories$ = of(sidenavItems);\n  async accountCallBack(): Promise<void> {\n    console.log('account call back');\n  }\n  async logoutCallBack(): Promise<void> {\n    console.log('logout call back');\n  }\n}\n\nconst meta: Meta<SidenavLayoutComponent> = {\n  title: 'Templates/SidenavLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: SidenavLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [SidenavLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: SIDENAV_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n};\nexport default meta;\n\ntype Story = StoryObj<SidenavLayoutComponent>;\n\nexport const SidenavLayout: Story = {\n  render: props => ({\n    props,\n    template: `\n    <lai-sidenav-layout>\n      <lai-sidenav-layout-avatar initials=\"NS\"></lai-sidenav-layout-avatar>\n      <lai-sidenav-layout-title>Header Title</lai-sidenav-layout-title>\n      <lai-sidenav-layout-subtitle>Header Subtitle</lai-sidenav-layout-subtitle>\n      <lai-sidenav-layout-actions>\n        <button laiButton>\n          New Application\n        </button>\n      </lai-sidenav-layout-actions>\n      <lai-sidenav-layout-content>\n        <div style=\"height: 500px;\">Some content</div>\n      </lai-sidenav-layout-content>\n    </lai-sidenav-layout>\n  `,\n  }),\n};\n",
+            "properties": [
+                {
+                    "name": "accountInfo$",
+                    "defaultValue": "of('View profile')",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 34
+                },
+                {
+                    "name": "firstName$",
+                    "defaultValue": "of('nof')",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 32
+                },
+                {
+                    "name": "lastName$",
+                    "defaultValue": "of('sh')",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 33
+                },
+                {
+                    "name": "logoPath$",
+                    "defaultValue": "of('/assets/images/logo/dark.svg')",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 31
+                },
+                {
+                    "name": "logOutText$",
+                    "defaultValue": "of('Log Out')",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 35
+                },
+                {
+                    "name": "sidenavCategories$",
+                    "defaultValue": "of(sidenavItems)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 36
+                }
+            ],
+            "methods": [
+                {
+                    "name": "accountCallBack",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<void>",
+                    "typeParameters": [],
+                    "line": 37,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        132
+                    ]
+                },
+                {
+                    "name": "logoutCallBack",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<void>",
+                    "typeParameters": [],
+                    "line": 40,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -453,7 +708,10 @@
             "hostListeners": [],
             "implements": [
                 "SidenavLayoutService"
-            ]
+            ],
+            "isDuplicate": true,
+            "duplicateId": 2,
+            "duplicateName": "DummyService-2"
         }
     ],
     "directives": [],
@@ -542,7 +800,7 @@
         },
         {
             "name": "BadgeComponent",
-            "id": "component-BadgeComponent-34f63428468ebd8ae91b7b4de08ef0c0a9b99a049e18d3e0ff9b2a6825fe52bfc2a9ebbb6941518dabf544b72a35331d268ad32a01f8afbea5e32fd40fd1e523",
+            "id": "component-BadgeComponent-d2f11cb415f69c52bf708f864f530fa51589b0a4537847de5b3020f1dfcc6665a43b98af7cfbf796893b80ae64abdeee9b55258bcd454a791bcdc1370e9c984c",
             "file": "projects/lendai-us/design-system/src/lib/badge/badge.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -609,11 +867,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { CaptionComponent } from '../typography';\n\n@Component({\n  selector: 'lai-badge',\n  standalone: true,\n  imports: [CommonModule, CaptionComponent],\n  templateUrl: './badge.component.html',\n  styleUrls: ['./badge.component.scss'],\n})\nexport class BadgeComponent {\n  @HostBinding('attr.color')\n  @Input()\n  color: BadgeColor = 'blue';\n\n  @HostBinding('attr.radius')\n  @Input()\n  radius: BadgeRadius = 'xs';\n\n  @HostBinding('attr.type')\n  @Input()\n  type: BadgeType = 'transparent';\n}\n\nexport const BADGE_RADIUSES = ['xs', 'sm'] as const;\nexport type BadgeRadius = (typeof BADGE_RADIUSES)[number];\n\nexport const BADGE_TYPES = ['transparent', 'solid'] as const;\nexport type BadgeType = (typeof BADGE_TYPES)[number];\n\nexport const BADGE_COLORS = [\n  'purple',\n  'blue',\n  'red',\n  'aqua',\n  'orange',\n  'gray',\n  'pink',\n] as const;\nexport type BadgeColor = (typeof BADGE_COLORS)[number];\n",
+            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { CaptionComponent } from '../typography';\n\n@Component({\n  selector: 'lai-badge',\n  standalone: true,\n  imports: [CommonModule, CaptionComponent],\n  templateUrl: './badge.component.html',\n  styleUrls: ['./badge.component.scss'],\n})\nexport class BadgeComponent {\n  @HostBinding('attr.color')\n  @Input()\n  color: BadgeColor = 'blue';\n\n  @HostBinding('attr.radius')\n  @Input()\n  radius: BadgeRadius = 'xs';\n\n  @HostBinding('attr.type')\n  @Input()\n  type: BadgeType = 'transparent';\n}\n\nexport const BADGE_RADIUSES = ['xs', 'sm'] as const;\nexport type BadgeRadius = (typeof BADGE_RADIUSES)[number];\n\nexport const BADGE_TYPES = ['transparent', 'solid'] as const;\nexport type BadgeType = (typeof BADGE_TYPES)[number];\n\nexport const BADGE_COLORS = [\n  'gray',\n  'purple',\n  'blue',\n  'red',\n  'orange',\n  'green',\n  'pink',\n  'aqua',\n] as const;\nexport type BadgeColor = (typeof BADGE_COLORS)[number];\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'sass:map';\n@use 'color' as c;\n@use 'typography' as t;\n@use 'radius' as r;\n\n$radiuses: (\n  'xs': r.$xs,\n  'sm': r.$sm,\n);\n\n$colors: (\n  'blue': (\n    'background': map.get(c.$prebuilt-blue, 100),\n    'foreground': map.get(c.$prebuilt-blue, 700),\n  ),\n  'purple': (\n    'background': map.get(c.$prebuilt-purple, 100),\n    'foreground': map.get(c.$prebuilt-purple, 700),\n  ),\n  'aqua': (\n    'background': map.get(c.$prebuilt-aqua, 50),\n    'foreground': map.get(c.$prebuilt-aqua, 700),\n  ),\n  'gray': (\n    'background': map.get(c.$prebuilt-gray, 50),\n    'foreground': map.get(c.$prebuilt-gray, 700),\n  ),\n  'orange': (\n    'background': map.get(c.$prebuilt-orange, 100),\n    'foreground': map.get(c.$prebuilt-orange, 700),\n  ),\n  'pink': (\n    'background': map.get(c.$prebuilt-pink, 50),\n    'foreground': map.get(c.$prebuilt-pink, 600),\n  ),\n  'red': (\n    'background': map.get(c.$prebuilt-red, 100),\n    'foreground': map.get(c.$prebuilt-red, 500),\n  ),\n);\n\n:host {\n  @include t.typography(t.$caption-md);\n  @include r.attributeToRadius($radiuses, 'radius');\n\n  display: inline-block;\n  padding: 4px 12px;\n\n  &[type='transparent'] {\n    @each $key, $value in $colors {\n      &[color='#{$key}'] {\n        background-color: map.get($value, 'background');\n        color: map.get($value, 'foreground');\n      }\n    }\n  }\n\n  &[type='solid'] {\n    @each $key, $value in $colors {\n      &[color='#{$key}'] {\n        background-color: c.color($key, 500);\n        color: c.$white;\n      }\n    }\n  }\n}\n",
+                    "data": "@use 'sass:map';\n@use 'color' as c;\n@use 'typography' as t;\n@use 'radius' as r;\n\n$radiuses: (\n  'xs': r.$xs,\n  'sm': r.$sm,\n);\n\n$colors: (\n  'gray': (\n    'background': map.get(c.$prebuilt-gray, 100),\n    'foreground': map.get(c.$prebuilt-gray, 700),\n    'background-solid': map.get(c.$prebuilt-gray, 500),\n  ),\n  'purple': (\n    'background': map.get(c.$prebuilt-purple, 50),\n    'foreground': map.get(c.$prebuilt-purple, 700),\n    'background-solid': map.get(c.$prebuilt-purple, 500),\n  ),\n  'blue': (\n    'background': map.get(c.$prebuilt-blue, 50),\n    'foreground': map.get(c.$prebuilt-blue, 700),\n    'background-solid': map.get(c.$prebuilt-blue, 500),\n  ),\n  'red': (\n    'background': map.get(c.$prebuilt-red, 50),\n    'foreground': map.get(c.$prebuilt-red, 700),\n    'background-solid': map.get(c.$prebuilt-red, 500),\n  ),\n  'orange': (\n    'background': map.get(c.$prebuilt-orange, 50),\n    'foreground': map.get(c.$prebuilt-orange, 700),\n    'background-solid': map.get(c.$prebuilt-orange, 500),\n  ),\n  'green': (\n    'background': map.get(c.$prebuilt-green, 50),\n    'foreground': map.get(c.$prebuilt-green, 700),\n    'background-solid': map.get(c.$prebuilt-green, 500),\n  ),\n  'pink': (\n    'background': map.get(c.$prebuilt-pink, 50),\n    'foreground': map.get(c.$prebuilt-pink, 700),\n    'background-solid': map.get(c.$prebuilt-pink, 500),\n  ),\n  'aqua': (\n    'background': map.get(c.$prebuilt-aqua, 50),\n    'foreground': map.get(c.$prebuilt-aqua, 700),\n    'background-solid': map.get(c.$prebuilt-aqua, 500),\n  ),\n);\n\n:host {\n  @include t.typography(t.$caption-md);\n  @include r.attributeToRadius($radiuses, 'radius');\n\n  display: inline-block;\n  padding: 4px 12px;\n\n  &[type='transparent'] {\n    @each $key, $value in $colors {\n      &[color='#{$key}'] {\n        background-color: map.get($value, 'background');\n        color: map.get($value, 'foreground');\n      }\n    }\n  }\n\n  &[type='solid'] {\n    @each $key, $value in $colors {\n      &[color='#{$key}'] {\n        background-color: map.get($value, 'background-solid');\n        color: c.$white;\n      }\n    }\n  }\n}\n",
                     "styleUrl": "./badge.component.scss"
                 }
             ],
@@ -1066,7 +1324,7 @@
         },
         {
             "name": "CleanLayoutLeftComponent",
-            "id": "component-CleanLayoutLeftComponent-c3ea9bffbb609ed00e06c86236181aa66ce4821d182861877c1eefde630d6e32debf2365013df91e9fb00e04294c4e5721f089f65cc6a72b49b7dd21f0ae697a",
+            "id": "component-CleanLayoutLeftComponent-aaac4183eeb68b360bf8d3e26f4934c7aec42a6074e90ed8acee11191fa3abafaa19b72f4fdb4e77bc4e7084604f851f3fee0fa1c88f54c9f22d20732110634c",
             "file": "projects/lendai-us/design-system/src/lib/layout/clean-layout/clean-layout-left/clean-layout-left.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1088,7 +1346,7 @@
                     "name": "background",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
+                    "line": 19,
                     "type": "string",
                     "decorators": []
                 },
@@ -1096,7 +1354,7 @@
                     "name": "title",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
+                    "line": 20,
                     "type": "string",
                     "decorators": []
                 }
@@ -1111,13 +1369,71 @@
                     "type": "Observable<boolean>",
                     "optional": false,
                     "description": "",
-                    "line": 14,
+                    "line": 23,
                     "modifierKind": [
+                        146
+                    ]
+                },
+                {
+                    "name": "logoPath",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 21
+                },
+                {
+                    "name": "service",
+                    "defaultValue": "inject(CLEAN_LAYOUT_SERVICE)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 27,
+                    "modifierKind": [
+                        122,
+                        146
+                    ]
+                },
+                {
+                    "name": "sub$",
+                    "defaultValue": "new Subscription()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 29,
+                    "modifierKind": [
+                        121,
                         146
                     ]
                 }
             ],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 44,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 38,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [
@@ -1125,7 +1441,7 @@
                     "name": "style.background-image",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 21,
+                    "line": 34,
                     "type": "string",
                     "decorators": []
                 }
@@ -1136,7 +1452,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';\nimport { Observable, map } from 'rxjs';\n\n@Component({\n  selector: 'lai-clean-layout-left',\n  templateUrl: './clean-layout-left.component.html',\n  styleUrls: ['./clean-layout-left.component.scss'],\n})\nexport class CleanLayoutLeftComponent {\n  @Input() background!: string;\n  @Input() title?: string;\n\n  readonly isHandset$: Observable<boolean> = this.breakpointObserver\n    .observe(Breakpoints.Handset)\n    .pipe(map(({ matches }) => matches));\n\n  constructor(private readonly breakpointObserver: BreakpointObserver) {}\n\n  @HostBinding('style.background-image')\n  get backgroundImage(): string {\n    return `url(assets/images/${this.background})`;\n  }\n}\n",
+            "sourceCode": "import {\n  Component,\n  HostBinding,\n  inject,\n  Input,\n  OnDestroy,\n  OnInit,\n} from '@angular/core';\nimport { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';\nimport { Observable, Subscription, map } from 'rxjs';\nimport { CLEAN_LAYOUT_SERVICE } from '../clean-layout.service';\n\n@Component({\n  selector: 'lai-clean-layout-left',\n  templateUrl: './clean-layout-left.component.html',\n  styleUrls: ['./clean-layout-left.component.scss'],\n})\nexport class CleanLayoutLeftComponent implements OnInit, OnDestroy {\n  @Input() background!: string;\n  @Input() title?: string;\n  logoPath!: string;\n\n  readonly isHandset$: Observable<boolean> = this.breakpointObserver\n    .observe(Breakpoints.Handset)\n    .pipe(map(({ matches }) => matches));\n\n  protected readonly service = inject(CLEAN_LAYOUT_SERVICE);\n\n  private readonly sub$ = new Subscription();\n\n  constructor(private readonly breakpointObserver: BreakpointObserver) {}\n\n  @HostBinding('style.background-image')\n  get backgroundImage(): string {\n    return `url(assets/images/${this.background})`;\n  }\n\n  ngOnInit(): void {\n    this.sub$.add(\n      this.service.logoPath$.subscribe(logoPath => (this.logoPath = logoPath))\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1158,7 +1474,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 16,
+                "line": 29,
                 "jsdoctags": [
                     {
                         "name": "breakpointObserver",
@@ -1171,6 +1487,10 @@
                     }
                 ]
             },
+            "implements": [
+                "OnInit",
+                "OnDestroy"
+            ],
             "accessors": {
                 "backgroundImage": {
                     "name": "backgroundImage",
@@ -1178,11 +1498,11 @@
                         "name": "backgroundImage",
                         "type": "string",
                         "returnType": "string",
-                        "line": 21
+                        "line": 34
                     }
                 }
             },
-            "templateData": "<lai-logo class=\"logo\"></lai-logo>\n<ng-container *laiLet=\"isHandset$ | async as isHandset\">\n  <lai-headline *ngIf=\"title && !isHandset\" class=\"title\" level=\"3\">\n    {{ title }}\n  </lai-headline>\n</ng-container>\n<div class=\"spacer\"></div>\n<div class=\"body\">\n  <ng-content></ng-content>\n</div>\n"
+            "templateData": "<lai-logo class=\"logo\" [logoPath]=\"logoPath\"></lai-logo>\n<ng-container *laiLet=\"isHandset$ | async as isHandset\">\n  <lai-headline *ngIf=\"title && !isHandset\" class=\"title\" level=\"3\">\n    {{ title }}\n  </lai-headline>\n</ng-container>\n<div class=\"spacer\"></div>\n<div class=\"body\">\n  <ng-content></ng-content>\n</div>\n"
         },
         {
             "name": "CleanLayoutRightComponent",
@@ -1982,7 +2302,7 @@
         },
         {
             "name": "IconComponent",
-            "id": "component-IconComponent-8d85b1fe1c0d99e2c714934de92f82355d06b72600f73826c1179fe5284ef14fe890b6da4f1136fb4b7f9d3cc7f2fff07b3592f2673c0a0fb8303b972de1f4e6",
+            "id": "component-IconComponent-38884958d04ff7c10078f460c18d6fd0cdebb01c46e14cb704608f8e8bcfd6ebcbb468a954781f51e436b8bc8b13ff652b37d4b756bc42a68d656ffba7bd95cd",
             "file": "projects/lendai-us/design-system/src/lib/icon/icon/icon.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2034,11 +2354,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'lai-icon',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './icon.component.html',\n  styleUrls: ['./icon.component.scss'],\n})\nexport class IconComponent {\n  @HostBinding('attr.glyph')\n  @Input()\n  glyph!: IconGlyph;\n\n  @HostBinding('attr.size')\n  @Input()\n  size?: IconSize;\n}\n\nexport const ICON_GLYPHS = [\n  'back',\n  'comments',\n  'communication',\n  'edit',\n  'dashboard',\n  'filter',\n  'forward',\n  'logout',\n  'trash',\n  'upload',\n  'loan-policy',\n  'cv',\n  'external-link',\n  'close',\n  'loan-applications',\n  'calendar',\n  'mail',\n  'phone',\n  'close-circle',\n  'checkmark',\n  'add',\n  'remove',\n  'info',\n  'error',\n  'expand-arrow',\n  'reset',\n  'bars',\n] as const;\nexport type IconGlyph = (typeof ICON_GLYPHS)[number];\n\nexport const ICON_SIZES = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;\nexport type IconSize = (typeof ICON_SIZES)[number];\n",
+            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'lai-icon',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './icon.component.html',\n  styleUrls: ['./icon.component.scss'],\n})\nexport class IconComponent {\n  @HostBinding('attr.glyph')\n  @Input()\n  glyph!: IconGlyph;\n\n  @HostBinding('attr.size')\n  @Input()\n  size?: IconSize;\n}\n\nexport const ICON_GLYPHS = [\n  'back',\n  'comments',\n  'communication',\n  'edit',\n  'dashboard',\n  'filter',\n  'forward',\n  'logout',\n  'trash',\n  'upload',\n  'loan-policy',\n  'cv',\n  'external-link',\n  'close',\n  'loan-applications',\n  'calendar',\n  'mail',\n  'phone',\n  'close-circle',\n  'checkmark',\n  'add',\n  'remove',\n  'info',\n  'error',\n  'expand-arrow',\n  'reset',\n  'bars',\n  'help',\n  'briefcase',\n  'wallet',\n] as const;\nexport type IconGlyph = (typeof ICON_GLYPHS)[number];\n\nexport const ICON_SIZES = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;\nexport type IconSize = (typeof ICON_SIZES)[number];\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'sass:map';\n\n$glyphs: (\n  'back': '\\e900',\n  'comments': '\\e901',\n  'communication': '\\e902',\n  'edit': '\\e903',\n  'dashboard': '\\e904',\n  'filter': '\\e905',\n  'forward': '\\e906',\n  'logout': '\\e907',\n  'trash': '\\e908',\n  'upload': '\\e909',\n  'loan-policy': '\\e90a',\n  'cv': '\\e90b',\n  'external-link': '\\e90c',\n  'close': '\\e90d',\n  'loan-applications': '\\e90e',\n  'calendar': '\\e90f',\n  'mail': '\\e910',\n  'phone': '\\e911',\n  'close-circle': '\\e912',\n  'checkmark': '\\e913',\n  'add': '\\e914',\n  'remove': '\\e915',\n  'info': '\\e916',\n  'error': '\\e917',\n  'expand-arrow': '\\e918',\n  'reset': '\\e919',\n  'bars': '\\e91a',\n);\n\n$sizes: (\n  'xs': 12px,\n  'sm': 16px,\n  'md': 20px,\n  'lg': 24px,\n  'xl': 28px,\n  'xxl': 32px,\n);\n\n@font-face {\n  font-family: icomoon;\n  src: url('../../../assets/fonts/icomoon.eot?' + length($glyphs));\n  src:\n    url('../../../assets/fonts/icomoon.eot?' + length($glyphs) + ('#iefix'))\n      format('embedded-opentype'),\n    url('../../../assets/fonts/icomoon.ttf?' + length($glyphs))\n      format('truetype'),\n    url('../../../assets/fonts/icomoon.woff?' + length($glyphs)) format('woff'),\n    url('../../../assets/fonts/icomoon.svg?' + length($glyphs) + ('#icomoon'))\n      format('svg');\n  font-weight: normal;\n  font-style: normal;\n  font-display: block;\n}\n\n:host {\n  /* use !important to prevent issues with browser extensions that change fonts */\n  font-family: icomoon !important;\n  font-style: normal;\n  font-weight: normal;\n  font-variant: normal;\n  text-transform: none;\n  line-height: 1;\n\n  /* Better Font Rendering =========== */\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  display: inline;\n\n  @each $key, $value in $glyphs {\n    &[glyph='#{$key}']:before {\n      content: $value;\n    }\n  }\n\n  @each $key, $value in $sizes {\n    &[size='#{$key}'] {\n      font-size: $value;\n    }\n  }\n}\n\n:host-context([laiIconButton]) {\n  font-size: var(--icon-button-font-size);\n}\n",
+                    "data": "@use 'sass:map';\n\n$glyphs: (\n  'back': '\\e900',\n  'comments': '\\e901',\n  'communication': '\\e902',\n  'edit': '\\e903',\n  'dashboard': '\\e904',\n  'filter': '\\e905',\n  'forward': '\\e906',\n  'logout': '\\e907',\n  'trash': '\\e908',\n  'upload': '\\e909',\n  'loan-policy': '\\e90a',\n  'cv': '\\e90b',\n  'external-link': '\\e90c',\n  'close': '\\e90d',\n  'loan-applications': '\\e90e',\n  'calendar': '\\e90f',\n  'mail': '\\e910',\n  'phone': '\\e911',\n  'close-circle': '\\e912',\n  'checkmark': '\\e913',\n  'add': '\\e914',\n  'remove': '\\e915',\n  'info': '\\e916',\n  'error': '\\e917',\n  'expand-arrow': '\\e918',\n  'reset': '\\e919',\n  'bars': '\\e91a',\n  'help': '\\e91c',\n  'briefcase': '\\e91d',\n  'wallet': '\\e91e',\n);\n\n$sizes: (\n  'xs': 12px,\n  'sm': 16px,\n  'md': 20px,\n  'lg': 24px,\n  'xl': 28px,\n  'xxl': 32px,\n);\n\n@font-face {\n  font-family: icomoon;\n  src: url('../../../assets/fonts/icomoon.eot?' + length($glyphs));\n  src:\n    url('../../../assets/fonts/icomoon.eot?' + length($glyphs) + ('#iefix'))\n      format('embedded-opentype'),\n    url('../../../assets/fonts/icomoon.ttf?' + length($glyphs))\n      format('truetype'),\n    url('../../../assets/fonts/icomoon.woff?' + length($glyphs)) format('woff'),\n    url('../../../assets/fonts/icomoon.svg?' + length($glyphs) + ('#icomoon'))\n      format('svg');\n  font-weight: normal;\n  font-style: normal;\n  font-display: block;\n}\n\n:host {\n  /* use !important to prevent issues with browser extensions that change fonts */\n  font-family: icomoon !important;\n  font-style: normal;\n  font-weight: normal;\n  font-variant: normal;\n  text-transform: none;\n  line-height: 1;\n\n  /* Better Font Rendering =========== */\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  display: inline;\n\n  @each $key, $value in $glyphs {\n    &[glyph='#{$key}']:before {\n      content: $value;\n    }\n  }\n\n  @each $key, $value in $sizes {\n    &[size='#{$key}'] {\n      font-size: $value;\n    }\n  }\n}\n\n:host-context([laiIconButton]) {\n  font-size: var(--icon-button-font-size);\n}\n",
                     "styleUrl": "./icon.component.scss"
                 }
             ],
@@ -2664,6 +2984,544 @@
                 "OnDestroy"
             ],
             "templateData": "<ng-content></ng-content>\n"
+        },
+        {
+            "name": "LandingLayoutActionsComponent",
+            "id": "component-LandingLayoutActionsComponent-3a07b1980f1ba47edd3a1be4da53ea3cb95393cadb2c3ae9f0723fa23b2baae2e66cad3fa81eacd88a282adc3ce71c20b27fa5a8adfd0c4c0000347aff718966",
+            "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout-actions/landing-layout-actions.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lai-landing-layout-actions",
+            "styleUrls": [
+                "./landing-layout-actions.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./landing-layout-actions.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lai-landing-layout-actions',\n  templateUrl: './landing-layout-actions.component.html',\n  styleUrls: ['./landing-layout-actions.component.scss'],\n})\nexport class LandingLayoutActionsComponent {}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ":host {\n  display: flex;\n  gap: 24px;\n}\n",
+                    "styleUrl": "./landing-layout-actions.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<ng-content></ng-content>\n"
+        },
+        {
+            "name": "LandingLayoutCategoriesComponent",
+            "id": "component-LandingLayoutCategoriesComponent-d39342c11bdcd68636c7132fe35bf66b1d665ef233af3dc07d7f25f1a546913e64a28fba4e8835735de6b4c2a06f01593d4d14524a8b16f3d5e848984c2e10b3",
+            "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout-categories/landing-layout-categories.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lai-landing-layout-categories",
+            "styleUrls": [
+                "./landing-layout-categories.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./landing-layout-categories.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "isHandset$",
+                    "defaultValue": "this.breakpointObserver\n    .observe(Breakpoints.Handset)\n    .pipe(map(({ matches }) => matches))",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Observable<boolean>",
+                    "optional": false,
+                    "description": "",
+                    "line": 18,
+                    "modifierKind": [
+                        146
+                    ]
+                },
+                {
+                    "name": "landingLayoutCategories",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "LandingLayoutCategory[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                },
+                {
+                    "name": "service",
+                    "defaultValue": "inject(LANDING_LAYOUT_SERVICE)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 22,
+                    "modifierKind": [
+                        121,
+                        146
+                    ]
+                },
+                {
+                    "name": "status",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                },
+                {
+                    "name": "sub$",
+                    "defaultValue": "new Subscription()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 23,
+                    "modifierKind": [
+                        121,
+                        146
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 41,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 27,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, inject, OnDestroy, OnInit } from '@angular/core';\nimport {\n  LANDING_LAYOUT_SERVICE,\n  LandingLayoutCategory,\n} from '../landing-layout.service';\nimport { map, Observable, Subscription } from 'rxjs';\nimport { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';\n\n@Component({\n  selector: 'lai-landing-layout-categories',\n  templateUrl: './landing-layout-categories.component.html',\n  styleUrls: ['./landing-layout-categories.component.scss'],\n})\nexport class LandingLayoutCategoriesComponent implements OnInit, OnDestroy {\n  status!: boolean;\n  landingLayoutCategories: LandingLayoutCategory[] = [];\n\n  readonly isHandset$: Observable<boolean> = this.breakpointObserver\n    .observe(Breakpoints.Handset)\n    .pipe(map(({ matches }) => matches));\n\n  private readonly service = inject(LANDING_LAYOUT_SERVICE);\n  private readonly sub$ = new Subscription();\n\n  constructor(private readonly breakpointObserver: BreakpointObserver) {}\n\n  ngOnInit(): void {\n    this.sub$.add(\n      this.service.landingLayoutCategories$.subscribe(\n        landingLayoutCategories =>\n          (this.landingLayoutCategories = landingLayoutCategories)\n      )\n    );\n    this.sub$.add(\n      this.isHandset$.subscribe(isHandset => {\n        this.status = !isHandset;\n      })\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@use 'color' as c;\n@use 'radius' as r;\n@use 'typography' as t;\n@use 'breakpoints' as b;\n\n\n:host{\n  flex-grow: 1;\n  display: flex;\n  justify-content: center;\n}\n\n.nav-items-category {\n  display: flex;\n  gap: 48px;\n  list-style-type: none;\n  padding: 0;\n  margin: 0;\n\n  @include b.mobile {\n    width: 100%;\n    flex-direction: column;\n    gap: 0;\n  }\n}\n\n.nav-item {\n  @include r.radius(r.$sm);\n  @include t.typography(t.$button-sm);\n  \n  color: c.$gray;\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  box-sizing: border-box;\n  text-decoration: none;\n  min-height: 48px; // to make sure inactive items are the same size as active ones\n\n  .text {\n    color: c.$gray;\n  }\n\n  &.active {\n    @include t.typography(t.$button-sm);\n\n    background-color: rgba(c.$white, 10%);\n    color: c.$white;\n  }\n}\n",
+                    "styleUrl": "./landing-layout-categories.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "breakpointObserver",
+                        "type": "BreakpointObserver",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 23,
+                "jsdoctags": [
+                    {
+                        "name": "breakpointObserver",
+                        "type": "BreakpointObserver",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit",
+                "OnDestroy"
+            ],
+            "templateData": "<ul class=\"nav-items-category\" *laiLet=\"isHandset$ | async as isHandset\">\n  <ng-container *ngFor=\"let category of landingLayoutCategories\">\n    <li>\n      <a\n        class=\"nav-item\"\n        [routerLink]=\"category.route\"\n        routerLinkActive=\"active\"\n        #rla=\"routerLinkActive\">\n        <lai-icon class=\"icon\" [glyph]=\"category.icon\" *ngIf=\"isHandset\"></lai-icon>\n        <span class=\"text\">{{ category.title }}</span>\n      </a>\n    </li>\n  </ng-container>\n</ul>\n"
+        },
+        {
+            "name": "LandingLayoutComponent",
+            "id": "component-LandingLayoutComponent-355a2a7e44f024c4196452fa8ecf842771db8c55be1a138a003cb1d6813de0f5dcdf1c0ff082c006396f5c17565e481073cd6c2fc2f1b11c9aa69d03768a17f1",
+            "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lai-landing-layout",
+            "styleUrls": [
+                "./landing-layout.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./landing-layout.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "actionsComponent",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "LandingLayoutActionsComponent",
+                    "optional": true,
+                    "description": "",
+                    "line": 27,
+                    "decorators": [
+                        {
+                            "name": "ContentChild",
+                            "stringifiedArguments": "LandingLayoutActionsComponent"
+                        }
+                    ],
+                    "modifierKind": [
+                        167,
+                        121,
+                        146
+                    ]
+                },
+                {
+                    "name": "contentComponent",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "LandingLayoutContentComponent",
+                    "optional": true,
+                    "description": "",
+                    "line": 23,
+                    "decorators": [
+                        {
+                            "name": "ContentChild",
+                            "stringifiedArguments": "LandingLayoutContentComponent"
+                        }
+                    ],
+                    "modifierKind": [
+                        167,
+                        123,
+                        146
+                    ]
+                },
+                {
+                    "name": "footerComponent",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "LandingLayoutFooterComponent",
+                    "optional": true,
+                    "description": "",
+                    "line": 25,
+                    "decorators": [
+                        {
+                            "name": "ContentChild",
+                            "stringifiedArguments": "LandingLayoutFooterComponent"
+                        }
+                    ],
+                    "modifierKind": [
+                        167,
+                        123,
+                        146
+                    ]
+                },
+                {
+                    "name": "icon",
+                    "defaultValue": "'bars'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "IconGlyph",
+                    "optional": false,
+                    "description": "",
+                    "line": 32
+                },
+                {
+                    "name": "isHandset",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 30
+                },
+                {
+                    "name": "isHandset$",
+                    "defaultValue": "this.breakpointObserver\n    .observe(Breakpoints.Handset)\n    .pipe(map(({ matches }) => matches))",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Observable<boolean>",
+                    "optional": false,
+                    "description": "",
+                    "line": 34,
+                    "modifierKind": [
+                        146
+                    ]
+                },
+                {
+                    "name": "logoPath",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 29
+                },
+                {
+                    "name": "service",
+                    "defaultValue": "inject(LANDING_LAYOUT_SERVICE)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 38,
+                    "modifierKind": [
+                        122,
+                        146
+                    ]
+                },
+                {
+                    "name": "status",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 31
+                },
+                {
+                    "name": "sub$",
+                    "defaultValue": "new Subscription()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 40,
+                    "modifierKind": [
+                        121,
+                        146
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "clickEvent",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 63,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 59,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 48,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {\n  Component,\n  ContentChild,\n  inject,\n  OnDestroy,\n  OnInit,\n} from '@angular/core';\nimport { LandingLayoutActionsComponent } from './landing-layout-actions/landing-layout-actions.component';\nimport { LandingLayoutContentComponent } from './landing-layout-content/landing-layout-content.component';\nimport { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';\nimport { Observable, Subscription, map } from 'rxjs';\nimport { LANDING_LAYOUT_SERVICE } from './landing-layout.service';\nimport { IconGlyph } from '../../icon';\nimport { LandingLayoutFooterComponent } from './landing-layout-footer/landing-layout-footer.component';\n\n@Component({\n  selector: 'lai-landing-layout',\n  templateUrl: './landing-layout.component.html',\n  styleUrls: ['./landing-layout.component.scss'],\n})\nexport class LandingLayoutComponent implements OnInit, OnDestroy {\n  @ContentChild(LandingLayoutContentComponent)\n  public readonly contentComponent?: LandingLayoutContentComponent;\n  @ContentChild(LandingLayoutFooterComponent)\n  public readonly footerComponent?: LandingLayoutFooterComponent;\n  @ContentChild(LandingLayoutActionsComponent)\n  private readonly actionsComponent?: LandingLayoutActionsComponent;\n\n  logoPath!: string;\n  isHandset!: boolean;\n  status!: boolean;\n  icon: IconGlyph = 'bars';\n\n  readonly isHandset$: Observable<boolean> = this.breakpointObserver\n    .observe(Breakpoints.Handset)\n    .pipe(map(({ matches }) => matches));\n\n  protected readonly service = inject(LANDING_LAYOUT_SERVICE);\n\n  private readonly sub$ = new Subscription();\n\n  constructor(private readonly breakpointObserver: BreakpointObserver) {}\n\n  get isHeaderHidden(): boolean {\n    return !this.actionsComponent;\n  }\n\n  ngOnInit(): void {\n    this.sub$.add(\n      this.service.logoPath$.subscribe(logoPath => (this.logoPath = logoPath))\n    );\n    this.sub$.add(\n      this.isHandset$.subscribe(isHandset => {\n        this.status = !isHandset;\n      })\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n\n  clickEvent(): void {\n    this.status = !this.status;\n    if (this.status) {\n      this.icon = 'close';\n    } else {\n      this.icon = 'bars';\n    }\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@use 'color' as c;\n@use 'breakpoints' as b;\n\n$gap: 24px;\n\n:host {\n  display: flex;\n  height: 100vh;\n  width: 100vw;\n  flex-direction: column;\n}\n\n.header {\n  justify-content: space-between;\n  padding: 24px 32px;\n  display: flex;\n  align-items: center;\n  box-sizing: border-box;   \n\n  @include b.mobile {\n    z-index: 999;\n    width: 100%;\n    padding: $gap;\n  }\n}\n\n.nav {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n  height: fit-content;\n  background-color: c.$white;\n  align-items: center;\n\n  @include b.mobile {\n    z-index: 999;\n    flex-direction: column;\n    \n    &.open {\n      height: 100%;\n      position: fixed;\n    }\n  }\n}\n\n.logo {\n  height: 36px;\n  align-self: flex-start;\n  @include b.mobile {\n    height: 20px;\n  }\n}\n\n.nav-menu {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex: 1;\n  padding-right: $gap;\n\n  @include b.mobile {\n    flex-direction: column;\n    align-items: flex-start;\n    width: 100%;\n    box-sizing: border-box;\n    padding: $gap;\n  }    \n}\n\n.main {\n  flex: 1;\n  background-color: c.$white;\n  padding: $gap;\n  display: flex;\n  flex-direction: column;\n  gap: calc($gap * 4 / 3);\n\n  @include b.mobile {\n    width: 100%;\n    padding: 16px;\n  }\n}",
+                    "styleUrl": "./landing-layout.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "breakpointObserver",
+                        "type": "BreakpointObserver",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 40,
+                "jsdoctags": [
+                    {
+                        "name": "breakpointObserver",
+                        "type": "BreakpointObserver",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit",
+                "OnDestroy"
+            ],
+            "accessors": {
+                "isHeaderHidden": {
+                    "name": "isHeaderHidden",
+                    "getSignature": {
+                        "name": "isHeaderHidden",
+                        "type": "boolean",
+                        "returnType": "boolean",
+                        "line": 44
+                    }
+                }
+            },
+            "templateData": "<div\n  class=\"nav\"\n  *laiLet=\"isHandset$ | async as isHandset\"\n  [class.open]=\"status\">\n\n  <div class=\"header\">\n    <lai-logo class=\"logo\" [logoPath]=\"logoPath\" routerLink=\"/\"></lai-logo>\n    <lai-icon\n    *ngIf=\"isHandset\"\n    [glyph]=\"icon\"\n    size=\"sm\"\n    (click)=\"clickEvent()\"></lai-icon>\n  </div>\n\n  <div class=\"nav-menu\" *ngIf=\"status\">\n    <lai-landing-layout-categories class=\"categories\"></lai-landing-layout-categories>\n    <div class=\"actions\">\n      <lai-button-bar>\n        <ng-content select=\"lai-landing-layout-actions\"></ng-content>\n      </lai-button-bar>\n    </div>\n  </div>\n</div>\n\n<div class=\"main\">\n  <ng-container *ngIf=\"contentComponent; else simpleContent\">\n    <ng-content select=\"lai-landing-layout-content\"></ng-content>\n  </ng-container>\n\n  <ng-template #simpleContent>\n    <ng-content></ng-content>\n  </ng-template>\n</div>\n\n<div class=\"footer\">\n    <lai-landing-layout-footer></lai-landing-layout-footer>\n</div>\n"
+        },
+        {
+            "name": "LandingLayoutContentComponent",
+            "id": "component-LandingLayoutContentComponent-1d14d16e524ad467b1802791ba06e4cb75d404bab347112dc8ba37f272f000ce3099661cbbfa5995f1cc0382c976104bb33ae5083ea9df241074a28cb61c0711",
+            "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout-content/landing-layout-content.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lai-landing-layout-content",
+            "styleUrls": [
+                "./landing-layout-content.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./landing-layout-content.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lai-landing-layout-content',\n  templateUrl: './landing-layout-content.component.html',\n  styleUrls: ['./landing-layout-content.component.scss'],\n})\nexport class LandingLayoutContentComponent {}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ":host {\n  display: flex;\n  justify-content: center;\n}\n",
+                    "styleUrl": "./landing-layout-content.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<ng-content></ng-content>\n"
+        },
+        {
+            "name": "LandingLayoutFooterComponent",
+            "id": "component-LandingLayoutFooterComponent-0f832b837072e89a207c142900051977e643ccb24ec7df545966f6b13c9e7830b4d9f321a5f3da7bd85c8f86e7a4e27d092b610c751355c9f298b02ecd7f1847",
+            "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout-footer/landing-layout-footer.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lai-landing-layout-footer",
+            "styleUrls": [
+                "./landing-layout-footer.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./landing-layout-footer.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lai-landing-layout-footer',\n  templateUrl: './landing-layout-footer.component.html',\n  styleUrls: ['./landing-layout-footer.component.scss'],\n})\nexport class LandingLayoutFooterComponent {}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@use 'color' as c;\n\n:host{\n    padding: 34px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    border-top: 1px solid c.color('gray', 200);\n\n    lai-body{\n        color: c.color('gray', 400);\n    }\n}",
+                    "styleUrl": "./landing-layout-footer.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<lai-body level=\"6\">© All rights reserved to Lendai LTD</lai-body>"
         },
         {
             "name": "LinkComponent",
@@ -3325,7 +4183,7 @@
         },
         {
             "name": "LogoComponent",
-            "id": "component-LogoComponent-e67efb51fa353f944f266060fc08095db5f915699c998d810bada879e9640e05c7185b92dab5e2800f0818c016e2f57c9ef48a27c49f7e94869d1ac6c322353b",
+            "id": "component-LogoComponent-0a89da252868b83b9737adfce3978ed1f6f84db44368eec055c139febea6d61ebd9472684b6afa88c790ff8b90c9ebf718f21eb9e0ee0176de4c392c3df3a202",
             "file": "projects/lendai-us/design-system/src/lib/logo/logo.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -3344,12 +4202,11 @@
             "hostDirectives": [],
             "inputsClass": [
                 {
-                    "name": "style",
-                    "defaultValue": "'dark'",
+                    "name": "logoPath",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 12,
-                    "type": "LogoStyle",
+                    "type": "string",
                     "decorators": []
                 }
             ],
@@ -3370,7 +4227,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'lai-logo',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './logo.component.html',\n  styleUrls: ['./logo.component.scss'],\n})\nexport class LogoComponent {\n  @Input() style: LogoStyle = 'dark';\n}\n\nexport type LogoStyle = 'light' | 'dark';\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'lai-logo',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './logo.component.html',\n  styleUrls: ['./logo.component.scss'],\n})\nexport class LogoComponent {\n  @Input() logoPath!: string;\n\n  get logoURL(): string {\n    return this.logoPath;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -3379,7 +4236,18 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<img src=\"assets/images/logo/{{ style }}.svg\" alt=\"logo\" />\n"
+            "accessors": {
+                "logoURL": {
+                    "name": "logoURL",
+                    "getSignature": {
+                        "name": "logoURL",
+                        "type": "string",
+                        "returnType": "string",
+                        "line": 14
+                    }
+                }
+            },
+            "templateData": "<img src=\"{{ logoPath }}\" alt=\"logo\" />\n"
         },
         {
             "name": "OverlineComponent",
@@ -4615,7 +5483,7 @@
         },
         {
             "name": "SidenavLayoutCategoriesComponent",
-            "id": "component-SidenavLayoutCategoriesComponent-ed22beef6adebba3fdd6623ccb6bfcd74754f058d7a2791d8d1761eaff64f52edc21a67b31509be8f230685f52450cf6ac7766cc08afe4c92b94955b94bd619e",
+            "id": "component-SidenavLayoutCategoriesComponent-6aa5c185c0f495686fa3c3bcaadcbfe69081ad0b76ea138d0c66ef61a20c2aa30bc3a240e7eb568b3bc381991f85333859e88a895c4e6fe48a96aa4f110bbe9b",
             "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout-categories/sidenav-layout-categories.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -4654,7 +5522,7 @@
                     "defaultValue": "[]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "SidenavCategory[]",
+                    "type": "SidenavLayoutCategory[]",
                     "optional": false,
                     "description": "",
                     "line": 14
@@ -4705,7 +5573,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, inject, OnDestroy, OnInit } from '@angular/core';\nimport {\n  SIDENAV_LAYOUT_SERVICE,\n  SidenavCategory,\n} from '../sidenav-layout.service';\nimport { Subscription } from 'rxjs';\n\n@Component({\n  selector: 'lai-sidenav-layout-categories',\n  templateUrl: './sidenav-layout-categories.component.html',\n  styleUrls: ['./sidenav-layout-categories.component.scss'],\n})\nexport class SidenavLayoutCategoriesComponent implements OnInit, OnDestroy {\n  sidenavCategories: SidenavCategory[] = [];\n\n  private readonly service = inject(SIDENAV_LAYOUT_SERVICE);\n  private readonly sub$ = new Subscription();\n\n  ngOnInit(): void {\n    this.sub$.add(\n      this.service.sidenavCategories$.subscribe(\n        sidenavCategories => (this.sidenavCategories = sidenavCategories)\n      )\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n}\n",
+            "sourceCode": "import { Component, inject, OnDestroy, OnInit } from '@angular/core';\nimport {\n  SIDENAV_LAYOUT_SERVICE,\n  SidenavLayoutCategory,\n} from '../sidenav-layout.service';\nimport { Subscription } from 'rxjs';\n\n@Component({\n  selector: 'lai-sidenav-layout-categories',\n  templateUrl: './sidenav-layout-categories.component.html',\n  styleUrls: ['./sidenav-layout-categories.component.scss'],\n})\nexport class SidenavLayoutCategoriesComponent implements OnInit, OnDestroy {\n  sidenavCategories: SidenavLayoutCategory[] = [];\n\n  private readonly service = inject(SIDENAV_LAYOUT_SERVICE);\n  private readonly sub$ = new Subscription();\n\n  ngOnInit(): void {\n    this.sub$.add(\n      this.service.sidenavCategories$.subscribe(\n        sidenavCategories => (this.sidenavCategories = sidenavCategories)\n      )\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -4722,7 +5590,7 @@
         },
         {
             "name": "SidenavLayoutComponent",
-            "id": "component-SidenavLayoutComponent-b4b14e2adba82b746bc913dc70d8c507414d1ba1facaad1a1972d3328dd7b9c9a6ee3c7058e08e13cbb77f15273860d4ab44a16c4ca6858dbf065880aaac83eb",
+            "id": "component-SidenavLayoutComponent-a3913c48db30aa3cb0e97234bcfa8c21a9f822fefb7221d115b80ce32043c371a8a6b44754cfae0b9248c60909ff3e6a341477684d5ad21ffb96d125eea56e6b",
             "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -4749,7 +5617,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 39
+                    "line": 36
                 },
                 {
                     "name": "actionsComponent",
@@ -4797,7 +5665,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 37
+                    "line": 34
                 },
                 {
                     "name": "icon",
@@ -4807,7 +5675,7 @@
                     "type": "IconGlyph",
                     "optional": false,
                     "description": "",
-                    "line": 43
+                    "line": 40
                 },
                 {
                     "name": "isHandset",
@@ -4816,7 +5684,7 @@
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 41
+                    "line": 38
                 },
                 {
                     "name": "isHandset$",
@@ -4826,7 +5694,7 @@
                     "type": "Observable<boolean>",
                     "optional": false,
                     "description": "",
-                    "line": 33
+                    "line": 42
                 },
                 {
                     "name": "lastName",
@@ -4835,7 +5703,16 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 38
+                    "line": 35
+                },
+                {
+                    "name": "logoPath",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 33
                 },
                 {
                     "name": "logOutText",
@@ -4844,7 +5721,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 40
+                    "line": 37
                 },
                 {
                     "name": "service",
@@ -4854,7 +5731,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 45,
+                    "line": 46,
                     "modifierKind": [
                         122,
                         146
@@ -4867,7 +5744,7 @@
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 42
+                    "line": 39
                 },
                 {
                     "name": "sub$",
@@ -4931,7 +5808,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 87,
+                    "line": 90,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -4941,7 +5818,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 83,
+                    "line": 86,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -4965,7 +5842,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  ContentChild,\n  inject,\n  OnDestroy,\n  OnInit,\n} from '@angular/core';\nimport { SidenavLayoutTitleComponent } from './sidenav-layout-title/sidenav-layout-title.component';\nimport { SidenavLayoutSubtitleComponent } from './sidenav-layout-subtitle/sidenav-layout-subtitle.component';\nimport { SidenavLayoutActionsComponent } from './sidenav-layout-actions/sidenav-layout-actions.component';\nimport { SidenavLayoutContentComponent } from './sidenav-layout-content/sidenav-layout-content.component';\nimport { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';\nimport { Observable, Subscription, map } from 'rxjs';\nimport { SIDENAV_LAYOUT_SERVICE } from './sidenav-layout.service';\nimport { IconGlyph } from '../../icon';\n\n@Component({\n  selector: 'lai-sidenav-layout',\n  templateUrl: './sidenav-layout.component.html',\n  styleUrls: ['./sidenav-layout.component.scss'],\n})\nexport class SidenavLayoutComponent implements OnInit, OnDestroy {\n  @ContentChild(SidenavLayoutContentComponent)\n  readonly contentComponent?: SidenavLayoutContentComponent;\n\n  @ContentChild(SidenavLayoutTitleComponent)\n  private readonly titleComponent?: SidenavLayoutTitleComponent;\n  @ContentChild(SidenavLayoutSubtitleComponent)\n  private readonly subtitleComponent?: SidenavLayoutSubtitleComponent;\n  @ContentChild(SidenavLayoutActionsComponent)\n  private readonly actionsComponent?: SidenavLayoutActionsComponent;\n\n  isHandset$: Observable<boolean> = this.breakpointObserver\n    .observe(Breakpoints.Handset)\n    .pipe(map(({ matches }) => matches));\n\n  firstName!: string;\n  lastName!: string;\n  accountInfo!: string;\n  logOutText!: string;\n  isHandset!: boolean;\n  status!: boolean;\n  icon: IconGlyph = 'bars';\n\n  protected readonly service = inject(SIDENAV_LAYOUT_SERVICE);\n\n  private readonly sub$ = new Subscription();\n\n  constructor(private readonly breakpointObserver: BreakpointObserver) {}\n\n  get isHeaderHidden(): boolean {\n    return (\n      !this.titleComponent && !this.subtitleComponent && !this.actionsComponent\n    );\n  }\n\n  ngOnInit(): void {\n    this.sub$.add(\n      this.service.firstName$.subscribe(\n        firstName => (this.firstName = firstName)\n      )\n    );\n    this.sub$.add(\n      this.service.lastName$.subscribe(lastName => (this.lastName = lastName))\n    );\n    this.sub$.add(\n      this.isHandset$.subscribe(isHandset => {\n        this.status = !isHandset;\n      })\n    );\n    this.sub$.add(\n      this.service.accountInfo$.subscribe(\n        accountInfo => (this.accountInfo = accountInfo)\n      )\n    );\n    this.sub$.add(\n      this.service.logOutText$.subscribe(\n        logOutText => (this.logOutText = logOutText)\n      )\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n\n  clickEvent(): void {\n    this.status = !this.status;\n    if (this.status) {\n      this.icon = 'close';\n    } else {\n      this.icon = 'bars';\n    }\n  }\n}\n",
+            "sourceCode": "import {\n  Component,\n  ContentChild,\n  inject,\n  OnDestroy,\n  OnInit,\n} from '@angular/core';\nimport { SidenavLayoutTitleComponent } from './sidenav-layout-title/sidenav-layout-title.component';\nimport { SidenavLayoutSubtitleComponent } from './sidenav-layout-subtitle/sidenav-layout-subtitle.component';\nimport { SidenavLayoutActionsComponent } from './sidenav-layout-actions/sidenav-layout-actions.component';\nimport { SidenavLayoutContentComponent } from './sidenav-layout-content/sidenav-layout-content.component';\nimport { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';\nimport { Observable, Subscription, map } from 'rxjs';\nimport { SIDENAV_LAYOUT_SERVICE } from './sidenav-layout.service';\nimport { IconGlyph } from '../../icon';\n\n@Component({\n  selector: 'lai-sidenav-layout',\n  templateUrl: './sidenav-layout.component.html',\n  styleUrls: ['./sidenav-layout.component.scss'],\n})\nexport class SidenavLayoutComponent implements OnInit, OnDestroy {\n  @ContentChild(SidenavLayoutContentComponent)\n  readonly contentComponent?: SidenavLayoutContentComponent;\n\n  @ContentChild(SidenavLayoutTitleComponent)\n  private readonly titleComponent?: SidenavLayoutTitleComponent;\n  @ContentChild(SidenavLayoutSubtitleComponent)\n  private readonly subtitleComponent?: SidenavLayoutSubtitleComponent;\n  @ContentChild(SidenavLayoutActionsComponent)\n  private readonly actionsComponent?: SidenavLayoutActionsComponent;\n\n  logoPath!: string;\n  firstName!: string;\n  lastName!: string;\n  accountInfo!: string;\n  logOutText!: string;\n  isHandset!: boolean;\n  status!: boolean;\n  icon: IconGlyph = 'bars';\n\n  isHandset$: Observable<boolean> = this.breakpointObserver\n    .observe(Breakpoints.Handset)\n    .pipe(map(({ matches }) => matches));\n\n  protected readonly service = inject(SIDENAV_LAYOUT_SERVICE);\n  private readonly sub$ = new Subscription();\n\n  constructor(private readonly breakpointObserver: BreakpointObserver) {}\n\n  get isHeaderHidden(): boolean {\n    return (\n      !this.titleComponent && !this.subtitleComponent && !this.actionsComponent\n    );\n  }\n\n  ngOnInit(): void {\n    this.sub$.add(\n      this.service.logoPath$.subscribe(logoPath => (this.logoPath = logoPath))\n    );\n    this.sub$.add(\n      this.service.firstName$.subscribe(\n        firstName => (this.firstName = firstName)\n      )\n    );\n    this.sub$.add(\n      this.service.lastName$.subscribe(lastName => (this.lastName = lastName))\n    );\n    this.sub$.add(\n      this.isHandset$.subscribe(isHandset => {\n        this.status = !isHandset;\n      })\n    );\n    this.sub$.add(\n      this.service.accountInfo$.subscribe(\n        accountInfo => (this.accountInfo = accountInfo)\n      )\n    );\n    this.sub$.add(\n      this.service.logOutText$.subscribe(\n        logOutText => (this.logOutText = logOutText)\n      )\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n\n  clickEvent(): void {\n    this.status = !this.status;\n    if (this.status) {\n      this.icon = 'close';\n    } else {\n      this.icon = 'bars';\n    }\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -5015,7 +5892,7 @@
                     }
                 }
             },
-            "templateData": "<div\n  class=\"sidenav\"\n  *laiLet=\"isHandset$ | async as isHandset\"\n  [class.open]=\"status\">\n  <div class=\"header\">\n    <lai-logo class=\"logo\" routerLink=\"/\"></lai-logo>\n    <lai-icon\n      *ngIf=\"isHandset\"\n      [glyph]=\"icon\"\n      size=\"sm\"\n      (click)=\"clickEvent()\"></lai-icon>\n  </div>\n  <div class=\"nav-menu\" *ngIf=\"status\">\n    <lai-divider background=\"dark\"></lai-divider>\n    <lai-sidenav-layout-categories\n      class=\"categories\"></lai-sidenav-layout-categories>\n    <lai-divider background=\"dark\"></lai-divider>\n    <lai-sidenav-layout-account></lai-sidenav-layout-account>\n    <button\n      *ngIf=\"isHandset\"\n      laiIconButton\n      class=\"logout\"\n      hierarchy=\"tertiary\"\n      size=\"md\"\n      (click)=\"service.logoutCallBack()\">\n      <lai-icon glyph=\"logout\"></lai-icon>\n      {{ logOutText }}\n    </button>\n  </div>\n</div>\n\n<div class=\"main\">\n  <div class=\"main-header\" [laiHidden]=\"isHeaderHidden\">\n    <div class=\"title\">\n      <ng-content select=\"lai-sidenav-layout-avatar\"></ng-content>\n      <ng-content select=\"lai-sidenav-layout-title\"></ng-content>\n      <ng-content select=\"lai-sidenav-layout-subtitle\"></ng-content>\n    </div>\n\n    <lai-button-bar>\n      <ng-content select=\"lai-sidenav-layout-actions\"></ng-content>\n    </lai-button-bar>\n  </div>\n\n  <ng-container *ngIf=\"contentComponent; else simpleContent\">\n    <ng-content select=\"lai-sidenav-layout-content\"></ng-content>\n  </ng-container>\n\n  <ng-template #simpleContent>\n    <ng-content></ng-content>\n  </ng-template>\n</div>\n"
+            "templateData": "<div\n  class=\"sidenav\"\n  *laiLet=\"isHandset$ | async as isHandset\"\n  [class.open]=\"status\">\n  <div class=\"header\">\n    <lai-logo class=\"logo\" [logoPath]=\"logoPath\" routerLink=\"/\"></lai-logo>\n    <lai-icon\n      *ngIf=\"isHandset\"\n      [glyph]=\"icon\"\n      size=\"sm\"\n      (click)=\"clickEvent()\"></lai-icon>\n  </div>\n  <div class=\"nav-menu\" *ngIf=\"status\">\n    <lai-divider background=\"dark\"></lai-divider>\n    <lai-sidenav-layout-categories\n      class=\"categories\"></lai-sidenav-layout-categories>\n    <lai-divider background=\"dark\"></lai-divider>\n    <lai-sidenav-layout-account></lai-sidenav-layout-account>\n    <button\n      *ngIf=\"isHandset\"\n      laiIconButton\n      class=\"logout\"\n      hierarchy=\"tertiary\"\n      size=\"md\"\n      (click)=\"service.logoutCallBack()\">\n      <lai-icon glyph=\"logout\"></lai-icon>\n      {{ logOutText }}\n    </button>\n  </div>\n</div>\n\n<div class=\"main\">\n  <div class=\"main-header\" [laiHidden]=\"isHeaderHidden\">\n    <div class=\"title\">\n      <ng-content select=\"lai-sidenav-layout-avatar\"></ng-content>\n      <ng-content select=\"lai-sidenav-layout-title\"></ng-content>\n      <ng-content select=\"lai-sidenav-layout-subtitle\"></ng-content>\n    </div>\n\n    <lai-button-bar>\n      <ng-content select=\"lai-sidenav-layout-actions\"></ng-content>\n    </lai-button-bar>\n  </div>\n\n  <ng-container *ngIf=\"contentComponent; else simpleContent\">\n    <ng-content select=\"lai-sidenav-layout-content\"></ng-content>\n  </ng-container>\n\n  <ng-template #simpleContent>\n    <ng-content></ng-content>\n  </ng-template>\n</div>\n"
         },
         {
             "name": "SidenavLayoutContentComponent",
@@ -6169,6 +7046,96 @@
             ]
         },
         {
+            "name": "LandingLayoutModule",
+            "id": "module-LandingLayoutModule-418e464ebb6f391555173b0452fc96cfb99b5171c5af4842a128a55319ac3c3f0e63280fc0b16d59f281359f5932884319e96ec4f8553b119fd2fd5a87cc8b79",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { LandingLayoutComponent } from './landing-layout.component';\nimport { MatSidenavModule } from '@angular/material/sidenav';\nimport { MatToolbarModule } from '@angular/material/toolbar';\nimport { MatListModule } from '@angular/material/list';\nimport { MatButtonModule } from '@angular/material/button';\nimport { MatIconModule } from '@angular/material/icon';\nimport { RouterModule } from '@angular/router';\nimport { LandingLayoutCategoriesComponent } from './landing-layout-categories/landing-layout-categories.component';\nimport { LandingLayoutActionsComponent } from './landing-layout-actions/landing-layout-actions.component';\nimport { HiddenDirective, LetDirective } from '@lendai-us/cdk';\nimport { LandingLayoutContentComponent } from './landing-layout-content/landing-layout-content.component';\nimport { IconComponent } from '../../icon';\nimport { DividerComponent } from '../../divider';\nimport { ButtonBarComponent, ButtonComponent } from '../../button';\nimport {\n  BodyComponent,\n  CaptionComponent,\n  HeadlineComponent,\n} from '../../typography';\nimport { LogoComponent } from '../../logo';\nimport { LandingLayoutFooterComponent } from './landing-layout-footer/landing-layout-footer.component';\n\n@NgModule({\n  declarations: [\n    LandingLayoutComponent,\n    LandingLayoutCategoriesComponent,\n    LandingLayoutActionsComponent,\n    LandingLayoutContentComponent,\n    LandingLayoutFooterComponent,\n  ],\n  imports: [\n    CommonModule,\n    MatSidenavModule,\n    MatToolbarModule,\n    MatListModule,\n    MatButtonModule,\n    MatIconModule,\n    RouterModule,\n    IconComponent,\n    HiddenDirective,\n    DividerComponent,\n    HeadlineComponent,\n    BodyComponent,\n    ButtonComponent,\n    CaptionComponent,\n    ButtonBarComponent,\n    LogoComponent,\n    LetDirective,\n  ],\n  exports: [\n    LandingLayoutComponent,\n    LandingLayoutActionsComponent,\n    LandingLayoutContentComponent,\n    LandingLayoutFooterComponent,\n  ],\n})\nexport class LandingLayoutModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "LandingLayoutActionsComponent"
+                        },
+                        {
+                            "name": "LandingLayoutCategoriesComponent"
+                        },
+                        {
+                            "name": "LandingLayoutComponent"
+                        },
+                        {
+                            "name": "LandingLayoutContentComponent"
+                        },
+                        {
+                            "name": "LandingLayoutFooterComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "BodyComponent"
+                        },
+                        {
+                            "name": "ButtonBarComponent"
+                        },
+                        {
+                            "name": "ButtonComponent"
+                        },
+                        {
+                            "name": "CaptionComponent"
+                        },
+                        {
+                            "name": "DividerComponent"
+                        },
+                        {
+                            "name": "HeadlineComponent"
+                        },
+                        {
+                            "name": "IconComponent"
+                        },
+                        {
+                            "name": "LogoComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "LandingLayoutActionsComponent"
+                        },
+                        {
+                            "name": "LandingLayoutComponent"
+                        },
+                        {
+                            "name": "LandingLayoutContentComponent"
+                        },
+                        {
+                            "name": "LandingLayoutFooterComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "ListTileModule",
             "id": "module-ListTileModule-20c97b6fd38852f85ea338e95ba3ae07f71e1c1bce0188cb9fe211215b4007133ebe6d89d87d7525e453ae7d25b0745b1672568473037ca313f2ec673d356d17",
             "description": "",
@@ -6579,7 +7546,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "[\n  'purple',\n  'blue',\n  'red',\n  'aqua',\n  'orange',\n  'gray',\n  'pink',\n] as const"
+                "defaultValue": "[\n  'gray',\n  'purple',\n  'blue',\n  'red',\n  'orange',\n  'green',\n  'pink',\n  'aqua',\n] as const"
             },
             {
                 "name": "BADGE_RADIUSES",
@@ -6690,6 +7657,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args,\n  render: props => ({\n    props,\n  }),\n}"
+            },
+            {
+                "name": "CLEAN_LAYOUT_SERVICE",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/layout/clean-layout/clean-layout.service.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "new InjectionToken<CleanLayoutService>(\n  `_CLEAN_LAYOUT_SERVICE`\n)"
             },
             {
                 "name": "CleanLayout",
@@ -6859,7 +7836,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "[\n  'back',\n  'comments',\n  'communication',\n  'edit',\n  'dashboard',\n  'filter',\n  'forward',\n  'logout',\n  'trash',\n  'upload',\n  'loan-policy',\n  'cv',\n  'external-link',\n  'close',\n  'loan-applications',\n  'calendar',\n  'mail',\n  'phone',\n  'close-circle',\n  'checkmark',\n  'add',\n  'remove',\n  'info',\n  'error',\n  'expand-arrow',\n  'reset',\n  'bars',\n] as const"
+                "defaultValue": "[\n  'back',\n  'comments',\n  'communication',\n  'edit',\n  'dashboard',\n  'filter',\n  'forward',\n  'logout',\n  'trash',\n  'upload',\n  'loan-policy',\n  'cv',\n  'external-link',\n  'close',\n  'loan-applications',\n  'calendar',\n  'mail',\n  'phone',\n  'close-circle',\n  'checkmark',\n  'add',\n  'remove',\n  'info',\n  'error',\n  'expand-arrow',\n  'reset',\n  'bars',\n  'help',\n  'briefcase',\n  'wallet',\n] as const"
             },
             {
                 "name": "ICON_SIZES",
@@ -6952,6 +7929,36 @@
                 "defaultValue": "args => ({\n  props: args,\n  template: `\n  <button laiButton\n          [disabled]=\"disabled\"\n          [color]=\"color\"\n          [size]=\"size\"\n          [hierarchy]=\"hierarchy\">\n    {{content}}\n    <lai-icon [glyph]=\"glyph\"></lai-icon>\n  </button>\n  `,\n})"
             },
             {
+                "name": "LANDING_LAYOUT_SERVICE",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.service.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "new InjectionToken<LandingLayoutService>(\n  `_LANDING_LAYOUT_SERVICE`\n)"
+            },
+            {
+                "name": "LandingLayout",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: props => ({\n    props,\n    template: `\n    <lai-landing-layout>\n      <lai-landing-layout-actions>\n        <button laiButton>\n          \"Lang-switcher\"\n        </button>\n        <button laiButton class=\"apply\">\n          Apply Now\n        </button>\n      </lai-landing-layout-actions>\n      <lai-landing-layout-content>\n        <div style=\"height: 500px;\">Some content</div>\n      </lai-landing-layout-content>\n    </lai-landing-layout>\n  `,\n  }),\n}"
+            },
+            {
+                "name": "landingPageItems",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "LandingLayoutCategory[]",
+                "defaultValue": "[\n  {\n    icon: 'briefcase',\n    route: '/#loan-programs',\n    title: 'Loan Programs',\n  },\n  {\n    icon: 'wallet',\n    route: '/#why',\n    title: 'Why Finance?',\n  },\n  {\n    icon: 'help',\n    route: '/#how',\n    title: 'How Does It Works?',\n  },\n]"
+            },
+            {
                 "name": "Link",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -7035,21 +8042,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<AvatarComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<BadgeComponent>",
                 "defaultValue": "{\n  title: 'WIP/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    radius: {\n      options: BADGE_RADIUSES,\n      control: { type: 'select' },\n    },\n    type: {\n      options: BADGE_TYPES,\n      control: { type: 'select' },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<AvatarComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -7129,7 +8136,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<CleanLayoutComponent>",
-                "defaultValue": "{\n  title: 'Templates/CleanLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: CleanLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CleanLayoutModule, RouterTestingModule, BodyComponent],\n    }),\n  ],\n}"
+                "defaultValue": "{\n  title: 'Templates/CleanLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: CleanLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CleanLayoutModule, RouterTestingModule, BodyComponent],\n      providers: [\n        {\n          provide: CLEAN_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<LandingLayoutComponent>",
+                "defaultValue": "{\n  title: 'Templates/LandingLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: LandingLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [LandingLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: LANDING_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n}"
             },
             {
                 "name": "meta",
@@ -7258,7 +8275,7 @@
                 "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "SidenavCategory[]",
+                "type": "SidenavLayoutCategory[]",
                 "defaultValue": "[\n  {\n    icon: 'dashboard',\n    route: '/dashboard',\n    title: 'Dashboard',\n  },\n  {\n    icon: 'loan-applications',\n    route: '/loan-applications',\n    title: 'Loan Applications',\n  },\n  {\n    icon: 'loan-policy',\n    route: '/loan-policy',\n    title: 'Loan Policy',\n  },\n]"
             },
             {
@@ -7837,17 +8854,6 @@
                 "kind": 189
             },
             {
-                "name": "LogoStyle",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "\"light\" | \"dark\"",
-                "file": "projects/lendai-us/design-system/src/lib/logo/logo.component.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 189
-            },
-            {
                 "name": "OverlineLevel",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
@@ -7873,8 +8879,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<AvatarComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                "rawtype": "StoryObj<BadgeComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -7884,8 +8890,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<BadgeComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                "rawtype": "StoryObj<AvatarComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -7974,6 +8980,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<CleanLayoutComponent>",
                 "file": "projects/lendai-us/design-system/src/lib/layout/clean-layout/clean-layout.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<LandingLayoutComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -8303,7 +9320,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "[\n  'purple',\n  'blue',\n  'red',\n  'aqua',\n  'orange',\n  'gray',\n  'pink',\n] as const"
+                    "defaultValue": "[\n  'gray',\n  'purple',\n  'blue',\n  'red',\n  'orange',\n  'green',\n  'pink',\n  'aqua',\n] as const"
                 },
                 {
                     "name": "BADGE_RADIUSES",
@@ -8468,6 +9485,18 @@
                     "defaultValue": "args => ({\n  props: args,\n  template: `\n  <lai-caption [level]=\"level\">\n    {{content}}\n  </lai-caption>\n  `,\n})"
                 }
             ],
+            "projects/lendai-us/design-system/src/lib/layout/clean-layout/clean-layout.service.ts": [
+                {
+                    "name": "CLEAN_LAYOUT_SERVICE",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/layout/clean-layout/clean-layout.service.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "new InjectionToken<CleanLayoutService>(\n  `_CLEAN_LAYOUT_SERVICE`\n)"
+                }
+            ],
             "projects/lendai-us/design-system/src/lib/layout/clean-layout/clean-layout.stories.ts": [
                 {
                     "name": "CleanLayout",
@@ -8487,7 +9516,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<CleanLayoutComponent>",
-                    "defaultValue": "{\n  title: 'Templates/CleanLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: CleanLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CleanLayoutModule, RouterTestingModule, BodyComponent],\n    }),\n  ],\n}"
+                    "defaultValue": "{\n  title: 'Templates/CleanLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: CleanLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CleanLayoutModule, RouterTestingModule, BodyComponent],\n      providers: [\n        {\n          provide: CLEAN_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n}"
                 }
             ],
             "projects/lendai-us/design-system/src/lib/country-select/country-select.component.ts": [
@@ -8819,7 +9848,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "[\n  'back',\n  'comments',\n  'communication',\n  'edit',\n  'dashboard',\n  'filter',\n  'forward',\n  'logout',\n  'trash',\n  'upload',\n  'loan-policy',\n  'cv',\n  'external-link',\n  'close',\n  'loan-applications',\n  'calendar',\n  'mail',\n  'phone',\n  'close-circle',\n  'checkmark',\n  'add',\n  'remove',\n  'info',\n  'error',\n  'expand-arrow',\n  'reset',\n  'bars',\n] as const"
+                    "defaultValue": "[\n  'back',\n  'comments',\n  'communication',\n  'edit',\n  'dashboard',\n  'filter',\n  'forward',\n  'logout',\n  'trash',\n  'upload',\n  'loan-policy',\n  'cv',\n  'external-link',\n  'close',\n  'loan-applications',\n  'calendar',\n  'mail',\n  'phone',\n  'close-circle',\n  'checkmark',\n  'add',\n  'remove',\n  'info',\n  'error',\n  'expand-arrow',\n  'reset',\n  'bars',\n  'help',\n  'briefcase',\n  'wallet',\n] as const"
                 },
                 {
                     "name": "ICON_SIZES",
@@ -8904,6 +9933,50 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "new InjectionToken<\n  ImageCheckboxGroup<unknown>\n>('_IMAGE_CHECKBOX_GROUP')"
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.service.ts": [
+                {
+                    "name": "LANDING_LAYOUT_SERVICE",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.service.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "new InjectionToken<LandingLayoutService>(\n  `_LANDING_LAYOUT_SERVICE`\n)"
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts": [
+                {
+                    "name": "LandingLayout",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: props => ({\n    props,\n    template: `\n    <lai-landing-layout>\n      <lai-landing-layout-actions>\n        <button laiButton>\n          \"Lang-switcher\"\n        </button>\n        <button laiButton class=\"apply\">\n          Apply Now\n        </button>\n      </lai-landing-layout-actions>\n      <lai-landing-layout-content>\n        <div style=\"height: 500px;\">Some content</div>\n      </lai-landing-layout-content>\n    </lai-landing-layout>\n  `,\n  }),\n}"
+                },
+                {
+                    "name": "landingPageItems",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "LandingLayoutCategory[]",
+                    "defaultValue": "[\n  {\n    icon: 'briefcase',\n    route: '/#loan-programs',\n    title: 'Loan Programs',\n  },\n  {\n    icon: 'wallet',\n    route: '/#why',\n    title: 'Why Finance?',\n  },\n  {\n    icon: 'help',\n    route: '/#how',\n    title: 'How Does It Works?',\n  },\n]"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<LandingLayoutComponent>",
+                    "defaultValue": "{\n  title: 'Templates/LandingLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: LandingLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [LandingLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: LANDING_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n}"
                 }
             ],
             "projects/lendai-us/design-system/src/lib/link/link.stories.ts": [
@@ -9070,7 +10143,7 @@
                     "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "SidenavCategory[]",
+                    "type": "SidenavLayoutCategory[]",
                     "defaultValue": "[\n  {\n    icon: 'dashboard',\n    route: '/dashboard',\n    title: 'Dashboard',\n  },\n  {\n    icon: 'loan-applications',\n    route: '/loan-applications',\n    title: 'Loan Applications',\n  },\n  {\n    icon: 'loan-policy',\n    route: '/loan-policy',\n    title: 'Loan Policy',\n  },\n]"
                 },
                 {
@@ -9544,19 +10617,6 @@
                     "kind": 189
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/logo/logo.component.ts": [
-                {
-                    "name": "LogoStyle",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "\"light\" | \"dark\"",
-                    "file": "projects/lendai-us/design-system/src/lib/logo/logo.component.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 189
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/typography/overline/overline.component.ts": [
                 {
                     "name": "OverlineLevel",
@@ -9583,19 +10643,6 @@
                     "kind": 198
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<AvatarComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
                 {
                     "name": "Story",
@@ -9603,6 +10650,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<BadgeComponent>",
                     "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<AvatarComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -9707,6 +10767,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<CleanLayoutComponent>",
                     "file": "projects/lendai-us/design-system/src/lib/layout/clean-layout/clean-layout.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<LandingLayoutComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -10418,7 +11491,7 @@
                 "linktype": "component",
                 "name": "CleanLayoutLeftComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/11",
                 "status": "low"
             },
             {
@@ -10440,6 +11513,34 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/lendai-us/design-system/src/lib/layout/clean-layout/clean-layout.service.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "CleanLayoutService",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/layout/clean-layout/clean-layout.service.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "CLEAN_LAYOUT_SERVICE",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/layout/clean-layout/clean-layout.stories.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "DummyService",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/lendai-us/design-system/src/lib/layout/clean-layout/clean-layout.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -10451,6 +11552,118 @@
             },
             {
                 "filePath": "projects/lendai-us/design-system/src/lib/layout/clean-layout/clean-layout.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout-actions/landing-layout-actions.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LandingLayoutActionsComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout-categories/landing-layout-categories.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LandingLayoutCategoriesComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout-content/landing-layout-content.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LandingLayoutContentComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout-footer/landing-layout-footer.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LandingLayoutFooterComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LandingLayoutComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/15",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.service.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "LandingLayoutCategory",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.service.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "LandingLayoutService",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.service.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LANDING_LAYOUT_SERVICE",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "DummyService",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LandingLayout",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "landingPageItems",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -10528,14 +11741,14 @@
                 "linktype": "component",
                 "name": "SidenavLayoutComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/19",
+                "coverageCount": "0/20",
                 "status": "low"
             },
             {
                 "filePath": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.service.ts",
                 "type": "interface",
                 "linktype": "interface",
-                "name": "SidenavCategory",
+                "name": "SidenavLayoutCategory",
                 "coveragePercent": 0,
                 "coverageCount": "0/4",
                 "status": "low"
@@ -10546,7 +11759,7 @@
                 "linktype": "interface",
                 "name": "SidenavLayoutService",
                 "coveragePercent": 0,
-                "coverageCount": "0/8",
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -10565,7 +11778,7 @@
                 "linktype": "classe",
                 "name": "DummyService",
                 "coveragePercent": 0,
-                "coverageCount": "0/8",
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
