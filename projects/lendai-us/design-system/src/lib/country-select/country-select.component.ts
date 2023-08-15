@@ -48,6 +48,10 @@ export class CountrySelectComponent implements ControlValueAccessor {
     }
   }
 
+  get required(): boolean {
+    return this.ngControl.control?.hasValidator(Validators.required) ?? false;
+  }
+
   writeValue(obj: string): void {
     if (!obj) {
       return;
@@ -64,10 +68,6 @@ export class CountrySelectComponent implements ControlValueAccessor {
 
   registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
-  }
-
-  get required(): boolean {
-    return this.ngControl.control?.hasValidator(Validators.required) ?? false;
   }
 
   change(event: MatSelectChange): void {

@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input, inject } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable, map } from 'rxjs';
 
@@ -10,10 +10,12 @@ import { Observable, map } from 'rxjs';
 export class CleanLayoutLeftComponent {
   @Input() background!: string;
   @Input() title?: string;
-  private readonly breakpointObserver = inject(BreakpointObserver);
+
   readonly isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map(({ matches }) => matches));
+
+  constructor(private readonly breakpointObserver: BreakpointObserver) {}
 
   @HostBinding('style.background-image')
   get backgroundImage(): string {

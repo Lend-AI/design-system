@@ -32,13 +32,13 @@ export class ImageCheckboxGroupComponent<T>
     AfterContentInit,
     OnDestroy
 {
+  @ContentChildren(ImageCheckboxComponent)
+  checkboxes!: QueryList<ImageCheckboxComponent<T>>;
+
   name = crypto.randomUUID();
   initValue?: T;
   onChange!: (value: unknown) => void;
   onTouched!: () => void;
-
-  @ContentChildren(ImageCheckboxComponent)
-  checkboxes!: QueryList<ImageCheckboxComponent<T>>;
 
   private dispather = inject(UniqueSelectionDispatcher);
 

@@ -11,10 +11,10 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./sidenav-layout-categories.component.scss'],
 })
 export class SidenavLayoutCategoriesComponent implements OnInit, OnDestroy {
+  sidenavCategories: SidenavCategory[] = [];
+
   private readonly service = inject(SIDENAV_LAYOUT_SERVICE);
   private readonly sub$ = new Subscription();
-
-  sidenavCategories: SidenavCategory[] = [];
 
   ngOnInit(): void {
     this.sub$.add(

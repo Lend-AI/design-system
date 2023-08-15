@@ -14,6 +14,13 @@ import {
   standalone: true,
 })
 export class HiddenDirective implements OnChanges, AfterViewInit {
+  private _isHidden = false;
+
+  constructor(
+    private readonly elRef: ElementRef,
+    private readonly rendered: Renderer2
+  ) {}
+
   @Input('laiHidden')
   get isHidden(): boolean {
     return this._isHidden;
@@ -21,13 +28,6 @@ export class HiddenDirective implements OnChanges, AfterViewInit {
   set isHidden(value: BooleanInput) {
     this._isHidden = coerceBooleanProperty(value);
   }
-
-  private _isHidden = false;
-
-  constructor(
-    private readonly elRef: ElementRef,
-    private readonly rendered: Renderer2
-  ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (!changes['isHidden'].firstChange) {

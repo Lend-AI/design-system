@@ -22,41 +22,16 @@ export class ImageCheckboxComponent<T> implements OnInit, OnDestroy {
   @Input() value!: T;
 
   @HostBinding('class.checked')
-  set checked(value: boolean) {
-    this._checked = value;
-  }
-  get checked(): boolean {
-    return this._checked;
-  }
+  checked = false;
+
+  id = crypto.randomUUID();
+
+  private dispatcherListener!: () => void;
 
   private parent = inject(IMAGE_CHECKBOX_GROUP);
   private dispather = inject(UniqueSelectionDispatcher);
 
-  public id = crypto.randomUUID();
-
-  private _checked = false;
   private isHovered = false;
-
-  private get name(): string {
-    return this.parent.name;
-  }
-
-  private dispatcherListener!: () => void;
-
-  ngOnInit(): void {
-    if (
-      this.parent.initValue !== undefined &&
-      this.parent.initValue === this.value
-    ) {
-      this._checked = true;
-    }
-
-    this.dispatcherListener = this.dispather.listen((id, name) => {
-      if (name === this.name && id !== this.id) {
-        this.checked = false;
-      }
-    });
-  }
 
   get finalImage(): string {
     return this.activeImage
@@ -66,8 +41,8 @@ export class ImageCheckboxComponent<T> implements OnInit, OnDestroy {
       : this.image;
   }
 
-  ngOnDestroy(): void {
-    this.dispatcherListener();
+  private get name(): string {
+    return this.parent.name;
   }
 
   @HostListener('click')
@@ -83,6 +58,25 @@ export class ImageCheckboxComponent<T> implements OnInit, OnDestroy {
   @HostListener('mouseleave')
   private onMouseLeave(): void {
     this.isHovered = false;
+  }
+
+  ngOnInit(): void {
+    if (
+      this.parent.initValue !== undefined &&
+      this.parent.initValue === this.value
+    ) {
+      this.checked = true;
+    }
+
+    this.dispatcherListener = this.dispather.listen((id, name) => {
+      if (name === this.name && id !== this.id) {
+        this.checked = false;
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.dispatcherListener();
   }
 
   change(): void {
