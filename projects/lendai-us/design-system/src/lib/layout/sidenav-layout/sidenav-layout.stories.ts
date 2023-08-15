@@ -1,10 +1,10 @@
 import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
 import { SidenavLayoutModule } from './sidenav-layout.module';
 import {
-  SIDENAV_SERVICE,
+  SIDENAV_LAYOUT_SERVICE,
   SidenavCategory,
-  SidenavService,
-} from './sidenav-layout-service';
+  SidenavLayoutService,
+} from './sidenav-layout.service';
 import { SidenavLayoutComponent } from './sidenav-layout.component';
 import { of } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -27,7 +27,7 @@ const sidenavItems: SidenavCategory[] = [
     title: 'Loan Policy',
   },
 ];
-class DummyService implements SidenavService {
+class DummyService implements SidenavLayoutService {
   firstName$ = of('nof');
   lastName$ = of('sh');
   accountInfo$ = of('View profile');
@@ -52,7 +52,7 @@ const meta: Meta<SidenavLayoutComponent> = {
       imports: [SidenavLayoutModule, ButtonComponent, RouterTestingModule],
       providers: [
         {
-          provide: SIDENAV_SERVICE,
+          provide: SIDENAV_LAYOUT_SERVICE,
           useClass: DummyService,
         },
       ],

@@ -8,7 +8,7 @@ export interface SidenavCategory {
   route: string;
 }
 
-export interface SidenavService {
+export interface SidenavLayoutService {
   firstName$: Observable<string>;
   lastName$: Observable<string>;
   accountInfo$: Observable<string>;
@@ -18,6 +18,6 @@ export interface SidenavService {
   logoutCallBack(): Promise<void>;
 }
 
-export const SIDENAV_SERVICE = new InjectionToken<SidenavService>(
-  `_SIDENAV_SERVICE`
+export const SIDENAV_LAYOUT_SERVICE = new InjectionToken<SidenavLayoutService>(
+  `_SIDENAV_LAYOUT_SERVICE`
 );

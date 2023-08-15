@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, inject } from '@angular/core';
-import { SIDENAV_SERVICE } from '../sidenav-layout-service';
+import { SIDENAV_LAYOUT_SERVICE } from '../sidenav-layout.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable, Subscription, map } from 'rxjs';
 
@@ -9,7 +9,7 @@ import { Observable, Subscription, map } from 'rxjs';
   styleUrls: ['./sidenav-layout-account.component.scss'],
 })
 export class SidenavLayoutAccountComponent implements OnInit, OnDestroy {
-  protected readonly service = inject(SIDENAV_SERVICE);
+  protected readonly service = inject(SIDENAV_LAYOUT_SERVICE);
   private readonly sub$ = new Subscription();
   private readonly breakpointObserver = inject(BreakpointObserver);
 

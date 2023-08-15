@@ -11,7 +11,7 @@ import { SidenavLayoutActionsComponent } from './sidenav-layout-actions/sidenav-
 import { SidenavLayoutContentComponent } from './sidenav-layout-content/sidenav-layout-content.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable, Subscription, map } from 'rxjs';
-import { SIDENAV_SERVICE } from './sidenav-layout-service';
+import { SIDENAV_LAYOUT_SERVICE } from './sidenav-layout.service';
 import { IconGlyph } from '../../icon';
 
 @Component({
@@ -35,7 +35,7 @@ export class SidenavLayoutComponent implements OnInit, OnDestroy {
     );
   }
 
-  protected readonly service = inject(SIDENAV_SERVICE);
+  protected readonly service = inject(SIDENAV_LAYOUT_SERVICE);
   private readonly sub$ = new Subscription();
   firstName!: string;
   lastName!: string;
