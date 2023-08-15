@@ -42,14 +42,14 @@ $sizes: (
   border-right-color: transparent;
 
   &[disabled='true'] {
-    border-bottom-color: c.color('gray', 75) !important;
+    border-bottom-color: c.color('gray', 100) !important;
   }
 }
 
 :host-context(lai-tab-group[type='contained']) {
   border-top-width: 2px;
-  border-top-color: c.color('gray', 75);
-  background-color: c.color('gray', 75);
+  border-top-color: c.color('gray', 100);
+  background-color: c.color('gray', 100);
   border-right-color: c.color('gray', 300);
 
   &:hover {

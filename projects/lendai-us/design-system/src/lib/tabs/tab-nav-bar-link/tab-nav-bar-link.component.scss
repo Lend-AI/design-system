@@ -40,8 +40,8 @@ $sizes: (
 
 :host-context([laiTabNavBar][type='contained']) {
   border-top-width: 2px;
-  border-top-color: c.color('gray', 75);
-  background-color: c.color('gray', 75);
+  border-top-color: c.color('gray', 100);
+  background-color: c.color('gray', 100);
   border-right-color: c.color('gray', 300);
 
   &:hover {

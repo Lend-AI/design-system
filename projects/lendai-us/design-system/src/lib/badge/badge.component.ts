@@ -30,12 +30,13 @@ export const BADGE_TYPES = ['transparent', 'solid'] as const;
 export type BadgeType = (typeof BADGE_TYPES)[number];
 
 export const BADGE_COLORS = [
+  'gray',
   'purple',
   'blue',
   'red',
-  'aqua',
   'orange',
-  'gray',
+  'green',
   'pink',
+  'aqua',
 ] as const;
 export type BadgeColor = (typeof BADGE_COLORS)[number];

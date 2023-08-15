@@ -9,33 +9,45 @@ $radiuses: (
 );
 
 $colors: (
-  'blue': (
-    'background': map.get(c.$prebuilt-blue, 100),
-    'foreground': map.get(c.$prebuilt-blue, 700),
+  'gray': (
+    'background': map.get(c.$prebuilt-gray, 100),
+    'foreground': map.get(c.$prebuilt-gray, 700),
+    'background-solid': map.get(c.$prebuilt-gray, 500),
   ),
   'purple': (
-    'background': map.get(c.$prebuilt-purple, 100),
+    'background': map.get(c.$prebuilt-purple, 50),
     'foreground': map.get(c.$prebuilt-purple, 700),
+    'background-solid': map.get(c.$prebuilt-purple, 500),
+  ),
+  'blue': (
+    'background': map.get(c.$prebuilt-blue, 50),
+    'foreground': map.get(c.$prebuilt-blue, 700),
+    'background-solid': map.get(c.$prebuilt-blue, 500),
+  ),
+  'red': (
+    'background': map.get(c.$prebuilt-red, 50),
+    'foreground': map.get(c.$prebuilt-red, 700),
+    'background-solid': map.get(c.$prebuilt-red, 500),
+  ),
+  'orange': (
+    'background': map.get(c.$prebuilt-orange, 50),
+    'foreground': map.get(c.$prebuilt-orange, 700),
+    'background-solid': map.get(c.$prebuilt-orange, 500),
+  ),
+  'green': (
+    'background': map.get(c.$prebuilt-green, 50),
+    'foreground': map.get(c.$prebuilt-green, 700),
+    'background-solid': map.get(c.$prebuilt-green, 500),
+  ),
+  'pink': (
+    'background': map.get(c.$prebuilt-pink, 50),
+    'foreground': map.get(c.$prebuilt-pink, 700),
+    'background-solid': map.get(c.$prebuilt-pink, 500),
   ),
   'aqua': (
     'background': map.get(c.$prebuilt-aqua, 50),
     'foreground': map.get(c.$prebuilt-aqua, 700),
-  ),
-  'gray': (
-    'background': map.get(c.$prebuilt-gray, 50),
-    'foreground': map.get(c.$prebuilt-gray, 700),
-  ),
-  'orange': (
-    'background': map.get(c.$prebuilt-orange, 100),
-    'foreground': map.get(c.$prebuilt-orange, 700),
-  ),
-  'pink': (
-    'background': map.get(c.$prebuilt-pink, 50),
-    'foreground': map.get(c.$prebuilt-pink, 600),
-  ),
-  'red': (
-    'background': map.get(c.$prebuilt-red, 100),
-    'foreground': map.get(c.$prebuilt-red, 500),
+    'background-solid': map.get(c.$prebuilt-aqua, 500),
   ),
 );
 
@@ -58,7 +70,7 @@ $colors: (
   &[type='solid'] {
     @each $key, $value in $colors {
       &[color='#{$key}'] {
-        background-color: c.color($key, 500);
+        background-color: map.get($value, 'background-solid');
         color: c.$white;
       }
     }
