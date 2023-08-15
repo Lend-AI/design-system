@@ -3,12 +3,12 @@
     "interfaces": [
         {
             "name": "Country",
-            "id": "interface-Country-7b437627cd84eca6f38ef80209582d4df7efcb12413480e78fa9b1b03cfa3545e5cc0a7ace2c262ca4618f90043834180b236afaf29d5f0161077a4abea99ced",
+            "id": "interface-Country-71dd3d34c874b72c35ef7cbb88baa5d180cec494901f8a77fb39f0eb3fccfd1978c3370b6cac9db26448848b6daf7a197463b969915720bb5b559c0c1a591c79",
             "file": "projects/lendai-us/design-system/src/lib/country-select/country-select.component.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import {\n  Component,\n  Inject,\n  InjectionToken,\n  Input,\n  Optional,\n  Self,\n} from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ControlValueAccessor, NgControl, Validators } from '@angular/forms';\nimport { MatFormFieldModule } from '@angular/material/form-field';\nimport { MatSelectChange, MatSelectModule } from '@angular/material/select';\nimport { FlagComponent } from '../icon/flag/flag.component';\nimport { MatTooltipModule } from '@angular/material/tooltip';\nimport { MatIconModule } from '@angular/material/icon';\n\n@Component({\n  selector: 'lai-country-select',\n  standalone: true,\n  imports: [\n    CommonModule,\n    MatFormFieldModule,\n    MatSelectModule,\n    FlagComponent,\n    MatTooltipModule,\n    MatIconModule,\n  ],\n  templateUrl: './country-select.component.html',\n  styleUrls: ['./country-select.component.scss'],\n})\nexport class CountrySelectComponent implements ControlValueAccessor {\n  @Input() label?: string;\n  @Input() placeholder = '';\n  @Input() tooltip: string | undefined;\n\n  onChange!: (value: unknown) => void;\n  onTouched!: () => void;\n\n  selectedCountry?: Country;\n\n  constructor(\n    @Inject(COUNTRY_LIST)\n    public readonly countryList: Country[],\n    @Optional() @Self() private readonly ngControl: NgControl\n  ) {\n    if (this.ngControl) {\n      this.ngControl.valueAccessor = this;\n    }\n  }\n\n  writeValue(obj: string): void {\n    if (!obj) {\n      return;\n    }\n\n    this.selectedCountry = this.countryList.find(\n      country => country.alpha2Code === obj\n    );\n  }\n\n  registerOnChange(fn: (value: unknown) => void): void {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn: () => void): void {\n    this.onTouched = fn;\n  }\n\n  get required(): boolean {\n    return this.ngControl.control?.hasValidator(Validators.required) ?? false;\n  }\n\n  change(event: MatSelectChange): void {\n    this.selectedCountry = this.countryList.find(\n      country => country.alpha2Code === event.value\n    );\n    this.onChange(event.value);\n  }\n}\n\nexport interface Country {\n  name: string;\n  alpha2Code: string;\n  alpha3Code: string;\n  numericCode: string | null;\n  callingCode: string;\n}\n\nexport const COUNTRY_LIST = new InjectionToken<Country[]>('_COUNTRIES');\n",
+            "sourceCode": "import {\n  Component,\n  Inject,\n  InjectionToken,\n  Input,\n  Optional,\n  Self,\n} from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ControlValueAccessor, NgControl, Validators } from '@angular/forms';\nimport { MatFormFieldModule } from '@angular/material/form-field';\nimport { MatSelectChange, MatSelectModule } from '@angular/material/select';\nimport { FlagComponent } from '../icon/flag/flag.component';\nimport { MatTooltipModule } from '@angular/material/tooltip';\nimport { MatIconModule } from '@angular/material/icon';\n\n@Component({\n  selector: 'lai-country-select',\n  standalone: true,\n  imports: [\n    CommonModule,\n    MatFormFieldModule,\n    MatSelectModule,\n    FlagComponent,\n    MatTooltipModule,\n    MatIconModule,\n  ],\n  templateUrl: './country-select.component.html',\n  styleUrls: ['./country-select.component.scss'],\n})\nexport class CountrySelectComponent implements ControlValueAccessor {\n  @Input() label?: string;\n  @Input() placeholder = '';\n  @Input() tooltip: string | undefined;\n\n  onChange!: (value: unknown) => void;\n  onTouched!: () => void;\n\n  selectedCountry?: Country;\n\n  constructor(\n    @Inject(COUNTRY_LIST)\n    public readonly countryList: Country[],\n    @Optional() @Self() private readonly ngControl: NgControl\n  ) {\n    if (this.ngControl) {\n      this.ngControl.valueAccessor = this;\n    }\n  }\n\n  get required(): boolean {\n    return this.ngControl.control?.hasValidator(Validators.required) ?? false;\n  }\n\n  writeValue(obj: string): void {\n    if (!obj) {\n      return;\n    }\n\n    this.selectedCountry = this.countryList.find(\n      country => country.alpha2Code === obj\n    );\n  }\n\n  registerOnChange(fn: (value: unknown) => void): void {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn: () => void): void {\n    this.onTouched = fn;\n  }\n\n  change(event: MatSelectChange): void {\n    this.selectedCountry = this.countryList.find(\n      country => country.alpha2Code === event.value\n    );\n    this.onChange(event.value);\n  }\n}\n\nexport interface Country {\n  name: string;\n  alpha2Code: string;\n  alpha3Code: string;\n  numericCode: string | null;\n  callingCode: string;\n}\n\nexport const COUNTRY_LIST = new InjectionToken<Country[]>('_COUNTRIES');\n",
             "properties": [
                 {
                     "name": "alpha2Code",
@@ -185,12 +185,12 @@
         },
         {
             "name": "SidenavCategory",
-            "id": "interface-SidenavCategory-5fb292d3cc7076904bfb1921388a9a4bdc0e40b79cc75b6e3b19142dda627534dca84f9dca6982bb91d82b4accb1301b7e32998c6e2b72f92a9a46bc6925ef85",
-            "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout-service.ts",
+            "id": "interface-SidenavCategory-9ada4214d13b8cbcba6865b1798d767891ed57b0174fcac9272dc0a060dbcf4bfba45e999d6dc48a73905b3023513dc76f814092e578e8707fa48f565688e799",
+            "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.service.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { IconGlyph } from '../../icon';\n\nexport interface SidenavCategory {\n  icon: IconGlyph;\n  title: string;\n  route: string;\n}\n\nexport interface SidenavService {\n  firstName$: Observable<string>;\n  lastName$: Observable<string>;\n  accountInfo$: Observable<string>;\n  logOutText$: Observable<string>;\n  sidenavCategories$: Observable<SidenavCategory[]>;\n  accountCallBack(): Promise<void>;\n  logoutCallBack(): Promise<void>;\n}\n\nexport const SIDENAV_SERVICE = new InjectionToken<SidenavService>(\n  `_SIDENAV_SERVICE`\n);\n",
+            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { IconGlyph } from '../../icon';\n\nexport interface SidenavCategory {\n  icon: IconGlyph;\n  title: string;\n  route: string;\n}\n\nexport interface SidenavLayoutService {\n  firstName$: Observable<string>;\n  lastName$: Observable<string>;\n  accountInfo$: Observable<string>;\n  logOutText$: Observable<string>;\n  sidenavCategories$: Observable<SidenavCategory[]>;\n  accountCallBack(): Promise<void>;\n  logoutCallBack(): Promise<void>;\n}\n\nexport const SIDENAV_LAYOUT_SERVICE = new InjectionToken<SidenavLayoutService>(\n  `_SIDENAV_LAYOUT_SERVICE`\n);\n",
             "properties": [
                 {
                     "name": "icon",
@@ -225,13 +225,13 @@
             "methods": []
         },
         {
-            "name": "SidenavService",
-            "id": "interface-SidenavService-5fb292d3cc7076904bfb1921388a9a4bdc0e40b79cc75b6e3b19142dda627534dca84f9dca6982bb91d82b4accb1301b7e32998c6e2b72f92a9a46bc6925ef85",
-            "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout-service.ts",
+            "name": "SidenavLayoutService",
+            "id": "interface-SidenavLayoutService-9ada4214d13b8cbcba6865b1798d767891ed57b0174fcac9272dc0a060dbcf4bfba45e999d6dc48a73905b3023513dc76f814092e578e8707fa48f565688e799",
+            "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.service.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { IconGlyph } from '../../icon';\n\nexport interface SidenavCategory {\n  icon: IconGlyph;\n  title: string;\n  route: string;\n}\n\nexport interface SidenavService {\n  firstName$: Observable<string>;\n  lastName$: Observable<string>;\n  accountInfo$: Observable<string>;\n  logOutText$: Observable<string>;\n  sidenavCategories$: Observable<SidenavCategory[]>;\n  accountCallBack(): Promise<void>;\n  logoutCallBack(): Promise<void>;\n}\n\nexport const SIDENAV_SERVICE = new InjectionToken<SidenavService>(\n  `_SIDENAV_SERVICE`\n);\n",
+            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { IconGlyph } from '../../icon';\n\nexport interface SidenavCategory {\n  icon: IconGlyph;\n  title: string;\n  route: string;\n}\n\nexport interface SidenavLayoutService {\n  firstName$: Observable<string>;\n  lastName$: Observable<string>;\n  accountInfo$: Observable<string>;\n  logOutText$: Observable<string>;\n  sidenavCategories$: Observable<SidenavCategory[]>;\n  accountCallBack(): Promise<void>;\n  logoutCallBack(): Promise<void>;\n}\n\nexport const SIDENAV_LAYOUT_SERVICE = new InjectionToken<SidenavLayoutService>(\n  `_SIDENAV_LAYOUT_SERVICE`\n);\n",
             "properties": [
                 {
                     "name": "accountInfo$",
@@ -360,12 +360,12 @@
     "classes": [
         {
             "name": "DummyService",
-            "id": "class-DummyService-2ea7daeea9b15b1a0e169dd60c18abf9c3b67484504afba966485b3591985a7259de87409b392fa08b629e10ceb7465d12f79857dc2ab1b8f58fe04ad4c01620",
+            "id": "class-DummyService-828e287420ead60d4f9c7e129f93305a0c0f47bf148fdcf2182ac70fbcc456b2c58feb47c2a56c1124d646f1febe923745468171153ceb8e2475c348cc0f86f6",
             "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';\nimport { SidenavLayoutModule } from './sidenav-layout.module';\nimport {\n  SIDENAV_SERVICE,\n  SidenavCategory,\n  SidenavService,\n} from './sidenav-layout-service';\nimport { SidenavLayoutComponent } from './sidenav-layout.component';\nimport { of } from 'rxjs';\nimport { RouterTestingModule } from '@angular/router/testing';\nimport { ButtonComponent } from '../../button';\n\nconst sidenavItems: SidenavCategory[] = [\n  {\n    icon: 'dashboard',\n    route: '/dashboard',\n    title: 'Dashboard',\n  },\n  {\n    icon: 'loan-applications',\n    route: '/loan-applications',\n    title: 'Loan Applications',\n  },\n  {\n    icon: 'loan-policy',\n    route: '/loan-policy',\n    title: 'Loan Policy',\n  },\n];\nclass DummyService implements SidenavService {\n  firstName$ = of('nof');\n  lastName$ = of('sh');\n  accountInfo$ = of('View profile');\n  logOutText$ = of('Log Out');\n  sidenavCategories$ = of(sidenavItems);\n  async accountCallBack(): Promise<void> {\n    console.log('account call back');\n  }\n  async logoutCallBack(): Promise<void> {\n    console.log('logout call back');\n  }\n}\n\nconst meta: Meta<SidenavLayoutComponent> = {\n  title: 'Templates/SidenavLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: SidenavLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [SidenavLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: SIDENAV_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n};\nexport default meta;\n\ntype Story = StoryObj<SidenavLayoutComponent>;\n\nexport const SidenavLayout: Story = {\n  render: props => ({\n    props,\n    template: `\n    <lai-sidenav-layout>\n      <lai-sidenav-layout-avatar initials=\"NS\"></lai-sidenav-layout-avatar>\n      <lai-sidenav-layout-title>Header Title</lai-sidenav-layout-title>\n      <lai-sidenav-layout-subtitle>Header Subtitle</lai-sidenav-layout-subtitle>\n      <lai-sidenav-layout-actions>\n        <button laiButton>\n          New Application\n        </button>\n      </lai-sidenav-layout-actions>\n      <lai-sidenav-layout-content>\n        <div style=\"height: 500px;\">Some content</div>\n      </lai-sidenav-layout-content>\n    </lai-sidenav-layout>\n  `,\n  }),\n};\n",
+            "sourceCode": "import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';\nimport { SidenavLayoutModule } from './sidenav-layout.module';\nimport {\n  SIDENAV_LAYOUT_SERVICE,\n  SidenavCategory,\n  SidenavLayoutService,\n} from './sidenav-layout.service';\nimport { SidenavLayoutComponent } from './sidenav-layout.component';\nimport { of } from 'rxjs';\nimport { RouterTestingModule } from '@angular/router/testing';\nimport { ButtonComponent } from '../../button';\n\nconst sidenavItems: SidenavCategory[] = [\n  {\n    icon: 'dashboard',\n    route: '/dashboard',\n    title: 'Dashboard',\n  },\n  {\n    icon: 'loan-applications',\n    route: '/loan-applications',\n    title: 'Loan Applications',\n  },\n  {\n    icon: 'loan-policy',\n    route: '/loan-policy',\n    title: 'Loan Policy',\n  },\n];\nclass DummyService implements SidenavLayoutService {\n  firstName$ = of('nof');\n  lastName$ = of('sh');\n  accountInfo$ = of('View profile');\n  logOutText$ = of('Log Out');\n  sidenavCategories$ = of(sidenavItems);\n  async accountCallBack(): Promise<void> {\n    console.log('account call back');\n  }\n  async logoutCallBack(): Promise<void> {\n    console.log('logout call back');\n  }\n}\n\nconst meta: Meta<SidenavLayoutComponent> = {\n  title: 'Templates/SidenavLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: SidenavLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [SidenavLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: SIDENAV_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n};\nexport default meta;\n\ntype Story = StoryObj<SidenavLayoutComponent>;\n\nexport const SidenavLayout: Story = {\n  render: props => ({\n    props,\n    template: `\n    <lai-sidenav-layout>\n      <lai-sidenav-layout-avatar initials=\"NS\"></lai-sidenav-layout-avatar>\n      <lai-sidenav-layout-title>Header Title</lai-sidenav-layout-title>\n      <lai-sidenav-layout-subtitle>Header Subtitle</lai-sidenav-layout-subtitle>\n      <lai-sidenav-layout-actions>\n        <button laiButton>\n          New Application\n        </button>\n      </lai-sidenav-layout-actions>\n      <lai-sidenav-layout-content>\n        <div style=\"height: 500px;\">Some content</div>\n      </lai-sidenav-layout-content>\n    </lai-sidenav-layout>\n  `,\n  }),\n};\n",
             "properties": [
                 {
                     "name": "accountInfo$",
@@ -452,7 +452,7 @@
             "hostBindings": [],
             "hostListeners": [],
             "implements": [
-                "SidenavService"
+                "SidenavLayoutService"
             ]
         }
     ],
@@ -622,7 +622,7 @@
         },
         {
             "name": "BodyComponent",
-            "id": "component-BodyComponent-44f3bdb33bbf4f6e7eb8b9d6ebb3d5d1a134946d1a16352297012637b1939ecf9cc07c2e0949057e3ed804bae30ff696ac7bc9e6b40cef1ae58cefb83ac015fb",
+            "id": "component-BodyComponent-2634fd3c650795065465a165d4234b167a26b7abc4136678695ac373aae6cc388e17b081c238f33e6545c05b32d6625bdadd575f91f0fc4c20430483fff00857",
             "file": "projects/lendai-us/design-system/src/lib/typography/body/body.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -644,8 +644,8 @@
                     "name": "level",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 16,
-                    "type": "BodyLevel | string",
+                    "line": 22,
+                    "type": "BodyLevel",
                     "decorators": []
                 },
                 {
@@ -653,7 +653,7 @@
                     "defaultValue": "'regular'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 26,
+                    "line": 16,
                     "type": "BodyWeight",
                     "decorators": []
                 }
@@ -668,7 +668,7 @@
                     "type": "BodyLevel",
                     "optional": false,
                     "description": "",
-                    "line": 28,
+                    "line": 18,
                     "modifierKind": [
                         121
                     ]
@@ -689,7 +689,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { TypographyComponent } from '../typography.component';\nimport { coerceNumberProperty } from '@angular/cdk/coercion';\n\n@Component({\n  selector: 'lai-body',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './body.component.html',\n  styleUrls: ['./body.component.scss'],\n})\nexport class BodyComponent implements TypographyComponent<BodyLevel> {\n  @HostBinding('attr.level')\n  @Input()\n  set level(value: BodyLevel | string) {\n    this._level = coerceNumberProperty(value, 1) as BodyLevel;\n  }\n\n  get level(): BodyLevel {\n    return this._level;\n  }\n\n  @HostBinding('attr.weight')\n  @Input()\n  weight: BodyWeight = 'regular';\n\n  private _level: BodyLevel = 4;\n}\n\nexport const BODY_LEVELS = [1, 2, 3, 4, 5, 6] as const;\nexport type BodyLevel = (typeof BODY_LEVELS)[number];\n\nexport const BODY_WEIGHTS = ['regular', 'medium', 'semibold'] as const;\nexport type BodyWeight = (typeof BODY_WEIGHTS)[number];\n",
+            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { TypographyComponent } from '../typography.component';\nimport { coerceNumberProperty } from '@angular/cdk/coercion';\n\n@Component({\n  selector: 'lai-body',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './body.component.html',\n  styleUrls: ['./body.component.scss'],\n})\nexport class BodyComponent implements TypographyComponent<BodyLevel> {\n  @HostBinding('attr.weight')\n  @Input()\n  weight: BodyWeight = 'regular';\n\n  private _level: BodyLevel = 4;\n\n  @HostBinding('attr.level')\n  @Input()\n  get level(): BodyLevel {\n    return this._level;\n  }\n  set level(value: BodyLevel | string) {\n    this._level = coerceNumberProperty(value, 1) as BodyLevel;\n  }\n}\n\nexport const BODY_LEVELS = [1, 2, 3, 4, 5, 6] as const;\nexport type BodyLevel = (typeof BODY_LEVELS)[number];\n\nexport const BODY_WEIGHTS = ['regular', 'medium', 'semibold'] as const;\nexport type BodyWeight = (typeof BODY_WEIGHTS)[number];\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -718,7 +718,7 @@
                             }
                         ],
                         "returnType": "void",
-                        "line": 16,
+                        "line": 25,
                         "jsdoctags": [
                             {
                                 "name": "value",
@@ -735,7 +735,7 @@
                         "name": "level",
                         "type": "",
                         "returnType": "BodyLevel",
-                        "line": 20
+                        "line": 22
                     }
                 }
             },
@@ -1066,7 +1066,7 @@
         },
         {
             "name": "CleanLayoutLeftComponent",
-            "id": "component-CleanLayoutLeftComponent-277a72d99e2e656bf698245cc1273befc6dddc8c4441c11912c5d71245dea4b5f9304d4eb8f99d9e764aeeff4ab75befa5a3240748298821bc21d1c0ff1b90d0",
+            "id": "component-CleanLayoutLeftComponent-c3ea9bffbb609ed00e06c86236181aa66ce4821d182861877c1eefde630d6e32debf2365013df91e9fb00e04294c4e5721f089f65cc6a72b49b7dd21f0ae697a",
             "file": "projects/lendai-us/design-system/src/lib/layout/clean-layout/clean-layout-left/clean-layout-left.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1104,20 +1104,6 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
-                    "name": "breakpointObserver",
-                    "defaultValue": "inject(BreakpointObserver)",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 13,
-                    "modifierKind": [
-                        121,
-                        146
-                    ]
-                },
-                {
                     "name": "isHandset$",
                     "defaultValue": "this.breakpointObserver\n    .observe(Breakpoints.Handset)\n    .pipe(map(({ matches }) => matches))",
                     "deprecated": false,
@@ -1139,7 +1125,7 @@
                     "name": "style.background-image",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 19,
+                    "line": 21,
                     "type": "string",
                     "decorators": []
                 }
@@ -1150,7 +1136,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, HostBinding, Input, inject } from '@angular/core';\nimport { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';\nimport { Observable, map } from 'rxjs';\n\n@Component({\n  selector: 'lai-clean-layout-left',\n  templateUrl: './clean-layout-left.component.html',\n  styleUrls: ['./clean-layout-left.component.scss'],\n})\nexport class CleanLayoutLeftComponent {\n  @Input() background!: string;\n  @Input() title?: string;\n  private readonly breakpointObserver = inject(BreakpointObserver);\n  readonly isHandset$: Observable<boolean> = this.breakpointObserver\n    .observe(Breakpoints.Handset)\n    .pipe(map(({ matches }) => matches));\n\n  @HostBinding('style.background-image')\n  get backgroundImage(): string {\n    return `url(assets/images/${this.background})`;\n  }\n}\n",
+            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';\nimport { Observable, map } from 'rxjs';\n\n@Component({\n  selector: 'lai-clean-layout-left',\n  templateUrl: './clean-layout-left.component.html',\n  styleUrls: ['./clean-layout-left.component.scss'],\n})\nexport class CleanLayoutLeftComponent {\n  @Input() background!: string;\n  @Input() title?: string;\n\n  readonly isHandset$: Observable<boolean> = this.breakpointObserver\n    .observe(Breakpoints.Handset)\n    .pipe(map(({ matches }) => matches));\n\n  constructor(private readonly breakpointObserver: BreakpointObserver) {}\n\n  @HostBinding('style.background-image')\n  get backgroundImage(): string {\n    return `url(assets/images/${this.background})`;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1159,6 +1145,32 @@
                 }
             ],
             "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "breakpointObserver",
+                        "type": "BreakpointObserver",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 16,
+                "jsdoctags": [
+                    {
+                        "name": "breakpointObserver",
+                        "type": "BreakpointObserver",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
             "accessors": {
                 "backgroundImage": {
                     "name": "backgroundImage",
@@ -1166,7 +1178,7 @@
                         "name": "backgroundImage",
                         "type": "string",
                         "returnType": "string",
-                        "line": 19
+                        "line": 21
                     }
                 }
             },
@@ -1208,7 +1220,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ":host {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 40px 20px;\n}\n",
+                    "data": "@use 'breakpoints' as b;\n\n:host {\n  display: flex;\n  flex-direction: column;\n  padding-left: 15%;\n\n  @include b.mobile {\n    padding: 0 24px;\n  }\n}\n",
                     "styleUrl": "./clean-layout-right.component.scss"
                 }
             ],
@@ -1217,7 +1229,7 @@
         },
         {
             "name": "CountrySelectComponent",
-            "id": "component-CountrySelectComponent-7b437627cd84eca6f38ef80209582d4df7efcb12413480e78fa9b1b03cfa3545e5cc0a7ace2c262ca4618f90043834180b236afaf29d5f0161077a4abea99ced",
+            "id": "component-CountrySelectComponent-71dd3d34c874b72c35ef7cbb88baa5d180cec494901f8a77fb39f0eb3fccfd1978c3370b6cac9db26448848b6daf7a197463b969915720bb5b559c0c1a591c79",
             "file": "projects/lendai-us/design-system/src/lib/country-select/country-select.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1361,7 +1373,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 61,
+                    "line": 65,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1398,7 +1410,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 65,
+                    "line": 69,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1427,7 +1439,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 51,
+                    "line": 55,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1477,7 +1489,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  Inject,\n  InjectionToken,\n  Input,\n  Optional,\n  Self,\n} from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ControlValueAccessor, NgControl, Validators } from '@angular/forms';\nimport { MatFormFieldModule } from '@angular/material/form-field';\nimport { MatSelectChange, MatSelectModule } from '@angular/material/select';\nimport { FlagComponent } from '../icon/flag/flag.component';\nimport { MatTooltipModule } from '@angular/material/tooltip';\nimport { MatIconModule } from '@angular/material/icon';\n\n@Component({\n  selector: 'lai-country-select',\n  standalone: true,\n  imports: [\n    CommonModule,\n    MatFormFieldModule,\n    MatSelectModule,\n    FlagComponent,\n    MatTooltipModule,\n    MatIconModule,\n  ],\n  templateUrl: './country-select.component.html',\n  styleUrls: ['./country-select.component.scss'],\n})\nexport class CountrySelectComponent implements ControlValueAccessor {\n  @Input() label?: string;\n  @Input() placeholder = '';\n  @Input() tooltip: string | undefined;\n\n  onChange!: (value: unknown) => void;\n  onTouched!: () => void;\n\n  selectedCountry?: Country;\n\n  constructor(\n    @Inject(COUNTRY_LIST)\n    public readonly countryList: Country[],\n    @Optional() @Self() private readonly ngControl: NgControl\n  ) {\n    if (this.ngControl) {\n      this.ngControl.valueAccessor = this;\n    }\n  }\n\n  writeValue(obj: string): void {\n    if (!obj) {\n      return;\n    }\n\n    this.selectedCountry = this.countryList.find(\n      country => country.alpha2Code === obj\n    );\n  }\n\n  registerOnChange(fn: (value: unknown) => void): void {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn: () => void): void {\n    this.onTouched = fn;\n  }\n\n  get required(): boolean {\n    return this.ngControl.control?.hasValidator(Validators.required) ?? false;\n  }\n\n  change(event: MatSelectChange): void {\n    this.selectedCountry = this.countryList.find(\n      country => country.alpha2Code === event.value\n    );\n    this.onChange(event.value);\n  }\n}\n\nexport interface Country {\n  name: string;\n  alpha2Code: string;\n  alpha3Code: string;\n  numericCode: string | null;\n  callingCode: string;\n}\n\nexport const COUNTRY_LIST = new InjectionToken<Country[]>('_COUNTRIES');\n",
+            "sourceCode": "import {\n  Component,\n  Inject,\n  InjectionToken,\n  Input,\n  Optional,\n  Self,\n} from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ControlValueAccessor, NgControl, Validators } from '@angular/forms';\nimport { MatFormFieldModule } from '@angular/material/form-field';\nimport { MatSelectChange, MatSelectModule } from '@angular/material/select';\nimport { FlagComponent } from '../icon/flag/flag.component';\nimport { MatTooltipModule } from '@angular/material/tooltip';\nimport { MatIconModule } from '@angular/material/icon';\n\n@Component({\n  selector: 'lai-country-select',\n  standalone: true,\n  imports: [\n    CommonModule,\n    MatFormFieldModule,\n    MatSelectModule,\n    FlagComponent,\n    MatTooltipModule,\n    MatIconModule,\n  ],\n  templateUrl: './country-select.component.html',\n  styleUrls: ['./country-select.component.scss'],\n})\nexport class CountrySelectComponent implements ControlValueAccessor {\n  @Input() label?: string;\n  @Input() placeholder = '';\n  @Input() tooltip: string | undefined;\n\n  onChange!: (value: unknown) => void;\n  onTouched!: () => void;\n\n  selectedCountry?: Country;\n\n  constructor(\n    @Inject(COUNTRY_LIST)\n    public readonly countryList: Country[],\n    @Optional() @Self() private readonly ngControl: NgControl\n  ) {\n    if (this.ngControl) {\n      this.ngControl.valueAccessor = this;\n    }\n  }\n\n  get required(): boolean {\n    return this.ngControl.control?.hasValidator(Validators.required) ?? false;\n  }\n\n  writeValue(obj: string): void {\n    if (!obj) {\n      return;\n    }\n\n    this.selectedCountry = this.countryList.find(\n      country => country.alpha2Code === obj\n    );\n  }\n\n  registerOnChange(fn: (value: unknown) => void): void {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn: () => void): void {\n    this.onTouched = fn;\n  }\n\n  change(event: MatSelectChange): void {\n    this.selectedCountry = this.countryList.find(\n      country => country.alpha2Code === event.value\n    );\n    this.onChange(event.value);\n  }\n}\n\nexport interface Country {\n  name: string;\n  alpha2Code: string;\n  alpha3Code: string;\n  numericCode: string | null;\n  callingCode: string;\n}\n\nexport const COUNTRY_LIST = new InjectionToken<Country[]>('_COUNTRIES');\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1537,7 +1549,7 @@
                         "name": "required",
                         "type": "boolean",
                         "returnType": "boolean",
-                        "line": 69
+                        "line": 51
                     }
                 }
             },
@@ -1545,7 +1557,7 @@
         },
         {
             "name": "DisplayComponent",
-            "id": "component-DisplayComponent-a0c7f6af33a37dff69c5a527902d832fa2b1c49b9d5ea842ab9b9fa3a7aa205e854d0143709a992bdde73cb644641ef3c0b26c3ae760fe1e325c067723a67b3c",
+            "id": "component-DisplayComponent-9274c338ee9c087190457a177807a5c6b19bd7d23cc64cad64ca29f1cb692b424747422abf9c987ee307da51fef4d8ac50afd02e9cce2154932e98826f09fde0",
             "file": "projects/lendai-us/design-system/src/lib/typography/display/display.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1567,8 +1579,8 @@
                     "name": "level",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 16,
-                    "type": "DisplayLevel | string",
+                    "line": 17,
+                    "type": "DisplayLevel",
                     "decorators": []
                 }
             ],
@@ -1582,7 +1594,7 @@
                     "type": "DisplayLevel",
                     "optional": false,
                     "description": "",
-                    "line": 24,
+                    "line": 14,
                     "modifierKind": [
                         121
                     ]
@@ -1603,7 +1615,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { TypographyComponent } from '../typography.component';\nimport { coerceNumberProperty } from '@angular/cdk/coercion';\n\n@Component({\n  selector: 'lai-display',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './display.component.html',\n  styleUrls: ['./display.component.scss'],\n})\nexport class DisplayComponent implements TypographyComponent<DisplayLevel> {\n  @HostBinding('attr.level')\n  @Input()\n  set level(value: DisplayLevel | string) {\n    this._level = coerceNumberProperty(value, 1) as DisplayLevel;\n  }\n\n  get level(): DisplayLevel {\n    return this._level;\n  }\n\n  private _level: DisplayLevel = 1;\n}\n\nexport const DISPLAY_LEVELS = [1, 2, 3] as const;\nexport type DisplayLevel = (typeof DISPLAY_LEVELS)[number];\n",
+            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { TypographyComponent } from '../typography.component';\nimport { coerceNumberProperty } from '@angular/cdk/coercion';\n\n@Component({\n  selector: 'lai-display',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './display.component.html',\n  styleUrls: ['./display.component.scss'],\n})\nexport class DisplayComponent implements TypographyComponent<DisplayLevel> {\n  private _level: DisplayLevel = 1;\n  @HostBinding('attr.level')\n  @Input()\n  get level(): DisplayLevel {\n    return this._level;\n  }\n  set level(value: DisplayLevel | string) {\n    this._level = coerceNumberProperty(value, 1) as DisplayLevel;\n  }\n}\n\nexport const DISPLAY_LEVELS = [1, 2, 3] as const;\nexport type DisplayLevel = (typeof DISPLAY_LEVELS)[number];\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1632,7 +1644,7 @@
                             }
                         ],
                         "returnType": "void",
-                        "line": 16,
+                        "line": 20,
                         "jsdoctags": [
                             {
                                 "name": "value",
@@ -1649,7 +1661,7 @@
                         "name": "level",
                         "type": "",
                         "returnType": "DisplayLevel",
-                        "line": 20
+                        "line": 17
                     }
                 }
             },
@@ -1858,7 +1870,7 @@
         },
         {
             "name": "HeadlineComponent",
-            "id": "component-HeadlineComponent-005b01a99adae137030d725ce02c0fe8e78efc25424f5f1b5109faacdc5cbaa3fe2b69b41af00f77206072e75c98978b9f753567f163dc54201474ea69c83450",
+            "id": "component-HeadlineComponent-3c4bed11ef40aab80f4a2e725d7f18ea8d9ac0541da5d3cc3f11f97425d1f3977b750ea276d3e545688ad1c747458ef3dcf69ecb62bd1d0de6259409afa1cbbc",
             "file": "projects/lendai-us/design-system/src/lib/typography/headline/headline.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1880,8 +1892,8 @@
                     "name": "level",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 16,
-                    "type": "HeadlineLevel | string",
+                    "line": 18,
+                    "type": "HeadlineLevel",
                     "decorators": []
                 }
             ],
@@ -1895,7 +1907,7 @@
                     "type": "HeadlineLevel",
                     "optional": false,
                     "description": "",
-                    "line": 24,
+                    "line": 14,
                     "modifierKind": [
                         121
                     ]
@@ -1916,7 +1928,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { TypographyComponent } from '../typography.component';\nimport { coerceNumberProperty } from '@angular/cdk/coercion';\n\n@Component({\n  selector: 'lai-headline',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './headline.component.html',\n  styleUrls: ['./headline.component.scss'],\n})\nexport class HeadlineComponent implements TypographyComponent<HeadlineLevel> {\n  @HostBinding('attr.level')\n  @Input()\n  set level(value: HeadlineLevel | string) {\n    this._level = coerceNumberProperty(value, 1) as HeadlineLevel;\n  }\n\n  get level(): HeadlineLevel {\n    return this._level;\n  }\n\n  private _level: HeadlineLevel = 1;\n}\n\nexport const HEADLINE_LEVELS = [1, 2, 3, 4, 5];\nexport type HeadlineLevel = (typeof HEADLINE_LEVELS)[number];\n",
+            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { TypographyComponent } from '../typography.component';\nimport { coerceNumberProperty } from '@angular/cdk/coercion';\n\n@Component({\n  selector: 'lai-headline',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './headline.component.html',\n  styleUrls: ['./headline.component.scss'],\n})\nexport class HeadlineComponent implements TypographyComponent<HeadlineLevel> {\n  private _level: HeadlineLevel = 1;\n\n  @HostBinding('attr.level')\n  @Input()\n  get level(): HeadlineLevel {\n    return this._level;\n  }\n  set level(value: HeadlineLevel | string) {\n    this._level = coerceNumberProperty(value, 1) as HeadlineLevel;\n  }\n}\n\nexport const HEADLINE_LEVELS = [1, 2, 3, 4, 5];\nexport type HeadlineLevel = (typeof HEADLINE_LEVELS)[number];\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1945,7 +1957,7 @@
                             }
                         ],
                         "returnType": "void",
-                        "line": 16,
+                        "line": 21,
                         "jsdoctags": [
                             {
                                 "name": "value",
@@ -1962,7 +1974,7 @@
                         "name": "level",
                         "type": "",
                         "returnType": "HeadlineLevel",
-                        "line": 20
+                        "line": 18
                     }
                 }
             },
@@ -2035,7 +2047,7 @@
         },
         {
             "name": "ImageCheckboxComponent",
-            "id": "component-ImageCheckboxComponent-8305c548e38f238bc0e25640b9c1cb1c27c0dbff1cf17c76fe3fc23f232b682e50b2bbde231a569ca9c555f2a293c73729740997a35cea84e886211b3f92b405",
+            "id": "component-ImageCheckboxComponent-40a9308c5709a7e99fc1ce6790c3b17c6206cbbde6e21c5f758153314a953443393ba6a0d6447ba8aa324fb0ad6a8953e3fed8a9f3fd74ba8f8de980d176d4cd",
             "file": "projects/lendai-us/design-system/src/lib/image-checkbox/image-checkbox/image-checkbox.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2089,16 +2101,22 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
-                    "name": "_checked",
+                    "name": "checked",
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 37,
+                    "line": 25,
+                    "decorators": [
+                        {
+                            "name": "HostBinding",
+                            "stringifiedArguments": "'class.checked'"
+                        }
+                    ],
                     "modifierKind": [
-                        121
+                        167
                     ]
                 },
                 {
@@ -2108,7 +2126,7 @@
                     "type": "function",
                     "optional": false,
                     "description": "",
-                    "line": 44,
+                    "line": 29,
                     "modifierKind": [
                         121
                     ]
@@ -2121,7 +2139,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 33,
+                    "line": 32,
                     "modifierKind": [
                         121
                     ]
@@ -2134,10 +2152,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 35,
-                    "modifierKind": [
-                        123
-                    ]
+                    "line": 27
                 },
                 {
                     "name": "isHovered",
@@ -2147,7 +2162,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 38,
+                    "line": 34,
                     "modifierKind": [
                         121
                     ]
@@ -2160,7 +2175,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 32,
+                    "line": 31,
                     "modifierKind": [
                         121
                     ]
@@ -2173,7 +2188,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 88,
+                    "line": 82,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -2183,7 +2198,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 69,
+                    "line": 78,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -2193,7 +2208,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 46,
+                    "line": 63,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -2203,7 +2218,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 74,
+                    "line": 49,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "decorators": [
@@ -2223,7 +2238,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 79,
+                    "line": 54,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "decorators": [
@@ -2243,7 +2258,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 84,
+                    "line": 59,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "decorators": [
@@ -2263,6 +2278,7 @@
             "hostBindings": [
                 {
                     "name": "class.checked",
+                    "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 25,
@@ -2277,7 +2293,7 @@
                     "argsDecorator": [],
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 74
+                    "line": 49
                 },
                 {
                     "name": "mouseenter",
@@ -2285,7 +2301,7 @@
                     "argsDecorator": [],
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 79
+                    "line": 54
                 },
                 {
                     "name": "mouseleave",
@@ -2293,7 +2309,7 @@
                     "argsDecorator": [],
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 84
+                    "line": 59
                 }
             ],
             "standalone": false,
@@ -2301,7 +2317,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  HostBinding,\n  HostListener,\n  Input,\n  OnDestroy,\n  OnInit,\n  inject,\n} from '@angular/core';\nimport { UniqueSelectionDispatcher } from '@angular/cdk/collections';\nimport { IMAGE_CHECKBOX_GROUP } from '../image-checkbox-group/image-checkbox-group';\n\n@Component({\n  selector: 'lai-image-checkbox',\n  templateUrl: './image-checkbox.component.html',\n  styleUrls: ['./image-checkbox.component.scss'],\n})\nexport class ImageCheckboxComponent<T> implements OnInit, OnDestroy {\n  @Input() image!: string;\n  @Input() activeImage?: string;\n  @Input() label!: string;\n  @Input() value!: T;\n\n  @HostBinding('class.checked')\n  set checked(value: boolean) {\n    this._checked = value;\n  }\n  get checked(): boolean {\n    return this._checked;\n  }\n\n  private parent = inject(IMAGE_CHECKBOX_GROUP);\n  private dispather = inject(UniqueSelectionDispatcher);\n\n  public id = crypto.randomUUID();\n\n  private _checked = false;\n  private isHovered = false;\n\n  private get name(): string {\n    return this.parent.name;\n  }\n\n  private dispatcherListener!: () => void;\n\n  ngOnInit(): void {\n    if (\n      this.parent.initValue !== undefined &&\n      this.parent.initValue === this.value\n    ) {\n      this._checked = true;\n    }\n\n    this.dispatcherListener = this.dispather.listen((id, name) => {\n      if (name === this.name && id !== this.id) {\n        this.checked = false;\n      }\n    });\n  }\n\n  get finalImage(): string {\n    return this.activeImage\n      ? this.checked || this.isHovered\n        ? this.activeImage\n        : this.image\n      : this.image;\n  }\n\n  ngOnDestroy(): void {\n    this.dispatcherListener();\n  }\n\n  @HostListener('click')\n  private onClick(): void {\n    this.change();\n  }\n\n  @HostListener('mouseenter')\n  private onMouseEnter(): void {\n    this.isHovered = true;\n  }\n\n  @HostListener('mouseleave')\n  private onMouseLeave(): void {\n    this.isHovered = false;\n  }\n\n  change(): void {\n    this.checked = !this.checked;\n    this.dispather.notify(this.id, this.name);\n  }\n}\n",
+            "sourceCode": "import {\n  Component,\n  HostBinding,\n  HostListener,\n  Input,\n  OnDestroy,\n  OnInit,\n  inject,\n} from '@angular/core';\nimport { UniqueSelectionDispatcher } from '@angular/cdk/collections';\nimport { IMAGE_CHECKBOX_GROUP } from '../image-checkbox-group/image-checkbox-group';\n\n@Component({\n  selector: 'lai-image-checkbox',\n  templateUrl: './image-checkbox.component.html',\n  styleUrls: ['./image-checkbox.component.scss'],\n})\nexport class ImageCheckboxComponent<T> implements OnInit, OnDestroy {\n  @Input() image!: string;\n  @Input() activeImage?: string;\n  @Input() label!: string;\n  @Input() value!: T;\n\n  @HostBinding('class.checked')\n  checked = false;\n\n  id = crypto.randomUUID();\n\n  private dispatcherListener!: () => void;\n\n  private parent = inject(IMAGE_CHECKBOX_GROUP);\n  private dispather = inject(UniqueSelectionDispatcher);\n\n  private isHovered = false;\n\n  get finalImage(): string {\n    return this.activeImage\n      ? this.checked || this.isHovered\n        ? this.activeImage\n        : this.image\n      : this.image;\n  }\n\n  private get name(): string {\n    return this.parent.name;\n  }\n\n  @HostListener('click')\n  private onClick(): void {\n    this.change();\n  }\n\n  @HostListener('mouseenter')\n  private onMouseEnter(): void {\n    this.isHovered = true;\n  }\n\n  @HostListener('mouseleave')\n  private onMouseLeave(): void {\n    this.isHovered = false;\n  }\n\n  ngOnInit(): void {\n    if (\n      this.parent.initValue !== undefined &&\n      this.parent.initValue === this.value\n    ) {\n      this.checked = true;\n    }\n\n    this.dispatcherListener = this.dispather.listen((id, name) => {\n      if (name === this.name && id !== this.id) {\n        this.checked = false;\n      }\n    });\n  }\n\n  ngOnDestroy(): void {\n    this.dispatcherListener();\n  }\n\n  change(): void {\n    this.checked = !this.checked;\n    this.dispather.notify(this.id, this.name);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2315,40 +2331,13 @@
                 "OnDestroy"
             ],
             "accessors": {
-                "checked": {
-                    "name": "checked",
-                    "setSignature": {
-                        "name": "checked",
-                        "type": "void",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "args": [
-                            {
-                                "name": "value",
-                                "type": "boolean",
-                                "deprecated": false,
-                                "deprecationMessage": ""
-                            }
-                        ],
-                        "returnType": "void",
-                        "line": 25,
-                        "jsdoctags": [
-                            {
-                                "name": "value",
-                                "type": "boolean",
-                                "deprecated": false,
-                                "deprecationMessage": "",
-                                "tagName": {
-                                    "text": "param"
-                                }
-                            }
-                        ]
-                    },
+                "finalImage": {
+                    "name": "finalImage",
                     "getSignature": {
-                        "name": "checked",
-                        "type": "boolean",
-                        "returnType": "boolean",
-                        "line": 28
+                        "name": "finalImage",
+                        "type": "string",
+                        "returnType": "string",
+                        "line": 36
                     }
                 },
                 "name": {
@@ -2357,16 +2346,7 @@
                         "name": "name",
                         "type": "string",
                         "returnType": "string",
-                        "line": 40
-                    }
-                },
-                "finalImage": {
-                    "name": "finalImage",
-                    "getSignature": {
-                        "name": "finalImage",
-                        "type": "string",
-                        "returnType": "string",
-                        "line": 61
+                        "line": 44
                     }
                 }
             },
@@ -2374,7 +2354,7 @@
         },
         {
             "name": "ImageCheckboxGroupComponent",
-            "id": "component-ImageCheckboxGroupComponent-7f8bd85d5d258796a8fd6082fb9630938209d26d5f9998bba957583c3f08fd156078c206ba27f98356d3fb66e1b1ccb6bbdcb1ca0bd359abc26136941ac9d31b",
+            "id": "component-ImageCheckboxGroupComponent-6e06df1867a37e920c9c409f877c5a68ec371bfef55dc7b2b037885e475068867ac74cd09af2c2896a13cbf4b7190f55f1bfc0abfda19aac4e60219a952b9b10",
             "file": "projects/lendai-us/design-system/src/lib/image-checkbox/image-checkbox-group/image-checkbox-group.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2406,7 +2386,7 @@
                     "type": "QueryList<ImageCheckboxComponent<T>>",
                     "optional": false,
                     "description": "",
-                    "line": 41,
+                    "line": 36,
                     "decorators": [
                         {
                             "name": "ContentChildren",
@@ -2437,7 +2417,7 @@
                     "type": "T",
                     "optional": true,
                     "description": "",
-                    "line": 36
+                    "line": 39
                 },
                 {
                     "name": "name",
@@ -2447,7 +2427,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 35
+                    "line": 38
                 },
                 {
                     "name": "ngControl",
@@ -2481,7 +2461,7 @@
                     "type": "function",
                     "optional": false,
                     "description": "",
-                    "line": 37
+                    "line": 40
                 },
                 {
                     "name": "onTouched",
@@ -2490,7 +2470,7 @@
                     "type": "function",
                     "optional": false,
                     "description": "",
-                    "line": 38
+                    "line": 41
                 },
                 {
                     "name": "sub$",
@@ -2640,7 +2620,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  AfterContentInit,\n  Component,\n  Optional,\n  Self,\n  inject,\n} from '@angular/core';\nimport {\n  IMAGE_CHECKBOX_GROUP,\n  ImageCheckboxGroup,\n} from './image-checkbox-group';\nimport { ControlValueAccessor, NgControl } from '@angular/forms';\nimport { ContentChildren } from '@angular/core';\nimport { QueryList } from '@angular/core';\nimport { ImageCheckboxComponent } from '../image-checkbox/image-checkbox.component';\nimport { OnDestroy } from '@angular/core';\nimport { Subscription } from 'rxjs';\nimport { UniqueSelectionDispatcher } from '@angular/cdk/collections';\n\n@Component({\n  selector: 'lai-image-checkbox-group',\n  templateUrl: './image-checkbox-group.component.html',\n  styleUrls: ['./image-checkbox-group.component.scss'],\n  providers: [\n    { provide: IMAGE_CHECKBOX_GROUP, useExisting: ImageCheckboxGroupComponent },\n  ],\n})\nexport class ImageCheckboxGroupComponent<T>\n  implements\n    ControlValueAccessor,\n    ImageCheckboxGroup<T>,\n    AfterContentInit,\n    OnDestroy\n{\n  name = crypto.randomUUID();\n  initValue?: T;\n  onChange!: (value: unknown) => void;\n  onTouched!: () => void;\n\n  @ContentChildren(ImageCheckboxComponent)\n  checkboxes!: QueryList<ImageCheckboxComponent<T>>;\n\n  private dispather = inject(UniqueSelectionDispatcher);\n\n  private readonly sub$ = new Subscription();\n\n  constructor(@Optional() @Self() public readonly ngControl?: NgControl) {\n    if (this.ngControl) {\n      this.ngControl.valueAccessor = this;\n    }\n  }\n\n  ngAfterContentInit(): void {\n    this.dispather.listen((id, name) => {\n      if (name !== this.name) {\n        return;\n      }\n\n      const checkbox = this.checkboxes.find(checkbox => checkbox.id === id);\n      if (!checkbox) {\n        throw new Error(`Cannot find checkbox with id ${id}`);\n      }\n\n      const newValue =\n        checkbox.value === this.ngControl?.value ? null : checkbox.value;\n      this.onChange(newValue);\n    });\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n\n  writeValue(obj: T): void {\n    this.initValue = obj;\n  }\n  registerOnChange(fn: (value: unknown) => void): void {\n    this.onChange = fn;\n  }\n  registerOnTouched(fn: () => void): void {\n    this.registerOnTouched = fn;\n  }\n}\n",
+            "sourceCode": "import {\n  AfterContentInit,\n  Component,\n  Optional,\n  Self,\n  inject,\n} from '@angular/core';\nimport {\n  IMAGE_CHECKBOX_GROUP,\n  ImageCheckboxGroup,\n} from './image-checkbox-group';\nimport { ControlValueAccessor, NgControl } from '@angular/forms';\nimport { ContentChildren } from '@angular/core';\nimport { QueryList } from '@angular/core';\nimport { ImageCheckboxComponent } from '../image-checkbox/image-checkbox.component';\nimport { OnDestroy } from '@angular/core';\nimport { Subscription } from 'rxjs';\nimport { UniqueSelectionDispatcher } from '@angular/cdk/collections';\n\n@Component({\n  selector: 'lai-image-checkbox-group',\n  templateUrl: './image-checkbox-group.component.html',\n  styleUrls: ['./image-checkbox-group.component.scss'],\n  providers: [\n    { provide: IMAGE_CHECKBOX_GROUP, useExisting: ImageCheckboxGroupComponent },\n  ],\n})\nexport class ImageCheckboxGroupComponent<T>\n  implements\n    ControlValueAccessor,\n    ImageCheckboxGroup<T>,\n    AfterContentInit,\n    OnDestroy\n{\n  @ContentChildren(ImageCheckboxComponent)\n  checkboxes!: QueryList<ImageCheckboxComponent<T>>;\n\n  name = crypto.randomUUID();\n  initValue?: T;\n  onChange!: (value: unknown) => void;\n  onTouched!: () => void;\n\n  private dispather = inject(UniqueSelectionDispatcher);\n\n  private readonly sub$ = new Subscription();\n\n  constructor(@Optional() @Self() public readonly ngControl?: NgControl) {\n    if (this.ngControl) {\n      this.ngControl.valueAccessor = this;\n    }\n  }\n\n  ngAfterContentInit(): void {\n    this.dispather.listen((id, name) => {\n      if (name !== this.name) {\n        return;\n      }\n\n      const checkbox = this.checkboxes.find(checkbox => checkbox.id === id);\n      if (!checkbox) {\n        throw new Error(`Cannot find checkbox with id ${id}`);\n      }\n\n      const newValue =\n        checkbox.value === this.ngControl?.value ? null : checkbox.value;\n      this.onChange(newValue);\n    });\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n\n  writeValue(obj: T): void {\n    this.initValue = obj;\n  }\n  registerOnChange(fn: (value: unknown) => void): void {\n    this.onChange = fn;\n  }\n  registerOnTouched(fn: () => void): void {\n    this.registerOnTouched = fn;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -3528,7 +3508,7 @@
         },
         {
             "name": "PhoneInputComponent",
-            "id": "component-PhoneInputComponent-e20506c0835c11d536197d3e2f35622d450d5579bafc71624204e2cc9bb4ae7d86580252d2636f360631aa5f2c525ff899d6953a6b0d667ccdfa8f5499f99da6",
+            "id": "component-PhoneInputComponent-f53e4c27273a4e88d9da88a0b199cf637e0f80e7bbb9bd8545cc28b8f9f3a9b8436ff4add76be407e92aca983ddc6477a1d11fc4c6bc7de62b417fc444be5b92",
             "file": "projects/lendai-us/design-system/src/lib/phone-input/phone-input.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -3593,7 +3573,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 78,
+                    "line": 87,
                     "modifierKind": [
                         122,
                         146
@@ -3607,7 +3587,7 @@
                     "type": "NumberFormat",
                     "optional": false,
                     "description": "",
-                    "line": 93,
+                    "line": 97,
                     "modifierKind": [
                         121,
                         146
@@ -3621,7 +3601,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 84,
+                    "line": 93,
                     "modifierKind": [
                         122
                     ]
@@ -3633,7 +3613,7 @@
                     "type": "ElementRef<HTMLInputElement>",
                     "optional": false,
                     "description": "",
-                    "line": 90,
+                    "line": 79,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -3654,7 +3634,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 82,
+                    "line": 91,
                     "modifierKind": [
                         122
                     ]
@@ -3667,7 +3647,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 85,
+                    "line": 94,
                     "modifierKind": [
                         122,
                         146
@@ -3680,7 +3660,7 @@
                     "type": "NgModel",
                     "optional": false,
                     "description": "",
-                    "line": 92,
+                    "line": 81,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -3700,7 +3680,7 @@
                     "type": "function",
                     "optional": false,
                     "description": "",
-                    "line": 96
+                    "line": 83
                 },
                 {
                     "name": "onTouched",
@@ -3709,7 +3689,7 @@
                     "type": "function",
                     "optional": false,
                     "description": "",
-                    "line": 97
+                    "line": 84
                 },
                 {
                     "name": "onValidatorChange",
@@ -3718,7 +3698,7 @@
                     "type": "function",
                     "optional": false,
                     "description": "",
-                    "line": 98
+                    "line": 85
                 },
                 {
                     "name": "placeholder",
@@ -3728,7 +3708,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 83,
+                    "line": 92,
                     "modifierKind": [
                         122,
                         146
@@ -3742,7 +3722,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 94,
+                    "line": 98,
                     "modifierKind": [
                         121,
                         146
@@ -3756,7 +3736,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 81,
+                    "line": 90,
                     "modifierKind": [
                         122
                     ]
@@ -4075,7 +4055,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  ElementRef,\n  Input,\n  OnDestroy,\n  OnInit,\n  ViewChild,\n  inject,\n} from '@angular/core';\nimport {\n  AbstractControl,\n  ControlValueAccessor,\n  FormsModule,\n  NG_VALIDATORS,\n  NG_VALUE_ACCESSOR,\n  NgModel,\n  ValidationErrors,\n  Validator,\n} from '@angular/forms';\nimport {\n  NumberFormat,\n  formatNumber,\n  isValidPhoneNumber,\n  parseNumber,\n  ParsedNumber,\n  CountryCode,\n} from 'libphonenumber-js';\nimport { CommonModule } from '@angular/common';\nimport { MatFormFieldModule } from '@angular/material/form-field';\nimport { MatInputModule } from '@angular/material/input';\nimport { FlagComponent } from '../icon/flag/flag.component';\nimport { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';\nimport { MatButtonModule } from '@angular/material/button';\nimport { IconComponent } from '../icon';\nimport { MatMenuModule } from '@angular/material/menu';\nimport { COUNTRY_LIST, Country } from '../country-select';\nimport {\n  Subscription,\n  debounceTime,\n  distinctUntilChanged,\n  fromEvent,\n  tap,\n} from 'rxjs';\n\n@Component({\n  selector: 'lai-phone-input',\n  standalone: true,\n  imports: [\n    CommonModule,\n    MatFormFieldModule,\n    MatInputModule,\n    FormsModule,\n    FlagComponent,\n    NgxMaskDirective,\n    NgxMaskPipe,\n    MatButtonModule,\n    IconComponent,\n    MatMenuModule,\n  ],\n  templateUrl: './phone-input.component.html',\n  styleUrls: ['./phone-input.component.scss'],\n  providers: [\n    {\n      provide: NG_VALUE_ACCESSOR,\n      useExisting: PhoneInputComponent,\n      multi: true,\n    },\n    { provide: NG_VALIDATORS, useExisting: PhoneInputComponent, multi: true },\n  ],\n})\nexport class PhoneInputComponent\n  implements OnInit, OnDestroy, ControlValueAccessor, Validator\n{\n  @Input() label = '';\n  @Input() isReadonly = false;\n  @Input() isRequired = false;\n\n  protected readonly countries = inject(COUNTRY_LIST);\n  // template binding is via template driven forms and not via render.setProperty,\n  // because of ngx-mask, that is overriding inner input value and resets it in case it is default to 1\n  protected value = '';\n  protected isDisabled = false;\n  protected readonly placeholder = '16135550194';\n  protected flag = '';\n  protected readonly mask =\n    '0 000 000 00 00||000 00 000 0000||00 0 00 0000 0000';\n\n  // private readonly parent = inject(NgControl, { self: true, optional: true });\n  @ViewChild('input', { static: true })\n  private readonly inputRef!: ElementRef<HTMLInputElement>;\n  @ViewChild(NgModel, { static: true })\n  private readonly ngModel!: NgModel;\n  private readonly externalFormat: NumberFormat = 'E.164';\n  private readonly sub$ = new Subscription();\n\n  onChange!: (value: unknown) => void;\n  onTouched!: () => void;\n  onValidatorChange!: () => void;\n\n  ngOnInit(): void {\n    this.sub$.add(\n      fromEvent(this.inputRef.nativeElement, 'input')\n        .pipe(\n          debounceTime(300),\n          distinctUntilChanged(),\n          tap(this.updateFlag.bind(this)),\n          tap(this.updateExternalControl.bind(this))\n        )\n        .subscribe()\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n\n  writeValue(value: string): void {\n    const number = parseNumber(value ?? '');\n    if (!isParsedNumber(number)) {\n      return;\n    }\n\n    const formatted = formatNumber(number, this.externalFormat);\n    this.flag = number.country;\n    this.value = formatted.substring(1);\n  }\n\n  validate({\n    value,\n  }: AbstractControl<string, string>): ValidationErrors | null {\n    if (!value) {\n      return null;\n    }\n\n    const isValid = isValidPhoneNumber(value);\n    if (!isValid) {\n      const errors = {\n        ...this.ngModel.control.errors,\n        phoneValidator: true,\n      };\n      this.ngModel.control.setErrors(errors);\n      return errors;\n    }\n\n    const errors = this.ngModel.control.errors;\n    if (!errors) {\n      return null;\n    }\n\n    const { phoneValidator: _, ...other } = errors;\n    this.ngModel.control.setErrors(other);\n    return null;\n  }\n\n  registerOnChange(fn: (value: unknown) => void): void {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn: () => void): void {\n    this.onTouched = fn;\n  }\n\n  registerOnValidatorChange(fn: () => void): void {\n    this.onValidatorChange = fn;\n  }\n\n  setDisabledState(isDisabled: boolean): void {\n    this.isDisabled = isDisabled;\n  }\n\n  protected countrySelected({ alpha2Code, callingCode }: Country): void {\n    this.flag = alpha2Code;\n\n    const number = parseNumber(`+${this.value}`);\n    if (!isParsedNumber(number)) {\n      this.value = callingCode.substring(1);\n      return;\n    }\n\n    number.country = alpha2Code as CountryCode;\n    const formatted = formatNumber(number, this.externalFormat);\n    this.value = formatted;\n  }\n\n  private updateFlag(): void {\n    const number = parseNumber(`+${this.value}`);\n    if (!isParsedNumber(number)) {\n      this.flag = '';\n      return;\n    }\n\n    this.flag = number.country;\n  }\n\n  private updateExternalControl(): void {\n    const number = parseNumber(`+${this.value}`);\n    if (!isParsedNumber(number)) {\n      this.onChange(this.value);\n      return;\n    }\n\n    const formatted = formatNumber(number, this.externalFormat);\n    this.onChange(formatted);\n  }\n}\n\nfunction isParsedNumber(obj: ParsedNumber | object): obj is ParsedNumber {\n  return Object.hasOwn(obj, 'phone');\n}\n",
+            "sourceCode": "import {\n  Component,\n  ElementRef,\n  Input,\n  OnDestroy,\n  OnInit,\n  ViewChild,\n  inject,\n} from '@angular/core';\nimport {\n  AbstractControl,\n  ControlValueAccessor,\n  FormsModule,\n  NG_VALIDATORS,\n  NG_VALUE_ACCESSOR,\n  NgModel,\n  ValidationErrors,\n  Validator,\n} from '@angular/forms';\nimport {\n  NumberFormat,\n  formatNumber,\n  isValidPhoneNumber,\n  parseNumber,\n  ParsedNumber,\n  CountryCode,\n} from 'libphonenumber-js';\nimport { CommonModule } from '@angular/common';\nimport { MatFormFieldModule } from '@angular/material/form-field';\nimport { MatInputModule } from '@angular/material/input';\nimport { FlagComponent } from '../icon/flag/flag.component';\nimport { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';\nimport { MatButtonModule } from '@angular/material/button';\nimport { IconComponent } from '../icon';\nimport { MatMenuModule } from '@angular/material/menu';\nimport { COUNTRY_LIST, Country } from '../country-select';\nimport {\n  Subscription,\n  debounceTime,\n  distinctUntilChanged,\n  fromEvent,\n  tap,\n} from 'rxjs';\n\n@Component({\n  selector: 'lai-phone-input',\n  standalone: true,\n  imports: [\n    CommonModule,\n    MatFormFieldModule,\n    MatInputModule,\n    FormsModule,\n    FlagComponent,\n    NgxMaskDirective,\n    NgxMaskPipe,\n    MatButtonModule,\n    IconComponent,\n    MatMenuModule,\n  ],\n  templateUrl: './phone-input.component.html',\n  styleUrls: ['./phone-input.component.scss'],\n  providers: [\n    {\n      provide: NG_VALUE_ACCESSOR,\n      useExisting: PhoneInputComponent,\n      multi: true,\n    },\n    { provide: NG_VALIDATORS, useExisting: PhoneInputComponent, multi: true },\n  ],\n})\nexport class PhoneInputComponent\n  implements OnInit, OnDestroy, ControlValueAccessor, Validator\n{\n  @Input() label = '';\n  @Input() isReadonly = false;\n  @Input() isRequired = false;\n\n  @ViewChild('input', { static: true })\n  private readonly inputRef!: ElementRef<HTMLInputElement>;\n  @ViewChild(NgModel, { static: true })\n  private readonly ngModel!: NgModel;\n\n  onChange!: (value: unknown) => void;\n  onTouched!: () => void;\n  onValidatorChange!: () => void;\n\n  protected readonly countries = inject(COUNTRY_LIST);\n  // template binding is via template driven forms and not via render.setProperty,\n  // because of ngx-mask, that is overriding inner input value and resets it in case it is default to 1\n  protected value = '';\n  protected isDisabled = false;\n  protected readonly placeholder = '16135550194';\n  protected flag = '';\n  protected readonly mask =\n    '0 000 000 00 00||000 00 000 0000||00 0 00 0000 0000';\n\n  private readonly externalFormat: NumberFormat = 'E.164';\n  private readonly sub$ = new Subscription();\n\n  ngOnInit(): void {\n    this.sub$.add(\n      fromEvent(this.inputRef.nativeElement, 'input')\n        .pipe(\n          debounceTime(300),\n          distinctUntilChanged(),\n          tap(this.updateFlag.bind(this)),\n          tap(this.updateExternalControl.bind(this))\n        )\n        .subscribe()\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n\n  writeValue(value: string): void {\n    const number = parseNumber(value ?? '');\n    if (!isParsedNumber(number)) {\n      return;\n    }\n\n    const formatted = formatNumber(number, this.externalFormat);\n    this.flag = number.country;\n    this.value = formatted.substring(1);\n  }\n\n  validate({\n    value,\n  }: AbstractControl<string, string>): ValidationErrors | null {\n    if (!value) {\n      return null;\n    }\n\n    const isValid = isValidPhoneNumber(value);\n    if (!isValid) {\n      const errors = {\n        ...this.ngModel.control.errors,\n        phoneValidator: true,\n      };\n      this.ngModel.control.setErrors(errors);\n      return errors;\n    }\n\n    const errors = this.ngModel.control.errors;\n    if (!errors) {\n      return null;\n    }\n\n    const { phoneValidator: _, ...other } = errors;\n    this.ngModel.control.setErrors(other);\n    return null;\n  }\n\n  registerOnChange(fn: (value: unknown) => void): void {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn: () => void): void {\n    this.onTouched = fn;\n  }\n\n  registerOnValidatorChange(fn: () => void): void {\n    this.onValidatorChange = fn;\n  }\n\n  setDisabledState(isDisabled: boolean): void {\n    this.isDisabled = isDisabled;\n  }\n\n  protected countrySelected({ alpha2Code, callingCode }: Country): void {\n    this.flag = alpha2Code;\n\n    const number = parseNumber(`+${this.value}`);\n    if (!isParsedNumber(number)) {\n      this.value = callingCode.substring(1);\n      return;\n    }\n\n    number.country = alpha2Code as CountryCode;\n    const formatted = formatNumber(number, this.externalFormat);\n    this.value = formatted;\n  }\n\n  private updateFlag(): void {\n    const number = parseNumber(`+${this.value}`);\n    if (!isParsedNumber(number)) {\n      this.flag = '';\n      return;\n    }\n\n    this.flag = number.country;\n  }\n\n  private updateExternalControl(): void {\n    const number = parseNumber(`+${this.value}`);\n    if (!isParsedNumber(number)) {\n      this.onChange(this.value);\n      return;\n    }\n\n    const formatted = formatNumber(number, this.externalFormat);\n    this.onChange(formatted);\n  }\n}\n\nfunction isParsedNumber(obj: ParsedNumber | object): obj is ParsedNumber {\n  return Object.hasOwn(obj, 'phone');\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -4128,7 +4108,7 @@
         },
         {
             "name": "SideDrawerComponent",
-            "id": "component-SideDrawerComponent-5af7f337f1d586e539bb80a18481ae6eaf77ae9ac5b55fe72babeafaf794f2ae0c5bd862fb92d8f8301b783f38292bd4754443a9be9bbca76c13c4f9e4827db0",
+            "id": "component-SideDrawerComponent-1a81860c4c1f371ddda39df70f33f38d8257f6055a259dd96a5d491008e7621f78eb610c52dba0cea02c8ecfe1b663ce13700b5416832b60f42ef5d46acd8989",
             "file": "projects/lendai-us/design-system/src/lib/side-drawer/side-drawer.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -4149,32 +4129,6 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
-                    "name": "breakpointObserver",
-                    "defaultValue": "inject(BreakpointObserver)",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 13,
-                    "modifierKind": [
-                        121
-                    ]
-                },
-                {
-                    "name": "dialogRef",
-                    "defaultValue": "inject(DialogRef)",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 14,
-                    "modifierKind": [
-                        121
-                    ]
-                },
-                {
                     "name": "isHandset$",
                     "defaultValue": "this.breakpointObserver\n    .observe(Breakpoints.Handset)\n    .pipe(map(({ matches }) => matches))",
                     "deprecated": false,
@@ -4182,7 +4136,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 19,
+                    "line": 16,
                     "modifierKind": [
                         122
                     ]
@@ -4194,7 +4148,7 @@
                     "type": "QueryList<SideDrawerWarningComponent>",
                     "optional": false,
                     "description": "",
-                    "line": 17,
+                    "line": 14,
                     "decorators": [
                         {
                             "name": "ContentChildren",
@@ -4214,7 +4168,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 23,
+                    "line": 25,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -4231,7 +4185,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, ContentChildren, QueryList, inject } from '@angular/core';\nimport { SideDrawerWarningComponent } from './side-drawer-warning/side-drawer-warning.component';\nimport { DialogRef } from '@angular/cdk/dialog';\nimport { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';\nimport { map } from 'rxjs';\n\n@Component({\n  selector: 'lai-side-drawer',\n  templateUrl: './side-drawer.component.html',\n  styleUrls: ['./side-drawer.component.scss'],\n})\nexport class SideDrawerComponent {\n  private breakpointObserver = inject(BreakpointObserver);\n  private dialogRef = inject(DialogRef);\n\n  @ContentChildren(SideDrawerWarningComponent)\n  protected warnings!: QueryList<SideDrawerWarningComponent>;\n\n  protected isHandset$ = this.breakpointObserver\n    .observe(Breakpoints.Handset)\n    .pipe(map(({ matches }) => matches));\n\n  protected close(): void {\n    this.dialogRef.close();\n  }\n}\n",
+            "sourceCode": "import { Component, ContentChildren, QueryList } from '@angular/core';\nimport { SideDrawerWarningComponent } from './side-drawer-warning/side-drawer-warning.component';\nimport { DialogRef } from '@angular/cdk/dialog';\nimport { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';\nimport { map } from 'rxjs';\n\n@Component({\n  selector: 'lai-side-drawer',\n  templateUrl: './side-drawer.component.html',\n  styleUrls: ['./side-drawer.component.scss'],\n})\nexport class SideDrawerComponent {\n  @ContentChildren(SideDrawerWarningComponent)\n  protected warnings!: QueryList<SideDrawerWarningComponent>;\n\n  protected isHandset$ = this.breakpointObserver\n    .observe(Breakpoints.Handset)\n    .pipe(map(({ matches }) => matches));\n\n  constructor(\n    private breakpointObserver: BreakpointObserver,\n    private dialogRef: DialogRef\n  ) {}\n\n  protected close(): void {\n    this.dialogRef.close();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -4240,6 +4194,47 @@
                 }
             ],
             "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "breakpointObserver",
+                        "type": "BreakpointObserver",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "dialogRef",
+                        "type": "DialogRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 18,
+                "jsdoctags": [
+                    {
+                        "name": "breakpointObserver",
+                        "type": "BreakpointObserver",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "dialogRef",
+                        "type": "DialogRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
             "templateData": "<div class=\"wrapper\">\n  <ng-content select=\"lai-side-drawer-header\"></ng-content>\n\n  <ng-container *ngFor=\"let warning of warnings\">\n    <ng-container *ngTemplateOutlet=\"warning.templateRef\"></ng-container>\n  </ng-container>\n\n  <div class=\"content\">\n    <ng-content></ng-content>\n  </div>\n\n  <button\n    *laiLet=\"isHandset$ | async as isHandset\"\n    class=\"close-button\"\n    [class.close-button--handset]=\"isHandset\"\n    [class.close-button--desktop]=\"!isHandset\"\n    (click)=\"close()\">\n    <lai-icon glyph=\"close\" [size]=\"isHandset ? 'md' : 'xl'\"></lai-icon>\n  </button>\n</div>\n"
         },
         {
@@ -4359,7 +4354,7 @@
         },
         {
             "name": "SidenavLayoutAccountComponent",
-            "id": "component-SidenavLayoutAccountComponent-aa5fc1af2a5dc0cb4ee5cd5118b7d2d98c8f1e293f27b15adb06ce43cf8d5c37a3c324cdf62a20faf3497941bd98fe6674435f0f5c5ef44c7dccd7677eed67cb",
+            "id": "component-SidenavLayoutAccountComponent-ed9837f2a87a7c68354809e71704b9583f1fe43f9b830855eee06e5c6175023f7392f70fe6c73400dfe43ec8454943833d73197a32e545b5accef541617dd701",
             "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout-account/sidenav-layout-account.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -4387,21 +4382,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 18
-                },
-                {
-                    "name": "breakpointObserver",
-                    "defaultValue": "inject(BreakpointObserver)",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 14,
-                    "modifierKind": [
-                        121,
-                        146
-                    ]
+                    "line": 14
                 },
                 {
                     "name": "firstName",
@@ -4411,7 +4392,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 16
+                    "line": 12
                 },
                 {
                     "name": "isHandset$",
@@ -4421,7 +4402,7 @@
                     "type": "Observable<boolean>",
                     "optional": false,
                     "description": "",
-                    "line": 20,
+                    "line": 16,
                     "modifierKind": [
                         146
                     ]
@@ -4434,17 +4415,17 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 17
+                    "line": 13
                 },
                 {
                     "name": "service",
-                    "defaultValue": "inject(SIDENAV_SERVICE)",
+                    "defaultValue": "inject(SIDENAV_LAYOUT_SERVICE)",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 12,
+                    "line": 20,
                     "modifierKind": [
                         122,
                         146
@@ -4458,7 +4439,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 13,
+                    "line": 22,
                     "modifierKind": [
                         121,
                         146
@@ -4472,7 +4453,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 45,
+                    "line": 47,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -4482,7 +4463,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 24,
+                    "line": 26,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -4496,7 +4477,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit, OnDestroy, inject } from '@angular/core';\nimport { SIDENAV_SERVICE } from '../sidenav-layout-service';\nimport { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';\nimport { Observable, Subscription, map } from 'rxjs';\n\n@Component({\n  selector: 'lai-sidenav-layout-account',\n  templateUrl: './sidenav-layout-account.component.html',\n  styleUrls: ['./sidenav-layout-account.component.scss'],\n})\nexport class SidenavLayoutAccountComponent implements OnInit, OnDestroy {\n  protected readonly service = inject(SIDENAV_SERVICE);\n  private readonly sub$ = new Subscription();\n  private readonly breakpointObserver = inject(BreakpointObserver);\n\n  firstName = '';\n  lastName = '';\n  accountInfo = '';\n\n  readonly isHandset$: Observable<boolean> = this.breakpointObserver\n    .observe(Breakpoints.Handset)\n    .pipe(map(({ matches }) => matches));\n\n  ngOnInit(): void {\n    this.sub$.add(\n      this.service.firstName$.subscribe(\n        firstName => (this.firstName = firstName)\n      )\n    );\n    this.sub$.add(\n      this.service.firstName$.subscribe(\n        firstName => (this.firstName = firstName)\n      )\n    );\n    this.sub$.add(\n      this.service.lastName$.subscribe(lastName => (this.lastName = lastName))\n    );\n    this.sub$.add(\n      this.service.accountInfo$.subscribe(\n        accountInfo => (this.accountInfo = accountInfo)\n      )\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n}\n",
+            "sourceCode": "import { Component, OnInit, OnDestroy, inject } from '@angular/core';\nimport { SIDENAV_LAYOUT_SERVICE } from '../sidenav-layout.service';\nimport { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';\nimport { Observable, Subscription, map } from 'rxjs';\n\n@Component({\n  selector: 'lai-sidenav-layout-account',\n  templateUrl: './sidenav-layout-account.component.html',\n  styleUrls: ['./sidenav-layout-account.component.scss'],\n})\nexport class SidenavLayoutAccountComponent implements OnInit, OnDestroy {\n  firstName = '';\n  lastName = '';\n  accountInfo = '';\n\n  readonly isHandset$: Observable<boolean> = this.breakpointObserver\n    .observe(Breakpoints.Handset)\n    .pipe(map(({ matches }) => matches));\n\n  protected readonly service = inject(SIDENAV_LAYOUT_SERVICE);\n\n  private readonly sub$ = new Subscription();\n\n  constructor(private readonly breakpointObserver: BreakpointObserver) {}\n\n  ngOnInit(): void {\n    this.sub$.add(\n      this.service.firstName$.subscribe(\n        firstName => (this.firstName = firstName)\n      )\n    );\n    this.sub$.add(\n      this.service.firstName$.subscribe(\n        firstName => (this.firstName = firstName)\n      )\n    );\n    this.sub$.add(\n      this.service.lastName$.subscribe(lastName => (this.lastName = lastName))\n    );\n    this.sub$.add(\n      this.service.accountInfo$.subscribe(\n        accountInfo => (this.accountInfo = accountInfo)\n      )\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -4505,6 +4486,32 @@
                 }
             ],
             "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "breakpointObserver",
+                        "type": "BreakpointObserver",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 22,
+                "jsdoctags": [
+                    {
+                        "name": "breakpointObserver",
+                        "type": "BreakpointObserver",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
             "implements": [
                 "OnInit",
                 "OnDestroy"
@@ -4608,7 +4615,7 @@
         },
         {
             "name": "SidenavLayoutCategoriesComponent",
-            "id": "component-SidenavLayoutCategoriesComponent-8b4212abe2bc726e999f837130b3aab72f2c5d6ce78ca1c1de54bb67095f293c73629ca088d193fcc82af550a5cbbd849f6eb2396290600d20aa01cdb98e46f1",
+            "id": "component-SidenavLayoutCategoriesComponent-ed22beef6adebba3fdd6623ccb6bfcd74754f058d7a2791d8d1761eaff64f52edc21a67b31509be8f230685f52450cf6ac7766cc08afe4c92b94955b94bd619e",
             "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout-categories/sidenav-layout-categories.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -4630,13 +4637,13 @@
             "propertiesClass": [
                 {
                     "name": "service",
-                    "defaultValue": "inject(SIDENAV_SERVICE)",
+                    "defaultValue": "inject(SIDENAV_LAYOUT_SERVICE)",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 11,
+                    "line": 16,
                     "modifierKind": [
                         121,
                         146
@@ -4660,7 +4667,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 12,
+                    "line": 17,
                     "modifierKind": [
                         121,
                         146
@@ -4674,7 +4681,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 24,
+                    "line": 27,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -4684,7 +4691,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 16,
+                    "line": 19,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -4698,7 +4705,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, inject, OnDestroy, OnInit } from '@angular/core';\nimport { SIDENAV_SERVICE, SidenavCategory } from '../sidenav-layout-service';\nimport { Subscription } from 'rxjs';\n\n@Component({\n  selector: 'lai-sidenav-layout-categories',\n  templateUrl: './sidenav-layout-categories.component.html',\n  styleUrls: ['./sidenav-layout-categories.component.scss'],\n})\nexport class SidenavLayoutCategoriesComponent implements OnInit, OnDestroy {\n  private readonly service = inject(SIDENAV_SERVICE);\n  private readonly sub$ = new Subscription();\n\n  sidenavCategories: SidenavCategory[] = [];\n\n  ngOnInit(): void {\n    this.sub$.add(\n      this.service.sidenavCategories$.subscribe(\n        sidenavCategories => (this.sidenavCategories = sidenavCategories)\n      )\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n}\n",
+            "sourceCode": "import { Component, inject, OnDestroy, OnInit } from '@angular/core';\nimport {\n  SIDENAV_LAYOUT_SERVICE,\n  SidenavCategory,\n} from '../sidenav-layout.service';\nimport { Subscription } from 'rxjs';\n\n@Component({\n  selector: 'lai-sidenav-layout-categories',\n  templateUrl: './sidenav-layout-categories.component.html',\n  styleUrls: ['./sidenav-layout-categories.component.scss'],\n})\nexport class SidenavLayoutCategoriesComponent implements OnInit, OnDestroy {\n  sidenavCategories: SidenavCategory[] = [];\n\n  private readonly service = inject(SIDENAV_LAYOUT_SERVICE);\n  private readonly sub$ = new Subscription();\n\n  ngOnInit(): void {\n    this.sub$.add(\n      this.service.sidenavCategories$.subscribe(\n        sidenavCategories => (this.sidenavCategories = sidenavCategories)\n      )\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -4715,7 +4722,7 @@
         },
         {
             "name": "SidenavLayoutComponent",
-            "id": "component-SidenavLayoutComponent-c4a05480249817c94df787f64d4a6e902894d839bbf8f3fc1d1f7d6fff4cee9689270ae3a38826f9b81b6fde6559f2b70ec7e595497842c69b0a0b2aca1eb4e6",
+            "id": "component-SidenavLayoutComponent-b4b14e2adba82b746bc913dc70d8c507414d1ba1facaad1a1972d3328dd7b9c9a6ee3c7058e08e13cbb77f15273860d4ab44a16c4ca6858dbf065880aaac83eb",
             "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -4742,7 +4749,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 42
+                    "line": 39
                 },
                 {
                     "name": "actionsComponent",
@@ -4751,7 +4758,7 @@
                     "type": "SidenavLayoutActionsComponent",
                     "optional": true,
                     "description": "",
-                    "line": 28,
+                    "line": 31,
                     "decorators": [
                         {
                             "name": "ContentChild",
@@ -4765,27 +4772,13 @@
                     ]
                 },
                 {
-                    "name": "breakpointObserver",
-                    "defaultValue": "inject(BreakpointObserver)",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 78,
-                    "modifierKind": [
-                        121,
-                        146
-                    ]
-                },
-                {
                     "name": "contentComponent",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "SidenavLayoutContentComponent",
                     "optional": true,
                     "description": "",
-                    "line": 30,
+                    "line": 24,
                     "decorators": [
                         {
                             "name": "ContentChild",
@@ -4794,7 +4787,6 @@
                     ],
                     "modifierKind": [
                         167,
-                        123,
                         146
                     ]
                 },
@@ -4805,7 +4797,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 40
+                    "line": 37
                 },
                 {
                     "name": "icon",
@@ -4815,7 +4807,7 @@
                     "type": "IconGlyph",
                     "optional": false,
                     "description": "",
-                    "line": 46
+                    "line": 43
                 },
                 {
                     "name": "isHandset",
@@ -4824,7 +4816,7 @@
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 44
+                    "line": 41
                 },
                 {
                     "name": "isHandset$",
@@ -4834,10 +4826,7 @@
                     "type": "Observable<boolean>",
                     "optional": false,
                     "description": "",
-                    "line": 79,
-                    "modifierKind": [
-                        146
-                    ]
+                    "line": 33
                 },
                 {
                     "name": "lastName",
@@ -4846,7 +4835,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 41
+                    "line": 38
                 },
                 {
                     "name": "logOutText",
@@ -4855,17 +4844,17 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 43
+                    "line": 40
                 },
                 {
                     "name": "service",
-                    "defaultValue": "inject(SIDENAV_SERVICE)",
+                    "defaultValue": "inject(SIDENAV_LAYOUT_SERVICE)",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 38,
+                    "line": 45,
                     "modifierKind": [
                         122,
                         146
@@ -4878,7 +4867,7 @@
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 45
+                    "line": 42
                 },
                 {
                     "name": "sub$",
@@ -4888,7 +4877,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 39,
+                    "line": 47,
                     "modifierKind": [
                         121,
                         146
@@ -4901,7 +4890,7 @@
                     "type": "SidenavLayoutSubtitleComponent",
                     "optional": true,
                     "description": "",
-                    "line": 26,
+                    "line": 29,
                     "decorators": [
                         {
                             "name": "ContentChild",
@@ -4921,7 +4910,7 @@
                     "type": "SidenavLayoutTitleComponent",
                     "optional": true,
                     "description": "",
-                    "line": 24,
+                    "line": 27,
                     "decorators": [
                         {
                             "name": "ContentChild",
@@ -4942,7 +4931,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 83,
+                    "line": 87,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -4952,7 +4941,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 74,
+                    "line": 83,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -4962,7 +4951,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 48,
+                    "line": 57,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -4976,7 +4965,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  ContentChild,\n  inject,\n  OnDestroy,\n  OnInit,\n} from '@angular/core';\nimport { SidenavLayoutTitleComponent } from './sidenav-layout-title/sidenav-layout-title.component';\nimport { SidenavLayoutSubtitleComponent } from './sidenav-layout-subtitle/sidenav-layout-subtitle.component';\nimport { SidenavLayoutActionsComponent } from './sidenav-layout-actions/sidenav-layout-actions.component';\nimport { SidenavLayoutContentComponent } from './sidenav-layout-content/sidenav-layout-content.component';\nimport { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';\nimport { Observable, Subscription, map } from 'rxjs';\nimport { SIDENAV_SERVICE } from './sidenav-layout-service';\nimport { IconGlyph } from '../../icon';\n\n@Component({\n  selector: 'lai-sidenav-layout',\n  templateUrl: './sidenav-layout.component.html',\n  styleUrls: ['./sidenav-layout.component.scss'],\n})\nexport class SidenavLayoutComponent implements OnInit, OnDestroy {\n  @ContentChild(SidenavLayoutTitleComponent)\n  private readonly titleComponent?: SidenavLayoutTitleComponent;\n  @ContentChild(SidenavLayoutSubtitleComponent)\n  private readonly subtitleComponent?: SidenavLayoutSubtitleComponent;\n  @ContentChild(SidenavLayoutActionsComponent)\n  private readonly actionsComponent?: SidenavLayoutActionsComponent;\n  @ContentChild(SidenavLayoutContentComponent)\n  public readonly contentComponent?: SidenavLayoutContentComponent;\n\n  get isHeaderHidden(): boolean {\n    return (\n      !this.titleComponent && !this.subtitleComponent && !this.actionsComponent\n    );\n  }\n\n  protected readonly service = inject(SIDENAV_SERVICE);\n  private readonly sub$ = new Subscription();\n  firstName!: string;\n  lastName!: string;\n  accountInfo!: string;\n  logOutText!: string;\n  isHandset!: boolean;\n  status!: boolean;\n  icon: IconGlyph = 'bars';\n\n  ngOnInit(): void {\n    this.sub$.add(\n      this.service.firstName$.subscribe(\n        firstName => (this.firstName = firstName)\n      )\n    );\n    this.sub$.add(\n      this.service.lastName$.subscribe(lastName => (this.lastName = lastName))\n    );\n    this.sub$.add(\n      this.isHandset$.subscribe(isHandset => {\n        this.status = !isHandset;\n      })\n    );\n    this.sub$.add(\n      this.service.accountInfo$.subscribe(\n        accountInfo => (this.accountInfo = accountInfo)\n      )\n    );\n    this.sub$.add(\n      this.service.logOutText$.subscribe(\n        logOutText => (this.logOutText = logOutText)\n      )\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n\n  private readonly breakpointObserver = inject(BreakpointObserver);\n  readonly isHandset$: Observable<boolean> = this.breakpointObserver\n    .observe(Breakpoints.Handset)\n    .pipe(map(({ matches }) => matches));\n\n  clickEvent(): void {\n    this.status = !this.status;\n    if (this.status) {\n      this.icon = 'close';\n    } else {\n      this.icon = 'bars';\n    }\n  }\n}\n",
+            "sourceCode": "import {\n  Component,\n  ContentChild,\n  inject,\n  OnDestroy,\n  OnInit,\n} from '@angular/core';\nimport { SidenavLayoutTitleComponent } from './sidenav-layout-title/sidenav-layout-title.component';\nimport { SidenavLayoutSubtitleComponent } from './sidenav-layout-subtitle/sidenav-layout-subtitle.component';\nimport { SidenavLayoutActionsComponent } from './sidenav-layout-actions/sidenav-layout-actions.component';\nimport { SidenavLayoutContentComponent } from './sidenav-layout-content/sidenav-layout-content.component';\nimport { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';\nimport { Observable, Subscription, map } from 'rxjs';\nimport { SIDENAV_LAYOUT_SERVICE } from './sidenav-layout.service';\nimport { IconGlyph } from '../../icon';\n\n@Component({\n  selector: 'lai-sidenav-layout',\n  templateUrl: './sidenav-layout.component.html',\n  styleUrls: ['./sidenav-layout.component.scss'],\n})\nexport class SidenavLayoutComponent implements OnInit, OnDestroy {\n  @ContentChild(SidenavLayoutContentComponent)\n  readonly contentComponent?: SidenavLayoutContentComponent;\n\n  @ContentChild(SidenavLayoutTitleComponent)\n  private readonly titleComponent?: SidenavLayoutTitleComponent;\n  @ContentChild(SidenavLayoutSubtitleComponent)\n  private readonly subtitleComponent?: SidenavLayoutSubtitleComponent;\n  @ContentChild(SidenavLayoutActionsComponent)\n  private readonly actionsComponent?: SidenavLayoutActionsComponent;\n\n  isHandset$: Observable<boolean> = this.breakpointObserver\n    .observe(Breakpoints.Handset)\n    .pipe(map(({ matches }) => matches));\n\n  firstName!: string;\n  lastName!: string;\n  accountInfo!: string;\n  logOutText!: string;\n  isHandset!: boolean;\n  status!: boolean;\n  icon: IconGlyph = 'bars';\n\n  protected readonly service = inject(SIDENAV_LAYOUT_SERVICE);\n\n  private readonly sub$ = new Subscription();\n\n  constructor(private readonly breakpointObserver: BreakpointObserver) {}\n\n  get isHeaderHidden(): boolean {\n    return (\n      !this.titleComponent && !this.subtitleComponent && !this.actionsComponent\n    );\n  }\n\n  ngOnInit(): void {\n    this.sub$.add(\n      this.service.firstName$.subscribe(\n        firstName => (this.firstName = firstName)\n      )\n    );\n    this.sub$.add(\n      this.service.lastName$.subscribe(lastName => (this.lastName = lastName))\n    );\n    this.sub$.add(\n      this.isHandset$.subscribe(isHandset => {\n        this.status = !isHandset;\n      })\n    );\n    this.sub$.add(\n      this.service.accountInfo$.subscribe(\n        accountInfo => (this.accountInfo = accountInfo)\n      )\n    );\n    this.sub$.add(\n      this.service.logOutText$.subscribe(\n        logOutText => (this.logOutText = logOutText)\n      )\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n\n  clickEvent(): void {\n    this.status = !this.status;\n    if (this.status) {\n      this.icon = 'close';\n    } else {\n      this.icon = 'bars';\n    }\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -4985,6 +4974,32 @@
                 }
             ],
             "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "breakpointObserver",
+                        "type": "BreakpointObserver",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 47,
+                "jsdoctags": [
+                    {
+                        "name": "breakpointObserver",
+                        "type": "BreakpointObserver",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
             "implements": [
                 "OnInit",
                 "OnDestroy"
@@ -4996,7 +5011,7 @@
                         "name": "isHeaderHidden",
                         "type": "boolean",
                         "returnType": "boolean",
-                        "line": 32
+                        "line": 51
                     }
                 }
             },
@@ -5133,7 +5148,7 @@
         },
         {
             "name": "TabComponent",
-            "id": "component-TabComponent-3d448c77016a8d810feb2eadce7f7d64e01c5d7855f90671f0dfcb6c846a0b4f42d1fc410a5a27e0c6a66d42074d6586416e88208ef4a434bf751ecb3b6cdd77",
+            "id": "component-TabComponent-751d3f01cb09121cc075dd874f533a06ed57b7e6ffb50cbb0557ca01e84e0c2b8479db6c8769dc921e217534029f04072bb80611f8468007a92e88fc9ed2656a",
             "file": "projects/lendai-us/design-system/src/lib/tabs/tab/tab.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -5153,17 +5168,18 @@
             "inputsClass": [
                 {
                     "name": "disabled",
+                    "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 23,
-                    "type": "boolean | string",
+                    "line": 13,
+                    "type": "boolean",
                     "decorators": []
                 },
                 {
                     "name": "iconGlyph",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
+                    "line": 10,
                     "type": "IconGlyph",
                     "decorators": []
                 },
@@ -5171,47 +5187,22 @@
                     "name": "label",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
+                    "line": 11,
                     "type": "string",
                     "decorators": []
                 },
                 {
                     "name": "removable",
+                    "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 15,
-                    "type": "boolean | string",
+                    "line": 12,
+                    "type": "boolean",
                     "decorators": []
                 }
             ],
             "outputsClass": [],
             "propertiesClass": [
-                {
-                    "name": "_disabled",
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 33,
-                    "modifierKind": [
-                        121
-                    ]
-                },
-                {
-                    "name": "_removable",
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 32,
-                    "modifierKind": [
-                        121
-                    ]
-                },
                 {
                     "name": "content",
                     "deprecated": false,
@@ -5219,7 +5210,7 @@
                     "type": "TemplateRef<>",
                     "optional": false,
                     "description": "",
-                    "line": 30,
+                    "line": 15,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -5241,7 +5232,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { coerceBooleanProperty } from '@angular/cdk/coercion';\nimport { Component, Input, TemplateRef, ViewChild } from '@angular/core';\nimport { IconGlyph } from '../../icon';\n\n@Component({\n  selector: 'lai-tab',\n  templateUrl: './tab.component.html',\n  styleUrls: ['./tab.component.scss'],\n})\nexport class TabComponent {\n  @Input() iconGlyph?: IconGlyph;\n  @Input() label!: string;\n\n  @Input()\n  set removable(value: boolean | string) {\n    this._removable = coerceBooleanProperty(value);\n  }\n  get removable(): boolean {\n    return this._removable;\n  }\n\n  @Input()\n  set disabled(value: boolean | string) {\n    this._disabled = coerceBooleanProperty(value);\n  }\n  get disabled(): boolean {\n    return this._disabled;\n  }\n\n  @ViewChild(TemplateRef, { static: true }) content!: TemplateRef<unknown>;\n\n  private _removable = false;\n  private _disabled = false;\n}\n",
+            "sourceCode": "import { Component, Input, TemplateRef, ViewChild } from '@angular/core';\nimport { IconGlyph } from '../../icon';\n\n@Component({\n  selector: 'lai-tab',\n  templateUrl: './tab.component.html',\n  styleUrls: ['./tab.component.scss'],\n})\nexport class TabComponent {\n  @Input() iconGlyph?: IconGlyph;\n  @Input() label!: string;\n  @Input() removable = false;\n  @Input() disabled = false;\n\n  @ViewChild(TemplateRef, { static: true }) content!: TemplateRef<unknown>;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -5250,80 +5241,6 @@
                 }
             ],
             "stylesData": "",
-            "accessors": {
-                "removable": {
-                    "name": "removable",
-                    "setSignature": {
-                        "name": "removable",
-                        "type": "void",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "args": [
-                            {
-                                "name": "value",
-                                "type": "boolean | string",
-                                "deprecated": false,
-                                "deprecationMessage": ""
-                            }
-                        ],
-                        "returnType": "void",
-                        "line": 15,
-                        "jsdoctags": [
-                            {
-                                "name": "value",
-                                "type": "boolean | string",
-                                "deprecated": false,
-                                "deprecationMessage": "",
-                                "tagName": {
-                                    "text": "param"
-                                }
-                            }
-                        ]
-                    },
-                    "getSignature": {
-                        "name": "removable",
-                        "type": "boolean",
-                        "returnType": "boolean",
-                        "line": 18
-                    }
-                },
-                "disabled": {
-                    "name": "disabled",
-                    "setSignature": {
-                        "name": "disabled",
-                        "type": "void",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "args": [
-                            {
-                                "name": "value",
-                                "type": "boolean | string",
-                                "deprecated": false,
-                                "deprecationMessage": ""
-                            }
-                        ],
-                        "returnType": "void",
-                        "line": 23,
-                        "jsdoctags": [
-                            {
-                                "name": "value",
-                                "type": "boolean | string",
-                                "deprecated": false,
-                                "deprecationMessage": "",
-                                "tagName": {
-                                    "text": "param"
-                                }
-                            }
-                        ]
-                    },
-                    "getSignature": {
-                        "name": "disabled",
-                        "type": "boolean",
-                        "returnType": "boolean",
-                        "line": 26
-                    }
-                }
-            },
             "templateData": "<ng-template>\n  <ng-content></ng-content>\n</ng-template>\n"
         },
         {
@@ -5606,7 +5523,7 @@
         },
         {
             "name": "TabLabelComponent",
-            "id": "component-TabLabelComponent-38df8488a8e052192d46c9e64abcc8012f0e4330c850ee4756c009f287c22b85cfac2d468c4b50ac7d6ef01118fe690f6575cb00c2edce60325a3e809c12aeb3",
+            "id": "component-TabLabelComponent-d48471b4b343a2c22d1477ef8616aa45723d56ba9c2d260fea7685efca2abc97033738eef8c5f40c3e8b86763d2feaccfdedf9cf74b2d9dda95d0f0b722ceb61",
             "file": "projects/lendai-us/design-system/src/lib/tabs/tab-label/tab-label.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -5629,7 +5546,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 29,
+                    "line": 27,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -5637,7 +5554,7 @@
                     "name": "tab",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 31,
+                    "line": 29,
                     "type": "TabComponent",
                     "decorators": []
                 }
@@ -5648,7 +5565,7 @@
                     "defaultValue": "new EventEmitter<void>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 34,
+                    "line": 32,
                     "type": "EventEmitter"
                 },
                 {
@@ -5656,7 +5573,7 @@
                     "defaultValue": "new EventEmitter<void>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 33,
+                    "line": 31,
                     "type": "EventEmitter"
                 }
             ],
@@ -5669,7 +5586,7 @@
                     "type": "TabGroup",
                     "optional": false,
                     "description": "",
-                    "line": 25
+                    "line": 34
                 }
             ],
             "methodsClass": [
@@ -5728,7 +5645,7 @@
                     "name": "attr.disabled",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 45,
+                    "line": 37,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -5736,7 +5653,7 @@
                     "name": "attr.tabindex",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 51,
+                    "line": 43,
                     "type": "number",
                     "decorators": []
                 }
@@ -5756,7 +5673,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  EventEmitter,\n  HostBinding,\n  HostListener,\n  Input,\n  Output,\n  inject,\n} from '@angular/core';\nimport { TabComponent } from '../tab/tab.component';\nimport { BodyLevel } from '../../typography';\nimport { IconSize } from '../../icon';\nimport {\n  TAB_GROUP_SIZE_TO_BODY_LEVEL,\n  TAB_GROUP_SIZE_TO_ICON_SIZE,\n} from '../shared';\nimport { TAB_GROUP, TabGroup } from '../tab-group/tab-group';\n\n@Component({\n  selector: 'lai-tab-label',\n  templateUrl: './tab-label.component.html',\n  styleUrls: ['./tab-label.component.scss'],\n})\nexport class TabLabelComponent {\n  parent: TabGroup = inject(TAB_GROUP);\n\n  @HostBinding('class.selected')\n  @Input()\n  selected = false;\n\n  @Input() tab!: TabComponent;\n\n  @Output() selectedChange = new EventEmitter<void>();\n  @Output() remove = new EventEmitter<void>();\n\n  get bodyLevel(): BodyLevel {\n    return TAB_GROUP_SIZE_TO_BODY_LEVEL[this.parent.size];\n  }\n\n  get iconSize(): IconSize {\n    return TAB_GROUP_SIZE_TO_ICON_SIZE[this.parent.size];\n  }\n\n  @HostBinding('attr.disabled')\n  get disabled(): boolean {\n    return this.tab.disabled;\n  }\n\n  // to make element focusable\n  @HostBinding('attr.tabindex')\n  get tabIndex(): number {\n    return this.disabled ? -1 : 0;\n  }\n\n  @HostListener('click')\n  onSelectedChange(): void {\n    if (this.disabled) {\n      return;\n    }\n\n    this.selectedChange.emit();\n  }\n\n  onRemove(event: MouseEvent): void {\n    event.stopPropagation();\n    if (this.disabled) {\n      return;\n    }\n\n    this.remove.emit();\n  }\n}\n",
+            "sourceCode": "import {\n  Component,\n  EventEmitter,\n  HostBinding,\n  HostListener,\n  Input,\n  Output,\n  inject,\n} from '@angular/core';\nimport { TabComponent } from '../tab/tab.component';\nimport { BodyLevel } from '../../typography';\nimport { IconSize } from '../../icon';\nimport {\n  TAB_GROUP_SIZE_TO_BODY_LEVEL,\n  TAB_GROUP_SIZE_TO_ICON_SIZE,\n} from '../shared';\nimport { TAB_GROUP, TabGroup } from '../tab-group/tab-group';\n\n@Component({\n  selector: 'lai-tab-label',\n  templateUrl: './tab-label.component.html',\n  styleUrls: ['./tab-label.component.scss'],\n})\nexport class TabLabelComponent {\n  @HostBinding('class.selected')\n  @Input()\n  selected = false;\n\n  @Input() tab!: TabComponent;\n\n  @Output() selectedChange = new EventEmitter<void>();\n  @Output() remove = new EventEmitter<void>();\n\n  parent: TabGroup = inject(TAB_GROUP);\n\n  @HostBinding('attr.disabled')\n  get disabled(): boolean {\n    return this.tab.disabled;\n  }\n\n  // to make element focusable\n  @HostBinding('attr.tabindex')\n  get tabIndex(): number {\n    return this.disabled ? -1 : 0;\n  }\n\n  get bodyLevel(): BodyLevel {\n    return TAB_GROUP_SIZE_TO_BODY_LEVEL[this.parent.size];\n  }\n\n  get iconSize(): IconSize {\n    return TAB_GROUP_SIZE_TO_ICON_SIZE[this.parent.size];\n  }\n\n  @HostListener('click')\n  onSelectedChange(): void {\n    if (this.disabled) {\n      return;\n    }\n\n    this.selectedChange.emit();\n  }\n\n  onRemove(event: MouseEvent): void {\n    event.stopPropagation();\n    if (this.disabled) {\n      return;\n    }\n\n    this.remove.emit();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -5766,31 +5683,13 @@
             ],
             "stylesData": "",
             "accessors": {
-                "bodyLevel": {
-                    "name": "bodyLevel",
-                    "getSignature": {
-                        "name": "bodyLevel",
-                        "type": "",
-                        "returnType": "BodyLevel",
-                        "line": 36
-                    }
-                },
-                "iconSize": {
-                    "name": "iconSize",
-                    "getSignature": {
-                        "name": "iconSize",
-                        "type": "",
-                        "returnType": "IconSize",
-                        "line": 40
-                    }
-                },
                 "disabled": {
                     "name": "disabled",
                     "getSignature": {
                         "name": "disabled",
                         "type": "boolean",
                         "returnType": "boolean",
-                        "line": 45
+                        "line": 37
                     }
                 },
                 "tabIndex": {
@@ -5799,6 +5698,24 @@
                         "name": "tabIndex",
                         "type": "number",
                         "returnType": "number",
+                        "line": 43
+                    }
+                },
+                "bodyLevel": {
+                    "name": "bodyLevel",
+                    "getSignature": {
+                        "name": "bodyLevel",
+                        "type": "",
+                        "returnType": "BodyLevel",
+                        "line": 47
+                    }
+                },
+                "iconSize": {
+                    "name": "iconSize",
+                    "getSignature": {
+                        "name": "iconSize",
+                        "type": "",
+                        "returnType": "IconSize",
                         "line": 51
                     }
                 }
@@ -5869,7 +5786,7 @@
         },
         {
             "name": "TabNavBarLinkComponent",
-            "id": "component-TabNavBarLinkComponent-978bd4be22cd2aafa23302275d183162c88fd8992cf608bae75c6c7b4f4da1cfe343cb7600fa5d9a16b58c1173c3f56d43a71e9da9e440873e8e58d3b4e42609",
+            "id": "component-TabNavBarLinkComponent-5a6593e5bef10ba70793acecae855e1bb0b541bcfbe18cb6053e2ac55b9cc25e7655003096b8638dda0dc7f37219be91a4341d3d94f9b0b7130d0e21e19dc380",
             "file": "projects/lendai-us/design-system/src/lib/tabs/tab-nav-bar-link/tab-nav-bar-link.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -5892,7 +5809,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 23,
+                    "line": 21,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -5900,7 +5817,7 @@
                     "name": "iconGlyph",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 19,
+                    "line": 17,
                     "type": "IconGlyph",
                     "decorators": []
                 }
@@ -5915,7 +5832,7 @@
                     "type": "TabNavBarComponent",
                     "optional": false,
                     "description": "",
-                    "line": 17
+                    "line": 23
                 }
             ],
             "methodsClass": [],
@@ -5928,7 +5845,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, HostBinding, Input, inject } from '@angular/core';\nimport { TabNavBarComponent } from '../tab-nav-bar/tab-nav-bar.component';\nimport { BodyLevel } from '../../typography';\nimport { IconGlyph, IconSize } from '../../icon';\nimport {\n  TAB_GROUP_SIZE_TO_BODY_LEVEL,\n  TAB_GROUP_SIZE_TO_ICON_SIZE,\n} from '../shared';\n\n@Component({\n  // eslint-disable-next-line @angular-eslint/component-selector\n  selector: 'a[laiTabNavBarLink]',\n  templateUrl: './tab-nav-bar-link.component.html',\n  styleUrls: ['./tab-nav-bar-link.component.scss'],\n})\nexport class TabNavBarLinkComponent {\n  parent: TabNavBarComponent = inject(TabNavBarComponent);\n\n  @Input() iconGlyph?: IconGlyph;\n\n  @HostBinding('attr.disabled')\n  @Input()\n  disabled = false;\n\n  get bodyLevel(): BodyLevel {\n    return TAB_GROUP_SIZE_TO_BODY_LEVEL[this.parent.size];\n  }\n\n  get iconSize(): IconSize {\n    return TAB_GROUP_SIZE_TO_ICON_SIZE[this.parent.size];\n  }\n}\n",
+            "sourceCode": "import { Component, HostBinding, Input, inject } from '@angular/core';\nimport { TabNavBarComponent } from '../tab-nav-bar/tab-nav-bar.component';\nimport { BodyLevel } from '../../typography';\nimport { IconGlyph, IconSize } from '../../icon';\nimport {\n  TAB_GROUP_SIZE_TO_BODY_LEVEL,\n  TAB_GROUP_SIZE_TO_ICON_SIZE,\n} from '../shared';\n\n@Component({\n  // eslint-disable-next-line @angular-eslint/component-selector\n  selector: 'a[laiTabNavBarLink]',\n  templateUrl: './tab-nav-bar-link.component.html',\n  styleUrls: ['./tab-nav-bar-link.component.scss'],\n})\nexport class TabNavBarLinkComponent {\n  @Input() iconGlyph?: IconGlyph;\n\n  @HostBinding('attr.disabled')\n  @Input()\n  disabled = false;\n\n  parent: TabNavBarComponent = inject(TabNavBarComponent);\n\n  get bodyLevel(): BodyLevel {\n    return TAB_GROUP_SIZE_TO_BODY_LEVEL[this.parent.size];\n  }\n\n  get iconSize(): IconSize {\n    return TAB_GROUP_SIZE_TO_ICON_SIZE[this.parent.size];\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -5961,7 +5878,7 @@
         },
         {
             "name": "TitleComponent",
-            "id": "component-TitleComponent-046f795b5d7afceb94d067c7807552bc935777a0ce6d3f71583c531361b3d5c977f0a8212c024259c0aaf7364f5fb73bf54b961773f26fe7951b30f62d148ea1",
+            "id": "component-TitleComponent-684c03431e3773d75a2532e8035ab716db533c901cd5d97ce43803188947f03ab3d227a7150daaed1902bcc6d347b713acf1caaa3fdb8267f4e089a165f8bad4",
             "file": "projects/lendai-us/design-system/src/lib/typography/title/title.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -5983,8 +5900,8 @@
                     "name": "level",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 16,
-                    "type": "TitleLevel | string",
+                    "line": 18,
+                    "type": "TitleLevel",
                     "decorators": []
                 }
             ],
@@ -5998,7 +5915,7 @@
                     "type": "TitleLevel",
                     "optional": false,
                     "description": "",
-                    "line": 24,
+                    "line": 14,
                     "modifierKind": [
                         121
                     ]
@@ -6019,7 +5936,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { TypographyComponent } from '../typography.component';\nimport { coerceNumberProperty } from '@angular/cdk/coercion';\n\n@Component({\n  selector: 'lai-title',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './title.component.html',\n  styleUrls: ['./title.component.scss'],\n})\nexport class TitleComponent implements TypographyComponent<TitleLevel> {\n  @HostBinding('attr.level')\n  @Input()\n  set level(value: TitleLevel | string) {\n    this._level = coerceNumberProperty(value, 1) as TitleLevel;\n  }\n\n  get level(): TitleLevel {\n    return this._level;\n  }\n\n  private _level: TitleLevel = 1;\n}\n\nexport const TITLE_LEVELS = [1, 2, 3, 4, 5] as const;\nexport type TitleLevel = (typeof TITLE_LEVELS)[number];\n",
+            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { TypographyComponent } from '../typography.component';\nimport { coerceNumberProperty } from '@angular/cdk/coercion';\n\n@Component({\n  selector: 'lai-title',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './title.component.html',\n  styleUrls: ['./title.component.scss'],\n})\nexport class TitleComponent implements TypographyComponent<TitleLevel> {\n  private _level: TitleLevel = 1;\n\n  @HostBinding('attr.level')\n  @Input()\n  get level(): TitleLevel {\n    return this._level;\n  }\n  set level(value: TitleLevel | string) {\n    this._level = coerceNumberProperty(value, 1) as TitleLevel;\n  }\n}\n\nexport const TITLE_LEVELS = [1, 2, 3, 4, 5] as const;\nexport type TitleLevel = (typeof TITLE_LEVELS)[number];\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -6048,7 +5965,7 @@
                             }
                         ],
                         "returnType": "void",
-                        "line": 16,
+                        "line": 21,
                         "jsdoctags": [
                             {
                                 "name": "value",
@@ -6065,7 +5982,7 @@
                         "name": "level",
                         "type": "",
                         "returnType": "TitleLevel",
-                        "line": 20
+                        "line": 18
                     }
                 }
             },
@@ -7088,21 +7005,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<BadgeComponent>",
-                "defaultValue": "{\n  title: 'WIP/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: [\n        'primary',\n        'info',\n        'error',\n        'success',\n        'warning',\n        'gray',\n        'pink',\n      ],\n      control: { type: 'select' },\n    },\n    radius: {\n      options: ['xs', 'sm'],\n      control: { type: 'select' },\n    },\n    type: {\n      options: ['transparent', 'solid'],\n      control: { type: 'select' },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<AvatarComponent>",
                 "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<BadgeComponent>",
+                "defaultValue": "{\n  title: 'WIP/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: ['blue', 'purple', 'aqua', 'gray', 'orange', 'pink', 'red'],\n      control: { type: 'select' },\n    },\n    radius: {\n      options: ['xs', 'sm'],\n      control: { type: 'select' },\n    },\n    type: {\n      options: ['transparent', 'solid'],\n      control: { type: 'select' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -7192,7 +7109,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<SidenavLayoutComponent>",
-                "defaultValue": "{\n  title: 'Templates/SidenavLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: SidenavLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [SidenavLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: SIDENAV_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n}"
+                "defaultValue": "{\n  title: 'Templates/SidenavLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: SidenavLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [SidenavLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: SIDENAV_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n}"
             },
             {
                 "name": "meta",
@@ -7295,14 +7212,14 @@
                 "defaultValue": "{\n  args: {},\n  render: props => ({\n    props,\n  }),\n}"
             },
             {
-                "name": "SIDENAV_SERVICE",
+                "name": "SIDENAV_LAYOUT_SERVICE",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout-service.ts",
+                "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.service.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "new InjectionToken<SidenavService>(\n  `_SIDENAV_SERVICE`\n)"
+                "defaultValue": "new InjectionToken<SidenavLayoutService>(\n  `_SIDENAV_LAYOUT_SERVICE`\n)"
             },
             {
                 "name": "sidenavItems",
@@ -7926,8 +7843,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<BadgeComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                "rawtype": "StoryObj<AvatarComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -7937,8 +7854,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<AvatarComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                "rawtype": "StoryObj<BadgeComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -9082,7 +8999,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<SidenavLayoutComponent>",
-                    "defaultValue": "{\n  title: 'Templates/SidenavLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: SidenavLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [SidenavLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: SIDENAV_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n}"
+                    "defaultValue": "{\n  title: 'Templates/SidenavLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: SidenavLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [SidenavLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: SIDENAV_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n}"
                 },
                 {
                     "name": "sidenavItems",
@@ -9161,16 +9078,16 @@
                     "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: '^on[A-Z].*' },\n    layout: 'centered',\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/,\n      },\n    },\n    docs: { inlineStories: true },\n    options: {\n      storySort: {\n        order: ['Atoms', 'Molecules', 'Organisms', 'Templates', 'WIP'],\n      },\n    },\n  },\n}"
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout-service.ts": [
+            "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.service.ts": [
                 {
-                    "name": "SIDENAV_SERVICE",
+                    "name": "SIDENAV_LAYOUT_SERVICE",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout-service.ts",
+                    "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.service.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "new InjectionToken<SidenavService>(\n  `_SIDENAV_SERVICE`\n)"
+                    "defaultValue": "new InjectionToken<SidenavLayoutService>(\n  `_SIDENAV_LAYOUT_SERVICE`\n)"
                 }
             ],
             "projects/lendai-us/design-system/src/lib/tabs/tab-group/tab-group.ts": [
@@ -9604,19 +9521,6 @@
                     "kind": 198
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<BadgeComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
                 {
                     "name": "Story",
@@ -9624,6 +9528,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<AvatarComponent>",
                     "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<BadgeComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -10496,34 +10413,6 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout-service.ts",
-                "type": "interface",
-                "linktype": "interface",
-                "name": "SidenavCategory",
-                "coveragePercent": 0,
-                "coverageCount": "0/4",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout-service.ts",
-                "type": "interface",
-                "linktype": "interface",
-                "name": "SidenavService",
-                "coveragePercent": 0,
-                "coverageCount": "0/8",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout-service.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "SIDENAV_SERVICE",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
                 "filePath": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout-subtitle/sidenav-layout-subtitle.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -10548,6 +10437,34 @@
                 "name": "SidenavLayoutComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/19",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.service.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "SidenavCategory",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.service.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "SidenavLayoutService",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.service.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SIDENAV_LAYOUT_SERVICE",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -10933,7 +10850,7 @@
                 "linktype": "component",
                 "name": "SideDrawerComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -11200,7 +11117,7 @@
                 "linktype": "component",
                 "name": "TabComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/8",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
