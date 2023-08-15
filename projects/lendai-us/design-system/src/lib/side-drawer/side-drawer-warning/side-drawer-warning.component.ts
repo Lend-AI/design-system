@@ -7,9 +7,9 @@ import { Component, Input, TemplateRef, ViewChild } from '@angular/core';
 })
 export class SideDrawerWarningComponent {
   @Input()
-  color: SideDrawerWarningColor = 'orange';
+  color: SideDrawerWarningColor = 'warning';
 
   @ViewChild(TemplateRef) templateRef!: TemplateRef<unknown>;
 }
 
-export type SideDrawerWarningColor = 'orange';
+export type SideDrawerWarningColor = 'warning';

@@ -1,6 +1,32 @@
 @use '@angular/material' as mat;
 @use 'theme' as t;
+@use 'color' as c;
+@use 'sass:map';
 
-@include mat.all-component-themes(t.$lai-theme);
+$design-system-theme: (
+  'primary': c.$prebuilt-purple,
+  'info': c.$prebuilt-blue,
+  'error': c.$prebuilt-red,
+  'warning': c.$prebuilt-orange,
+  'success': c.$prebuilt-green,
+);
+
+:root {
+  @include c.applyTheme($design-system-theme);
+}
+
+$mat-primary: t.createPalette(map.get(c.$prebuilt-purple, 500));
+$mat-warn: t.createPalette(map.get(c.$prebuilt-red, 500));
+$mat-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: mat.define-palette($mat-primary),
+      accent: mat.define-palette($mat-primary),
+      warn: mat.define-palette($mat-warn),
+    ),
+  )
+);
+
+@include mat.all-component-themes($mat-theme);
 @include mat.all-component-typographies();
 @include mat.core();

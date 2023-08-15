@@ -1,76 +1,86 @@
+@use 'sass:math';
+@use 'sass:map';
 @use '@angular/material' as mat;
 
-$lai-primary: (
-  50: #f6ebff,
-  100: #e8cdff,
-  200: #d8abff,
-  300: #c889ff,
-  400: #bd70ff,
-  500: #b157ff,
-  600: #aa4fff,
-  700: #a146ff,
-  800: #983cff,
-  900: #882cff,
-  A100: #ffffff,
-  A200: #ffffff,
-  A400: #e8d8ff,
-  A700: #d9beff,
-  contrast: (
-    50: #000000,
-    100: #000000,
-    200: #000000,
-    300: #000000,
-    400: #000000,
-    500: #000000,
-    600: #ffffff,
-    700: #ffffff,
-    800: #ffffff,
-    900: #ffffff,
-    A100: #000000,
-    A200: #000000,
-    A400: #000000,
-    A700: #000000,
-  ),
-);
-$lai-red: (
-  50: #fdebe9,
-  100: #facdc7,
-  200: #f7aca2,
-  300: #f48b7c,
-  400: #f17260,
-  500: #ef5944,
-  600: #ed513e,
-  700: #eb4835,
-  800: #e83e2d,
-  900: #e42e1f,
-  A100: #ffffff,
-  A200: #ffe9e7,
-  A400: #ffb9b4,
-  A700: #ffa19b,
-  contrast: (
-    50: #000000,
-    100: #000000,
-    200: #000000,
-    300: #000000,
-    400: #000000,
-    500: #000000,
-    600: #ffffff,
-    700: #ffffff,
-    800: #ffffff,
-    900: #ffffff,
-    A100: #000000,
-    A200: #000000,
-    A400: #000000,
-    A700: #000000,
-  ),
+$values: (
+  50,
+  100,
+  200,
+  300,
+  400,
+  500,
+  600,
+  700,
+  800,
+  900,
+  A100,
+  A200,
+  A400,
+  A700
 );
 
-$lai-theme: mat.define-light-theme(
-  (
-    color: (
-      primary: mat.define-palette($lai-primary),
-      accent: mat.define-palette($lai-primary),
-      warn: mat.define-palette($lai-red),
-    ),
-  )
-);
+@function createPalette($color) {
+  $white: #fff;
+  $black: #000;
+  $baseDark: multiply($color, $color);
+
+  $palette: (
+    50: mix($color, $white, 12%),
+    100: mix($color, $white, 30%),
+    200: mix($color, $white, 50%),
+    300: mix($color, $white, 70%),
+    400: mix($color, $white, 85%),
+    500: mix($color, $white, 100%),
+    600: mix($color, $baseDark, 87%),
+    700: mix($color, $baseDark, 70%),
+    800: mix($color, $baseDark, 54%),
+    900: mix($color, $baseDark, 25%),
+    A100: lighten(saturate(mix($black, $baseDark, 15%), 80%), 65%),
+    A200: lighten(saturate(mix($black, $baseDark, 15%), 80%), 55%),
+    A400: lighten(saturate(mix($black, $baseDark, 15%), 100%), 45%),
+    A700: lighten(saturate(mix($black, $baseDark, 15%), 100%), 40%),
+  );
+
+  $contrast: ();
+  @each $v in $values {
+    $contrast: map.merge(
+      $contrast,
+      (
+        $v: getContrast(map_get($palette, $v)),
+      )
+    );
+  }
+
+  $palette: map.merge(
+    $palette,
+    (
+      contrast: $contrast,
+    )
+  );
+
+  @return $palette;
+}
+
+@function multiply($rgb1, $rgb2) {
+  $r: math.floor(red($rgb1) * red($rgb2) / 255);
+  $g: math.floor(green($rgb1) * green($rgb2) / 255);
+  $b: math.floor(blue($rgb1) * blue($rgb2) / 255);
+
+  @return rgb($r, $g, $b);
+}
+
+@function getBrightness($color) {
+  @return (red($color) * 299 + green($color) * 587 + blue($color) * 114) / 1000;
+}
+
+@function isLight($color) {
+  @return getBrightness($color) >= 128;
+}
+
+@function getContrast($color) {
+  @if isLight($color) {
+    @return #000;
+  } @else {
+    @return #fff;
+  }
+}

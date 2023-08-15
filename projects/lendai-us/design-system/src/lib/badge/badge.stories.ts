@@ -1,5 +1,10 @@
 import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';
-import { BadgeComponent } from './badge.component';
+import {
+  BADGE_COLORS,
+  BADGE_RADIUSES,
+  BADGE_TYPES,
+  BadgeComponent,
+} from './badge.component';
 
 const meta: Meta<BadgeComponent> = {
   title: 'WIP/Badge',
@@ -21,15 +26,15 @@ const meta: Meta<BadgeComponent> = {
   }),
   argTypes: {
     color: {
-      options: ['blue', 'purple', 'aqua', 'gray', 'orange', 'pink', 'red'],
+      options: BADGE_COLORS,
       control: { type: 'select' },
     },
     radius: {
-      options: ['xs', 'sm'],
+      options: BADGE_RADIUSES,
       control: { type: 'select' },
     },
     type: {
-      options: ['transparent', 'solid'],
+      options: BADGE_TYPES,
       control: { type: 'select' },
     },
   },

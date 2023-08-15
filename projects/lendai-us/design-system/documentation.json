@@ -780,7 +780,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'color' as c;\n\n$sizes: (\n  'xs': 32px,\n  'sm': 40px,\n  'md': 48px,\n  'lg': 56px,\n  'xl': 64px,\n  'xxl': 72px,\n);\n\n:host {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  font-family: Poppins;\n  border-radius: 50%;\n  background-color: c.color('blue', 300);\n\n  @each $key, $value in $sizes {\n    &[size='#{$key}'] {\n      width: $value;\n      height: $value;\n    }\n  }\n}\n\nlai-title {\n  color: c.$white;\n}\n",
+                    "data": "@use 'color' as c;\n\n$sizes: (\n  'xs': 32px,\n  'sm': 40px,\n  'md': 48px,\n  'lg': 56px,\n  'xl': 64px,\n  'xxl': 72px,\n);\n\n:host {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  font-family: Poppins;\n  border-radius: 50%;\n  background-color: c.color('info', 300);\n\n  @each $key, $value in $sizes {\n    &[size='#{$key}'] {\n      width: $value;\n      height: $value;\n    }\n  }\n}\n\nlai-title {\n  color: c.$white;\n}\n",
                     "styleUrl": "./avatar.component.scss"
                 }
             ],
@@ -800,7 +800,7 @@
         },
         {
             "name": "BadgeComponent",
-            "id": "component-BadgeComponent-0255a11436382d9f1156391131862c1601d2aec4a4fc17d90746f1b06fdb6b285a035260967f85bb6c06aae89a7f8637fab8c31fa6befa4eb66aeba44fbe74cb",
+            "id": "component-BadgeComponent-d2f11cb415f69c52bf708f864f530fa51589b0a4537847de5b3020f1dfcc6665a43b98af7cfbf796893b80ae64abdeee9b55258bcd454a791bcdc1370e9c984c",
             "file": "projects/lendai-us/design-system/src/lib/badge/badge.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -867,11 +867,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { CaptionComponent } from '../typography';\n\n@Component({\n  selector: 'lai-badge',\n  standalone: true,\n  imports: [CommonModule, CaptionComponent],\n  templateUrl: './badge.component.html',\n  styleUrls: ['./badge.component.scss'],\n})\nexport class BadgeComponent {\n  @HostBinding('attr.color')\n  @Input()\n  color: BadgeColor = 'blue';\n\n  @HostBinding('attr.radius')\n  @Input()\n  radius: BadgeRadius = 'xs';\n\n  @HostBinding('attr.type')\n  @Input()\n  type: BadgeType = 'transparent';\n}\n\nexport type BadgeColor =\n  | 'blue'\n  | 'purple'\n  | 'aqua'\n  | 'gray'\n  | 'orange'\n  | 'pink'\n  | 'red';\n\nexport type BadgeRadius = 'xs' | 'sm';\n\nexport type BadgeType = 'transparent' | 'solid';\n",
+            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { CaptionComponent } from '../typography';\n\n@Component({\n  selector: 'lai-badge',\n  standalone: true,\n  imports: [CommonModule, CaptionComponent],\n  templateUrl: './badge.component.html',\n  styleUrls: ['./badge.component.scss'],\n})\nexport class BadgeComponent {\n  @HostBinding('attr.color')\n  @Input()\n  color: BadgeColor = 'blue';\n\n  @HostBinding('attr.radius')\n  @Input()\n  radius: BadgeRadius = 'xs';\n\n  @HostBinding('attr.type')\n  @Input()\n  type: BadgeType = 'transparent';\n}\n\nexport const BADGE_RADIUSES = ['xs', 'sm'] as const;\nexport type BadgeRadius = (typeof BADGE_RADIUSES)[number];\n\nexport const BADGE_TYPES = ['transparent', 'solid'] as const;\nexport type BadgeType = (typeof BADGE_TYPES)[number];\n\nexport const BADGE_COLORS = [\n  'gray',\n  'purple',\n  'blue',\n  'red',\n  'orange',\n  'green',\n  'pink',\n  'aqua',\n] as const;\nexport type BadgeColor = (typeof BADGE_COLORS)[number];\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'sass:map';\n@use 'color' as c;\n@use 'typography' as t;\n@use 'radius' as r;\n\n$radiuses: (\n  'xs': r.$xs,\n  'sm': r.$sm,\n);\n\n$colors: (\n  'blue': (\n    'background': c.color('blue', 100),\n    'foreground': c.color('blue', 700),\n  ),\n  'purple': (\n    'background': c.color('purple', 100),\n    'foreground': c.color('purple', 700),\n  ),\n  'aqua': (\n    'background': c.color('aqua', 50),\n    'foreground': c.color('aqua', 700),\n  ),\n  'gray': (\n    'background': c.color('gray', 50),\n    'foreground': c.color('gray', 700),\n  ),\n  'orange': (\n    'background': c.color('orange', 100),\n    'foreground': c.color('orange', 700),\n  ),\n  'pink': (\n    'background': c.color('pink', 50),\n    'foreground': c.color('pink', 600),\n  ),\n  'red': (\n    'background': c.color('red', 100),\n    'foreground': c.color('red', 500),\n  ),\n);\n\n:host {\n  @include t.typography(t.$caption-md);\n  @include r.attributeToRadius($radiuses, 'radius');\n\n  display: inline-block;\n  padding: 4px 12px;\n\n  &[type='transparent'] {\n    @each $key, $value in $colors {\n      &[color='#{$key}'] {\n        background-color: map.get($value, 'background');\n        color: map.get($value, 'foreground');\n      }\n    }\n  }\n\n  &[type='solid'] {\n    @each $key, $value in $colors {\n      &[color='#{$key}'] {\n        background-color: c.color($key, 500);\n        color: c.$white;\n      }\n    }\n  }\n}\n",
+                    "data": "@use 'sass:map';\n@use 'color' as c;\n@use 'typography' as t;\n@use 'radius' as r;\n\n$radiuses: (\n  'xs': r.$xs,\n  'sm': r.$sm,\n);\n\n$colors: (\n  'gray': (\n    'background': map.get(c.$prebuilt-gray, 100),\n    'foreground': map.get(c.$prebuilt-gray, 700),\n    'background-solid': map.get(c.$prebuilt-gray, 500),\n  ),\n  'purple': (\n    'background': map.get(c.$prebuilt-purple, 50),\n    'foreground': map.get(c.$prebuilt-purple, 700),\n    'background-solid': map.get(c.$prebuilt-purple, 500),\n  ),\n  'blue': (\n    'background': map.get(c.$prebuilt-blue, 50),\n    'foreground': map.get(c.$prebuilt-blue, 700),\n    'background-solid': map.get(c.$prebuilt-blue, 500),\n  ),\n  'red': (\n    'background': map.get(c.$prebuilt-red, 50),\n    'foreground': map.get(c.$prebuilt-red, 700),\n    'background-solid': map.get(c.$prebuilt-red, 500),\n  ),\n  'orange': (\n    'background': map.get(c.$prebuilt-orange, 50),\n    'foreground': map.get(c.$prebuilt-orange, 700),\n    'background-solid': map.get(c.$prebuilt-orange, 500),\n  ),\n  'green': (\n    'background': map.get(c.$prebuilt-green, 50),\n    'foreground': map.get(c.$prebuilt-green, 700),\n    'background-solid': map.get(c.$prebuilt-green, 500),\n  ),\n  'pink': (\n    'background': map.get(c.$prebuilt-pink, 50),\n    'foreground': map.get(c.$prebuilt-pink, 700),\n    'background-solid': map.get(c.$prebuilt-pink, 500),\n  ),\n  'aqua': (\n    'background': map.get(c.$prebuilt-aqua, 50),\n    'foreground': map.get(c.$prebuilt-aqua, 700),\n    'background-solid': map.get(c.$prebuilt-aqua, 500),\n  ),\n);\n\n:host {\n  @include t.typography(t.$caption-md);\n  @include r.attributeToRadius($radiuses, 'radius');\n\n  display: inline-block;\n  padding: 4px 12px;\n\n  &[type='transparent'] {\n    @each $key, $value in $colors {\n      &[color='#{$key}'] {\n        background-color: map.get($value, 'background');\n        color: map.get($value, 'foreground');\n      }\n    }\n  }\n\n  &[type='solid'] {\n    @each $key, $value in $colors {\n      &[color='#{$key}'] {\n        background-color: map.get($value, 'background-solid');\n        color: c.$white;\n      }\n    }\n  }\n}\n",
                     "styleUrl": "./badge.component.scss"
                 }
             ],
@@ -1106,7 +1106,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'sass:map';\n@use 'color' as c;\n@use 'radius' as r;\n@use 'typography' as t;\n\n$typographies: (\n  'sm': t.$button-xs,\n  'md': t.$button-sm,\n  'lg': t.$button-md,\n);\n\n// paddings are 1px less due to border\n$sizes: (\n  'sm': (\n    'padding': 3px 23px,\n    'icon-font-size': 12px,\n    'icon-padding': 9px,\n  ),\n  'md': (\n    'padding': 7px 23px,\n    'icon-font-size': 16px,\n    'icon-padding': 11px,\n  ),\n  'lg': (\n    'padding': 11px 23px,\n    'icon-font-size': 16px,\n    'icon-padding': 15px,\n  ),\n);\n\n$colors: (\n  'default': 'purple',\n  'success': 'aqua',\n  'destructive': 'red',\n);\n\n:host {\n  @include r.radius(r.$xs);\n  @include t.attributeToTypography($typographies, 'size');\n\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  border-width: 1px;\n  border-style: solid;\n  cursor: pointer;\n\n  &:focus {\n    outline: 1px solid c.color('blue', 500);\n  }\n\n  &:disabled {\n    cursor: not-allowed;\n    outline: none;\n  }\n\n  @each $size, $config in $sizes {\n    &[size='#{$size}'] {\n      padding: map.get($config, 'padding');\n\n      &[laiIconButton] {\n        --icon-button-font-size: #{map.get($config, 'icon-font-size')};\n\n        padding: map.get($config, 'icon-padding');\n      }\n    }\n  }\n\n  &[hierarchy='primary'] {\n    @each $buttonColor, $paletteColor in $colors {\n      &[color='#{$buttonColor}'] {\n        color: c.$white;\n        background-color: c.color($paletteColor, 500);\n        border-color: c.color($paletteColor, 500);\n\n        &:focus {\n          background-color: c.color($paletteColor, 400);\n          border-color: c.color($paletteColor, 400);\n        }\n\n        &:hover {\n          background-color: c.color($paletteColor, 600);\n          border-color: c.color($paletteColor, 600);\n        }\n\n        &:active {\n          background-color: c.color($paletteColor, 700);\n          border-color: c.color($paletteColor, 700);\n        }\n\n        &:disabled {\n          background-color: c.color($paletteColor, 200);\n          border-color: c.color($paletteColor, 200);\n        }\n      }\n    }\n  }\n\n  &[hierarchy='secondary'] {\n    @each $buttonColor, $paletteColor in $colors {\n      &[color='#{$buttonColor}'] {\n        color: c.color($paletteColor, 500);\n        background-color: transparent;\n        border-color: c.color($paletteColor, 500);\n\n        &:focus {\n          background-color: c.color($paletteColor, 100);\n        }\n\n        &:hover {\n          background-color: c.color($paletteColor, 50);\n        }\n\n        &:active {\n          background-color: c.color($paletteColor, 200);\n        }\n\n        &:disabled {\n          color: c.color($paletteColor, 200);\n          background-color: transparent;\n          border-color: c.color($paletteColor, 200);\n        }\n      }\n    }\n  }\n\n  &[hierarchy='tertiary'] {\n    @each $buttonColor, $paletteColor in $colors {\n      &[color='#{$buttonColor}'] {\n        color: c.color($paletteColor, 500);\n        background-color: transparent;\n        border-color: transparent;\n\n        &:hover {\n          color: c.color($paletteColor, 600);\n        }\n\n        &:active {\n          color: c.color($paletteColor, 700);\n        }\n\n        &:disabled {\n          color: c.color($paletteColor, 200);\n        }\n      }\n    }\n  }\n}\n",
+                    "data": "@use 'sass:map';\n@use 'color' as c;\n@use 'radius' as r;\n@use 'typography' as t;\n\n$typographies: (\n  'sm': t.$button-xs,\n  'md': t.$button-sm,\n  'lg': t.$button-md,\n);\n\n// paddings are 1px less due to border\n$sizes: (\n  'sm': (\n    'padding': 3px 23px,\n    'icon-font-size': 12px,\n    'icon-padding': 9px,\n  ),\n  'md': (\n    'padding': 7px 23px,\n    'icon-font-size': 16px,\n    'icon-padding': 11px,\n  ),\n  'lg': (\n    'padding': 11px 23px,\n    'icon-font-size': 16px,\n    'icon-padding': 15px,\n  ),\n);\n\n$colors: (\n  'default': 'primary',\n  'success': 'success',\n  'destructive': 'error',\n);\n\n:host {\n  @include r.radius(r.$xs);\n  @include t.attributeToTypography($typographies, 'size');\n\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  border-width: 1px;\n  border-style: solid;\n  cursor: pointer;\n\n  &:focus {\n    outline: 1px solid c.color('info', 500);\n  }\n\n  &:disabled {\n    cursor: not-allowed;\n    outline: none;\n  }\n\n  @each $size, $config in $sizes {\n    &[size='#{$size}'] {\n      padding: map.get($config, 'padding');\n\n      &[laiIconButton] {\n        --icon-button-font-size: #{map.get($config, 'icon-font-size')};\n\n        padding: map.get($config, 'icon-padding');\n      }\n    }\n  }\n\n  &[hierarchy='primary'] {\n    @each $buttonColor, $paletteColor in $colors {\n      &[color='#{$buttonColor}'] {\n        color: c.$white;\n        background-color: c.color($paletteColor, 500);\n        border-color: c.color($paletteColor, 500);\n\n        &:focus {\n          background-color: c.color($paletteColor, 400);\n          border-color: c.color($paletteColor, 400);\n        }\n\n        &:hover {\n          background-color: c.color($paletteColor, 600);\n          border-color: c.color($paletteColor, 600);\n        }\n\n        &:active {\n          background-color: c.color($paletteColor, 700);\n          border-color: c.color($paletteColor, 700);\n        }\n\n        &:disabled {\n          background-color: c.color($paletteColor, 200);\n          border-color: c.color($paletteColor, 200);\n        }\n      }\n    }\n  }\n\n  &[hierarchy='secondary'] {\n    @each $buttonColor, $paletteColor in $colors {\n      &[color='#{$buttonColor}'] {\n        color: c.color($paletteColor, 500);\n        background-color: transparent;\n        border-color: c.color($paletteColor, 500);\n\n        &:focus {\n          background-color: c.color($paletteColor, 100);\n        }\n\n        &:hover {\n          background-color: c.color($paletteColor, 50);\n        }\n\n        &:active {\n          background-color: c.color($paletteColor, 200);\n        }\n\n        &:disabled {\n          color: c.color($paletteColor, 200);\n          background-color: transparent;\n          border-color: c.color($paletteColor, 200);\n        }\n      }\n    }\n  }\n\n  &[hierarchy='tertiary'] {\n    @each $buttonColor, $paletteColor in $colors {\n      &[color='#{$buttonColor}'] {\n        color: c.color($paletteColor, 500);\n        background-color: transparent;\n        border-color: transparent;\n\n        &:hover {\n          color: c.color($paletteColor, 600);\n        }\n\n        &:active {\n          color: c.color($paletteColor, 700);\n        }\n\n        &:disabled {\n          color: c.color($paletteColor, 200);\n        }\n      }\n    }\n  }\n}\n",
                     "styleUrl": "./button.component.scss"
                 }
             ],
@@ -1813,7 +1813,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'color' as c;\n@use 'radius' as r;\n\n:host {\n  display: flex;\n  flex-direction: column;\n}\n\n.mat-icon {\n  color: c.$blue;\n}\n\n.trigger,\n.option ::ng-deep .mdc-list-item__primary-text {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  gap: 10px;\n}\n",
+                    "data": "@use 'color' as c;\n@use 'radius' as r;\n\n:host {\n  display: flex;\n  flex-direction: column;\n}\n\n.mat-icon {\n  color: c.$info;\n}\n\n.trigger,\n.option ::ng-deep .mdc-list-item__primary-text {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  gap: 10px;\n}\n",
                     "styleUrl": "./country-select.component.scss"
                 }
             ],
@@ -2641,7 +2641,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'color' as c;\n@use 'radius' as r;\n@use 'breakpoints' as b;\n\n:host {\n  @include r.radius(r.$md);\n  cursor: pointer;\n\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  border: 1px solid c.color('gray', 200);\n  padding: 24px;\n  width: 220px;\n  box-sizing: border-box;\n  gap: 16px;\n\n  &.checked {\n    border-color: c.$purple;\n  }\n\n  @include b.mobile {\n    width: 156px;\n    padding: 12px;\n    gap: 12px;\n  }\n}\n\n.image {\n  height: 60px;\n  width: 132px;\n\n  @include b.mobile {\n    height: 40px;\n    width: 88px;\n  }\n}\n\n.label {\n  text-align: center;\n  flex: 1;\n}\n",
+                    "data": "@use 'color' as c;\n@use 'radius' as r;\n@use 'breakpoints' as b;\n\n:host {\n  @include r.radius(r.$md);\n  cursor: pointer;\n\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  border: 1px solid c.color('gray', 200);\n  padding: 24px;\n  width: 220px;\n  box-sizing: border-box;\n  gap: 16px;\n\n  &.checked {\n    border-color: c.$primary;\n  }\n\n  @include b.mobile {\n    width: 156px;\n    padding: 12px;\n    gap: 12px;\n  }\n}\n\n.image {\n  height: 60px;\n  width: 132px;\n\n  @include b.mobile {\n    height: 40px;\n    width: 88px;\n  }\n}\n\n.label {\n  text-align: center;\n  flex: 1;\n}\n",
                     "styleUrl": "./image-checkbox.component.scss"
                 }
             ],
@@ -3587,7 +3587,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'typography' as t;\n@use 'color' as c;\n\n$typographies: (\n  'sm': t.$button-xs,\n  'md': t.$button-sm,\n  'lg': t.$button-md,\n);\n\n:host {\n  @include t.attributeToTypography($typographies, 'level');\n\n  display: inline-flex;\n  align-items: center;\n  gap: 10px;\n  color: c.$blue;\n  text-decoration: none;\n\n  &:hover {\n    color: c.color('blue', 600);\n\n    &:visited {\n      color: c.color('purple', 600);\n    }\n  }\n\n  &:focus {\n    outline: 1px solid c.$blue;\n\n    &[level='sm'],\n    &[level='md'] {\n      padding: 4px;\n    }\n\n    &[level='lg'] {\n      padding: 8px;\n    }\n  }\n\n  &:active {\n    color: c.color('blue', 800);\n  }\n\n  &:visited {\n    color: c.$purple;\n  }\n}\n\n.label {\n  :host[type='inline'] &,\n  :host[type='standalone']:hover & {\n    text-decoration: underline;\n  }\n}\n",
+                    "data": "@use 'typography' as t;\n@use 'color' as c;\n\n$typographies: (\n  'sm': t.$button-xs,\n  'md': t.$button-sm,\n  'lg': t.$button-md,\n);\n\n:host {\n  @include t.attributeToTypography($typographies, 'level');\n\n  display: inline-flex;\n  align-items: center;\n  gap: 10px;\n  color: c.$info;\n  text-decoration: none;\n\n  &:hover {\n    color: c.color('info', 600);\n\n    &:visited {\n      color: c.color('primary', 600);\n    }\n  }\n\n  &:focus {\n    outline: 1px solid c.$info;\n\n    &[level='sm'],\n    &[level='md'] {\n      padding: 4px;\n    }\n\n    &[level='lg'] {\n      padding: 8px;\n    }\n  }\n\n  &:active {\n    color: c.color('info', 800);\n  }\n\n  &:visited {\n    color: c.$primary;\n  }\n}\n\n.label {\n  :host[type='inline'] &,\n  :host[type='standalone']:hover & {\n    text-decoration: underline;\n  }\n}\n",
                     "styleUrl": "./link.component.scss"
                 }
             ],
@@ -3771,7 +3771,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'color' as c;\n@use 'breakpoints' as b;\n\n:host {\n  border-style: solid;\n  border-width: 0 0 0 1px;\n  border-color: c.color('gray', 200);\n  display: flex;\n  align-items: center;\n  padding: 16px;\n\n  @include b.mobile{\n    padding: 12px;\n  }\n\n  lai-body {\n    color: c.color('blue', 900);\n  }\n}\n",
+                    "data": "@use 'color' as c;\n@use 'breakpoints' as b;\n\n:host {\n  border-style: solid;\n  border-width: 0 0 0 1px;\n  border-color: c.color('gray', 200);\n  display: flex;\n  align-items: center;\n  padding: 16px;\n\n  @include b.mobile {\n    padding: 12px;\n  }\n\n  lai-body {\n    color: c.color('info', 800);\n  }\n}\n",
                     "styleUrl": "./list-tile-description.component.scss"
                 }
             ],
@@ -3966,7 +3966,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'color' as c;\n@use 'radius' as r;\n\n:host {\n  text-align: left;\n\n  @include r.radius(r.$sm);\n\n  display: flex;\n  align-items: stretch;\n\n  &:nth-child(even) {\n    background-color: c.color('blue', 50);\n  }\n}\n\n.list-tile-item {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  padding: 16px;\n  min-width: 40%;\n  gap: 16px;\n}\n\n.list-tile-text {\n  display: flex;\n  flex-direction: column;\n}\n",
+                    "data": "@use 'color' as c;\n@use 'radius' as r;\n\n:host {\n  text-align: left;\n\n  @include r.radius(r.$sm);\n\n  display: flex;\n  align-items: stretch;\n\n  &:nth-child(even) {\n    background-color: c.color('info', 50);\n  }\n}\n\n.list-tile-item {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  padding: 16px;\n  min-width: 40%;\n  gap: 16px;\n}\n\n.list-tile-text {\n  display: flex;\n  flex-direction: column;\n}\n",
                     "styleUrl": "./list-tile-item.component.scss"
                 }
             ],
@@ -4300,7 +4300,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'typography' as t;\n@use 'color' as c;\n\n$typographies: (\n  'lg': t.$overline-lg,\n  'sm': t.$overline-sm,\n);\n\n:host {\n  @include t.attributeToTypography($typographies, 'level');\n\n  display: inline;\n  color: c.$purple;\n  text-transform: uppercase;\n}\n",
+                    "data": "@use 'typography' as t;\n@use 'color' as c;\n\n$typographies: (\n  'lg': t.$overline-lg,\n  'sm': t.$overline-sm,\n);\n\n:host {\n  @include t.attributeToTypography($typographies, 'level');\n\n  display: inline;\n  color: c.$primary;\n  text-transform: uppercase;\n}\n",
                     "styleUrl": "./overline.component.scss"
                 }
             ],
@@ -5141,7 +5141,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'color' as c;\n@use 'radius' as r;\n@use 'breakpoints' as b;\n\n:host {\n  @include r.radius(r.$md);\n\n  padding: 32px 24px;\n  background-color: c.color('blue', 75);\n  display: flex;\n  align-items: center;\n  gap: 16px;\n\n  @include b.mobile {\n    padding: 16px;\n  }\n}\n",
+                    "data": "@use 'color' as c;\n@use 'radius' as r;\n@use 'breakpoints' as b;\n\n:host {\n  @include r.radius(r.$md);\n\n  padding: 32px 24px;\n  background-color: c.color('info', 100);\n  display: flex;\n  align-items: center;\n  gap: 16px;\n\n  @include b.mobile {\n    padding: 16px;\n  }\n}\n",
                     "styleUrl": "./side-drawer-header.component.scss"
                 }
             ],
@@ -5150,7 +5150,7 @@
         },
         {
             "name": "SideDrawerWarningComponent",
-            "id": "component-SideDrawerWarningComponent-efc3b368ee52f4fd4e55da7cadf5a5c85d01e4f73270300e054bfac883c7d3f99ea5fae867eee240e2bfe110bb68ce08c54733cde369f263b88fd3b9b9f9e897",
+            "id": "component-SideDrawerWarningComponent-0d6ae2e308a280ba6927a4e134d00174c9c3b6351c1bf30e88c7896693130c6031e7820a8266f2fc0f101841b752f277933a0b7bf766e82dd78719b8a98e51ce",
             "file": "projects/lendai-us/design-system/src/lib/side-drawer/side-drawer-warning/side-drawer-warning.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -5170,7 +5170,7 @@
             "inputsClass": [
                 {
                     "name": "color",
-                    "defaultValue": "'orange'",
+                    "defaultValue": "'warning'",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 10,
@@ -5209,11 +5209,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, TemplateRef, ViewChild } from '@angular/core';\n\n@Component({\n  selector: 'lai-side-drawer-warning',\n  templateUrl: './side-drawer-warning.component.html',\n  styleUrls: ['./side-drawer-warning.component.scss'],\n})\nexport class SideDrawerWarningComponent {\n  @Input()\n  color: SideDrawerWarningColor = 'orange';\n\n  @ViewChild(TemplateRef) templateRef!: TemplateRef<unknown>;\n}\n\nexport type SideDrawerWarningColor = 'orange';\n",
+            "sourceCode": "import { Component, Input, TemplateRef, ViewChild } from '@angular/core';\n\n@Component({\n  selector: 'lai-side-drawer-warning',\n  templateUrl: './side-drawer-warning.component.html',\n  styleUrls: ['./side-drawer-warning.component.scss'],\n})\nexport class SideDrawerWarningComponent {\n  @Input()\n  color: SideDrawerWarningColor = 'warning';\n\n  @ViewChild(TemplateRef) templateRef!: TemplateRef<unknown>;\n}\n\nexport type SideDrawerWarningColor = 'warning';\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'color' as c;\n@use 'radius' as r;\n\n.content {\n  @include r.radius(r.$md);\n\n  padding: 16px 24px;\n  display: flex;\n\n  &[color='orange'] {\n    background-color: c.color('orange', 50);\n  }\n}\n",
+                    "data": "@use 'color' as c;\n@use 'radius' as r;\n\n.content {\n  @include r.radius(r.$md);\n\n  padding: 16px 24px;\n  display: flex;\n\n  &[color='warning'] {\n    background-color: c.color('warning', 50);\n  }\n}\n",
                     "styleUrl": "./side-drawer-warning.component.scss"
                 }
             ],
@@ -6344,7 +6344,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'color' as c;\n\n:host {\n  display: flex;\n  flex-direction: column;\n}\n\n.spacer {\n  flex: 1;\n  border-style: solid;\n  border-width: 0;\n\n  :host-context(lai-tab-group[type='line']) & {\n    border-bottom-width: 2px;\n    background-color: transparent;\n    border-bottom-color: c.color('gray', 200);\n  }\n\n  :host-context(lai-tab-group[type='contained']) & {\n    border-top-width: 2px;\n    background-color: c.color('gray', 75);\n    border-top-color: c.color('gray', 75);\n  }\n}\n",
+                    "data": "@use 'color' as c;\n\n:host {\n  display: flex;\n  flex-direction: column;\n}\n\n.spacer {\n  flex: 1;\n  border-style: solid;\n  border-width: 0;\n\n  :host-context(lai-tab-group[type='line']) & {\n    border-bottom-width: 2px;\n    background-color: transparent;\n    border-bottom-color: c.color('gray', 200);\n  }\n\n  :host-context(lai-tab-group[type='contained']) & {\n    border-top-width: 2px;\n    background-color: c.color('gray', 100);\n    border-top-color: c.color('gray', 100);\n  }\n}\n",
                     "styleUrl": "./tab-group.component.scss"
                 }
             ],
@@ -6554,7 +6554,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'color' as c;\n\n$sizes: (\n  'md': 9px 16px,\n  'lg': 13px 20px,\n);\n\n:host {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  cursor: pointer;\n  box-sizing: border-box;\n  border-style: solid;\n  border-width: 0;\n  border-right-width: 1.5px;\n\n  &:hover {\n    border-bottom-color: c.color('purple', 400) !important;\n    border-top-color: c.color('purple', 400) !important;\n  }\n\n  &:focus {\n    outline: 1px solid c.$blue;\n  }\n\n  &.selected {\n    border-bottom-color: c.$purple !important;\n    border-top-color: c.$purple !important;\n  }\n\n  &[disabled='true'] {\n    cursor: not-allowed;\n    outline: none !important;\n  }\n}\n\n:host-context(lai-tab-group[type='line']) {\n  border-bottom-width: 2px;\n  border-bottom-color: c.color('gray', 200);\n  background-color: transparent;\n  border-right-color: transparent;\n\n  &[disabled='true'] {\n    border-bottom-color: c.color('gray', 75) !important;\n  }\n}\n\n:host-context(lai-tab-group[type='contained']) {\n  border-top-width: 2px;\n  border-top-color: c.color('gray', 75);\n  background-color: c.color('gray', 75);\n  border-right-color: c.color('gray', 300);\n\n  &:hover {\n    background-color: c.color('gray', 200);\n  }\n\n  &.selected {\n    border-right-color: c.$white;\n    background-color: c.$white;\n  }\n\n  &[disabled='true'] {\n    background-color: c.color('gray', 300) !important;\n    border-top-color: c.color('gray', 300) !important;\n  }\n}\n\n@each $key, $value in $sizes {\n  :host-context(lai-tab-group[size='#{$key}']) {\n    padding: $value;\n  }\n}\n\nlai-body,\n.tab-icon {\n  color: c.$gray;\n\n  :host(:hover) & {\n    color: c.color('gray', 800);\n  }\n\n  :host(.selected) & {\n    color: c.$purple;\n  }\n\n  :host-context(lai-tab-group[type='line'])[disabled='true'] & {\n    color: c.color('gray', 300) !important;\n  }\n\n  :host-context(lai-tab-group[type='contained'])[disabled='true'] & {\n    color: c.color('gray', 500) !important;\n  }\n}\n\n.remove-icon {\n  color: c.color('gray', 400);\n}\n",
+                    "data": "@use 'color' as c;\n\n$sizes: (\n  'md': 9px 16px,\n  'lg': 13px 20px,\n);\n\n:host {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  cursor: pointer;\n  box-sizing: border-box;\n  border-style: solid;\n  border-width: 0;\n  border-right-width: 1.5px;\n\n  &:hover {\n    border-bottom-color: c.color('primary', 400) !important;\n    border-top-color: c.color('primary', 400) !important;\n  }\n\n  &:focus {\n    outline: 1px solid c.$info;\n  }\n\n  &.selected {\n    border-bottom-color: c.$primary !important;\n    border-top-color: c.$primary !important;\n  }\n\n  &[disabled='true'] {\n    cursor: not-allowed;\n    outline: none !important;\n  }\n}\n\n:host-context(lai-tab-group[type='line']) {\n  border-bottom-width: 2px;\n  border-bottom-color: c.color('gray', 200);\n  background-color: transparent;\n  border-right-color: transparent;\n\n  &[disabled='true'] {\n    border-bottom-color: c.color('gray', 100) !important;\n  }\n}\n\n:host-context(lai-tab-group[type='contained']) {\n  border-top-width: 2px;\n  border-top-color: c.color('gray', 100);\n  background-color: c.color('gray', 100);\n  border-right-color: c.color('gray', 300);\n\n  &:hover {\n    background-color: c.color('gray', 200);\n  }\n\n  &.selected {\n    border-right-color: c.$white;\n    background-color: c.$white;\n  }\n\n  &[disabled='true'] {\n    background-color: c.color('gray', 300) !important;\n    border-top-color: c.color('gray', 300) !important;\n  }\n}\n\n@each $key, $value in $sizes {\n  :host-context(lai-tab-group[size='#{$key}']) {\n    padding: $value;\n  }\n}\n\nlai-body,\n.tab-icon {\n  color: c.$gray;\n\n  :host(:hover) & {\n    color: c.color('gray', 800);\n  }\n\n  :host(.selected) & {\n    color: c.$primary;\n  }\n\n  :host-context(lai-tab-group[type='line'])[disabled='true'] & {\n    color: c.color('gray', 300) !important;\n  }\n\n  :host-context(lai-tab-group[type='contained'])[disabled='true'] & {\n    color: c.color('gray', 500) !important;\n  }\n}\n\n.remove-icon {\n  color: c.color('gray', 400);\n}\n",
                     "styleUrl": "./tab-label.component.scss"
                 }
             ],
@@ -6654,7 +6654,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'color' as c;\n@use 'breakpoints' as b;\n\n:host {\n  display: flex;\n  white-space: nowrap;\n  overflow-x: auto;\n  flex: none;\n}\n\n.spacer {\n  flex: 1;\n  border-style: solid;\n  border-width: 0;\n\n  :host([laiTabNavBar][type='line']) & {\n    border-bottom-width: 2px;\n    background-color: transparent;\n    border-bottom-color: c.color('gray', 200);\n  }\n\n  :host([laiTabNavBar][type='contained']) & {\n    border-top-width: 2px;\n    background-color: c.color('gray', 75);\n    border-top-color: c.color('gray', 75);\n  }\n}\n",
+                    "data": "@use 'color' as c;\n@use 'breakpoints' as b;\n\n:host {\n  display: flex;\n  white-space: nowrap;\n  overflow-x: auto;\n  flex: none;\n}\n\n.spacer {\n  flex: 1;\n  border-style: solid;\n  border-width: 0;\n\n  :host([laiTabNavBar][type='line']) & {\n    border-bottom-width: 2px;\n    background-color: transparent;\n    border-bottom-color: c.color('gray', 200);\n  }\n\n  :host([laiTabNavBar][type='contained']) & {\n    border-top-width: 2px;\n    background-color: c.color('gray', 100);\n    border-top-color: c.color('gray', 100);\n  }\n}\n",
                     "styleUrl": "./tab-nav-bar.component.scss"
                 }
             ],
@@ -6726,7 +6726,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'color' as c;\n\n$sizes: (\n  'md': 9px 16px,\n  'lg': 13px 20px,\n);\n\n:host {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  cursor: pointer;\n  box-sizing: border-box;\n  border-style: solid;\n  border-width: 0;\n  border-right-width: 1.5px;\n  text-decoration: none;\n\n  &:hover {\n    border-bottom-color: c.color('purple', 400) !important;\n    border-top-color: c.color('purple', 400) !important;\n  }\n\n  &:focus {\n    outline: 1px solid c.$blue;\n  }\n\n  &.active {\n    border-bottom-color: c.$purple !important;\n    border-top-color: c.$purple !important;\n  }\n}\n\n:host-context([laiTabNavBar][type='line']) {\n  border-bottom-width: 2px;\n  border-bottom-color: c.color('gray', 200);\n  background-color: transparent;\n  border-right-color: transparent;\n}\n\n:host-context([laiTabNavBar][type='contained']) {\n  border-top-width: 2px;\n  border-top-color: c.color('gray', 75);\n  background-color: c.color('gray', 75);\n  border-right-color: c.color('gray', 300);\n\n  &:hover {\n    background-color: c.color('gray', 200);\n  }\n\n  &.active {\n    border-right-color: c.$white;\n    background-color: c.$white;\n  }\n}\n\n@each $key, $value in $sizes {\n  :host-context([laiTabNavBar][size='#{$key}']) {\n    padding: $value;\n  }\n}\n\nlai-body,\n.tab-icon {\n  color: c.$gray;\n\n  :host(:hover) & {\n    color: c.color('gray', 800);\n  }\n\n  :host(.active) & {\n    color: c.$purple;\n  }\n}\n\n.remove-icon {\n  color: c.color('gray', 400);\n}\n",
+                    "data": "@use 'color' as c;\n\n$sizes: (\n  'md': 9px 16px,\n  'lg': 13px 20px,\n);\n\n:host {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  cursor: pointer;\n  box-sizing: border-box;\n  border-style: solid;\n  border-width: 0;\n  border-right-width: 1.5px;\n  text-decoration: none;\n\n  &:hover {\n    border-bottom-color: c.color('primary', 400) !important;\n    border-top-color: c.color('primary', 400) !important;\n  }\n\n  &:focus {\n    outline: 1px solid c.$info;\n  }\n\n  &.active {\n    border-bottom-color: c.$primary !important;\n    border-top-color: c.$primary !important;\n  }\n}\n\n:host-context([laiTabNavBar][type='line']) {\n  border-bottom-width: 2px;\n  border-bottom-color: c.color('gray', 200);\n  background-color: transparent;\n  border-right-color: transparent;\n}\n\n:host-context([laiTabNavBar][type='contained']) {\n  border-top-width: 2px;\n  border-top-color: c.color('gray', 100);\n  background-color: c.color('gray', 100);\n  border-right-color: c.color('gray', 300);\n\n  &:hover {\n    background-color: c.color('gray', 200);\n  }\n\n  &.active {\n    border-right-color: c.$white;\n    background-color: c.$white;\n  }\n}\n\n@each $key, $value in $sizes {\n  :host-context([laiTabNavBar][size='#{$key}']) {\n    padding: $value;\n  }\n}\n\nlai-body,\n.tab-icon {\n  color: c.$gray;\n\n  :host(:hover) & {\n    color: c.color('gray', 800);\n  }\n\n  :host(.active) & {\n    color: c.$primary;\n  }\n}\n\n.remove-icon {\n  color: c.color('gray', 400);\n}\n",
                     "styleUrl": "./tab-nav-bar-link.component.scss"
                 }
             ],
@@ -7539,6 +7539,36 @@
                 "defaultValue": "{\n  args: {\n    radius: 'xs',\n    color: 'blue',\n    type: 'transparent',\n  },\n}"
             },
             {
+                "name": "BADGE_COLORS",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/badge/badge.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "[\n  'gray',\n  'purple',\n  'blue',\n  'red',\n  'orange',\n  'green',\n  'pink',\n  'aqua',\n] as const"
+            },
+            {
+                "name": "BADGE_RADIUSES",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/badge/badge.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "['xs', 'sm'] as const"
+            },
+            {
+                "name": "BADGE_TYPES",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/badge/badge.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "['transparent', 'solid'] as const"
+            },
+            {
                 "name": "Body",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -8016,7 +8046,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<BadgeComponent>",
-                "defaultValue": "{\n  title: 'WIP/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: ['blue', 'purple', 'aqua', 'gray', 'orange', 'pink', 'red'],\n      control: { type: 'select' },\n    },\n    radius: {\n      options: ['xs', 'sm'],\n      control: { type: 'select' },\n    },\n    type: {\n      options: ['transparent', 'solid'],\n      control: { type: 'select' },\n    },\n  },\n}"
+                "defaultValue": "{\n  title: 'WIP/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    radius: {\n      options: BADGE_RADIUSES,\n      control: { type: 'select' },\n    },\n    type: {\n      options: BADGE_TYPES,\n      control: { type: 'select' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -8574,34 +8604,34 @@
                 "name": "BadgeColor",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "\"blue\" | \"purple\" | \"aqua\" | \"gray\" | \"orange\" | \"pink\" | \"red\"",
+                "rawtype": "",
                 "file": "projects/lendai-us/design-system/src/lib/badge/badge.component.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
-                "kind": 189
+                "kind": 196
             },
             {
                 "name": "BadgeRadius",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "\"xs\" | \"sm\"",
+                "rawtype": "",
                 "file": "projects/lendai-us/design-system/src/lib/badge/badge.component.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
-                "kind": 189
+                "kind": 196
             },
             {
                 "name": "BadgeType",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "\"transparent\" | \"solid\"",
+                "rawtype": "",
                 "file": "projects/lendai-us/design-system/src/lib/badge/badge.component.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
-                "kind": 189
+                "kind": 196
             },
             {
                 "name": "BodyLevel",
@@ -9278,7 +9308,39 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<BadgeComponent>",
-                    "defaultValue": "{\n  title: 'WIP/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: ['blue', 'purple', 'aqua', 'gray', 'orange', 'pink', 'red'],\n      control: { type: 'select' },\n    },\n    radius: {\n      options: ['xs', 'sm'],\n      control: { type: 'select' },\n    },\n    type: {\n      options: ['transparent', 'solid'],\n      control: { type: 'select' },\n    },\n  },\n}"
+                    "defaultValue": "{\n  title: 'WIP/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    radius: {\n      options: BADGE_RADIUSES,\n      control: { type: 'select' },\n    },\n    type: {\n      options: BADGE_TYPES,\n      control: { type: 'select' },\n    },\n  },\n}"
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/badge/badge.component.ts": [
+                {
+                    "name": "BADGE_COLORS",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "[\n  'gray',\n  'purple',\n  'blue',\n  'red',\n  'orange',\n  'green',\n  'pink',\n  'aqua',\n] as const"
+                },
+                {
+                    "name": "BADGE_RADIUSES",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "['xs', 'sm'] as const"
+                },
+                {
+                    "name": "BADGE_TYPES",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "['transparent', 'solid'] as const"
                 }
             ],
             "projects/lendai-us/design-system/src/lib/typography/body/body.stories.ts": [
@@ -10283,34 +10345,34 @@
                     "name": "BadgeColor",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "\"blue\" | \"purple\" | \"aqua\" | \"gray\" | \"orange\" | \"pink\" | \"red\"",
+                    "rawtype": "",
                     "file": "projects/lendai-us/design-system/src/lib/badge/badge.component.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
-                    "kind": 189
+                    "kind": 196
                 },
                 {
                     "name": "BadgeRadius",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "\"xs\" | \"sm\"",
+                    "rawtype": "",
                     "file": "projects/lendai-us/design-system/src/lib/badge/badge.component.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
-                    "kind": 189
+                    "kind": 196
                 },
                 {
                     "name": "BadgeType",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "\"transparent\" | \"solid\"",
+                    "rawtype": "",
                     "file": "projects/lendai-us/design-system/src/lib/badge/badge.component.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
-                    "kind": 189
+                    "kind": 196
                 }
             ],
             "projects/lendai-us/design-system/src/lib/typography/body/body.component.ts": [
@@ -10923,6 +10985,36 @@
                 "name": "BadgeComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/badge/badge.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "BADGE_COLORS",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/badge/badge.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "BADGE_RADIUSES",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/badge/badge.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "BADGE_TYPES",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {

@@ -29,9 +29,9 @@ $sizes: (
 );
 
 $colors: (
-  'default': 'purple',
-  'success': 'aqua',
-  'destructive': 'red',
+  'default': 'primary',
+  'success': 'success',
+  'destructive': 'error',
 );
 
 :host {
@@ -47,7 +47,7 @@ $colors: (
   cursor: pointer;
 
   &:focus {
-    outline: 1px solid c.color('blue', 500);
+    outline: 1px solid c.color('info', 500);
   }
 
   &:disabled {

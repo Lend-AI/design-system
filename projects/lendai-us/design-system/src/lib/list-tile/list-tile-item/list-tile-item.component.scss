@@ -10,7 +10,7 @@
   align-items: stretch;
 
   &:nth-child(even) {
-    background-color: c.color('blue', 50);
+    background-color: c.color('info', 50);
   }
 }
 

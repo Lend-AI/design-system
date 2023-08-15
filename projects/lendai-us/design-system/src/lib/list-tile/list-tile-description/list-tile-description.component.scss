@@ -9,11 +9,11 @@
   align-items: center;
   padding: 16px;
 
-  @include b.mobile{
+  @include b.mobile {
     padding: 12px;
   }
 
   lai-body {
-    color: c.color('blue', 900);
+    color: c.color('info', 800);
   }
 }
