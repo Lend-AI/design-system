@@ -1,6 +1,11 @@
+@use 'breakpoints' as b;
+
 :host {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 20px;
+  flex-direction: column;
+  padding-left: 15%;
+
+  @include b.mobile {
+    padding: 0 24px;
+  }
 }
