@@ -17,7 +17,7 @@ const landingPageItems: LandingPageCategory[] = [
     title: 'Loan Programs',
   },
   {
-    icon: 'dashboard',
+    icon: 'wallet',
     route: '/#why',
     title: 'Why Finance?',
   },
