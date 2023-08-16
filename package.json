@@ -10,7 +10,8 @@
     "prepare": "husky install",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
-    "verdaccio": "verdaccio"
+    "verdaccio": "verdaccio",
+    "publish:design-system": "cd dist/lendai-us/design-system && npm publish && cd ../../../"
   },
   "private": true,
   "dependencies": {
