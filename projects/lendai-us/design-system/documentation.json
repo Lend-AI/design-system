@@ -525,87 +525,7 @@
         },
         {
             "name": "DummyService",
-            "id": "class-DummyService-97d16e82bca6113229d46050dd4388eddcb1941f13c307129ab55e4476300fa2e378b2a6ecefe5d23562b14f36248b37fc7693d47b9630bf5df5e83433dbf870-1",
-            "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
-            "deprecated": false,
-            "deprecationMessage": "",
-            "type": "class",
-            "sourceCode": "import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';\nimport {\n  LANDING_LAYOUT_SERVICE,\n  LandingLayoutCategory,\n  LandingLayoutService,\n} from './landing-layout.service';\nimport { of } from 'rxjs';\nimport { RouterTestingModule } from '@angular/router/testing';\nimport { ButtonComponent } from '../../button';\nimport { LandingLayoutModule } from './landing-layout.module';\nimport { LandingLayoutComponent } from './landing-layout.component';\n\nconst landingPageItems: LandingLayoutCategory[] = [\n  {\n    icon: 'briefcase',\n    route: '/#loan-programs',\n    title: 'Loan Programs',\n  },\n  {\n    icon: 'wallet',\n    route: '/#why',\n    title: 'Why Finance?',\n  },\n  {\n    icon: 'help',\n    route: '/#how',\n    title: 'How Does It Works?',\n  },\n];\nclass DummyService implements LandingLayoutService {\n  logoPath$ = of('/assets/images/logo/light.svg');\n  logOutText$ = of('Log Out');\n  landingLayoutCategories$ = of(landingPageItems);\n  async accountCallBack(): Promise<void> {\n    console.log('account call back');\n  }\n  async logoutCallBack(): Promise<void> {\n    console.log('logout call back');\n  }\n}\n\nconst meta: Meta<LandingLayoutComponent> = {\n  title: 'Templates/LandingLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: LandingLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [LandingLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: LANDING_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n};\nexport default meta;\n\ntype Story = StoryObj<LandingLayoutComponent>;\n\nexport const LandingLayout: Story = {\n  render: props => ({\n    props,\n    template: `\n    <lai-landing-layout>\n      <lai-landing-layout-actions>\n        <button laiButton>\n          \"Lang-switcher\"\n        </button>\n        <button laiButton class=\"apply\">\n          Apply Now\n        </button>\n      </lai-landing-layout-actions>\n      <lai-landing-layout-content>\n        <div style=\"height: 500px;\">Some content</div>\n      </lai-landing-layout-content>\n    </lai-landing-layout>\n  `,\n  }),\n};\n",
-            "properties": [
-                {
-                    "name": "landingLayoutCategories$",
-                    "defaultValue": "of(landingPageItems)",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 33
-                },
-                {
-                    "name": "logoPath$",
-                    "defaultValue": "of('/assets/images/logo/light.svg')",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 31
-                },
-                {
-                    "name": "logOutText$",
-                    "defaultValue": "of('Log Out')",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 32
-                }
-            ],
-            "methods": [
-                {
-                    "name": "accountCallBack",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "Promise<void>",
-                    "typeParameters": [],
-                    "line": 34,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "modifierKind": [
-                        132
-                    ]
-                },
-                {
-                    "name": "logoutCallBack",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "Promise<void>",
-                    "typeParameters": [],
-                    "line": 37,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "modifierKind": [
-                        132
-                    ]
-                }
-            ],
-            "indexSignatures": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "hostBindings": [],
-            "hostListeners": [],
-            "implements": [
-                "LandingLayoutService"
-            ],
-            "isDuplicate": true,
-            "duplicateId": 1,
-            "duplicateName": "DummyService-1"
-        },
-        {
-            "name": "DummyService",
-            "id": "class-DummyService-4ee2da70a5a934b8d2a5c8ef68373e364fbfaf2ea0b5a16a548fef23afabc24b8d1eb084ae09fd1fea8e63630033b8c061d28d7f6fc8011c799ff05e26aa08ad-2",
+            "id": "class-DummyService-4ee2da70a5a934b8d2a5c8ef68373e364fbfaf2ea0b5a16a548fef23afabc24b8d1eb084ae09fd1fea8e63630033b8c061d28d7f6fc8011c799ff05e26aa08ad-1",
             "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts",
             "deprecated": false,
             "deprecationMessage": "",
@@ -708,6 +628,86 @@
             "hostListeners": [],
             "implements": [
                 "SidenavLayoutService"
+            ],
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "DummyService-1"
+        },
+        {
+            "name": "DummyService",
+            "id": "class-DummyService-97d16e82bca6113229d46050dd4388eddcb1941f13c307129ab55e4476300fa2e378b2a6ecefe5d23562b14f36248b37fc7693d47b9630bf5df5e83433dbf870-2",
+            "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';\nimport {\n  LANDING_LAYOUT_SERVICE,\n  LandingLayoutCategory,\n  LandingLayoutService,\n} from './landing-layout.service';\nimport { of } from 'rxjs';\nimport { RouterTestingModule } from '@angular/router/testing';\nimport { ButtonComponent } from '../../button';\nimport { LandingLayoutModule } from './landing-layout.module';\nimport { LandingLayoutComponent } from './landing-layout.component';\n\nconst landingPageItems: LandingLayoutCategory[] = [\n  {\n    icon: 'briefcase',\n    route: '/#loan-programs',\n    title: 'Loan Programs',\n  },\n  {\n    icon: 'wallet',\n    route: '/#why',\n    title: 'Why Finance?',\n  },\n  {\n    icon: 'help',\n    route: '/#how',\n    title: 'How Does It Works?',\n  },\n];\nclass DummyService implements LandingLayoutService {\n  logoPath$ = of('/assets/images/logo/light.svg');\n  logOutText$ = of('Log Out');\n  landingLayoutCategories$ = of(landingPageItems);\n  async accountCallBack(): Promise<void> {\n    console.log('account call back');\n  }\n  async logoutCallBack(): Promise<void> {\n    console.log('logout call back');\n  }\n}\n\nconst meta: Meta<LandingLayoutComponent> = {\n  title: 'Templates/LandingLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: LandingLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [LandingLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: LANDING_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n};\nexport default meta;\n\ntype Story = StoryObj<LandingLayoutComponent>;\n\nexport const LandingLayout: Story = {\n  render: props => ({\n    props,\n    template: `\n    <lai-landing-layout>\n      <lai-landing-layout-actions>\n        <button laiButton>\n          \"Lang-switcher\"\n        </button>\n        <button laiButton class=\"apply\">\n          Apply Now\n        </button>\n      </lai-landing-layout-actions>\n      <lai-landing-layout-content>\n        <div style=\"height: 500px;\">Some content</div>\n      </lai-landing-layout-content>\n    </lai-landing-layout>\n  `,\n  }),\n};\n",
+            "properties": [
+                {
+                    "name": "landingLayoutCategories$",
+                    "defaultValue": "of(landingPageItems)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 33
+                },
+                {
+                    "name": "logoPath$",
+                    "defaultValue": "of('/assets/images/logo/light.svg')",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 31
+                },
+                {
+                    "name": "logOutText$",
+                    "defaultValue": "of('Log Out')",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 32
+                }
+            ],
+            "methods": [
+                {
+                    "name": "accountCallBack",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<void>",
+                    "typeParameters": [],
+                    "line": 34,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        132
+                    ]
+                },
+                {
+                    "name": "logoutCallBack",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<void>",
+                    "typeParameters": [],
+                    "line": 37,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        132
+                    ]
+                }
+            ],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "implements": [
+                "LandingLayoutService"
             ],
             "isDuplicate": true,
             "duplicateId": 2,
@@ -8042,21 +8042,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<BadgeComponent>",
-                "defaultValue": "{\n  title: 'WIP/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    radius: {\n      options: BADGE_RADIUSES,\n      control: { type: 'select' },\n    },\n    type: {\n      options: BADGE_TYPES,\n      control: { type: 'select' },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<AvatarComponent>",
                 "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<BadgeComponent>",
+                "defaultValue": "{\n  title: 'WIP/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    radius: {\n      options: BADGE_RADIUSES,\n      control: { type: 'select' },\n    },\n    type: {\n      options: BADGE_TYPES,\n      control: { type: 'select' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -8142,21 +8142,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<LandingLayoutComponent>",
-                "defaultValue": "{\n  title: 'Templates/LandingLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: LandingLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [LandingLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: LANDING_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<SidenavLayoutComponent>",
                 "defaultValue": "{\n  title: 'Templates/SidenavLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: SidenavLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [SidenavLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: SIDENAV_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<LandingLayoutComponent>",
+                "defaultValue": "{\n  title: 'Templates/LandingLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: LandingLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [LandingLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: LANDING_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n}"
             },
             {
                 "name": "meta",
@@ -8879,8 +8879,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<BadgeComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                "rawtype": "StoryObj<AvatarComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -8890,8 +8890,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<AvatarComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                "rawtype": "StoryObj<BadgeComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -8989,8 +8989,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<LandingLayoutComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
+                "rawtype": "StoryObj<SidenavLayoutComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -9000,8 +9000,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<SidenavLayoutComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts",
+                "rawtype": "StoryObj<LandingLayoutComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -10643,19 +10643,6 @@
                     "kind": 198
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<BadgeComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
                 {
                     "name": "Story",
@@ -10663,6 +10650,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<AvatarComponent>",
                     "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<BadgeComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -10773,19 +10773,6 @@
                     "kind": 180
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<LandingLayoutComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts": [
                 {
                     "name": "Story",
@@ -10793,6 +10780,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<SidenavLayoutComponent>",
                     "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<LandingLayoutComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
