@@ -11,5 +11,5 @@ const Template: StoryFn = args => ({
 });
 export const Logo = Template.bind({});
 Logo.args = {
-  logoPath: '/assets/images/logo/light.svg',
+  logoPath: 'assets/images/logo/light.svg',
 };
