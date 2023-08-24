@@ -525,7 +525,87 @@
         },
         {
             "name": "DummyService",
-            "id": "class-DummyService-4ee2da70a5a934b8d2a5c8ef68373e364fbfaf2ea0b5a16a548fef23afabc24b8d1eb084ae09fd1fea8e63630033b8c061d28d7f6fc8011c799ff05e26aa08ad-1",
+            "id": "class-DummyService-97d16e82bca6113229d46050dd4388eddcb1941f13c307129ab55e4476300fa2e378b2a6ecefe5d23562b14f36248b37fc7693d47b9630bf5df5e83433dbf870-1",
+            "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';\nimport {\n  LANDING_LAYOUT_SERVICE,\n  LandingLayoutCategory,\n  LandingLayoutService,\n} from './landing-layout.service';\nimport { of } from 'rxjs';\nimport { RouterTestingModule } from '@angular/router/testing';\nimport { ButtonComponent } from '../../button';\nimport { LandingLayoutModule } from './landing-layout.module';\nimport { LandingLayoutComponent } from './landing-layout.component';\n\nconst landingPageItems: LandingLayoutCategory[] = [\n  {\n    icon: 'briefcase',\n    route: '/#loan-programs',\n    title: 'Loan Programs',\n  },\n  {\n    icon: 'wallet',\n    route: '/#why',\n    title: 'Why Finance?',\n  },\n  {\n    icon: 'help',\n    route: '/#how',\n    title: 'How Does It Works?',\n  },\n];\nclass DummyService implements LandingLayoutService {\n  logoPath$ = of('/assets/images/logo/light.svg');\n  logOutText$ = of('Log Out');\n  landingLayoutCategories$ = of(landingPageItems);\n  async accountCallBack(): Promise<void> {\n    console.log('account call back');\n  }\n  async logoutCallBack(): Promise<void> {\n    console.log('logout call back');\n  }\n}\n\nconst meta: Meta<LandingLayoutComponent> = {\n  title: 'Templates/LandingLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: LandingLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [LandingLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: LANDING_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n};\nexport default meta;\n\ntype Story = StoryObj<LandingLayoutComponent>;\n\nexport const LandingLayout: Story = {\n  render: props => ({\n    props,\n    template: `\n    <lai-landing-layout>\n      <lai-landing-layout-actions>\n        <button laiButton>\n          \"Lang-switcher\"\n        </button>\n        <button laiButton class=\"apply\">\n          Apply Now\n        </button>\n      </lai-landing-layout-actions>\n      <lai-landing-layout-content>\n        <div style=\"height: 500px;\">Some content</div>\n      </lai-landing-layout-content>\n    </lai-landing-layout>\n  `,\n  }),\n};\n",
+            "properties": [
+                {
+                    "name": "landingLayoutCategories$",
+                    "defaultValue": "of(landingPageItems)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 33
+                },
+                {
+                    "name": "logoPath$",
+                    "defaultValue": "of('/assets/images/logo/light.svg')",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 31
+                },
+                {
+                    "name": "logOutText$",
+                    "defaultValue": "of('Log Out')",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 32
+                }
+            ],
+            "methods": [
+                {
+                    "name": "accountCallBack",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<void>",
+                    "typeParameters": [],
+                    "line": 34,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        132
+                    ]
+                },
+                {
+                    "name": "logoutCallBack",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<void>",
+                    "typeParameters": [],
+                    "line": 37,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        132
+                    ]
+                }
+            ],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "implements": [
+                "LandingLayoutService"
+            ],
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "DummyService-1"
+        },
+        {
+            "name": "DummyService",
+            "id": "class-DummyService-4ee2da70a5a934b8d2a5c8ef68373e364fbfaf2ea0b5a16a548fef23afabc24b8d1eb084ae09fd1fea8e63630033b8c061d28d7f6fc8011c799ff05e26aa08ad-2",
             "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts",
             "deprecated": false,
             "deprecationMessage": "",
@@ -628,86 +708,6 @@
             "hostListeners": [],
             "implements": [
                 "SidenavLayoutService"
-            ],
-            "isDuplicate": true,
-            "duplicateId": 1,
-            "duplicateName": "DummyService-1"
-        },
-        {
-            "name": "DummyService",
-            "id": "class-DummyService-97d16e82bca6113229d46050dd4388eddcb1941f13c307129ab55e4476300fa2e378b2a6ecefe5d23562b14f36248b37fc7693d47b9630bf5df5e83433dbf870-2",
-            "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
-            "deprecated": false,
-            "deprecationMessage": "",
-            "type": "class",
-            "sourceCode": "import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';\nimport {\n  LANDING_LAYOUT_SERVICE,\n  LandingLayoutCategory,\n  LandingLayoutService,\n} from './landing-layout.service';\nimport { of } from 'rxjs';\nimport { RouterTestingModule } from '@angular/router/testing';\nimport { ButtonComponent } from '../../button';\nimport { LandingLayoutModule } from './landing-layout.module';\nimport { LandingLayoutComponent } from './landing-layout.component';\n\nconst landingPageItems: LandingLayoutCategory[] = [\n  {\n    icon: 'briefcase',\n    route: '/#loan-programs',\n    title: 'Loan Programs',\n  },\n  {\n    icon: 'wallet',\n    route: '/#why',\n    title: 'Why Finance?',\n  },\n  {\n    icon: 'help',\n    route: '/#how',\n    title: 'How Does It Works?',\n  },\n];\nclass DummyService implements LandingLayoutService {\n  logoPath$ = of('/assets/images/logo/light.svg');\n  logOutText$ = of('Log Out');\n  landingLayoutCategories$ = of(landingPageItems);\n  async accountCallBack(): Promise<void> {\n    console.log('account call back');\n  }\n  async logoutCallBack(): Promise<void> {\n    console.log('logout call back');\n  }\n}\n\nconst meta: Meta<LandingLayoutComponent> = {\n  title: 'Templates/LandingLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: LandingLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [LandingLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: LANDING_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n};\nexport default meta;\n\ntype Story = StoryObj<LandingLayoutComponent>;\n\nexport const LandingLayout: Story = {\n  render: props => ({\n    props,\n    template: `\n    <lai-landing-layout>\n      <lai-landing-layout-actions>\n        <button laiButton>\n          \"Lang-switcher\"\n        </button>\n        <button laiButton class=\"apply\">\n          Apply Now\n        </button>\n      </lai-landing-layout-actions>\n      <lai-landing-layout-content>\n        <div style=\"height: 500px;\">Some content</div>\n      </lai-landing-layout-content>\n    </lai-landing-layout>\n  `,\n  }),\n};\n",
-            "properties": [
-                {
-                    "name": "landingLayoutCategories$",
-                    "defaultValue": "of(landingPageItems)",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 33
-                },
-                {
-                    "name": "logoPath$",
-                    "defaultValue": "of('/assets/images/logo/light.svg')",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 31
-                },
-                {
-                    "name": "logOutText$",
-                    "defaultValue": "of('Log Out')",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 32
-                }
-            ],
-            "methods": [
-                {
-                    "name": "accountCallBack",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "Promise<void>",
-                    "typeParameters": [],
-                    "line": 34,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "modifierKind": [
-                        132
-                    ]
-                },
-                {
-                    "name": "logoutCallBack",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "Promise<void>",
-                    "typeParameters": [],
-                    "line": 37,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "modifierKind": [
-                        132
-                    ]
-                }
-            ],
-            "indexSignatures": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "hostBindings": [],
-            "hostListeners": [],
-            "implements": [
-                "LandingLayoutService"
             ],
             "isDuplicate": true,
             "duplicateId": 2,
@@ -2302,7 +2302,7 @@
         },
         {
             "name": "IconComponent",
-            "id": "component-IconComponent-38884958d04ff7c10078f460c18d6fd0cdebb01c46e14cb704608f8e8bcfd6ebcbb468a954781f51e436b8bc8b13ff652b37d4b756bc42a68d656ffba7bd95cd",
+            "id": "component-IconComponent-5e3e69be125b24bebbf45a2b18cd7877932bd735eb865f21a744806502e49d9e4f0c819b516084ee036dfc4f7c94946e5d48a875eb7da0931a06ea6d69c2fdf3",
             "file": "projects/lendai-us/design-system/src/lib/icon/icon/icon.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2354,11 +2354,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'lai-icon',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './icon.component.html',\n  styleUrls: ['./icon.component.scss'],\n})\nexport class IconComponent {\n  @HostBinding('attr.glyph')\n  @Input()\n  glyph!: IconGlyph;\n\n  @HostBinding('attr.size')\n  @Input()\n  size?: IconSize;\n}\n\nexport const ICON_GLYPHS = [\n  'back',\n  'comments',\n  'communication',\n  'edit',\n  'dashboard',\n  'filter',\n  'forward',\n  'logout',\n  'trash',\n  'upload',\n  'loan-policy',\n  'cv',\n  'external-link',\n  'close',\n  'loan-applications',\n  'calendar',\n  'mail',\n  'phone',\n  'close-circle',\n  'checkmark',\n  'add',\n  'remove',\n  'info',\n  'error',\n  'expand-arrow',\n  'reset',\n  'bars',\n  'help',\n  'briefcase',\n  'wallet',\n] as const;\nexport type IconGlyph = (typeof ICON_GLYPHS)[number];\n\nexport const ICON_SIZES = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;\nexport type IconSize = (typeof ICON_SIZES)[number];\n",
+            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'lai-icon',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './icon.component.html',\n  styleUrls: ['./icon.component.scss'],\n})\nexport class IconComponent {\n  @HostBinding('attr.glyph')\n  @Input()\n  glyph!: IconGlyph;\n\n  @HostBinding('attr.size')\n  @Input()\n  size?: IconSize;\n}\n\nexport const ICON_GLYPHS = [\n  'back',\n  'comments',\n  'communication',\n  'edit',\n  'dashboard',\n  'filter',\n  'forward',\n  'logout',\n  'trash',\n  'upload',\n  'loan-policy',\n  'cv',\n  'external-link',\n  'close',\n  'loan-applications',\n  'calendar',\n  'mail',\n  'phone',\n  'close-circle',\n  'checkmark',\n  'add',\n  'remove',\n  'info',\n  'error',\n  'expand-arrow',\n  'collapse-arrow',\n  'reset',\n  'bars',\n  'help',\n  'briefcase',\n  'wallet',\n] as const;\nexport type IconGlyph = (typeof ICON_GLYPHS)[number];\n\nexport const ICON_SIZES = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;\nexport type IconSize = (typeof ICON_SIZES)[number];\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'sass:map';\n\n$glyphs: (\n  'back': '\\e900',\n  'comments': '\\e901',\n  'communication': '\\e902',\n  'edit': '\\e903',\n  'dashboard': '\\e904',\n  'filter': '\\e905',\n  'forward': '\\e906',\n  'logout': '\\e907',\n  'trash': '\\e908',\n  'upload': '\\e909',\n  'loan-policy': '\\e90a',\n  'cv': '\\e90b',\n  'external-link': '\\e90c',\n  'close': '\\e90d',\n  'loan-applications': '\\e90e',\n  'calendar': '\\e90f',\n  'mail': '\\e910',\n  'phone': '\\e911',\n  'close-circle': '\\e912',\n  'checkmark': '\\e913',\n  'add': '\\e914',\n  'remove': '\\e915',\n  'info': '\\e916',\n  'error': '\\e917',\n  'expand-arrow': '\\e918',\n  'reset': '\\e919',\n  'bars': '\\e91a',\n  'help': '\\e91c',\n  'briefcase': '\\e91d',\n  'wallet': '\\e91e',\n);\n\n$sizes: (\n  'xs': 12px,\n  'sm': 16px,\n  'md': 20px,\n  'lg': 24px,\n  'xl': 28px,\n  'xxl': 32px,\n);\n\n@font-face {\n  font-family: icomoon;\n  src: url('../../../assets/fonts/icomoon.eot?' + length($glyphs));\n  src:\n    url('../../../assets/fonts/icomoon.eot?' + length($glyphs) + ('#iefix'))\n      format('embedded-opentype'),\n    url('../../../assets/fonts/icomoon.ttf?' + length($glyphs))\n      format('truetype'),\n    url('../../../assets/fonts/icomoon.woff?' + length($glyphs)) format('woff'),\n    url('../../../assets/fonts/icomoon.svg?' + length($glyphs) + ('#icomoon'))\n      format('svg');\n  font-weight: normal;\n  font-style: normal;\n  font-display: block;\n}\n\n:host {\n  /* use !important to prevent issues with browser extensions that change fonts */\n  font-family: icomoon !important;\n  font-style: normal;\n  font-weight: normal;\n  font-variant: normal;\n  text-transform: none;\n  line-height: 1;\n\n  /* Better Font Rendering =========== */\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  display: inline;\n\n  @each $key, $value in $glyphs {\n    &[glyph='#{$key}']:before {\n      content: $value;\n    }\n  }\n\n  @each $key, $value in $sizes {\n    &[size='#{$key}'] {\n      font-size: $value;\n    }\n  }\n}\n\n:host-context([laiIconButton]) {\n  font-size: var(--icon-button-font-size);\n}\n",
+                    "data": "@use 'sass:map';\n\n$glyphs: (\n  'back': '\\e900',\n  'comments': '\\e901',\n  'communication': '\\e902',\n  'edit': '\\e903',\n  'dashboard': '\\e904',\n  'filter': '\\e905',\n  'forward': '\\e906',\n  'logout': '\\e907',\n  'trash': '\\e908',\n  'upload': '\\e909',\n  'loan-policy': '\\e90a',\n  'cv': '\\e90b',\n  'external-link': '\\e90c',\n  'close': '\\e90d',\n  'loan-applications': '\\e90e',\n  'calendar': '\\e90f',\n  'mail': '\\e910',\n  'phone': '\\e911',\n  'close-circle': '\\e912',\n  'checkmark': '\\e913',\n  'add': '\\e914',\n  'remove': '\\e915',\n  'info': '\\e916',\n  'error': '\\e917',\n  'expand-arrow': '\\e918',\n  'collapse-arrow': '\\e91b',\n  'reset': '\\e919',\n  'bars': '\\e91a',\n  'help': '\\e91c',\n  'briefcase': '\\e91d',\n  'wallet': '\\e91e',\n);\n\n$sizes: (\n  'xs': 12px,\n  'sm': 16px,\n  'md': 20px,\n  'lg': 24px,\n  'xl': 28px,\n  'xxl': 32px,\n);\n\n@font-face {\n  font-family: icomoon;\n  src: url('../../../assets/fonts/icomoon.eot?' + length($glyphs));\n  src:\n    url('../../../assets/fonts/icomoon.eot?' + length($glyphs) + ('#iefix'))\n      format('embedded-opentype'),\n    url('../../../assets/fonts/icomoon.ttf?' + length($glyphs))\n      format('truetype'),\n    url('../../../assets/fonts/icomoon.woff?' + length($glyphs)) format('woff'),\n    url('../../../assets/fonts/icomoon.svg?' + length($glyphs) + ('#icomoon'))\n      format('svg');\n  font-weight: normal;\n  font-style: normal;\n  font-display: block;\n}\n\n:host {\n  /* use !important to prevent issues with browser extensions that change fonts */\n  font-family: icomoon !important;\n  font-style: normal;\n  font-weight: normal;\n  font-variant: normal;\n  text-transform: none;\n  line-height: 1;\n\n  /* Better Font Rendering =========== */\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  display: inline;\n\n  @each $key, $value in $glyphs {\n    &[glyph='#{$key}']:before {\n      content: $value;\n    }\n  }\n\n  @each $key, $value in $sizes {\n    &[size='#{$key}'] {\n      font-size: $value;\n    }\n  }\n}\n\n:host-context([laiIconButton]) {\n  font-size: var(--icon-button-font-size);\n}\n",
                     "styleUrl": "./icon.component.scss"
                 }
             ],
@@ -3389,7 +3389,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'color' as c;\n@use 'breakpoints' as b;\n\n$gap: 24px;\n\n:host {\n  display: flex;\n  height: 100vh;\n  width: 100vw;\n  flex-direction: column;\n}\n\n.header {\n  justify-content: space-between;\n  padding: 24px 32px;\n  display: flex;\n  align-items: center;\n  box-sizing: border-box;   \n\n  @include b.mobile {\n    z-index: 999;\n    width: 100%;\n    padding: $gap;\n  }\n}\n\n.nav {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n  height: fit-content;\n  background-color: c.$white;\n  align-items: center;\n\n  @include b.mobile {\n    z-index: 999;\n    flex-direction: column;\n    \n    &.open {\n      height: 100%;\n      position: fixed;\n    }\n  }\n}\n\n.logo {\n  height: 36px;\n  align-self: flex-start;\n  @include b.mobile {\n    height: 20px;\n  }\n}\n\n.nav-menu {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex: 1;\n  padding-right: $gap;\n\n  @include b.mobile {\n    flex-direction: column;\n    align-items: flex-start;\n    width: 100%;\n    box-sizing: border-box;\n    padding: $gap;\n  }    \n}\n\n.main {\n  flex: 1;\n  background-color: c.$white;\n  padding: $gap;\n  display: flex;\n  flex-direction: column;\n  gap: calc($gap * 4 / 3);\n\n  @include b.mobile {\n    width: 100%;\n    padding: 16px;\n  }\n}",
+                    "data": "@use 'color' as c;\n@use 'breakpoints' as b;\n\n$gap: 24px;\n\n.header {\n  justify-content: space-between;\n  padding: 24px 32px;\n  display: flex;\n  align-items: center;\n  box-sizing: border-box;   \n\n  @include b.mobile {\n    z-index: 999;\n    width: 100%;\n    padding: $gap;\n  }\n}\n\n.nav {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n  height: fit-content;\n  background-color: c.$white;\n  align-items: center;\n\n  @include b.mobile {\n    z-index: 999;\n    flex-direction: column;\n    \n    &.open {\n      height: 100vh;\n      position: fixed;\n      max-width: 100vw;\n    }\n  }\n}\n\n.logo {\n  height: 36px;\n  align-self: flex-start;\n  @include b.mobile {\n    height: 20px;\n  }\n}\n\n.nav-menu {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex: 1;\n  padding-right: $gap;\n\n  @include b.mobile {\n    flex-direction: column;\n    align-items: flex-start;\n    width: 100%;\n    box-sizing: border-box;\n    padding: $gap;\n  }    \n}\n\n.main {\n  flex: 1;\n  background-color: c.$white;\n  padding: $gap;\n  display: flex;\n  flex-direction: column;\n  gap: calc($gap * 4 / 3);\n  box-sizing: border-box;\n\n  @include b.mobile {\n    padding: 0px;  \n  }\n}",
                     "styleUrl": "./landing-layout.component.scss"
                 }
             ],
@@ -3473,7 +3473,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ":host {\n  display: flex;\n  justify-content: center;\n}\n",
+                    "data": ":host {\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n}\n",
                     "styleUrl": "./landing-layout-content.component.scss"
                 }
             ],
@@ -7836,7 +7836,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "[\n  'back',\n  'comments',\n  'communication',\n  'edit',\n  'dashboard',\n  'filter',\n  'forward',\n  'logout',\n  'trash',\n  'upload',\n  'loan-policy',\n  'cv',\n  'external-link',\n  'close',\n  'loan-applications',\n  'calendar',\n  'mail',\n  'phone',\n  'close-circle',\n  'checkmark',\n  'add',\n  'remove',\n  'info',\n  'error',\n  'expand-arrow',\n  'reset',\n  'bars',\n  'help',\n  'briefcase',\n  'wallet',\n] as const"
+                "defaultValue": "[\n  'back',\n  'comments',\n  'communication',\n  'edit',\n  'dashboard',\n  'filter',\n  'forward',\n  'logout',\n  'trash',\n  'upload',\n  'loan-policy',\n  'cv',\n  'external-link',\n  'close',\n  'loan-applications',\n  'calendar',\n  'mail',\n  'phone',\n  'close-circle',\n  'checkmark',\n  'add',\n  'remove',\n  'info',\n  'error',\n  'expand-arrow',\n  'collapse-arrow',\n  'reset',\n  'bars',\n  'help',\n  'briefcase',\n  'wallet',\n] as const"
             },
             {
                 "name": "ICON_SIZES",
@@ -8142,21 +8142,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<SidenavLayoutComponent>",
-                "defaultValue": "{\n  title: 'Templates/SidenavLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: SidenavLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [SidenavLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: SIDENAV_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<LandingLayoutComponent>",
                 "defaultValue": "{\n  title: 'Templates/LandingLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: LandingLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [LandingLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: LANDING_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<SidenavLayoutComponent>",
+                "defaultValue": "{\n  title: 'Templates/SidenavLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  component: SidenavLayoutComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [SidenavLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: SIDENAV_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n}"
             },
             {
                 "name": "meta",
@@ -8989,8 +8989,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<SidenavLayoutComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts",
+                "rawtype": "StoryObj<LandingLayoutComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -9000,8 +9000,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<LandingLayoutComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
+                "rawtype": "StoryObj<SidenavLayoutComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -9848,7 +9848,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "[\n  'back',\n  'comments',\n  'communication',\n  'edit',\n  'dashboard',\n  'filter',\n  'forward',\n  'logout',\n  'trash',\n  'upload',\n  'loan-policy',\n  'cv',\n  'external-link',\n  'close',\n  'loan-applications',\n  'calendar',\n  'mail',\n  'phone',\n  'close-circle',\n  'checkmark',\n  'add',\n  'remove',\n  'info',\n  'error',\n  'expand-arrow',\n  'reset',\n  'bars',\n  'help',\n  'briefcase',\n  'wallet',\n] as const"
+                    "defaultValue": "[\n  'back',\n  'comments',\n  'communication',\n  'edit',\n  'dashboard',\n  'filter',\n  'forward',\n  'logout',\n  'trash',\n  'upload',\n  'loan-policy',\n  'cv',\n  'external-link',\n  'close',\n  'loan-applications',\n  'calendar',\n  'mail',\n  'phone',\n  'close-circle',\n  'checkmark',\n  'add',\n  'remove',\n  'info',\n  'error',\n  'expand-arrow',\n  'collapse-arrow',\n  'reset',\n  'bars',\n  'help',\n  'briefcase',\n  'wallet',\n] as const"
                 },
                 {
                     "name": "ICON_SIZES",
@@ -10773,19 +10773,6 @@
                     "kind": 180
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<SidenavLayoutComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts": [
                 {
                     "name": "Story",
@@ -10793,6 +10780,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<LandingLayoutComponent>",
                     "file": "projects/lendai-us/design-system/src/lib/layout/landing-page-layout/landing-layout.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<SidenavLayoutComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
