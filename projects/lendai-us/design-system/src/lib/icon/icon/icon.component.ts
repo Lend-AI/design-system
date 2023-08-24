@@ -44,6 +44,7 @@ export const ICON_GLYPHS = [
   'info',
   'error',
   'expand-arrow',
+  'collapse-arrow',
   'reset',
   'bars',
   'help',
