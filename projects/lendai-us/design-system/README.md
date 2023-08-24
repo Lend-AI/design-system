@@ -11,6 +11,7 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 5. run `npm i @lendai-us/design-system`
 6. add this code to the `style.scss` in your app to define your app colors:
 
+```scss
    @use '@angular/material' as mat;
    @use '@lendai-us/design-system' as lai;
    @use 'sass:map';
@@ -42,13 +43,15 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
       @include mat.all-component-themes($mat-theme);
       @include mat.all-component-typographies();
       @include mat.core();
+```
 
 7. add this code to the `index.html` in your app to add fonts:
-
+```html
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
       rel="stylesheet"/>
+```
 
 8. add assets to `angular.json`:
   - under `architect` -> `assets` add:
