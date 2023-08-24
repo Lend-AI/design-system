@@ -16,13 +16,13 @@ $screen-desktop: 1920px;
 }
 
 @mixin small-dasktop {
-  @media (min-width: #{$small-tablet + 1}) and (max-width: #{$screen-small-desktop}) {
+  @media (min-width: #{$screen-tablet + 1}) and (max-width: #{$screen-small-desktop}) {
     @content;
   }
 }
 
 @mixin dasktop {
-  @media (min-width: #{$small-small-desktop + 1}) and (max-width: #{$screen-desktop}) {
+  @media (min-width: #{$screen-small-desktop + 1}) and (max-width: #{$screen-desktop}) {
     @content;
   }
 }
