@@ -1,0 +1,13 @@
+<lai-step-group-header>
+  <lai-step-label
+    *ngFor="let step of steps; let index = index"
+    [step]="step"
+    [selected]="step === selectedStep"
+    (selectedChange)="onSelectedChange(index)"
+    (remove)="onRemove(index)">
+  </lai-step-label>
+</lai-step-group-header>
+
+<lai-step-group-body
+  *ngIf="selectedStep"
+  [step]="selectedStep"></lai-step-group-body>

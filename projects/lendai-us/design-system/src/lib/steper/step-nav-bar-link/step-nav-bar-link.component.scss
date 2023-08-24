@@ -1,0 +1,78 @@
+@use 'color' as c;
+
+$sizes: (
+  'md': 9px 16px,
+  'lg': 13px 20px,
+);
+
+:host {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 0;
+  border-right-width: 1.5px;
+  text-decoration: none;
+
+  &:hover {
+    border-bottom-color: c.color('primary', 400) !important;
+    border-top-color: c.color('primary', 400) !important;
+  }
+
+  &:focus {
+    outline: 1px solid c.$info;
+  }
+
+  &.active {
+    border-bottom-color: c.$primary !important;
+    border-top-color: c.$primary !important;
+  }
+}
+
+:host-context([laiStepNavBar][type='line']) {
+  border-bottom-width: 2px;
+  border-bottom-color: c.color('gray', 200);
+  background-color: transparent;
+  border-right-color: transparent;
+}
+
+:host-context([laiStepNavBar][type='contained']) {
+  border-top-width: 2px;
+  border-top-color: c.color('gray', 100);
+  background-color: c.color('gray', 100);
+  border-right-color: c.color('gray', 300);
+
+  &:hover {
+    background-color: c.color('gray', 200);
+  }
+
+  &.active {
+    border-right-color: c.$white;
+    background-color: c.$white;
+  }
+}
+
+@each $key, $value in $sizes {
+  :host-context([laiStepNavBar][size='#{$key}']) {
+    padding: $value;
+  }
+}
+
+lai-body,
+.step-icon {
+  color: c.$gray;
+
+  :host(:hover) & {
+    color: c.color('gray', 800);
+  }
+
+  :host(.active) & {
+    color: c.$primary;
+  }
+}
+
+.remove-icon {
+  color: c.color('gray', 400);
+}
