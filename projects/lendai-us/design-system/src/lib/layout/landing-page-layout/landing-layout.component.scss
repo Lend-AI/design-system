@@ -8,7 +8,7 @@ $gap: 24px;
   padding: 24px 32px;
   display: flex;
   align-items: center;
-  box-sizing: border-box;   
+  box-sizing: border-box;
 
   @include b.mobile {
     z-index: 999;
@@ -28,7 +28,7 @@ $gap: 24px;
   @include b.mobile {
     z-index: 999;
     flex-direction: column;
-    
+
     &.open {
       height: 100vh;
       position: fixed;
@@ -58,7 +58,7 @@ $gap: 24px;
     width: 100%;
     box-sizing: border-box;
     padding: $gap;
-  }    
+  }
 }
 
 .main {
@@ -71,6 +71,6 @@ $gap: 24px;
   box-sizing: border-box;
 
   @include b.mobile {
-    padding: 0px;  
+    padding: 16px;
   }
 }
