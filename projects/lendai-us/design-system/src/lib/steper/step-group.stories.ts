@@ -1,10 +1,12 @@
 import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';
 import { SteperModule } from './steper.module';
 import { StepGroupComponent } from './step-group/step-group.component';
-import { IconGlyph } from '../icon';
 
 const meta: Meta<StepGroupComponent> = {
   title: 'WIP/Steper',
+  parameters: {
+    layout: 'fullscreen',
+  },
   decorators: [
     moduleMetadata({
       imports: [SteperModule],
@@ -20,7 +22,6 @@ const meta: Meta<StepGroupComponent> = {
       control: { type: 'select' },
     },
     selectedChange: { action: 'onSelectedChange' },
-    remove: { action: 'onRemove' },
   },
 };
 export default meta;
@@ -29,7 +30,6 @@ type Story = StoryObj<StepGroupComponent>;
 interface DummyItem {
   label: string;
   content: string;
-  iconGlyph: IconGlyph;
 }
 const args: Partial<StepGroupComponent> & { data: DummyItem[] } = {
   size: 'md',
@@ -38,17 +38,14 @@ const args: Partial<StepGroupComponent> & { data: DummyItem[] } = {
     {
       label: 'First label',
       content: 'First content',
-      iconGlyph: 'dashboard',
     },
     {
       label: 'Second label',
       content: 'Second content',
-      iconGlyph: 'loan-applications',
     },
     {
       label: 'Third label',
       content: 'Third content',
-      iconGlyph: 'loan-policy',
     },
   ],
 };

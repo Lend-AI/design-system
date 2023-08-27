@@ -33,17 +33,6 @@ export class StepLabelComponent {
 
   parent: StepGroup = inject(STEP_GROUP);
 
-  @HostBinding('attr.disabled')
-  get disabled(): boolean {
-    return this.step.disabled;
-  }
-
-  // to make element focusable
-  @HostBinding('attr.tabindex')
-  get tabIndex(): number {
-    return this.disabled ? -1 : 0;
-  }
-
   get bodyLevel(): BodyLevel {
     return STEP_GROUP_SIZE_TO_BODY_LEVEL[this.parent.size];
   }
@@ -54,19 +43,6 @@ export class StepLabelComponent {
 
   @HostListener('click')
   onSelectedChange(): void {
-    if (this.disabled) {
-      return;
-    }
-
     this.selectedChange.emit();
-  }
-
-  onRemove(event: MouseEvent): void {
-    event.stopPropagation();
-    if (this.disabled) {
-      return;
-    }
-
-    this.remove.emit();
   }
 }

@@ -28,7 +28,6 @@ export class StepGroupComponent implements AfterViewInit, StepGroup {
   type: StepType = 'line';
 
   @Output() selectedChange = new EventEmitter<number>();
-  @Output() remove = new EventEmitter<number>();
 
   @ContentChildren(StepComponent) steps!: QueryList<StepComponent>;
 
@@ -43,9 +42,5 @@ export class StepGroupComponent implements AfterViewInit, StepGroup {
   onSelectedChange(index: number): void {
     this.selectedStep = this.steps.get(index);
     this.selectedChange.emit(index);
-  }
-
-  onRemove(index: number): void {
-    this.remove.emit(index);
   }
 }

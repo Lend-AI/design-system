@@ -8,30 +8,47 @@ $sizes: (
 :host {
   display: flex;
   align-items: center;
-  gap: 8px;
   cursor: pointer;
   box-sizing: border-box;
-  border-style: solid;
-  border-width: 0;
-  border-right-width: 1.5px;
+  counter-increment: counter 1;
 
-  &:hover {
-    border-bottom-color: c.color('primary', 400) !important;
-    border-top-color: c.color('primary', 400) !important;
+  &:not(:first-child)::before {
+    content: "";
+    background-image: url("data:image/svg+xml,%3Csvg width='5' height='62' viewBox='0 0 5 62' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_28_1592)'%3E%3Cline x1='2.51083' y1='-12.0893' x2='2.51081' y2='386.089' stroke='%23D9C5FF' stroke-width='1.82145' stroke-linecap='round' stroke-dasharray='9.11 9.11'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_28_1592'%3E%3Crect width='5' height='62' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: cover;
+    background-size: 4px;
+    position: relative;
+    height: 60px;
+    width: 4px;
+    right: -22px;
+    top: -42px;
   }
 
-  &:focus {
-    outline: 1px solid c.$info;
+  &:first-child{
+    margin-left: 4px;
   }
 
-  &.selected {
-    border-bottom-color: c.$primary !important;
-    border-top-color: c.$primary !important;
+  &.selected lai-body {
+    font-weight: 600;
+    color: c.$primary;
   }
 
-  &[disabled='true'] {
-    cursor: not-allowed;
-    outline: none !important;
+  & lai-body::before {
+    content: counter(counter);
+    background-color: c.color('primary', 500);
+    color: c.$white;
+    border-radius: 50%;
+    border: 2px solid c.color('primary', 500);
+    display: inline-flex;
+    width: 38px;
+    height: 38px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 12px;
+    z-index: 1;
+    position: relative;
+    font-weight: 400;
   }
 }
 
@@ -67,7 +84,8 @@ $sizes: (
   }
 }
 
-@each $key, $value in $sizes {
+@each $key,
+$value in $sizes {
   :host-context(lai-step-group[size='#{$key}']) {
     padding: $value;
   }

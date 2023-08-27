@@ -1,16 +1,3 @@
-<lai-icon
-  *ngIf="step.iconGlyph"
-  class="step-icon"
-  [glyph]="step.iconGlyph"
-  [size]="iconSize"></lai-icon>
-
 <lai-body [level]="bodyLevel">
   {{ step.label }}
 </lai-body>
-
-<lai-icon
-  *ngIf="step.removable"
-  class="remove-icon"
-  glyph="close"
-  size="xs"
-  (click)="onRemove($event)"></lai-icon>
