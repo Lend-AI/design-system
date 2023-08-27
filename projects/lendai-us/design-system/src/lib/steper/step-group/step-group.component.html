@@ -3,6 +3,7 @@
     *ngFor="let step of steps; let index = index"
     [step]="step"
     [selected]="step === selectedStep"
+    [ngClass]="{'active': index < selectedItemIndex || step === selectedStep} "
     (selectedChange)="onSelectedChange(index)">
   </lai-step-label>
 </lai-step-group-header>

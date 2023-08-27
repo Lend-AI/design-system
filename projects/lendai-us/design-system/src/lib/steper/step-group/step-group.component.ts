@@ -32,6 +32,7 @@ export class StepGroupComponent implements AfterViewInit, StepGroup {
   @ContentChildren(StepComponent) steps!: QueryList<StepComponent>;
 
   selectedStep?: StepComponent;
+  selectedItemIndex = 0;
 
   ngAfterViewInit(): void {
     if (!this.selectedStep && this.steps.first) {
@@ -40,6 +41,7 @@ export class StepGroupComponent implements AfterViewInit, StepGroup {
   }
 
   onSelectedChange(index: number): void {
+    this.selectedItemIndex = index;
     this.selectedStep = this.steps.get(index);
     this.selectedChange.emit(index);
   }

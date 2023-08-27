@@ -4,14 +4,4 @@
   display: flex;
   flex-direction: column;
   counter-reset: counter 0;
-
-  ::ng-deep .selected~lai-step-label lai-body::before {
-    background-color: transparent !important;
-    color: c.color('primary', 500);
-  }
-
-    
-  ::ng-deep   .selected~lai-step-label::before {
-    background-image: none !important;
-  }  
 }

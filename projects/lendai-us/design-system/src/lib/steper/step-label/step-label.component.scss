@@ -25,7 +25,17 @@ $sizes: (
     top: -42px;
   }
 
-  &:first-child{
+  &:not(.active) lai-body::before {
+    background-color: transparent;
+    color: c.color('primary', 500);
+  }
+
+  &:not(.active)::before {
+    background-image: none !important;
+  }
+
+
+  &:first-child {
     margin-left: 4px;
   }
 
