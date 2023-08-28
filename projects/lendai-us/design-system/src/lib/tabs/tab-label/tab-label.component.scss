@@ -1,9 +1,5 @@
 @use 'color' as c;
 
-$sizes: (
-  'md': 9px 16px,
-);
-
 :host {
   display: flex;
   align-items: center;
@@ -13,22 +9,4 @@ $sizes: (
   border-style: solid;
   border-width: 0;
   border-right-width: 1.5px;
-}
-
-@each $key, $value in $sizes {
-  :host-context(lai-tab-group[size='#{$key}']) {
-    padding: $value;
-  }
-}
-
-lai-body{
-  color: c.$gray;
-
-  :host(:hover) & {
-    color: c.color('gray', 800);
-  }
-
-  :host(.current) & {
-    color: c.$primary;
-  }
 }

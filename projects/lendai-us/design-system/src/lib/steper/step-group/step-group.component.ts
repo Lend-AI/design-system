@@ -3,14 +3,11 @@ import {
   Component,
   ContentChildren,
   EventEmitter,
-  HostBinding,
-  Input,
   Output,
   QueryList,
 } from '@angular/core';
 import { StepComponent } from '../step/step.component';
-import { StepSize, StepType } from '../shared';
-import { STEP_GROUP, StepGroup } from './step-group';
+import { STEP_GROUP } from './step-group';
 
 @Component({
   selector: 'lai-step-group',
@@ -18,15 +15,7 @@ import { STEP_GROUP, StepGroup } from './step-group';
   styleUrls: ['./step-group.component.scss'],
   providers: [{ provide: STEP_GROUP, useExisting: StepGroupComponent }],
 })
-export class StepGroupComponent implements AfterViewInit, StepGroup {
-  @Input()
-  @HostBinding('attr.size')
-  size: StepSize = 'md';
-
-  @Input()
-  @HostBinding('attr.type')
-  type: StepType = 'line';
-
+export class StepGroupComponent implements AfterViewInit {
   @Output() selectedChange = new EventEmitter<number>();
 
   @ContentChildren(StepComponent) steps!: QueryList<StepComponent>;

@@ -1,5 +1,5 @@
 import { Component, HostBinding, Input } from '@angular/core';
-import { StepSize, StepType } from '../shared';
+import { StepSize } from '../shared';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -11,8 +11,4 @@ export class StepNavBarComponent {
   @Input()
   @HostBinding('attr.size')
   size: StepSize = 'md';
-
-  @Input()
-  @HostBinding('attr.type')
-  type: StepType = 'line';
 }

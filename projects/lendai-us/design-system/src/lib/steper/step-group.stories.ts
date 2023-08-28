@@ -13,14 +13,6 @@ const meta: Meta<StepGroupComponent> = {
     }),
   ],
   argTypes: {
-    size: {
-      options: ['md'],
-      control: { type: 'select' },
-    },
-    type: {
-      options: ['line', 'contained'],
-      control: { type: 'select' },
-    },
     selectedChange: { action: 'onSelectedChange' },
   },
 };
@@ -32,8 +24,6 @@ interface DummyItem {
   content: string;
 }
 const args: Partial<StepGroupComponent> & { data: DummyItem[] } = {
-  size: 'md',
-  type: 'line',
   data: [
     {
       label: 'First label',
@@ -55,7 +45,7 @@ export const Text: Story = {
   render: props => ({
     props,
     template: `
-      <lai-step-group [size]="size"
+      <lai-step-group
                      [type]="type"
                      (selectedChange)="selectedChange($event)">
         <lai-step *ngFor="let item of data"

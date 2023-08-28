@@ -1,15 +1,16 @@
 @use 'color' as c;
 
-$sizes: (
-  'md': 9px 16px,
-);
-
 :host {
   display: flex;
   align-items: center;
   cursor: pointer;
   box-sizing: border-box;
   counter-increment: counter 1;
+  padding: 16px 0;
+
+  &:first-child{
+    margin-left: 4px;
+  }
 
   &:not(:first-child)::before {
     content: "";
@@ -33,11 +34,6 @@ $sizes: (
     background-image: none !important;
   }
 
-
-  &:first-child {
-    margin-left: 4px;
-  }
-
   &.current lai-body {
     font-weight: 600;
     color: c.$primary;
@@ -58,24 +54,5 @@ $sizes: (
     z-index: 1;
     position: relative;
     font-weight: 400;
-  }
-}
-
-@each $key,
-$value in $sizes {
-  :host-context(lai-step-group[size='#{$key}']) {
-    padding: $value;
-  }
-}
-
-lai-body{
-  color: c.$gray;
-
-  :host(:hover) & {
-    color: c.color('gray', 800);
-  }
-
-  :host(.current) & {
-    color: c.$primary;
   }
 }
