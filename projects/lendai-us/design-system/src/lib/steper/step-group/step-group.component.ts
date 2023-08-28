@@ -7,6 +7,7 @@ import {
   QueryList,
 } from '@angular/core';
 import { StepComponent } from '../step/step.component';
+import { StepState } from '../step-label/step-label.component';
 
 @Component({
   selector: 'lai-step-group',
@@ -20,6 +21,15 @@ export class StepGroupComponent implements AfterViewInit {
 
   selectedStep?: StepComponent;
   activeIndex = 0;
+
+  state(index: number): StepState {
+    if (index > this.activeIndex) {
+      return 'next';
+    } else if (index < this.activeIndex) {
+      return 'previous';
+    }
+    return 'current';
+  }
 
   ngAfterViewInit(): void {
     if (!this.selectedStep && this.steps.first) {

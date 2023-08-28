@@ -14,16 +14,20 @@ import { StepComponent } from '../step/step.component';
   styleUrls: ['./step-label.component.scss'],
 })
 export class StepLabelComponent {
-  @HostBinding('class.current')
-  @Input()
-  selected = false;
-
   @Input() step!: StepComponent;
+  @Input() state: StepState = 'current';
 
   @Output() selectedChange = new EventEmitter<void>();
+
+  @HostBinding('class')
+  get classes(): string {
+    return this.state;
+  }
 
   @HostListener('click')
   onSelectedChange(): void {
     this.selectedChange.emit();
   }
 }
+
+export type StepState = 'current' | 'previous' | 'next';

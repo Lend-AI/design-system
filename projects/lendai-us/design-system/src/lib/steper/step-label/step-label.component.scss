@@ -14,7 +14,7 @@
 
   &:not(:first-child)::before {
     content: "";
-    background-image: url("/assets/images/dash-line.svg");
+    background-image: url("../../../assets/images/dash-line.svg");
     background-repeat: no-repeat;
     background-position: cover;
     background-size: 4px;
