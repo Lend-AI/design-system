@@ -7,13 +7,11 @@ import {
   QueryList,
 } from '@angular/core';
 import { StepComponent } from '../step/step.component';
-import { STEP_GROUP } from './step-group';
 
 @Component({
   selector: 'lai-step-group',
   templateUrl: './step-group.component.html',
   styleUrls: ['./step-group.component.scss'],
-  providers: [{ provide: STEP_GROUP, useExisting: StepGroupComponent }],
 })
 export class StepGroupComponent implements AfterViewInit {
   @Output() selectedChange = new EventEmitter<number>();

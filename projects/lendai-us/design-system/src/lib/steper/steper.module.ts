@@ -7,8 +7,6 @@ import { StepGroupBodyComponent } from './step-group-body/step-group-body.compon
 import { StepGroupHeaderComponent } from './step-group-header/step-group-header.component';
 import { BodyComponent } from '../typography';
 import { IconComponent } from '../icon';
-// import { StepNavBarComponent } from './step-nav-bar/step-nav-bar.component';
-// import { StepNavBarLinkComponent } from './step-nav-bar-link/step-nav-bar-link.component';
 
 @NgModule({
   declarations: [
@@ -17,15 +15,8 @@ import { IconComponent } from '../icon';
     StepLabelComponent,
     StepGroupBodyComponent,
     StepGroupHeaderComponent,
-    // StepNavBarComponent,
-    // StepNavBarLinkComponent,
   ],
   imports: [CommonModule, BodyComponent, IconComponent],
-  exports: [
-    StepGroupComponent,
-    StepComponent,
-    // StepNavBarComponent,
-    // StepNavBarLinkComponent,
-  ],
+  exports: [StepGroupComponent, StepComponent],
 })
 export class SteperModule {}
