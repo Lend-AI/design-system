@@ -1,0 +1,58 @@
+@use 'color' as c;
+
+:host {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  counter-increment: counter 1;
+  padding: 16px 0;
+
+  &:first-child{
+    margin-left: 4px;
+  }
+
+  &:not(:first-child)::before {
+    content: "";
+    background-image: url("../../../assets/images/dash-line.svg");
+    background-repeat: no-repeat;
+    background-position: cover;
+    background-size: 4px;
+    position: relative;
+    height: 60px;
+    width: 4px;
+    right: -22px;
+    top: -42px;
+  }
+
+  &.next lai-body::before {
+    background-color: transparent;
+    color: c.color('primary', 500);
+  }
+
+  &.next::before {
+    background-image: none !important;
+  }
+
+  &.current lai-body {
+    font-weight: 600;
+    color: c.$primary;
+  }
+
+  & lai-body::before {
+    content: counter(counter);
+    background-color: c.color('primary', 500);
+    color: c.$white;
+    border-radius: 50%;
+    border: 2px solid c.color('primary', 500);
+    display: inline-flex;
+    width: 38px;
+    height: 38px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 12px;
+    z-index: 1;
+    position: relative;
+    font-weight: 400;
+  }
+}
