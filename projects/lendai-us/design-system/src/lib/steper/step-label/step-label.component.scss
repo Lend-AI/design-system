@@ -2,7 +2,6 @@
 
 $sizes: (
   'md': 9px 16px,
-  'lg': 13px 20px,
 );
 
 :host {
@@ -14,7 +13,7 @@ $sizes: (
 
   &:not(:first-child)::before {
     content: "";
-    background-image: url("data:image/svg+xml,%3Csvg width='5' height='62' viewBox='0 0 5 62' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_28_1592)'%3E%3Cline x1='2.51083' y1='-12.0893' x2='2.51081' y2='386.089' stroke='%23D9C5FF' stroke-width='1.82145' stroke-linecap='round' stroke-dasharray='9.11 9.11'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_28_1592'%3E%3Crect width='5' height='62' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+    background-image: url("/assets/images/dash-line.svg");
     background-repeat: no-repeat;
     background-position: cover;
     background-size: 4px;
@@ -25,12 +24,12 @@ $sizes: (
     top: -42px;
   }
 
-  &:not(.active) lai-body::before {
+  &.next lai-body::before {
     background-color: transparent;
     color: c.color('primary', 500);
   }
 
-  &:not(.active)::before {
+  &.next::before {
     background-image: none !important;
   }
 
@@ -39,7 +38,7 @@ $sizes: (
     margin-left: 4px;
   }
 
-  &.selected lai-body {
+  &.current lai-body {
     font-weight: 600;
     color: c.$primary;
   }
@@ -62,38 +61,6 @@ $sizes: (
   }
 }
 
-:host-context(lai-step-group[type='line']) {
-  border-bottom-width: 2px;
-  border-bottom-color: c.color('gray', 200);
-  background-color: transparent;
-  border-right-color: transparent;
-
-  &[disabled='true'] {
-    border-bottom-color: c.color('gray', 100) !important;
-  }
-}
-
-:host-context(lai-step-group[type='contained']) {
-  border-top-width: 2px;
-  border-top-color: c.color('gray', 100);
-  background-color: c.color('gray', 100);
-  border-right-color: c.color('gray', 300);
-
-  &:hover {
-    background-color: c.color('gray', 200);
-  }
-
-  &.selected {
-    border-right-color: c.$white;
-    background-color: c.$white;
-  }
-
-  &[disabled='true'] {
-    background-color: c.color('gray', 300) !important;
-    border-top-color: c.color('gray', 300) !important;
-  }
-}
-
 @each $key,
 $value in $sizes {
   :host-context(lai-step-group[size='#{$key}']) {
@@ -101,27 +68,14 @@ $value in $sizes {
   }
 }
 
-lai-body,
-.step-icon {
+lai-body{
   color: c.$gray;
 
   :host(:hover) & {
     color: c.color('gray', 800);
   }
 
-  :host(.selected) & {
+  :host(.current) & {
     color: c.$primary;
   }
-
-  :host-context(lai-step-group[type='line'])[disabled='true'] & {
-    color: c.color('gray', 300) !important;
-  }
-
-  :host-context(lai-step-group[type='contained'])[disabled='true'] & {
-    color: c.color('gray', 500) !important;
-  }
-}
-
-.remove-icon {
-  color: c.color('gray', 400);
 }

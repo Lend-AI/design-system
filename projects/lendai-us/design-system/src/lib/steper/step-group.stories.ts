@@ -14,7 +14,7 @@ const meta: Meta<StepGroupComponent> = {
   ],
   argTypes: {
     size: {
-      options: ['md', 'lg'],
+      options: ['md'],
       control: { type: 'select' },
     },
     type: {

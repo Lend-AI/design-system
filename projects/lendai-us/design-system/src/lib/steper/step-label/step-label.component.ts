@@ -22,14 +22,13 @@ import { STEP_GROUP, StepGroup } from '../step-group/step-group';
   styleUrls: ['./step-label.component.scss'],
 })
 export class StepLabelComponent {
-  @HostBinding('class.selected')
+  @HostBinding('class.current')
   @Input()
   selected = false;
 
   @Input() step!: StepComponent;
 
   @Output() selectedChange = new EventEmitter<void>();
-  @Output() remove = new EventEmitter<void>();
 
   parent: StepGroup = inject(STEP_GROUP);
 

@@ -2,7 +2,6 @@
 
 $sizes: (
   'md': 9px 16px,
-  'lg': 13px 20px,
 );
 
 :host {
@@ -14,57 +13,6 @@ $sizes: (
   border-style: solid;
   border-width: 0;
   border-right-width: 1.5px;
-
-  &:hover {
-    border-bottom-color: c.color('primary', 400) !important;
-    border-top-color: c.color('primary', 400) !important;
-  }
-
-  &:focus {
-    outline: 1px solid c.$info;
-  }
-
-  &.selected {
-    border-bottom-color: c.$primary !important;
-    border-top-color: c.$primary !important;
-  }
-
-  &[disabled='true'] {
-    cursor: not-allowed;
-    outline: none !important;
-  }
-}
-
-:host-context(lai-tab-group[type='line']) {
-  border-bottom-width: 2px;
-  border-bottom-color: c.color('gray', 200);
-  background-color: transparent;
-  border-right-color: transparent;
-
-  &[disabled='true'] {
-    border-bottom-color: c.color('gray', 100) !important;
-  }
-}
-
-:host-context(lai-tab-group[type='contained']) {
-  border-top-width: 2px;
-  border-top-color: c.color('gray', 100);
-  background-color: c.color('gray', 100);
-  border-right-color: c.color('gray', 300);
-
-  &:hover {
-    background-color: c.color('gray', 200);
-  }
-
-  &.selected {
-    border-right-color: c.$white;
-    background-color: c.$white;
-  }
-
-  &[disabled='true'] {
-    background-color: c.color('gray', 300) !important;
-    border-top-color: c.color('gray', 300) !important;
-  }
 }
 
 @each $key, $value in $sizes {
@@ -73,27 +21,14 @@ $sizes: (
   }
 }
 
-lai-body,
-.tab-icon {
+lai-body{
   color: c.$gray;
 
   :host(:hover) & {
     color: c.color('gray', 800);
   }
 
-  :host(.selected) & {
+  :host(.current) & {
     color: c.$primary;
   }
-
-  :host-context(lai-tab-group[type='line'])[disabled='true'] & {
-    color: c.color('gray', 300) !important;
-  }
-
-  :host-context(lai-tab-group[type='contained'])[disabled='true'] & {
-    color: c.color('gray', 500) !important;
-  }
-}
-
-.remove-icon {
-  color: c.color('gray', 400);
 }
