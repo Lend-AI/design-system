@@ -2,19 +2,25 @@
 
 :host {
   display: flex;
+  flex-direction: column;
+  counter-reset: counter 0;
+}
+
+.label {
+  display: flex;
   align-items: center;
   cursor: pointer;
   box-sizing: border-box;
   counter-increment: counter 1;
   padding: 16px 0;
 
-  &:first-child{
+  &:first-child {
     margin-left: 4px;
   }
 
   &:not(:first-child)::before {
-    content: "";
-    background-image: url("../../../assets/images/dash-line.svg");
+    content: '';
+    background-image: url('../../../assets/images/dash-line.svg');
     background-repeat: no-repeat;
     background-position: cover;
     background-size: 4px;

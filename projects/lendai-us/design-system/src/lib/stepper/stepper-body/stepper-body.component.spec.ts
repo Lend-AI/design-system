@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StepLabelComponent } from './step-label.component';
+import { StepperBodyComponent } from './stepper-body.component';
 
-describe('StepLabelComponent', () => {
-  let component: StepLabelComponent;
-  let fixture: ComponentFixture<StepLabelComponent>;
+describe('StepBodyComponent', () => {
+  let component: StepperBodyComponent;
+  let fixture: ComponentFixture<StepperBodyComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [StepLabelComponent],
+      declarations: [StepperBodyComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(StepLabelComponent);
+    fixture = TestBed.createComponent(StepperBodyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

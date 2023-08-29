@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StepGroupHeaderComponent } from './step-group-header.component';
+import { StepGroupHeaderComponent } from './stepper-steps.component';
 
 describe('StepHeaderComponent', () => {
   let component: StepGroupHeaderComponent;

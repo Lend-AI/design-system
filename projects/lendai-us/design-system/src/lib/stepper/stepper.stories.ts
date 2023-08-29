@@ -1,15 +1,15 @@
 import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';
-import { SteperModule } from './steper.module';
-import { StepGroupComponent } from './step-group/step-group.component';
+import { StepperModule } from './stepper.module';
+import { StepperComponent } from './stepper.component';
 
-const meta: Meta<StepGroupComponent> = {
-  title: 'WIP/Steper',
+const meta: Meta<StepperComponent> = {
+  title: 'WIP/Stepper',
   parameters: {
     layout: 'fullscreen',
   },
   decorators: [
     moduleMetadata({
-      imports: [SteperModule],
+      imports: [StepperModule],
     }),
   ],
   argTypes: {
@@ -17,13 +17,13 @@ const meta: Meta<StepGroupComponent> = {
   },
 };
 export default meta;
-type Story = StoryObj<StepGroupComponent>;
+type Story = StoryObj<StepperComponent>;
 
 interface DummyItem {
   label: string;
   content: string;
 }
-const args: Partial<StepGroupComponent> & { data: DummyItem[] } = {
+const args: Partial<StepperComponent> & { data: DummyItem[] } = {
   data: [
     {
       label: 'First label',
@@ -40,19 +40,19 @@ const args: Partial<StepGroupComponent> & { data: DummyItem[] } = {
   ],
 };
 
-export const Text: Story = {
+export const Stepper: Story = {
   args,
   render: props => ({
     props,
     template: `
-      <lai-step-group
-                     [type]="type"
-                     (selectedChange)="selectedChange($event)">
+    <div style="display: flex; flex-direction: column;">
+      <lai-stepper (selectedChange)="selectedChange($event)">
         <lai-step *ngFor="let item of data"
                  [label]="item.label">
           {{ item.content }}
         </lai-step>
-      </lai-step-group>
+      </lai-stepper>
+    </div>
     `,
   }),
 };

@@ -20,5 +20,5 @@ export * from './lib/icon/flag';
 export * from './lib/image-checkbox';
 export * from './lib/loading-spinner';
 export * from './lib/layout';
-export * from './lib/steper';
+export * from './lib/stepper';
 export * from './lib/foundations';

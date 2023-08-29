@@ -1,0 +1,11 @@
+<div
+  class="label"
+  *ngFor="let step of steps; let index = index"
+  [class.next]="index > activeStepIndex"
+  [class.previous]="index < activeStepIndex"
+  [class.current]="index === activeStepIndex"
+  (click)="selectedChange.emit(index)">
+  <lai-body [level]="2">
+    {{ step.label }}
+  </lai-body>
+</div>

@@ -1,0 +1,7 @@
+<lai-stepper-steps
+  [steps]="steps"
+  [activeStepIndex]="activeIndex"
+  (selectedChange)="onSelectedChange($event)">
+</lai-stepper-steps>
+
+<lai-stepper-body *ngIf="selectedStep" [step]="selectedStep"></lai-stepper-body>

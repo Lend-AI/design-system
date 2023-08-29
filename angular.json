@@ -5,6 +5,11 @@
   "projects": {
     "@lendai-us/design-system": {
       "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "projects/lendai-us/design-system",
       "sourceRoot": "projects/lendai-us/design-system/src",
       "prefix": "lai",

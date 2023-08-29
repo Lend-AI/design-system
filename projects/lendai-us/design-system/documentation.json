@@ -85,12 +85,12 @@
         },
         {
             "name": "DummyItem",
-            "id": "interface-DummyItem-d4f055a781b1fc0bf8f7748f4dcc3a843ce649bafca12f0afe34948180d8a680c46385eb7c7274cd3dc6924f58d35800efc67fd3f57958de2bb2428a6f737f9c",
-            "file": "projects/lendai-us/design-system/src/lib/steper/step-group.stories.ts",
+            "id": "interface-DummyItem-da98bce407e97c210339eefd4475dc8b6451c8d953bfe0094fd342178e73aaa503108887df6950f2b1cbc819b6fc06895db5ad40b7f19a402fc646441f79bb1d",
+            "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';\nimport { SteperModule } from './steper.module';\nimport { StepGroupComponent } from './step-group/step-group.component';\n\nconst meta: Meta<StepGroupComponent> = {\n  title: 'WIP/Steper',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [SteperModule],\n    }),\n  ],\n  argTypes: {\n    selectedChange: { action: 'onSelectedChange' },\n  },\n};\nexport default meta;\ntype Story = StoryObj<StepGroupComponent>;\n\ninterface DummyItem {\n  label: string;\n  content: string;\n}\nconst args: Partial<StepGroupComponent> & { data: DummyItem[] } = {\n  data: [\n    {\n      label: 'First label',\n      content: 'First content',\n    },\n    {\n      label: 'Second label',\n      content: 'Second content',\n    },\n    {\n      label: 'Third label',\n      content: 'Third content',\n    },\n  ],\n};\n\nexport const Text: Story = {\n  args,\n  render: props => ({\n    props,\n    template: `\n      <lai-step-group\n                     [type]=\"type\"\n                     (selectedChange)=\"selectedChange($event)\">\n        <lai-step *ngFor=\"let item of data\"\n                 [label]=\"item.label\">\n          {{ item.content }}\n        </lai-step>\n      </lai-step-group>\n    `,\n  }),\n};\n",
+            "sourceCode": "import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';\nimport { StepperModule } from './stepper.module';\nimport { StepperComponent } from './stepper.component';\n\nconst meta: Meta<StepperComponent> = {\n  title: 'WIP/Stepper',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [StepperModule],\n    }),\n  ],\n  argTypes: {\n    selectedChange: { action: 'onSelectedChange' },\n  },\n};\nexport default meta;\ntype Story = StoryObj<StepperComponent>;\n\ninterface DummyItem {\n  label: string;\n  content: string;\n}\nconst args: Partial<StepperComponent> & { data: DummyItem[] } = {\n  data: [\n    {\n      label: 'First label',\n      content: 'First content',\n    },\n    {\n      label: 'Second label',\n      content: 'Second content',\n    },\n    {\n      label: 'Third label',\n      content: 'Third content',\n    },\n  ],\n};\n\nexport const Stepper: Story = {\n  args,\n  render: props => ({\n    props,\n    template: `\n    <div style=\"display: flex; flex-direction: column;\">\n      <lai-stepper (selectedChange)=\"selectedChange($event)\">\n        <lai-step *ngFor=\"let item of data\"\n                 [label]=\"item.label\">\n          {{ item.content }}\n        </lai-step>\n      </lai-stepper>\n    </div>\n    `,\n  }),\n};\n",
             "properties": [
                 {
                     "name": "content",
@@ -682,7 +682,37 @@
             "duplicateName": "DummyService-2"
         }
     ],
-    "directives": [],
+    "directives": [
+        {
+            "name": "TooltipDirective",
+            "id": "directive-TooltipDirective-9a2aa144884b25d5525e7d59b65b005fa8607ae16cfabf68e66b4bbeffe0bedbd9d04d37dd3e968976d7d795e6dd0ff248f7cd7c1cd3270a8e38b2db66646541",
+            "file": "projects/lendai-us/design-system/src/lib/tooltip/tooltip.directive.ts",
+            "type": "directive",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Directive } from '@angular/core';\n\n@Directive({\n  selector: '[laiTooltip]',\n})\nexport class TooltipDirective {\n  constructor() {}\n}\n",
+            "selector": "[laiTooltip]",
+            "providers": [],
+            "hostDirectives": [],
+            "standalone": false,
+            "inputsClass": [],
+            "outputsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 6
+            }
+        }
+    ],
     "components": [
         {
             "name": "AvatarComponent",
@@ -5776,7 +5806,7 @@
         {
             "name": "StepComponent",
             "id": "component-StepComponent-012460058d11fd12517d1c0aefa921a716dac9f9366494cf324f09b1e1a70363e3e37a7b06409eb359869e371be38b39f6250b04d89f8aef3adb1f35cb89ff45",
-            "file": "projects/lendai-us/design-system/src/lib/steper/step/step.component.ts",
+            "file": "projects/lendai-us/design-system/src/lib/stepper/stepper-step/step.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -5845,21 +5875,90 @@
             "templateData": "<ng-template>\n  <ng-content></ng-content>\n</ng-template>\n"
         },
         {
-            "name": "StepGroupBodyComponent",
-            "id": "component-StepGroupBodyComponent-c09416d8b639a96e34cf770fc1e071fc2162d9f5612ffef4efc8f4d6027ff128aabc9e3e4b0fde0d935fe74de28e90b270643e4c3554c6deeabd2cbb015f16fa",
-            "file": "projects/lendai-us/design-system/src/lib/steper/step-group-body/step-group-body.component.ts",
+            "name": "StepGroupHeaderComponent",
+            "id": "component-StepGroupHeaderComponent-c30d824ede7502a7570bc9a05f7d694f91904e9e995ca18826ac0923eab91a126efa7bb30728b198cf7ee09b4c5c02ee8d7ef4e0464ebc468bc917c21d633c79",
+            "file": "projects/lendai-us/design-system/src/lib/stepper/stepper-steps/stepper-steps.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "lai-step-group-body",
+            "selector": "lai-stepper-steps",
             "styleUrls": [
-                "./step-group-body.component.scss"
+                "./stepper-steps.component.scss"
             ],
             "styles": [],
             "templateUrl": [
-                "./step-group-body.component.html"
+                "./stepper-steps.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "activeStepIndex",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "steps",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "QueryList<StepComponent>",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "selectedChange",
+                    "defaultValue": "new EventEmitter<number>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {\n  AfterViewInit,\n  Component,\n  EventEmitter,\n  HostListener,\n  Input,\n  Output,\n  QueryList,\n} from '@angular/core';\nimport { StepComponent } from '../stepper-step/step.component';\n\n@Component({\n  selector: 'lai-stepper-steps',\n  templateUrl: './stepper-steps.component.html',\n  styleUrls: ['./stepper-steps.component.scss'],\n})\nexport class StepGroupHeaderComponent {\n  @Input() steps!: QueryList<StepComponent>;\n  @Input() activeStepIndex!: number;\n\n  @Output() selectedChange = new EventEmitter<number>();\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@use 'color' as c;\n\n:host {\n  display: flex;\n  flex-direction: column;\n  counter-reset: counter 0;\n}\n\n.label {\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n  box-sizing: border-box;\n  counter-increment: counter 1;\n  padding: 16px 0;\n\n  &:first-child {\n    margin-left: 4px;\n  }\n\n  &:not(:first-child)::before {\n    content: '';\n    background-image: url('../../../assets/images/dash-line.svg');\n    background-repeat: no-repeat;\n    background-position: cover;\n    background-size: 4px;\n    position: relative;\n    height: 60px;\n    width: 4px;\n    right: -22px;\n    top: -42px;\n  }\n\n  &.next lai-body::before {\n    background-color: transparent;\n    color: c.color('primary', 500);\n  }\n\n  &.next::before {\n    background-image: none !important;\n  }\n\n  &.current lai-body {\n    font-weight: 600;\n    color: c.$primary;\n  }\n\n  & lai-body::before {\n    content: counter(counter);\n    background-color: c.color('primary', 500);\n    color: c.$white;\n    border-radius: 50%;\n    border: 2px solid c.color('primary', 500);\n    display: inline-flex;\n    width: 38px;\n    height: 38px;\n    justify-content: center;\n    align-items: center;\n    margin-right: 12px;\n    z-index: 1;\n    position: relative;\n    font-weight: 400;\n  }\n}\n",
+                    "styleUrl": "./stepper-steps.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<div\n  class=\"label\"\n  *ngFor=\"let step of steps; let index = index\"\n  [class.next]=\"index > activeStepIndex\"\n  [class.previous]=\"index < activeStepIndex\"\n  [class.current]=\"index === activeStepIndex\"\n  (click)=\"selectedChange.emit(index)\">\n  <lai-body [level]=\"2\">\n    {{ step.label }}\n  </lai-body>\n</div>\n"
+        },
+        {
+            "name": "StepperBodyComponent",
+            "id": "component-StepperBodyComponent-0f7e9d18a2116f0831895e89c8963737314ad0df7196260b58e43bfc27936a8d1cafc827ae7e7de303015aaaa4d2b3767ea68093d8745c69a43582220ef6e289",
+            "file": "projects/lendai-us/design-system/src/lib/stepper/stepper-body/stepper-body.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lai-stepper-body",
+            "styleUrls": [
+                "./stepper-body.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./stepper-body.component.html"
             ],
             "viewProviders": [],
             "hostDirectives": [],
@@ -5885,33 +5984,33 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { StepComponent } from '../step/step.component';\n\n@Component({\n  selector: 'lai-step-group-body',\n  templateUrl: './step-group-body.component.html',\n  styleUrls: ['./step-group-body.component.scss'],\n})\nexport class StepGroupBodyComponent {\n  @Input() step!: StepComponent;\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { StepComponent } from '../stepper-step/step.component';\n\n@Component({\n  selector: 'lai-stepper-body',\n  templateUrl: './stepper-body.component.html',\n  styleUrls: ['./stepper-body.component.scss'],\n})\nexport class StepperBodyComponent {\n  @Input() step!: StepComponent;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ":host {\n    display: flex;\n    flex-direction: column;\n    gap: 28px;\n    max-width: 500px;\n    justify-content: center;\n}",
-                    "styleUrl": "./step-group-body.component.scss"
+                    "data": ":host {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 28px;\n  max-width: 500px;\n  justify-content: center;\n}\n",
+                    "styleUrl": "./stepper-body.component.scss"
                 }
             ],
             "stylesData": "",
             "templateData": "<ng-container *ngTemplateOutlet=\"step.content\"></ng-container>\n"
         },
         {
-            "name": "StepGroupComponent",
-            "id": "component-StepGroupComponent-aaac44ef661c2721f06f92550624138f4c546b6243cd41e74c39fb96b6671742983854e5bcbbe18b66e03ad367d39c96f6e4672a9217d1084163320fbb3ed3a3",
-            "file": "projects/lendai-us/design-system/src/lib/steper/step-group/step-group.component.ts",
+            "name": "StepperComponent",
+            "id": "component-StepperComponent-2861de67d20246524e0ecee27ddbf28659a5a36b18f11c03cbc26816f2a1571bacaf1ace31dcbefc4b70821177a24e3a4de84e320505e7639e699cf806c334ce",
+            "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "lai-step-group",
+            "selector": "lai-stepper",
             "styleUrls": [
-                "./step-group.component.scss"
+                "./stepper.component.scss"
             ],
             "styles": [],
             "templateUrl": [
-                "./step-group.component.html"
+                "./stepper.component.html"
             ],
             "viewProviders": [],
             "hostDirectives": [],
@@ -5922,7 +6021,7 @@
                     "defaultValue": "new EventEmitter<number>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 18,
+                    "line": 17,
                     "type": "EventEmitter"
                 }
             ],
@@ -5935,7 +6034,10 @@
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 23
+                    "line": 22,
+                    "modifierKind": [
+                        122
+                    ]
                 },
                 {
                     "name": "selectedStep",
@@ -5944,7 +6046,10 @@
                     "type": "StepComponent",
                     "optional": true,
                     "description": "",
-                    "line": 22
+                    "line": 21,
+                    "modifierKind": [
+                        122
+                    ]
                 },
                 {
                     "name": "steps",
@@ -5953,7 +6058,7 @@
                     "type": "QueryList<StepComponent>",
                     "optional": false,
                     "description": "",
-                    "line": 20,
+                    "line": 19,
                     "decorators": [
                         {
                             "name": "ContentChildren",
@@ -5961,7 +6066,8 @@
                         }
                     ],
                     "modifierKind": [
-                        167
+                        167,
+                        122
                     ]
                 }
             ],
@@ -5972,7 +6078,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 34,
+                    "line": 24,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -5989,35 +6095,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 40,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "name": "index",
-                            "type": "number",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "state",
-                    "args": [
-                        {
-                            "name": "index",
-                            "type": "number",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "StepState",
-                    "typeParameters": [],
-                    "line": 25,
+                    "line": 30,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -6042,181 +6120,19 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  AfterViewInit,\n  Component,\n  ContentChildren,\n  EventEmitter,\n  Output,\n  QueryList,\n} from '@angular/core';\nimport { StepComponent } from '../step/step.component';\nimport { StepState } from '../step-label/step-label.component';\n\n@Component({\n  selector: 'lai-step-group',\n  templateUrl: './step-group.component.html',\n  styleUrls: ['./step-group.component.scss'],\n})\nexport class StepGroupComponent implements AfterViewInit {\n  @Output() selectedChange = new EventEmitter<number>();\n\n  @ContentChildren(StepComponent) steps!: QueryList<StepComponent>;\n\n  selectedStep?: StepComponent;\n  activeIndex = 0;\n\n  state(index: number): StepState {\n    if (index > this.activeIndex) {\n      return 'next';\n    } else if (index < this.activeIndex) {\n      return 'previous';\n    }\n    return 'current';\n  }\n\n  ngAfterViewInit(): void {\n    if (!this.selectedStep && this.steps.first) {\n      this.selectedStep = this.steps.first;\n    }\n  }\n\n  onSelectedChange(index: number): void {\n    this.activeIndex = index;\n    this.selectedStep = this.steps.get(index);\n    this.selectedChange.emit(index);\n  }\n}\n",
+            "sourceCode": "import {\n  AfterViewInit,\n  Component,\n  ContentChildren,\n  EventEmitter,\n  Output,\n  QueryList,\n} from '@angular/core';\nimport { StepComponent } from './stepper-step/step.component';\n\n@Component({\n  selector: 'lai-stepper',\n  templateUrl: './stepper.component.html',\n  styleUrls: ['./stepper.component.scss'],\n})\nexport class StepperComponent implements AfterViewInit {\n  @Output() selectedChange = new EventEmitter<number>();\n\n  @ContentChildren(StepComponent) protected steps!: QueryList<StepComponent>;\n\n  protected selectedStep?: StepComponent;\n  protected activeIndex = 0;\n\n  ngAfterViewInit(): void {\n    if (!this.selectedStep && this.steps.first) {\n      this.selectedStep = this.steps.first;\n    }\n  }\n\n  onSelectedChange(index: number): void {\n    this.activeIndex = index;\n    this.selectedStep = this.steps.get(index);\n    this.selectedChange.emit(index);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
                     "data": "@use 'color' as c;\n\n:host {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-around;\n}",
-                    "styleUrl": "./step-group.component.scss"
+                    "styleUrl": "./stepper.component.scss"
                 }
             ],
             "stylesData": "",
             "implements": [
                 "AfterViewInit"
             ],
-            "templateData": "<lai-step-group-header>\n  <lai-step-label\n    *ngFor=\"let step of steps; let index = index\"\n    [step]=\"step\"\n    [state] = \"state(index)\"\n    (selectedChange)=\"onSelectedChange(index)\">\n  </lai-step-label>\n</lai-step-group-header>\n\n<lai-step-group-body\n  *ngIf=\"selectedStep\"\n  [step]=\"selectedStep\"></lai-step-group-body>\n"
-        },
-        {
-            "name": "StepGroupHeaderComponent",
-            "id": "component-StepGroupHeaderComponent-23a00b52a317c3059cf09b724a89c552058abac5f571158dc4226d71ab460fc981e62ea1e4544b88e6d677666caa108b2d8cde286a40a8cb6ec87e7bd6f2f6c2",
-            "file": "projects/lendai-us/design-system/src/lib/steper/step-group-header/step-group-header.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "lai-step-group-header",
-            "styleUrls": [
-                "./step-group-header.component.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./step-group-header.component.html"
-            ],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": false,
-            "imports": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lai-step-group-header',\n  templateUrl: './step-group-header.component.html',\n  styleUrls: ['./step-group-header.component.scss'],\n})\nexport class StepGroupHeaderComponent {}\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": ":host {\n  display: flex;\n  flex-direction: column;\n  counter-reset: counter 0;\n}",
-                    "styleUrl": "./step-group-header.component.scss"
-                }
-            ],
-            "stylesData": "",
-            "templateData": "<ng-content></ng-content>\n"
-        },
-        {
-            "name": "StepLabelComponent",
-            "id": "component-StepLabelComponent-aff5d84cd3e13295943707bd5d0fe452a44d3a34b15bfd52d42cbb51610d01fd4719c5a6d996eb29d05d8995111921941230d948bda9d3f4f9a98d26b692f485",
-            "file": "projects/lendai-us/design-system/src/lib/steper/step-label/step-label.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "lai-step-label",
-            "styleUrls": [
-                "./step-label.component.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./step-label.component.html"
-            ],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [
-                {
-                    "name": "state",
-                    "defaultValue": "'current'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 18,
-                    "type": "StepState",
-                    "decorators": []
-                },
-                {
-                    "name": "step",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 17,
-                    "type": "StepComponent",
-                    "decorators": []
-                }
-            ],
-            "outputsClass": [
-                {
-                    "name": "selectedChange",
-                    "defaultValue": "new EventEmitter<void>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 20,
-                    "type": "EventEmitter"
-                }
-            ],
-            "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "onSelectedChange",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 28,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "decorators": [
-                        {
-                            "name": "HostListener",
-                            "stringifiedArguments": "'click'"
-                        }
-                    ],
-                    "modifierKind": [
-                        167
-                    ]
-                }
-            ],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [
-                {
-                    "name": "class",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 23,
-                    "type": "string",
-                    "decorators": []
-                }
-            ],
-            "hostListeners": [
-                {
-                    "name": "click",
-                    "args": [],
-                    "argsDecorator": [],
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 28
-                }
-            ],
-            "standalone": false,
-            "imports": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import {\n  Component,\n  EventEmitter,\n  HostBinding,\n  HostListener,\n  Input,\n  Output,\n} from '@angular/core';\nimport { StepComponent } from '../step/step.component';\n\n@Component({\n  selector: 'lai-step-label',\n  templateUrl: './step-label.component.html',\n  styleUrls: ['./step-label.component.scss'],\n})\nexport class StepLabelComponent {\n  @Input() step!: StepComponent;\n  @Input() state: StepState = 'current';\n\n  @Output() selectedChange = new EventEmitter<void>();\n\n  @HostBinding('class')\n  get classes(): string {\n    return this.state;\n  }\n\n  @HostListener('click')\n  onSelectedChange(): void {\n    this.selectedChange.emit();\n  }\n}\n\nexport type StepState = 'current' | 'previous' | 'next';\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "@use 'color' as c;\n\n:host {\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n  box-sizing: border-box;\n  counter-increment: counter 1;\n  padding: 16px 0;\n\n  &:first-child{\n    margin-left: 4px;\n  }\n\n  &:not(:first-child)::before {\n    content: \"\";\n    background-image: url(\"../../../assets/images/dash-line.svg\");\n    background-repeat: no-repeat;\n    background-position: cover;\n    background-size: 4px;\n    position: relative;\n    height: 60px;\n    width: 4px;\n    right: -22px;\n    top: -42px;\n  }\n\n  &.next lai-body::before {\n    background-color: transparent;\n    color: c.color('primary', 500);\n  }\n\n  &.next::before {\n    background-image: none !important;\n  }\n\n  &.current lai-body {\n    font-weight: 600;\n    color: c.$primary;\n  }\n\n  & lai-body::before {\n    content: counter(counter);\n    background-color: c.color('primary', 500);\n    color: c.$white;\n    border-radius: 50%;\n    border: 2px solid c.color('primary', 500);\n    display: inline-flex;\n    width: 38px;\n    height: 38px;\n    justify-content: center;\n    align-items: center;\n    margin-right: 12px;\n    z-index: 1;\n    position: relative;\n    font-weight: 400;\n  }\n}",
-                    "styleUrl": "./step-label.component.scss"
-                }
-            ],
-            "stylesData": "",
-            "accessors": {
-                "classes": {
-                    "name": "classes",
-                    "getSignature": {
-                        "name": "classes",
-                        "type": "string",
-                        "returnType": "string",
-                        "line": 23
-                    }
-                }
-            },
-            "templateData": "<lai-body [level]=\"2\">\n  {{ step.label }}\n</lai-body>\n"
+            "templateData": "<lai-stepper-steps\n  [steps]=\"steps\"\n  [activeStepIndex]=\"activeIndex\"\n  (selectedChange)=\"onSelectedChange($event)\">\n</lai-stepper-steps>\n\n<lai-stepper-body *ngIf=\"selectedStep\" [step]=\"selectedStep\"></lai-stepper-body>\n"
         },
         {
             "name": "TabComponent",
@@ -7061,6 +6977,49 @@
             "templateData": "<ng-content></ng-content>\n"
         },
         {
+            "name": "TooltipComponent",
+            "id": "component-TooltipComponent-d8c4641527983055d970a3680bffda1a268b20bd53ea1bbed8fe663ec0cfa159bb47a7a3cd541bc14889d1da50c0dbba5a052c95a0eec5318c83ad442fed8033",
+            "file": "projects/lendai-us/design-system/src/lib/tooltip/tooltip.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lai-tooltip",
+            "styleUrls": [
+                "./tooltip.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./tooltip.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lai-tooltip',\n  templateUrl: './tooltip.component.html',\n  styleUrls: ['./tooltip.component.scss'],\n})\nexport class TooltipComponent {}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./tooltip.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<p>tooltip works!</p>\n"
+        },
+        {
             "name": "UsFlagComponent",
             "id": "component-UsFlagComponent-dc961a408300ba24c188d4fb566cf99f890d84d6a89608a381e923bd7053ad1ffbf0084388a5959ff40d66f2281e1260dcbcbee72c49952ee890dbcc180f60f0",
             "file": "projects/lendai-us/design-system/src/lib/icon/us-flag/us-flag.component.ts",
@@ -7574,14 +7533,14 @@
             ]
         },
         {
-            "name": "SteperModule",
-            "id": "module-SteperModule-b313b999b8cda2fd869ff7df08f5d5a4e8873b352e5d12058cd3ae734b37f8ff70e89bc386be37746c2ec20788ab9612535e83f700867ce1d57ffb05ab689aa3",
+            "name": "StepperModule",
+            "id": "module-StepperModule-c49a7b96e7bc90020a78ff4437086175303c172238e5fe6456edd5c9a8617ab8b74626341b66fde809a642bb9f516d97cb7bdd3645981e87235340f4e09d13b1",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
-            "file": "projects/lendai-us/design-system/src/lib/steper/steper.module.ts",
+            "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { StepGroupComponent } from './step-group/step-group.component';\nimport { StepComponent } from './step/step.component';\nimport { StepLabelComponent } from './step-label/step-label.component';\nimport { StepGroupBodyComponent } from './step-group-body/step-group-body.component';\nimport { StepGroupHeaderComponent } from './step-group-header/step-group-header.component';\nimport { BodyComponent } from '../typography';\nimport { IconComponent } from '../icon';\n\n@NgModule({\n  declarations: [\n    StepGroupComponent,\n    StepComponent,\n    StepLabelComponent,\n    StepGroupBodyComponent,\n    StepGroupHeaderComponent,\n  ],\n  imports: [CommonModule, BodyComponent, IconComponent],\n  exports: [StepGroupComponent, StepComponent],\n})\nexport class SteperModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { StepComponent } from './stepper-step/step.component';\nimport { StepperBodyComponent } from './stepper-body/stepper-body.component';\nimport { StepGroupHeaderComponent } from './stepper-steps/stepper-steps.component';\nimport { BodyComponent } from '../typography';\nimport { IconComponent } from '../icon';\nimport { StepperComponent } from './stepper.component';\n\n@NgModule({\n  declarations: [\n    StepperComponent,\n    StepComponent,\n    StepperBodyComponent,\n    StepGroupHeaderComponent,\n  ],\n  imports: [CommonModule, BodyComponent, IconComponent],\n  exports: [StepperComponent, StepComponent],\n})\nexport class StepperModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -7594,16 +7553,13 @@
                             "name": "StepComponent"
                         },
                         {
-                            "name": "StepGroupBodyComponent"
-                        },
-                        {
-                            "name": "StepGroupComponent"
-                        },
-                        {
                             "name": "StepGroupHeaderComponent"
                         },
                         {
-                            "name": "StepLabelComponent"
+                            "name": "StepperBodyComponent"
+                        },
+                        {
+                            "name": "StepperComponent"
                         }
                     ]
                 },
@@ -7625,7 +7581,7 @@
                             "name": "StepComponent"
                         },
                         {
-                            "name": "StepGroupComponent"
+                            "name": "StepperComponent"
                         }
                     ]
                 },
@@ -7716,6 +7672,53 @@
                     "elements": []
                 }
             ]
+        },
+        {
+            "name": "TooltipModule",
+            "id": "module-TooltipModule-708f6da0c42460b1160f6428be7fc5d4e8e77adc5e38c97c04cad5042b70b55c518d3b138ffdf3b99f7884fe7bf3ead2cbc1afc70142236651b1e0212c33919c",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/lendai-us/design-system/src/lib/tooltip/tooltip.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { TooltipComponent } from './tooltip.component';\nimport { TooltipDirective } from './tooltip.directive';\n\n@NgModule({\n  declarations: [TooltipComponent, TooltipDirective],\n  imports: [CommonModule],\n  exports: [TooltipDirective],\n})\nexport class TooltipModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "TooltipComponent"
+                        },
+                        {
+                            "name": "TooltipDirective"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "TooltipDirective"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
         }
     ],
     "miscellaneous": {
@@ -7724,11 +7727,11 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Partial<AvatarComponent>",
-                "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
+                "type": "",
+                "defaultValue": "{\n  hierarchy: 'primary',\n  size: 'md',\n  color: 'primary',\n  disabled: false,\n} as Partial<ButtonComponent>"
             },
             {
                 "name": "args",
@@ -7744,11 +7747,11 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
+                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "{\n  hierarchy: 'primary',\n  size: 'md',\n  color: 'primary',\n  disabled: false,\n} as Partial<ButtonComponent>"
+                "type": "Partial<AvatarComponent>",
+                "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
             },
             {
                 "name": "args",
@@ -7764,7 +7767,7 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/steper/step-group.stories.ts",
+                "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -8334,11 +8337,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<AvatarComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
+                "type": "Meta<ButtonComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Button',\n  decorators: [\n    moduleMetadata({\n      imports: [ButtonComponent, IconComponent],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: BUTTON_SIZES,\n    },\n    hierarchy: {\n      control: { type: 'select' },\n      options: BUTTON_HIERARCHIES,\n    },\n    color: {\n      control: { type: 'select' },\n      options: BUTTON_COLORS,\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -8354,11 +8357,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
+                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Button',\n  decorators: [\n    moduleMetadata({\n      imports: [ButtonComponent, IconComponent],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: BUTTON_SIZES,\n    },\n    hierarchy: {\n      control: { type: 'select' },\n      options: BUTTON_HIERARCHIES,\n    },\n    color: {\n      control: { type: 'select' },\n      options: BUTTON_COLORS,\n    },\n  },\n}"
+                "type": "Meta<AvatarComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -8404,11 +8407,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/steper/step-group.stories.ts",
+                "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<StepGroupComponent>",
-                "defaultValue": "{\n  title: 'WIP/Steper',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [SteperModule],\n    }),\n  ],\n  argTypes: {\n    selectedChange: { action: 'onSelectedChange' },\n  },\n}"
+                "type": "Meta<StepperComponent>",
+                "defaultValue": "{\n  title: 'WIP/Stepper',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [StepperModule],\n    }),\n  ],\n  argTypes: {\n    selectedChange: { action: 'onSelectedChange' },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -8429,6 +8432,16 @@
                 "deprecationMessage": "",
                 "type": "Meta<TabNavBarComponent>",
                 "defaultValue": "{\n  title: 'Molecules/Tabs/TabNavBar',\n  decorators: [\n    moduleMetadata({\n      imports: [\n        RoutedComponent,\n        TabsModule,\n        RouterTestingModule.withRoutes([\n          { path: 'first-route', component: RoutedComponent },\n          { path: 'second-route', component: RoutedComponent },\n          { path: 'third-route', component: RoutedComponent },\n        ]),\n      ],\n    }),\n  ],\n  argTypes: {\n    size: {\n      options: ['md', 'lg'],\n      control: { type: 'select' },\n    },\n    type: {\n      options: ['line', 'contained'],\n      control: { type: 'select' },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/tooltip/tooltip.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TooltipDirective>",
+                "defaultValue": "{\n  title: 'Atoms/Tooltip',\n  decorators: [\n    moduleMetadata({\n      imports: [TooltipModule],\n    }),\n  ],\n}"
             },
             {
                 "name": "meta",
@@ -8601,6 +8614,16 @@
                 "defaultValue": "{\n  render: props => ({\n    props,\n    template: `\n    <lai-sidenav-layout>\n      <lai-sidenav-layout-avatar initials=\"NS\"></lai-sidenav-layout-avatar>\n      <lai-sidenav-layout-title>Header Title</lai-sidenav-layout-title>\n      <lai-sidenav-layout-subtitle>Header Subtitle</lai-sidenav-layout-subtitle>\n      <lai-sidenav-layout-actions>\n        <button laiButton>\n          New Application\n        </button>\n      </lai-sidenav-layout-actions>\n      <lai-sidenav-layout-content>\n        <div style=\"height: 500px;\">Some content</div>\n      </lai-sidenav-layout-content>\n    </lai-sidenav-layout>\n  `,\n  }),\n}"
             },
             {
+                "name": "Stepper",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args,\n  render: props => ({\n    props,\n    template: `\n    <div style=\"display: flex; flex-direction: column;\">\n      <lai-stepper (selectedChange)=\"selectedChange($event)\">\n        <lai-step *ngFor=\"let item of data\"\n                 [label]=\"item.label\">\n          {{ item.content }}\n        </lai-step>\n      </lai-stepper>\n    </div>\n    `,\n  }),\n}"
+            },
+            {
                 "name": "TAB_GROUP",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -8674,16 +8697,6 @@
                 "name": "Text",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/steper/step-group.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args,\n  render: props => ({\n    props,\n    template: `\n      <lai-step-group\n                     [type]=\"type\"\n                     (selectedChange)=\"selectedChange($event)\">\n        <lai-step *ngFor=\"let item of data\"\n                 [label]=\"item.label\">\n          {{ item.content }}\n        </lai-step>\n      </lai-step-group>\n    `,\n  }),\n}"
-            },
-            {
-                "name": "Text",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/tabs/tab-group.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -8699,6 +8712,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args,\n  render: props => ({\n    props,\n    template: `\n      <nav laiTabNavBar\n           [size]=\"size\"\n           [type]=\"type\">\n        <a *ngFor=\"let item of data\"\n           laiTabNavBarLink\n           [routerLink]=\"item.link\"\n           routerLinkActive=\"active\">\n          {{ item.content }}\n        </a>\n      </nav>\n      <router-outlet></router-outlet>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Text",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/tooltip/tooltip.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: props => ({\n    props,\n    template: ``,\n  }),\n}"
             },
             {
                 "name": "TextWithIcons",
@@ -9157,22 +9180,11 @@
                 "kind": 198
             },
             {
-                "name": "StepState",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "\"current\" | \"previous\" | \"next\"",
-                "file": "projects/lendai-us/design-system/src/lib/steper/step-label/step-label.component.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 189
-            },
-            {
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<AvatarComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                "rawtype": "StoryObj<ButtonComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -9193,8 +9205,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
+                "rawtype": "StoryObj<AvatarComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -9248,8 +9260,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<StepGroupComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/steper/step-group.stories.ts",
+                "rawtype": "StoryObj<StepperComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -9272,6 +9284,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<TabNavBarComponent>",
                 "file": "projects/lendai-us/design-system/src/lib/tabs/tab-nav-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TooltipDirective>",
+                "file": "projects/lendai-us/design-system/src/lib/tooltip/tooltip.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -9470,90 +9493,6 @@
             }
         ],
         "groupedVariables": {
-            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<AvatarComponent>",
-                    "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
-                },
-                {
-                    "name": "Avatar",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args,\n  render: props => ({\n    props,\n  }),\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<AvatarComponent>",
-                    "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
-                }
-            ],
-            "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<BadgeComponent>",
-                    "defaultValue": "{\n  color: 'blue',\n  size: 'md',\n}"
-                },
-                {
-                    "name": "Badge",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args,\n  render: props => ({\n    props: {\n      ...props,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\"\n                 [size]=\"size\">\n        {{content}}\n      </lai-badge>\n  `,\n  }),\n}"
-                },
-                {
-                    "name": "BadgeWithPrefix",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args,\n  render: props => ({\n    props: {\n      ...props,\n      content: 'Lorem ipsum',\n      glyph: 'communication',\n    },\n    template: `\n      <lai-badge [color]=\"color\"\n                 [size]=\"size\">\n        <lai-icon [glyph]=\"glyph\"></lai-icon>\n        {{content}}\n      </lai-badge>\n  `,\n  }),\n}"
-                },
-                {
-                    "name": "BadgeWithSuffix",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args,\n  render: props => ({\n    props: {\n      ...props,\n      content: 'Lorem ipsum',\n      glyph: 'communication',\n    },\n    template: `\n      <lai-badge [color]=\"color\"\n                 [size]=\"size\">\n        {{content}}\n        <lai-icon [glyph]=\"glyph\"></lai-icon>\n      </lai-badge>\n  `,\n  }),\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<BadgeComponent>",
-                    "defaultValue": "{\n  title: 'Atoms/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent, IconComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    size: {\n      options: BADGE_SIZES,\n      control: { type: 'select' },\n    },\n  },\n}"
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/button/button.stories.ts": [
                 {
                     "name": "args",
@@ -9616,6 +9555,90 @@
                     "defaultValue": "{\n  title: 'Atoms/Button',\n  decorators: [\n    moduleMetadata({\n      imports: [ButtonComponent, IconComponent],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: BUTTON_SIZES,\n    },\n    hierarchy: {\n      control: { type: 'select' },\n      options: BUTTON_HIERARCHIES,\n    },\n    color: {\n      control: { type: 'select' },\n      options: BUTTON_COLORS,\n    },\n  },\n}"
                 }
             ],
+            "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<BadgeComponent>",
+                    "defaultValue": "{\n  color: 'blue',\n  size: 'md',\n}"
+                },
+                {
+                    "name": "Badge",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args,\n  render: props => ({\n    props: {\n      ...props,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\"\n                 [size]=\"size\">\n        {{content}}\n      </lai-badge>\n  `,\n  }),\n}"
+                },
+                {
+                    "name": "BadgeWithPrefix",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args,\n  render: props => ({\n    props: {\n      ...props,\n      content: 'Lorem ipsum',\n      glyph: 'communication',\n    },\n    template: `\n      <lai-badge [color]=\"color\"\n                 [size]=\"size\">\n        <lai-icon [glyph]=\"glyph\"></lai-icon>\n        {{content}}\n      </lai-badge>\n  `,\n  }),\n}"
+                },
+                {
+                    "name": "BadgeWithSuffix",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args,\n  render: props => ({\n    props: {\n      ...props,\n      content: 'Lorem ipsum',\n      glyph: 'communication',\n    },\n    template: `\n      <lai-badge [color]=\"color\"\n                 [size]=\"size\">\n        {{content}}\n        <lai-icon [glyph]=\"glyph\"></lai-icon>\n      </lai-badge>\n  `,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<BadgeComponent>",
+                    "defaultValue": "{\n  title: 'Atoms/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent, IconComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    size: {\n      options: BADGE_SIZES,\n      control: { type: 'select' },\n    },\n  },\n}"
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<AvatarComponent>",
+                    "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
+                },
+                {
+                    "name": "Avatar",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args,\n  render: props => ({\n    props,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<AvatarComponent>",
+                    "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
+                }
+            ],
             "projects/lendai-us/design-system/src/lib/card/card.stories.ts": [
                 {
                     "name": "args",
@@ -9648,12 +9671,12 @@
                     "defaultValue": "{\n  title: 'WIP/Card',\n  component: CardComponent,\n  decorators: [\n    componentWrapperDecorator(story => {\n      return `<style>\n          lai-card {\n            width: 100px;\n            height: 100px;\n          }\n        </style>\n        ${story}`;\n    }),\n  ],\n  argTypes: {\n    radius: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n    size: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n  },\n}"
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/steper/step-group.stories.ts": [
+            "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts": [
                 {
                     "name": "args",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/steper/step-group.stories.ts",
+                    "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -9663,21 +9686,21 @@
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/steper/step-group.stories.ts",
+                    "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<StepGroupComponent>",
-                    "defaultValue": "{\n  title: 'WIP/Steper',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [SteperModule],\n    }),\n  ],\n  argTypes: {\n    selectedChange: { action: 'onSelectedChange' },\n  },\n}"
+                    "type": "Meta<StepperComponent>",
+                    "defaultValue": "{\n  title: 'WIP/Stepper',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [StepperModule],\n    }),\n  ],\n  argTypes: {\n    selectedChange: { action: 'onSelectedChange' },\n  },\n}"
                 },
                 {
-                    "name": "Text",
+                    "name": "Stepper",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/steper/step-group.stories.ts",
+                    "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args,\n  render: props => ({\n    props,\n    template: `\n      <lai-step-group\n                     [type]=\"type\"\n                     (selectedChange)=\"selectedChange($event)\">\n        <lai-step *ngFor=\"let item of data\"\n                 [label]=\"item.label\">\n          {{ item.content }}\n        </lai-step>\n      </lai-step-group>\n    `,\n  }),\n}"
+                    "defaultValue": "{\n  args,\n  render: props => ({\n    props,\n    template: `\n    <div style=\"display: flex; flex-direction: column;\">\n      <lai-stepper (selectedChange)=\"selectedChange($event)\">\n        <lai-step *ngFor=\"let item of data\"\n                 [label]=\"item.label\">\n          {{ item.content }}\n        </lai-step>\n      </lai-stepper>\n    </div>\n    `,\n  }),\n}"
                 }
             ],
             "projects/lendai-us/design-system/src/lib/tabs/tab-group.stories.ts": [
@@ -10526,6 +10549,28 @@
                     "defaultValue": "{\n  args: {},\n  render: props => ({\n    props,\n  }),\n}"
                 }
             ],
+            "projects/lendai-us/design-system/src/lib/tooltip/tooltip.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/tooltip/tooltip.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TooltipDirective>",
+                    "defaultValue": "{\n  title: 'Atoms/Tooltip',\n  decorators: [\n    moduleMetadata({\n      imports: [TooltipModule],\n    }),\n  ],\n}"
+                },
+                {
+                    "name": "Text",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/tooltip/tooltip.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: props => ({\n    props,\n    template: ``,\n  }),\n}"
+                }
+            ],
             "projects/lendai-us/design-system/src/lib/icon/us-flag/us-flag.stories.ts": [
                 {
                     "name": "meta",
@@ -11069,26 +11114,13 @@
                     "kind": 198
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/steper/step-label/step-label.component.ts": [
-                {
-                    "name": "StepState",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "\"current\" | \"previous\" | \"next\"",
-                    "file": "projects/lendai-us/design-system/src/lib/steper/step-label/step-label.component.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 189
-                }
-            ],
-            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
+            "projects/lendai-us/design-system/src/lib/button/button.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<AvatarComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "rawtype": "StoryObj<ButtonComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -11108,13 +11140,13 @@
                     "kind": 180
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/button/button.stories.ts": [
+            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<ButtonComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
+                    "rawtype": "StoryObj<AvatarComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -11173,13 +11205,13 @@
                     "kind": 180
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/steper/step-group.stories.ts": [
+            "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<StepGroupComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/steper/step-group.stories.ts",
+                    "rawtype": "StoryObj<StepperComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -11206,6 +11238,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<TabNavBarComponent>",
                     "file": "projects/lendai-us/design-system/src/lib/tabs/tab-nav-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/tooltip/tooltip.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TooltipDirective>",
+                    "file": "projects/lendai-us/design-system/src/lib/tooltip/tooltip.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -12676,25 +12721,43 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/lendai-us/design-system/src/lib/steper/step-group-body/step-group-body.component.ts",
+                "filePath": "projects/lendai-us/design-system/src/lib/stepper/stepper-body/stepper-body.component.ts",
                 "type": "component",
                 "linktype": "component",
-                "name": "StepGroupBodyComponent",
+                "name": "StepperBodyComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
                 "status": "low"
             },
             {
-                "filePath": "projects/lendai-us/design-system/src/lib/steper/step-group-header/step-group-header.component.ts",
+                "filePath": "projects/lendai-us/design-system/src/lib/stepper/stepper-step/step.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "StepComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/stepper/stepper-steps/stepper-steps.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "StepGroupHeaderComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
-                "filePath": "projects/lendai-us/design-system/src/lib/steper/step-group.stories.ts",
+                "filePath": "projects/lendai-us/design-system/src/lib/stepper/stepper.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "StepperComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
                 "type": "interface",
                 "linktype": "interface",
                 "name": "DummyItem",
@@ -12703,7 +12766,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/lendai-us/design-system/src/lib/steper/step-group.stories.ts",
+                "filePath": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -12713,7 +12776,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/lendai-us/design-system/src/lib/steper/step-group.stories.ts",
+                "filePath": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -12723,40 +12786,13 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/lendai-us/design-system/src/lib/steper/step-group.stories.ts",
+                "filePath": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Text",
+                "name": "Stepper",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/lendai-us/design-system/src/lib/steper/step-group/step-group.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "StepGroupComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/8",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/lendai-us/design-system/src/lib/steper/step-label/step-label.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "StepLabelComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/7",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/lendai-us/design-system/src/lib/steper/step/step.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "StepComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -12986,6 +13022,44 @@
                 "name": "TabComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/tooltip/tooltip.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TooltipComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/tooltip/tooltip.directive.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "TooltipDirective",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/tooltip/tooltip.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/tooltip/tooltip.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Text",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
