@@ -14,12 +14,12 @@
   cursor: pointer;
   min-width: 0;
 
-  lai-caption {
+  lai-label {
     color: c.$white;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    &.sub-info{
+    &.sub-info {
       color: rgba(c.$white, 70%);
     }
   }

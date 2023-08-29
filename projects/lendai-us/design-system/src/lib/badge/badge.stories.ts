@@ -1,16 +1,12 @@
 import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';
-import {
-  BADGE_COLORS,
-  BADGE_RADIUSES,
-  BADGE_TYPES,
-  BadgeComponent,
-} from './badge.component';
+import { BADGE_COLORS, BADGE_SIZES, BadgeComponent } from './badge.component';
+import { IconComponent } from '../icon';
 
 const meta: Meta<BadgeComponent> = {
-  title: 'WIP/Badge',
+  title: 'Atoms/Badge',
   decorators: [
     moduleMetadata({
-      imports: [BadgeComponent],
+      imports: [BadgeComponent, IconComponent],
     }),
   ],
   render: args => ({
@@ -29,12 +25,8 @@ const meta: Meta<BadgeComponent> = {
       options: BADGE_COLORS,
       control: { type: 'select' },
     },
-    radius: {
-      options: BADGE_RADIUSES,
-      control: { type: 'select' },
-    },
-    type: {
-      options: BADGE_TYPES,
+    size: {
+      options: BADGE_SIZES,
       control: { type: 'select' },
     },
   },
@@ -42,10 +34,59 @@ const meta: Meta<BadgeComponent> = {
 export default meta;
 type Story = StoryObj<BadgeComponent>;
 
+const args: Partial<BadgeComponent> = {
+  color: 'blue',
+  size: 'md',
+};
+
 export const Badge: Story = {
-  args: {
-    radius: 'xs',
-    color: 'blue',
-    type: 'transparent',
-  },
+  args,
+  render: props => ({
+    props: {
+      ...props,
+      content: 'Lorem ipsum',
+    },
+    template: `
+      <lai-badge [color]="color"
+                 [size]="size">
+        {{content}}
+      </lai-badge>
+  `,
+  }),
+};
+
+export const BadgeWithPrefix: Story = {
+  args,
+  render: props => ({
+    props: {
+      ...props,
+      content: 'Lorem ipsum',
+      glyph: 'communication',
+    },
+    template: `
+      <lai-badge [color]="color"
+                 [size]="size">
+        <lai-icon [glyph]="glyph"></lai-icon>
+        {{content}}
+      </lai-badge>
+  `,
+  }),
+};
+
+export const BadgeWithSuffix: Story = {
+  args,
+  render: props => ({
+    props: {
+      ...props,
+      content: 'Lorem ipsum',
+      glyph: 'communication',
+    },
+    template: `
+      <lai-badge [color]="color"
+                 [size]="size">
+        {{content}}
+        <lai-icon [glyph]="glyph"></lai-icon>
+      </lai-badge>
+  `,
+  }),
 };

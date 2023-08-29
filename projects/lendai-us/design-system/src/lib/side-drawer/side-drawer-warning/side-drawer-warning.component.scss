@@ -1,9 +1,7 @@
 @use 'color' as c;
-@use 'radius' as r;
 
 .content {
-  @include r.radius(r.$md);
-
+  border-radius: 12px;
   padding: 16px 24px;
   display: flex;
 

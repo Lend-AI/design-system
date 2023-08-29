@@ -2,9 +2,36 @@
 @use 'color' as c;
 
 $typographies: (
-  'sm': t.$button-xs,
-  'md': t.$button-sm,
-  'lg': t.$button-md,
+  'sm': (
+    'desktop': (
+      'font-size': 12px,
+      'line-height': 24px,
+    ),
+    'mobile': (
+      'font-size': 12px,
+      'line-height': 24px,
+    ),
+  ),
+  'md': (
+    'desktop': (
+      'font-size': 14px,
+      'line-height': 24px,
+    ),
+    'mobile': (
+      'font-size': 14px,
+      'line-height': 24px,
+    ),
+  ),
+  'lg': (
+    'desktop': (
+      'font-size': 16px,
+      'line-height': 24px,
+    ),
+    'mobile': (
+      'font-size': 16px,
+      'line-height': 24px,
+    ),
+  ),
 );
 
 :host {

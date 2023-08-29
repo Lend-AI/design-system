@@ -17,12 +17,12 @@ import { SidenavLayoutContentComponent } from './sidenav-layout-content/sidenav-
 import { SidenavLayoutAvatarComponent } from './sidenav-layout-avatar/sidenav-layout-avatar.component';
 import { IconComponent } from '../../icon';
 import { DividerComponent } from '../../divider';
-import { ButtonBarComponent, ButtonComponent } from '../../button';
+import { ButtonComponent } from '../../button';
 import { LogoComponent } from '../../logo';
 import { AvatarComponent } from '../../avatar';
 import {
   BodyComponent,
-  CaptionComponent,
+  LabelComponent,
   HeadlineComponent,
 } from '../../typography';
 
@@ -51,8 +51,7 @@ import {
     HeadlineComponent,
     BodyComponent,
     ButtonComponent,
-    CaptionComponent,
-    ButtonBarComponent,
+    LabelComponent,
     LogoComponent,
     AvatarComponent,
     LetDirective,

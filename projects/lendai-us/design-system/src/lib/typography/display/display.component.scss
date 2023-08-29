@@ -2,9 +2,36 @@
 @use 'color' as c;
 
 $typographies: (
-  '1': t.$display-1,
-  '2': t.$display-2,
-  '3': t.$display-3,
+  '1': (
+    'desktop': (
+      'font-size': 4.75rem,
+      'line-height': 5.75rem,
+    ),
+    'mobile': (
+      'font-size': 2.25rem,
+      'line-height': 3.375rem,
+    ),
+  ),
+  '2': (
+    'desktop': (
+      'font-size': 4rem,
+      'line-height': 5.25rem,
+    ),
+    'mobile': (
+      'font-size': 2.25rem,
+      'line-height': 3rem,
+    ),
+  ),
+  '3': (
+    'desktop': (
+      'font-size': 3.75rem,
+      'line-height': 4.75rem,
+    ),
+    'mobile': (
+      'font-size': 2rem,
+      'line-height': 2.75rem,
+    ),
+  ),
 );
 
 :host {

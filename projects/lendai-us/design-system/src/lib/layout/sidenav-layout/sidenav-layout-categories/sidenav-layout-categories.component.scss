@@ -1,5 +1,4 @@
 @use 'color' as c;
-@use 'radius' as r;
 @use 'typography' as t;
 
 :host {
@@ -18,9 +17,7 @@
 }
 
 .sidenav-item {
-  @include r.radius(r.$sm);
-  @include t.typography(t.$body-5);
-
+  border-radius: 8px;
   color: rgba(c.$white, 70%);
   display: flex;
   align-items: center;
@@ -35,8 +32,6 @@
   }
 
   &.active {
-    @include t.typography(t.$button-sm);
-
     background-color: rgba(c.$white, 10%);
     color: c.$white;
   }

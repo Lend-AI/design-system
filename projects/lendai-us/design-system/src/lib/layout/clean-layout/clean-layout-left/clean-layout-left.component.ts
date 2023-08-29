@@ -6,9 +6,10 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Observable, Subscription, map } from 'rxjs';
 import { CLEAN_LAYOUT_SERVICE } from '../clean-layout.service';
+import { Breakpoints } from '../../../foundations';
 
 @Component({
   selector: 'lai-clean-layout-left',
@@ -21,7 +22,7 @@ export class CleanLayoutLeftComponent implements OnInit, OnDestroy {
   logoPath!: string;
 
   readonly isHandset$: Observable<boolean> = this.breakpointObserver
-    .observe(Breakpoints.Handset)
+    .observe(Breakpoints.mobile)
     .pipe(map(({ matches }) => matches));
 
   protected readonly service = inject(CLEAN_LAYOUT_SERVICE);

@@ -1,8 +1,9 @@
 import { Component, ContentChildren, QueryList } from '@angular/core';
 import { SideDrawerWarningComponent } from './side-drawer-warning/side-drawer-warning.component';
 import { DialogRef } from '@angular/cdk/dialog';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { map } from 'rxjs';
+import { Breakpoints } from '../foundations';
 
 @Component({
   selector: 'lai-side-drawer',
@@ -14,7 +15,7 @@ export class SideDrawerComponent {
   protected warnings!: QueryList<SideDrawerWarningComponent>;
 
   protected isHandset$ = this.breakpointObserver
-    .observe(Breakpoints.Handset)
+    .observe(Breakpoints.mobile)
     .pipe(map(({ matches }) => matches));
 
   constructor(

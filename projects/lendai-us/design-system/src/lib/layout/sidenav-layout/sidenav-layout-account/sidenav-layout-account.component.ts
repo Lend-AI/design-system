@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { SIDENAV_LAYOUT_SERVICE } from '../sidenav-layout.service';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Observable, Subscription, map } from 'rxjs';
+import { Breakpoints } from '../../../foundations';
 
 @Component({
   selector: 'lai-sidenav-layout-account',
@@ -14,7 +15,7 @@ export class SidenavLayoutAccountComponent implements OnInit, OnDestroy {
   accountInfo = '';
 
   readonly isHandset$: Observable<boolean> = this.breakpointObserver
-    .observe(Breakpoints.Handset)
+    .observe(Breakpoints.mobile)
     .pipe(map(({ matches }) => matches));
 
   protected readonly service = inject(SIDENAV_LAYOUT_SERVICE);

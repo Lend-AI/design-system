@@ -1,0 +1,16 @@
+@use 'breakpoints' as b;
+@use 'color' as c;
+
+:host {
+  flex: 1;
+  background-color: c.$white;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: calc(24px * 4 / 3);
+  box-sizing: border-box;
+
+  @include b.mobile {
+    padding: 16px;
+  }
+}

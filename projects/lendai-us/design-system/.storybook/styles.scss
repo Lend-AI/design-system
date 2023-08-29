@@ -12,7 +12,7 @@ $design-system-theme: (
 );
 
 :root {
-  @include c.applyTheme($design-system-theme);
+  @include t.applyTheme($design-system-theme);
 }
 
 $mat-primary: t.createPalette(map.get(c.$prebuilt-purple, 500));

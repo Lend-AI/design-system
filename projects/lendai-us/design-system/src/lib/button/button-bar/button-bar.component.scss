@@ -1,7 +1,0 @@
-:host {
-  display: flex;
-  flex-direction: row-reverse;
-  gap: 12px;
-  // important is needed to override mat-dialog-actions behaviour
-  justify-content: flex-start !important;
-}

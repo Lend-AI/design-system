@@ -37,9 +37,7 @@
       <ng-content select="lai-sidenav-layout-subtitle"></ng-content>
     </div>
 
-    <lai-button-bar>
-      <ng-content select="lai-sidenav-layout-actions"></ng-content>
-    </lai-button-bar>
+    <ng-content select="lai-sidenav-layout-actions"></ng-content>
   </div>
 
   <ng-container *ngIf="contentComponent; else simpleContent">

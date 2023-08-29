@@ -47,7 +47,6 @@ const meta: Meta<SidenavLayoutComponent> = {
   parameters: {
     layout: 'fullscreen',
   },
-  component: SidenavLayoutComponent,
   decorators: [
     moduleMetadata({
       imports: [SidenavLayoutModule, ButtonComponent, RouterTestingModule],

@@ -84,3 +84,56 @@ $values: (
     @return #fff;
   }
 }
+
+@mixin applyTheme($config) {
+  --lai-palette-primary-25: #{map.get($config, 'primary', 25)};
+  --lai-palette-primary-50: #{map.get($config, 'primary', 50)};
+  --lai-palette-primary-100: #{map.get($config, 'primary', 100)};
+  --lai-palette-primary-200: #{map.get($config, 'primary', 200)};
+  --lai-palette-primary-300: #{map.get($config, 'primary', 300)};
+  --lai-palette-primary-400: #{map.get($config, 'primary', 400)};
+  --lai-palette-primary-500: #{map.get($config, 'primary', 500)};
+  --lai-palette-primary-600: #{map.get($config, 'primary', 600)};
+  --lai-palette-primary-700: #{map.get($config, 'primary', 700)};
+
+  --lai-palette-info-25: #{map.get($config, 'info', 25)};
+  --lai-palette-info-50: #{map.get($config, 'info', 50)};
+  --lai-palette-info-100: #{map.get($config, 'info', 100)};
+  --lai-palette-info-200: #{map.get($config, 'info', 200)};
+  --lai-palette-info-300: #{map.get($config, 'info', 300)};
+  --lai-palette-info-400: #{map.get($config, 'info', 400)};
+  --lai-palette-info-500: #{map.get($config, 'info', 500)};
+  --lai-palette-info-600: #{map.get($config, 'info', 600)};
+  --lai-palette-info-700: #{map.get($config, 'info', 700)};
+  --lai-palette-info-800: #{map.get($config, 'info', 800)};
+
+  --lai-palette-error-25: #{map.get($config, 'error', 25)};
+  --lai-palette-error-50: #{map.get($config, 'error', 50)};
+  --lai-palette-error-100: #{map.get($config, 'error', 100)};
+  --lai-palette-error-200: #{map.get($config, 'error', 200)};
+  --lai-palette-error-300: #{map.get($config, 'error', 300)};
+  --lai-palette-error-400: #{map.get($config, 'error', 400)};
+  --lai-palette-error-500: #{map.get($config, 'error', 500)};
+  --lai-palette-error-600: #{map.get($config, 'error', 600)};
+  --lai-palette-error-700: #{map.get($config, 'error', 700)};
+
+  --lai-palette-warning-25: #{map.get($config, 'warning', 25)};
+  --lai-palette-warning-50: #{map.get($config, 'warning', 50)};
+  --lai-palette-warning-100: #{map.get($config, 'warning', 100)};
+  --lai-palette-warning-200: #{map.get($config, 'warning', 200)};
+  --lai-palette-warning-300: #{map.get($config, 'warning', 300)};
+  --lai-palette-warning-400: #{map.get($config, 'warning', 400)};
+  --lai-palette-warning-500: #{map.get($config, 'warning', 500)};
+  --lai-palette-warning-600: #{map.get($config, 'warning', 600)};
+  --lai-palette-warning-700: #{map.get($config, 'warning', 700)};
+
+  --lai-palette-success-25: #{map.get($config, 'success', 25)};
+  --lai-palette-success-50: #{map.get($config, 'success', 50)};
+  --lai-palette-success-100: #{map.get($config, 'success', 100)};
+  --lai-palette-success-200: #{map.get($config, 'success', 200)};
+  --lai-palette-success-300: #{map.get($config, 'success', 300)};
+  --lai-palette-success-400: #{map.get($config, 'success', 400)};
+  --lai-palette-success-500: #{map.get($config, 'success', 500)};
+  --lai-palette-success-600: #{map.get($config, 'success', 600)};
+  --lai-palette-success-700: #{map.get($config, 'success', 700)};
+}

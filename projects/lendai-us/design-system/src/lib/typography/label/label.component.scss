@@ -1,0 +1,59 @@
+@use 'typography' as t;
+@use 'color' as c;
+
+$typographies: (
+  'lg': (
+    'desktop': (
+      'font-size': 1rem,
+      'line-height': 1.5rem,
+    ),
+    'mobile': (
+      'font-size': 1rem,
+      'line-height': 1.5rem,
+    ),
+  ),
+  'md': (
+    'desktop': (
+      'font-size': 0.875rem,
+      'line-height': 1.25rem,
+    ),
+    'mobile': (
+      'font-size': 0.875rem,
+      'line-height': 1.25rem,
+    ),
+  ),
+  'sm': (
+    'desktop': (
+      'font-size': 0.75rem,
+      'line-height': 1.125rem,
+    ),
+    'mobile': (
+      'font-size': 0.75rem,
+      'line-height': 1.125rem,
+    ),
+  ),
+);
+
+$weights: (
+  'regular': 400,
+  'medium': 500,
+  'semibold': 600,
+);
+
+:host {
+  @include t.attributeToTypography($typographies, 'level');
+
+  @each $key, $value in $weights {
+    &[weight='#{$key}'] {
+      font-weight: $value;
+    }
+  }
+
+  display: inline;
+  letter-spacing: 0rem;
+  color: c.$gray;
+
+  &.underline {
+    text-decoration: underline;
+  }
+}

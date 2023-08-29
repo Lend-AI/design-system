@@ -9,10 +9,11 @@ import { SidenavLayoutTitleComponent } from './sidenav-layout-title/sidenav-layo
 import { SidenavLayoutSubtitleComponent } from './sidenav-layout-subtitle/sidenav-layout-subtitle.component';
 import { SidenavLayoutActionsComponent } from './sidenav-layout-actions/sidenav-layout-actions.component';
 import { SidenavLayoutContentComponent } from './sidenav-layout-content/sidenav-layout-content.component';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Observable, Subscription, map } from 'rxjs';
 import { SIDENAV_LAYOUT_SERVICE } from './sidenav-layout.service';
 import { IconGlyph } from '../../icon';
+import { Breakpoints } from '../../foundations';
 
 @Component({
   selector: 'lai-sidenav-layout',
@@ -40,7 +41,7 @@ export class SidenavLayoutComponent implements OnInit, OnDestroy {
   icon: IconGlyph = 'bars';
 
   isHandset$: Observable<boolean> = this.breakpointObserver
-    .observe(Breakpoints.Handset)
+    .observe(Breakpoints.mobile)
     .pipe(map(({ matches }) => matches));
 
   protected readonly service = inject(SIDENAV_LAYOUT_SERVICE);

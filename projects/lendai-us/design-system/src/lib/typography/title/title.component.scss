@@ -2,11 +2,56 @@
 @use 'color' as c;
 
 $typographies: (
-  '1': t.$card-title-1,
-  '2': t.$card-title-2,
-  '3': t.$card-title-3,
-  '4': t.$card-title-4,
-  '5': t.$card-title-5,
+  '1': (
+    'desktop': (
+      'font-size': 1.25rem,
+      'line-height': 2.125rem,
+    ),
+    'mobile': (
+      'font-size': 1.25rem,
+      'line-height': 1.75rem,
+    ),
+  ),
+  '2': (
+    'desktop': (
+      'font-size': 1.25rem,
+      'line-height': 1.75rem,
+    ),
+    'mobile': (
+      'font-size': 1.125rem,
+      'line-height': 1.625rem,
+    ),
+  ),
+  '3': (
+    'desktop': (
+      'font-size': 1.125rem,
+      'line-height': 1.625rem,
+    ),
+    'mobile': (
+      'font-size': 1rem,
+      'line-height': 1.5rem,
+    ),
+  ),
+  '4': (
+    'desktop': (
+      'font-size': 1rem,
+      'line-height': 1.5rem,
+    ),
+    'mobile': (
+      'font-size': 0.875rem,
+      'line-height': 1.25rem,
+    ),
+  ),
+  '5': (
+    'desktop': (
+      'font-size': 0.875rem,
+      'line-height': 1.25rem,
+    ),
+    'mobile': (
+      'font-size': 0.75rem,
+      'line-height': 1.125rem,
+    ),
+  ),
 );
 
 :host {

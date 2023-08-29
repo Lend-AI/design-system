@@ -1,78 +1,44 @@
 @use 'sass:map';
 @use 'color' as c;
-@use 'typography' as t;
-@use 'radius' as r;
-
-$radiuses: (
-  'xs': r.$xs,
-  'sm': r.$sm,
-);
 
 $colors: (
-  'gray': (
-    'background': map.get(c.$prebuilt-gray, 100),
-    'foreground': map.get(c.$prebuilt-gray, 700),
-    'background-solid': map.get(c.$prebuilt-gray, 500),
+  'gray': c.$prebuilt-gray,
+  'purple': c.$prebuilt-purple,
+  'blue': c.$prebuilt-blue,
+  'red': c.$prebuilt-red,
+  'orange': c.$prebuilt-orange,
+  'green': c.$prebuilt-green,
+  'pink': c.$prebuilt-pink,
+  'aqua': c.$prebuilt-aqua,
+);
+
+$sizes: (
+  'sm': (
+    'padding': 10px,
   ),
-  'purple': (
-    'background': map.get(c.$prebuilt-purple, 50),
-    'foreground': map.get(c.$prebuilt-purple, 700),
-    'background-solid': map.get(c.$prebuilt-purple, 500),
-  ),
-  'blue': (
-    'background': map.get(c.$prebuilt-blue, 50),
-    'foreground': map.get(c.$prebuilt-blue, 700),
-    'background-solid': map.get(c.$prebuilt-blue, 500),
-  ),
-  'red': (
-    'background': map.get(c.$prebuilt-red, 50),
-    'foreground': map.get(c.$prebuilt-red, 700),
-    'background-solid': map.get(c.$prebuilt-red, 500),
-  ),
-  'orange': (
-    'background': map.get(c.$prebuilt-orange, 50),
-    'foreground': map.get(c.$prebuilt-orange, 700),
-    'background-solid': map.get(c.$prebuilt-orange, 500),
-  ),
-  'green': (
-    'background': map.get(c.$prebuilt-green, 50),
-    'foreground': map.get(c.$prebuilt-green, 700),
-    'background-solid': map.get(c.$prebuilt-green, 500),
-  ),
-  'pink': (
-    'background': map.get(c.$prebuilt-pink, 50),
-    'foreground': map.get(c.$prebuilt-pink, 700),
-    'background-solid': map.get(c.$prebuilt-pink, 500),
-  ),
-  'aqua': (
-    'background': map.get(c.$prebuilt-aqua, 50),
-    'foreground': map.get(c.$prebuilt-aqua, 700),
-    'background-solid': map.get(c.$prebuilt-aqua, 500),
+  'md': (
+    'padding': 12px,
   ),
 );
 
 :host {
-  @include t.typography(t.$caption-md);
-  @include r.attributeToRadius($radiuses, 'radius');
+  display: flex;
+  gap: 4px;
+  border-radius: 4px;
 
-  display: inline-block;
-  padding: 4px 12px;
+  @each $color, $palette in $colors {
+    &[color='#{$color}'] {
+      background-color: map.get($palette, 50);
 
-  &[type='transparent'] {
-    @each $key, $value in $colors {
-      &[color='#{$key}'] {
-        background-color: map.get($value, 'background');
-        color: map.get($value, 'foreground');
+      .color--#{$color} {
+        color: map.get($palette, 700);
       }
     }
   }
 
-  &[type='solid'] {
-    @each $key, $value in $colors {
-      &[color='#{$key}'] {
-        background-color: map.get($value, 'background-solid');
-        color: c.$white;
-      }
+  @each $size, $config in $sizes {
+    &[size='#{$size}'] {
+      padding: 0 map.get($config, 'padding');
     }
   }
 }

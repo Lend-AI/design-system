@@ -1,0 +1,45 @@
+<header class="header">
+  <lai-logo
+    *ngIf="this.service.logoPath$ | async as logoPath"
+    class="logo"
+    [logoPath]="logoPath"
+    routerLink="/"></lai-logo>
+
+  <ng-container *ngIf="!isHandset">
+    <ng-container *ngTemplateOutlet="nav"></ng-container>
+  </ng-container>
+
+  <lai-icon
+    *ngIf="isHandset; else actions"
+    [glyph]="mobileNavIcon"
+    size="sm"
+    (click)="toggleMobileNav()"></lai-icon>
+</header>
+
+<ng-container *ngIf="isHandset && isMobileNavOpen">
+  <ng-container *ngTemplateOutlet="nav"></ng-container>
+</ng-container>
+
+<ng-template #nav>
+  <nav class="nav">
+    <ul class="nav--list">
+      <li *ngFor="let category of service.landingLayoutCategories$ | async">
+        <lai-label level="md">
+          <a
+            class="nav--link"
+            [routerLink]="category.route"
+            (click)="closeMobileNav()">
+            <lai-icon [glyph]="category.icon" *ngIf="isHandset"></lai-icon>
+            <span>{{ category.title }}</span>
+          </a>
+        </lai-label>
+      </li>
+    </ul>
+  </nav>
+</ng-template>
+
+<ng-template #actions>
+  <ng-container *ngIf="actionsRef">
+    <ng-container *ngTemplateOutlet="actionsRef"></ng-container>
+  </ng-container>
+</ng-template>

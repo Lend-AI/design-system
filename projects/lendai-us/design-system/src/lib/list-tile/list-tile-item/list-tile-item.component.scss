@@ -1,10 +1,8 @@
 @use 'color' as c;
-@use 'radius' as r;
 
 :host {
   text-align: left;
-
-  @include r.radius(r.$sm);
+  border-radius: 8px;
 
   display: flex;
   align-items: stretch;

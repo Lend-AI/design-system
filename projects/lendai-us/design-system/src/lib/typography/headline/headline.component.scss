@@ -2,11 +2,56 @@
 @use 'color' as c;
 
 $typographies: (
-  '1': t.$headline-1,
-  '2': t.$headline-2,
-  '3': t.$headline-3,
-  '4': t.$headline-4,
-  '5': t.$headline-5,
+  '1': (
+    'desktop': (
+      'font-size': 3rem,
+      'line-height': 3.875rem,
+    ),
+    'mobile': (
+      'font-size': 1.75rem,
+      'line-height': 2.375rem,
+    ),
+  ),
+  '2': (
+    'desktop': (
+      'font-size': 2.5rem,
+      'line-height': 3.375rem,
+    ),
+    'mobile': (
+      'font-size': 1.5rem,
+      'line-height': 2.125rem,
+    ),
+  ),
+  '3': (
+    'desktop': (
+      'font-size': 2rem,
+      'line-height': 2.75rem,
+    ),
+    'mobile': (
+      'font-size': 1.25rem,
+      'line-height': 1.75rem,
+    ),
+  ),
+  '4': (
+    'desktop': (
+      'font-size': 1.5rem,
+      'line-height': 2.125rem,
+    ),
+    'mobile': (
+      'font-size': 1rem,
+      'line-height': 1.5rem,
+    ),
+  ),
+  '5': (
+    'desktop': (
+      'font-size': 1.25rem,
+      'line-height': 1.75rem,
+    ),
+    'mobile': (
+      'font-size': 0.875rem,
+      'line-height': 1.25rem,
+    ),
+  ),
 );
 
 :host {

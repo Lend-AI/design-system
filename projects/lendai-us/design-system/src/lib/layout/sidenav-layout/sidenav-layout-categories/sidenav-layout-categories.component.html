@@ -1,14 +1,16 @@
 <ul class="sidenav-items-category">
   <ng-container *ngFor="let category of sidenavCategories">
     <li>
-      <a
-        class="sidenav-item"
-        [routerLink]="category.route"
-        routerLinkActive="active"
-        #rla="routerLinkActive">
-        <lai-icon class="icon" [glyph]="category.icon"></lai-icon>
-        <span class="text">{{ category.title }}</span>
-      </a>
+      <lai-label level="md">
+        <a
+          class="sidenav-item"
+          [routerLink]="category.route"
+          routerLinkActive="active"
+          #rla="routerLinkActive">
+          <lai-icon class="icon" [glyph]="category.icon"></lai-icon>
+          <span class="text">{{ category.title }}</span>
+        </a>
+      </lai-label>
     </li>
   </ng-container>
 </ul>
