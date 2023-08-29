@@ -685,31 +685,241 @@
     "directives": [
         {
             "name": "TooltipDirective",
-            "id": "directive-TooltipDirective-9a2aa144884b25d5525e7d59b65b005fa8607ae16cfabf68e66b4bbeffe0bedbd9d04d37dd3e968976d7d795e6dd0ff248f7cd7c1cd3270a8e38b2db66646541",
+            "id": "directive-TooltipDirective-10368c4684e4982dc83b8a79f04aa064ccd38216a563548e92f1b11bfea8a7aa4a7de81156861051eb10b0600699ffca7fbb2196efe464aae9ac386f196d09f3",
             "file": "projects/lendai-us/design-system/src/lib/tooltip/tooltip.directive.ts",
             "type": "directive",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Directive } from '@angular/core';\n\n@Directive({\n  selector: '[laiTooltip]',\n})\nexport class TooltipDirective {\n  constructor() {}\n}\n",
+            "sourceCode": "import {\n  ComponentRef,\n  Directive,\n  ElementRef,\n  EmbeddedViewRef,\n  HostListener,\n  Inject,\n  Injector,\n  Input,\n  OnDestroy,\n  ViewContainerRef,\n} from '@angular/core';\nimport { TooltipComponent } from './tooltip.component';\nimport { DOCUMENT } from '@angular/common';\nimport { TooltipStyle } from './tooltip.models';\n\n@Directive({\n  selector: '[laiTooltip]',\n})\nexport class TooltipDirective implements OnDestroy {\n  @Input() laiTooltip!: string;\n  @Input() style: TooltipStyle = 'dark';\n\n  private tooltipRef: ComponentRef<TooltipComponent> | null = null;\n\n  constructor(\n    private readonly injector: Injector,\n    private readonly vcRef: ViewContainerRef,\n    private readonly elRef: ElementRef,\n    @Inject(DOCUMENT) private readonly document: Document\n  ) {}\n\n  @HostListener('mouseenter')\n  private onMouseEnter(): void {\n    if (this.tooltipRef) {\n      return;\n    }\n\n    this.tooltipRef = this.vcRef.createComponent(TooltipComponent, {\n      injector: this.injector,\n    });\n    const domElem = (this.tooltipRef.hostView as EmbeddedViewRef<unknown>)\n      .rootNodes[0] as HTMLElement;\n    this.document.body.appendChild(domElem);\n    this.setTooltipProperties(this.tooltipRef.instance);\n  }\n\n  @HostListener('mouseleave')\n  private onMouseLeave(): void {\n    this.destroy();\n  }\n\n  ngOnDestroy(): void {\n    this.destroy();\n  }\n\n  private destroy(): void {\n    if (!this.tooltipRef) {\n      return;\n    }\n    this.tooltipRef.destroy();\n    this.tooltipRef = null;\n  }\n\n  private setTooltipProperties(instance: TooltipComponent): void {\n    const { left, right, bottom } =\n      this.elRef.nativeElement.getBoundingClientRect();\n    instance.tooltip = this.laiTooltip;\n    instance.style = this.style;\n    instance.left = (right - left) / 2 + left;\n    instance.top = bottom;\n  }\n}\n",
             "selector": "[laiTooltip]",
             "providers": [],
             "hostDirectives": [],
             "standalone": false,
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "laiTooltip",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "style",
+                    "defaultValue": "'dark'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "TooltipStyle",
+                    "decorators": []
+                }
+            ],
             "outputsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
-            "hostListeners": [],
-            "propertiesClass": [],
-            "methodsClass": [],
+            "hostListeners": [
+                {
+                    "name": "mouseenter",
+                    "args": [],
+                    "argsDecorator": [],
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 34
+                },
+                {
+                    "name": "mouseleave",
+                    "args": [],
+                    "argsDecorator": [],
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 49
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "tooltipRef",
+                    "defaultValue": "null",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ComponentRef<TooltipComponent> | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 24,
+                    "modifierKind": [
+                        121
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "destroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 57,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 53,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "onMouseEnter",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 34,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "HostListener",
+                            "stringifiedArguments": "'mouseenter'"
+                        }
+                    ],
+                    "modifierKind": [
+                        167,
+                        121
+                    ]
+                },
+                {
+                    "name": "onMouseLeave",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 49,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "HostListener",
+                            "stringifiedArguments": "'mouseleave'"
+                        }
+                    ],
+                    "modifierKind": [
+                        167,
+                        121
+                    ]
+                },
+                {
+                    "name": "setTooltipProperties",
+                    "args": [
+                        {
+                            "name": "instance",
+                            "type": "TooltipComponent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 65,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "instance",
+                            "type": "TooltipComponent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "implements": [
+                "OnDestroy"
+            ],
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "args": [],
-                "line": 6
+                "args": [
+                    {
+                        "name": "injector",
+                        "type": "Injector",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "vcRef",
+                        "type": "ViewContainerRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "elRef",
+                        "type": "ElementRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "document",
+                        "type": "Document",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 24,
+                "jsdoctags": [
+                    {
+                        "name": "injector",
+                        "type": "Injector",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "vcRef",
+                        "type": "ViewContainerRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "elRef",
+                        "type": "ElementRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "document",
+                        "type": "Document",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
             }
         }
     ],
@@ -5876,7 +6086,7 @@
         },
         {
             "name": "StepGroupHeaderComponent",
-            "id": "component-StepGroupHeaderComponent-c30d824ede7502a7570bc9a05f7d694f91904e9e995ca18826ac0923eab91a126efa7bb30728b198cf7ee09b4c5c02ee8d7ef4e0464ebc468bc917c21d633c79",
+            "id": "component-StepGroupHeaderComponent-833f6b6f9d135b4f8e1e23f646d343895b34fcfa415af96e2c117b7c1a0beeefdc9d75abfc3ebf3736053fccfeaaaa092c6c475e169644259f43ec000ad57dd4",
             "file": "projects/lendai-us/design-system/src/lib/stepper/stepper-steps/stepper-steps.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -5898,7 +6108,7 @@
                     "name": "activeStepIndex",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 19,
+                    "line": 17,
                     "type": "number",
                     "decorators": []
                 },
@@ -5906,7 +6116,7 @@
                     "name": "steps",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 18,
+                    "line": 16,
                     "type": "QueryList<StepComponent>",
                     "decorators": []
                 }
@@ -5917,7 +6127,7 @@
                     "defaultValue": "new EventEmitter<number>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 21,
+                    "line": 19,
                     "type": "EventEmitter"
                 }
             ],
@@ -5932,7 +6142,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  AfterViewInit,\n  Component,\n  EventEmitter,\n  HostListener,\n  Input,\n  Output,\n  QueryList,\n} from '@angular/core';\nimport { StepComponent } from '../stepper-step/step.component';\n\n@Component({\n  selector: 'lai-stepper-steps',\n  templateUrl: './stepper-steps.component.html',\n  styleUrls: ['./stepper-steps.component.scss'],\n})\nexport class StepGroupHeaderComponent {\n  @Input() steps!: QueryList<StepComponent>;\n  @Input() activeStepIndex!: number;\n\n  @Output() selectedChange = new EventEmitter<number>();\n}\n",
+            "sourceCode": "import {\n  Component,\n  EventEmitter,\n  Input,\n  Output,\n  QueryList,\n} from '@angular/core';\nimport { StepComponent } from '../stepper-step/step.component';\n\n@Component({\n  selector: 'lai-stepper-steps',\n  templateUrl: './stepper-steps.component.html',\n  styleUrls: ['./stepper-steps.component.scss'],\n})\nexport class StepGroupHeaderComponent {\n  @Input() steps!: QueryList<StepComponent>;\n  @Input() activeStepIndex!: number;\n\n  @Output() selectedChange = new EventEmitter<number>();\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -6978,7 +7188,7 @@
         },
         {
             "name": "TooltipComponent",
-            "id": "component-TooltipComponent-d8c4641527983055d970a3680bffda1a268b20bd53ea1bbed8fe663ec0cfa159bb47a7a3cd541bc14889d1da50c0dbba5a052c95a0eec5318c83ad442fed8033",
+            "id": "component-TooltipComponent-e0647167a544312fd5753adb59dbdf7f2f389d52fd52e1759a1c174164446b389638fb0fdbedf2ebb9e25d4a28738f24dea4788fb022bd51788d13df4258d1ec",
             "file": "projects/lendai-us/design-system/src/lib/tooltip/tooltip.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -6995,7 +7205,40 @@
             ],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "left",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "style",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "TooltipStyle",
+                    "decorators": []
+                },
+                {
+                    "name": "tooltip",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "top",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "number",
+                    "decorators": []
+                }
+            ],
             "outputsClass": [],
             "propertiesClass": [],
             "methodsClass": [],
@@ -7008,16 +7251,16 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lai-tooltip',\n  templateUrl: './tooltip.component.html',\n  styleUrls: ['./tooltip.component.scss'],\n})\nexport class TooltipComponent {}\n",
+            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { TooltipStyle } from './tooltip.models';\n\n@Component({\n  selector: 'lai-tooltip',\n  templateUrl: './tooltip.component.html',\n  styleUrls: ['./tooltip.component.scss'],\n})\nexport class TooltipComponent {\n  @Input() tooltip!: string;\n\n  @HostBinding('style.left.px')\n  @Input()\n  left!: number;\n\n  @HostBinding('style.top.px')\n  @Input()\n  top!: number;\n\n  @HostBinding('attr.tooltip-style')\n  @Input()\n  style!: TooltipStyle;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": "@use 'color' as c;\n@use 'elevation' as e;\n\n:host {\n  position: fixed;\n  border-radius: 4px;\n  color: #ffffff;\n  padding: 8px 12px;\n  margin-top: 5px;\n  transform: translateX(-50%);\n\n  @include e.elevation('sm');\n\n  &::before {\n    content: '';\n    width: 0;\n    height: 0;\n    border-left: 5px solid transparent;\n    border-right: 5px solid transparent;\n    position: absolute;\n    left: calc(50% - 5px);\n    top: -5px;\n  }\n\n  &[tooltip-style='dark'] {\n    background-color: c.$black;\n\n    &::before {\n      border-bottom: 5px solid c.$black;\n    }\n  }\n\n  &[tooltip-style='light'] {\n    background-color: c.$white;\n\n    &::before {\n      border-bottom: 5px solid c.$white;\n    }\n  }\n}\n\n.label {\n  :host([tooltip-style='dark']) & {\n    color: c.$white;\n  }\n  :host([tooltip-style='light']) & {\n    color: c.$black;\n  }\n}\n",
                     "styleUrl": "./tooltip.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<p>tooltip works!</p>\n"
+            "templateData": "<lai-label class=\"label\" level=\"sm\">{{ tooltip }}</lai-label>\n"
         },
         {
             "name": "UsFlagComponent",
@@ -7675,13 +7918,13 @@
         },
         {
             "name": "TooltipModule",
-            "id": "module-TooltipModule-708f6da0c42460b1160f6428be7fc5d4e8e77adc5e38c97c04cad5042b70b55c518d3b138ffdf3b99f7884fe7bf3ead2cbc1afc70142236651b1e0212c33919c",
+            "id": "module-TooltipModule-26e518ed7dd747940a429a0b4f488cfc29a27757869ce6ffc7ffcaa9d54d2def145f247b728386d50f79eaf10ff0e82c8e2c6a3a76c1b7fe6e232c8e545d227f",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/lendai-us/design-system/src/lib/tooltip/tooltip.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { TooltipComponent } from './tooltip.component';\nimport { TooltipDirective } from './tooltip.directive';\n\n@NgModule({\n  declarations: [TooltipComponent, TooltipDirective],\n  imports: [CommonModule],\n  exports: [TooltipDirective],\n})\nexport class TooltipModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { TooltipComponent } from './tooltip.component';\nimport { TooltipDirective } from './tooltip.directive';\nimport { LabelComponent } from '../typography';\n\n@NgModule({\n  declarations: [TooltipComponent, TooltipDirective],\n  imports: [CommonModule, LabelComponent],\n  exports: [TooltipDirective],\n})\nexport class TooltipModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -7700,7 +7943,11 @@
                 },
                 {
                     "type": "imports",
-                    "elements": []
+                    "elements": [
+                        {
+                            "name": "LabelComponent"
+                        }
+                    ]
                 },
                 {
                     "type": "exports",
@@ -8441,7 +8688,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<TooltipDirective>",
-                "defaultValue": "{\n  title: 'Atoms/Tooltip',\n  decorators: [\n    moduleMetadata({\n      imports: [TooltipModule],\n    }),\n  ],\n}"
+                "defaultValue": "{\n  title: 'Atoms/Tooltip',\n  decorators: [\n    moduleMetadata({\n      imports: [TooltipModule],\n    }),\n  ],\n  argTypes: {\n    style: {\n      options: TOOLTIP_STYLES,\n      control: { type: 'select' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -8714,16 +8961,6 @@
                 "defaultValue": "{\n  args,\n  render: props => ({\n    props,\n    template: `\n      <nav laiTabNavBar\n           [size]=\"size\"\n           [type]=\"type\">\n        <a *ngFor=\"let item of data\"\n           laiTabNavBarLink\n           [routerLink]=\"item.link\"\n           routerLinkActive=\"active\">\n          {{ item.content }}\n        </a>\n      </nav>\n      <router-outlet></router-outlet>\n    `,\n  }),\n}"
             },
             {
-                "name": "Text",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/tooltip/tooltip.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  render: props => ({\n    props,\n    template: ``,\n  }),\n}"
-            },
-            {
                 "name": "TextWithIcons",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -8822,6 +9059,26 @@
                 "deprecationMessage": "",
                 "type": "StoryFn",
                 "defaultValue": "args => ({\n  props: args,\n  template: `\n    <lai-list-tile-group [size]=\"size\">\n      <lai-list-tile-item>\n        <lai-list-tile-avatar>\n          <lai-flag [country]=\"country\" [type]=\"type\"></lai-flag>\n        </lai-list-tile-avatar>\n        <lai-list-tile-title>{{contentTitle}}</lai-list-tile-title>\n        <lai-list-tile-subtitle>{{contentSubTitle}}</lai-list-tile-subtitle>\n      </lai-list-tile-item>\n      <lai-list-tile-item>\n        <lai-list-tile-avatar>\n          <lai-flag [country]=\"country\" [type]=\"type\"></lai-flag>\n        </lai-list-tile-avatar>\n        <lai-list-tile-title>{{contentTitle}}</lai-list-tile-title>\n        <lai-list-tile-subtitle>{{contentSubTitle}}</lai-list-tile-subtitle>\n      </lai-list-tile-item>\n    </lai-list-tile-group>\n  `,\n})"
+            },
+            {
+                "name": "Tooltip",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/tooltip/tooltip.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    style: 'dark',\n  },\n  render: props => ({\n    props,\n    template: `\n    <div laiTooltip=\"Hello World!\"\n         [style]=\"style\">Lorem Ipsum</div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "TOOLTIP_STYLES",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/tooltip/tooltip.models.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "['light', 'dark'] as const"
             },
             {
                 "name": "US_FLAG_SIZES",
@@ -9427,6 +9684,17 @@
                 "subtype": "typealias",
                 "rawtype": "",
                 "file": "projects/lendai-us/design-system/src/lib/typography/title/title.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 196
+            },
+            {
+                "name": "TooltipStyle",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "",
+                "file": "projects/lendai-us/design-system/src/lib/tooltip/tooltip.models.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -10558,17 +10826,17 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<TooltipDirective>",
-                    "defaultValue": "{\n  title: 'Atoms/Tooltip',\n  decorators: [\n    moduleMetadata({\n      imports: [TooltipModule],\n    }),\n  ],\n}"
+                    "defaultValue": "{\n  title: 'Atoms/Tooltip',\n  decorators: [\n    moduleMetadata({\n      imports: [TooltipModule],\n    }),\n  ],\n  argTypes: {\n    style: {\n      options: TOOLTIP_STYLES,\n      control: { type: 'select' },\n    },\n  },\n}"
                 },
                 {
-                    "name": "Text",
+                    "name": "Tooltip",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "projects/lendai-us/design-system/src/lib/tooltip/tooltip.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  render: props => ({\n    props,\n    template: ``,\n  }),\n}"
+                    "defaultValue": "{\n  args: {\n    style: 'dark',\n  },\n  render: props => ({\n    props,\n    template: `\n    <div laiTooltip=\"Hello World!\"\n         [style]=\"style\">Lorem Ipsum</div>\n    `,\n  }),\n}"
                 }
             ],
             "projects/lendai-us/design-system/src/lib/icon/us-flag/us-flag.stories.ts": [
@@ -10715,6 +10983,18 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "[1, 2, 3, 4, 5] as const"
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/tooltip/tooltip.models.ts": [
+                {
+                    "name": "TOOLTIP_STYLES",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/tooltip/tooltip.models.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "['light', 'dark'] as const"
                 }
             ],
             "projects/lendai-us/design-system/src/lib/icon/us-flag/us-flag.component.ts": [
@@ -11405,6 +11685,19 @@
                     "subtype": "typealias",
                     "rawtype": "",
                     "file": "projects/lendai-us/design-system/src/lib/typography/title/title.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 196
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/tooltip/tooltip.models.ts": [
+                {
+                    "name": "TooltipStyle",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "",
+                    "file": "projects/lendai-us/design-system/src/lib/tooltip/tooltip.models.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -13030,7 +13323,7 @@
                 "linktype": "component",
                 "name": "TooltipComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -13039,7 +13332,17 @@
                 "linktype": "directive",
                 "name": "TooltipDirective",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/12",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/tooltip/tooltip.models.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TOOLTIP_STYLES",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -13057,7 +13360,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Text",
+                "name": "Tooltip",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

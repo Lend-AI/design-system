@@ -162,6 +162,7 @@ $palette: (
 }
 
 $white: #fff;
+$black: color('gray', 800);
 $dark-blue: map.get($prebuilt-blue, 800);
 $gray: color('gray', 500);
 

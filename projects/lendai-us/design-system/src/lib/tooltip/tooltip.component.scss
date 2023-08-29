@@ -1,0 +1,49 @@
+@use 'color' as c;
+@use 'elevation' as e;
+
+:host {
+  position: fixed;
+  border-radius: 4px;
+  color: #ffffff;
+  padding: 8px 12px;
+  margin-top: 5px;
+  transform: translateX(-50%);
+
+  @include e.elevation('sm');
+
+  &::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    position: absolute;
+    left: calc(50% - 5px);
+    top: -5px;
+  }
+
+  &[tooltip-style='dark'] {
+    background-color: c.$black;
+
+    &::before {
+      border-bottom: 5px solid c.$black;
+    }
+  }
+
+  &[tooltip-style='light'] {
+    background-color: c.$white;
+
+    &::before {
+      border-bottom: 5px solid c.$white;
+    }
+  }
+}
+
+.label {
+  :host([tooltip-style='dark']) & {
+    color: c.$white;
+  }
+  :host([tooltip-style='light']) & {
+    color: c.$black;
+  }
+}

@@ -22,3 +22,4 @@ export * from './lib/loading-spinner';
 export * from './lib/layout';
 export * from './lib/stepper';
 export * from './lib/foundations';
+export * from './lib/tooltip';
