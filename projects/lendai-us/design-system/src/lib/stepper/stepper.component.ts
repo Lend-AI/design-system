@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectorRef,
   Component,
   ContentChildren,
   EventEmitter,
@@ -16,14 +17,18 @@ import { StepComponent } from './stepper-step/step.component';
 export class StepperComponent implements AfterViewInit {
   @Output() selectedChange = new EventEmitter<number>();
 
-  @ContentChildren(StepComponent) protected steps!: QueryList<StepComponent>;
+  @ContentChildren(StepComponent)
+  protected steps!: QueryList<StepComponent>;
 
   protected selectedStep?: StepComponent;
   protected activeIndex = 0;
 
+  constructor(private readonly cdRef: ChangeDetectorRef) {}
+
   ngAfterViewInit(): void {
     if (!this.selectedStep && this.steps.first) {
       this.selectedStep = this.steps.first;
+      this.cdRef.detectChanges();
     }
   }
 
