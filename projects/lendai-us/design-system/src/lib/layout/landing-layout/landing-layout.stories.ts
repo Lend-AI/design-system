@@ -15,17 +15,17 @@ class DummyService implements LandingLayoutService {
   landingLayoutCategories$: Observable<LandingLayoutCategory[]> = of([
     {
       icon: 'briefcase',
-      route: '/#loan-programs',
+      fragment: 'loan-programs',
       title: 'Loan Programs',
     },
     {
       icon: 'wallet',
-      route: '/#why',
+      fragment: 'why',
       title: 'Why Finance?',
     },
     {
       icon: 'help',
-      route: '/#how',
+      fragment: 'how',
       title: 'How Does It Works?',
     },
   ]);

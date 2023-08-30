@@ -11,7 +11,8 @@
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
     "verdaccio": "verdaccio",
-    "publish:design-system": "cd dist/lendai-us/design-system && npm publish && cd ../../../"
+    "publish:design-system": "cd dist/lendai-us/design-system && npm publish && cd ../../../",
+    "verdaccio:design-system": "cd dist/lendai-us/design-system && npm unpublish --registry http://localhost:4873 --force && npm publish --registry http://localhost:4873 && cd ../../../"
   },
   "private": true,
   "dependencies": {

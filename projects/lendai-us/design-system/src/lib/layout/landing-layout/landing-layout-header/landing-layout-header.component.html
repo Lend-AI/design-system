@@ -3,7 +3,7 @@
     *ngIf="this.service.logoPath$ | async as logoPath"
     class="logo"
     [logoPath]="logoPath"
-    routerLink="/"></lai-logo>
+    [routerLink]="['./']"></lai-logo>
 
   <ng-container *ngIf="!isHandset">
     <ng-container *ngTemplateOutlet="nav"></ng-container>
@@ -27,7 +27,8 @@
         <lai-label level="md">
           <a
             class="nav--link"
-            [routerLink]="category.route"
+            [routerLink]="['./']"
+            [fragment]="category.fragment"
             (click)="closeMobileNav()">
             <lai-icon [glyph]="category.icon" *ngIf="isHandset"></lai-icon>
             <span>{{ category.title }}</span>

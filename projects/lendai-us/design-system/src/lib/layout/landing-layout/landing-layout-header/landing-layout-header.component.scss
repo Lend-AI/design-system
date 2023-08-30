@@ -50,10 +50,11 @@
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 8px;
+    gap: 48px;
 
     @include b.mobile {
       flex-direction: column;
+      gap: 8px;
     }
   }
 

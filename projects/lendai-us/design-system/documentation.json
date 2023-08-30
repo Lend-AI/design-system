@@ -243,13 +243,22 @@
         },
         {
             "name": "LandingLayoutCategory",
-            "id": "interface-LandingLayoutCategory-499a374c52e15ac1e3e55c24fb7d8468fc81d5b6919dc2da7a154d132e68be34b0eb5ba415e351292611dc6485bddad758e95199325c6a758f86f021e3b0c8e3",
+            "id": "interface-LandingLayoutCategory-d0b7e0e1f8fc06ba3d20b1305586427e4d9e04e0937cb4c2cecdf7af233381ab4516c2fb7f7c1c2764641877591fa45035345da0e10802991eab134bb7145082",
             "file": "projects/lendai-us/design-system/src/lib/layout/landing-layout/landing-layout.service.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { IconGlyph } from '../../icon';\n\nexport interface LandingLayoutCategory {\n  icon: IconGlyph;\n  title: string;\n  route: string;\n}\n\nexport interface LandingLayoutService {\n  logoPath$: Observable<string>;\n  landingLayoutCategories$: Observable<LandingLayoutCategory[]>;\n}\n\nexport const LANDING_LAYOUT_SERVICE = new InjectionToken<LandingLayoutService>(\n  `_LANDING_LAYOUT_SERVICE`\n);\n",
+            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { IconGlyph } from '../../icon';\n\nexport interface LandingLayoutCategory {\n  icon: IconGlyph;\n  title: string;\n  fragment: string;\n}\n\nexport interface LandingLayoutService {\n  logoPath$: Observable<string>;\n  landingLayoutCategories$: Observable<LandingLayoutCategory[]>;\n}\n\nexport const LANDING_LAYOUT_SERVICE = new InjectionToken<LandingLayoutService>(\n  `_LANDING_LAYOUT_SERVICE`\n);\n",
             "properties": [
+                {
+                    "name": "fragment",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 8
+                },
                 {
                     "name": "icon",
                     "deprecated": false,
@@ -258,15 +267,6 @@
                     "optional": false,
                     "description": "",
                     "line": 6
-                },
-                {
-                    "name": "route",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 8
                 },
                 {
                     "name": "title",
@@ -284,12 +284,12 @@
         },
         {
             "name": "LandingLayoutService",
-            "id": "interface-LandingLayoutService-499a374c52e15ac1e3e55c24fb7d8468fc81d5b6919dc2da7a154d132e68be34b0eb5ba415e351292611dc6485bddad758e95199325c6a758f86f021e3b0c8e3",
+            "id": "interface-LandingLayoutService-d0b7e0e1f8fc06ba3d20b1305586427e4d9e04e0937cb4c2cecdf7af233381ab4516c2fb7f7c1c2764641877591fa45035345da0e10802991eab134bb7145082",
             "file": "projects/lendai-us/design-system/src/lib/layout/landing-layout/landing-layout.service.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { IconGlyph } from '../../icon';\n\nexport interface LandingLayoutCategory {\n  icon: IconGlyph;\n  title: string;\n  route: string;\n}\n\nexport interface LandingLayoutService {\n  logoPath$: Observable<string>;\n  landingLayoutCategories$: Observable<LandingLayoutCategory[]>;\n}\n\nexport const LANDING_LAYOUT_SERVICE = new InjectionToken<LandingLayoutService>(\n  `_LANDING_LAYOUT_SERVICE`\n);\n",
+            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { IconGlyph } from '../../icon';\n\nexport interface LandingLayoutCategory {\n  icon: IconGlyph;\n  title: string;\n  fragment: string;\n}\n\nexport interface LandingLayoutService {\n  logoPath$: Observable<string>;\n  landingLayoutCategories$: Observable<LandingLayoutCategory[]>;\n}\n\nexport const LANDING_LAYOUT_SERVICE = new InjectionToken<LandingLayoutService>(\n  `_LANDING_LAYOUT_SERVICE`\n);\n",
             "properties": [
                 {
                     "name": "landingLayoutCategories$",
@@ -530,16 +530,16 @@
         },
         {
             "name": "DummyService",
-            "id": "class-DummyService-649f5802320c9f7b5c1aec561bf4bc5fd1b5361d37d0639869a5f84fd0aee76120768f3e33074a518e150e1145e263dc96a6ed93fbed74ca3b3f285fab33160d-1",
+            "id": "class-DummyService-eb9993736d3e2e6a19c20683bffbc272d1213b40893ea3d92c85d09c2480eedad3ba944e61e387446ae0f232d7a8e628ae8faeec5c5e48700dac0142802f4821-1",
             "file": "projects/lendai-us/design-system/src/lib/layout/landing-layout/landing-layout.stories.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';\nimport {\n  LANDING_LAYOUT_SERVICE,\n  LandingLayoutCategory,\n  LandingLayoutService,\n} from './landing-layout.service';\nimport { Observable, of } from 'rxjs';\nimport { RouterTestingModule } from '@angular/router/testing';\nimport { ButtonComponent } from '../../button';\nimport { LandingLayoutModule } from './landing-layout.module';\nimport { LandingLayoutComponent } from './landing-layout.component';\n\nclass DummyService implements LandingLayoutService {\n  logoPath$ = of('assets/images/logo/light.svg');\n  landingLayoutCategories$: Observable<LandingLayoutCategory[]> = of([\n    {\n      icon: 'briefcase',\n      route: '/#loan-programs',\n      title: 'Loan Programs',\n    },\n    {\n      icon: 'wallet',\n      route: '/#why',\n      title: 'Why Finance?',\n    },\n    {\n      icon: 'help',\n      route: '/#how',\n      title: 'How Does It Works?',\n    },\n  ]);\n}\n\nconst meta: Meta<LandingLayoutComponent> = {\n  title: 'Templates/LandingLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [LandingLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: LANDING_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n};\nexport default meta;\n\ntype Story = StoryObj<LandingLayoutComponent>;\n\nexport const LandingLayout: Story = {\n  render: props => ({\n    props,\n    template: `\n      <lai-landing-layout>\n        <lai-landing-layout-actions>\n          <button laiButton>\n            \"Lang-switcher\"\n          </button>\n          <button laiButton class=\"apply\">\n            Apply Now\n          </button>\n        </lai-landing-layout-actions>\n        <lai-landing-layout-content>\n          Some content\n        </lai-landing-layout-content>\n      </lai-landing-layout>\n  `,\n  }),\n};\n",
+            "sourceCode": "import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';\nimport {\n  LANDING_LAYOUT_SERVICE,\n  LandingLayoutCategory,\n  LandingLayoutService,\n} from './landing-layout.service';\nimport { Observable, of } from 'rxjs';\nimport { RouterTestingModule } from '@angular/router/testing';\nimport { ButtonComponent } from '../../button';\nimport { LandingLayoutModule } from './landing-layout.module';\nimport { LandingLayoutComponent } from './landing-layout.component';\n\nclass DummyService implements LandingLayoutService {\n  logoPath$ = of('assets/images/logo/light.svg');\n  landingLayoutCategories$: Observable<LandingLayoutCategory[]> = of([\n    {\n      icon: 'briefcase',\n      fragment: 'loan-programs',\n      title: 'Loan Programs',\n    },\n    {\n      icon: 'wallet',\n      fragment: 'why',\n      title: 'Why Finance?',\n    },\n    {\n      icon: 'help',\n      fragment: 'how',\n      title: 'How Does It Works?',\n    },\n  ]);\n}\n\nconst meta: Meta<LandingLayoutComponent> = {\n  title: 'Templates/LandingLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [LandingLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: LANDING_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n};\nexport default meta;\n\ntype Story = StoryObj<LandingLayoutComponent>;\n\nexport const LandingLayout: Story = {\n  render: props => ({\n    props,\n    template: `\n      <lai-landing-layout>\n        <lai-landing-layout-actions>\n          <button laiButton>\n            \"Lang-switcher\"\n          </button>\n          <button laiButton class=\"apply\">\n            Apply Now\n          </button>\n        </lai-landing-layout-actions>\n        <lai-landing-layout-content>\n          Some content\n        </lai-landing-layout-content>\n      </lai-landing-layout>\n  `,\n  }),\n};\n",
             "properties": [
                 {
                     "name": "landingLayoutCategories$",
-                    "defaultValue": "of([\n    {\n      icon: 'briefcase',\n      route: '/#loan-programs',\n      title: 'Loan Programs',\n    },\n    {\n      icon: 'wallet',\n      route: '/#why',\n      title: 'Why Finance?',\n    },\n    {\n      icon: 'help',\n      route: '/#how',\n      title: 'How Does It Works?',\n    },\n  ])",
+                    "defaultValue": "of([\n    {\n      icon: 'briefcase',\n      fragment: 'loan-programs',\n      title: 'Loan Programs',\n    },\n    {\n      icon: 'wallet',\n      fragment: 'why',\n      title: 'Why Finance?',\n    },\n    {\n      icon: 'help',\n      fragment: 'how',\n      title: 'How Does It Works?',\n    },\n  ])",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Observable<LandingLayoutCategory[]>",
@@ -3552,7 +3552,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'color' as c;\n@use 'typography' as t;\n@use 'breakpoints' as b;\n\n:host {\n  display: flex;\n  flex-direction: column;\n\n  @include b.mobile {\n    &.mobile-nav-open {\n      position: fixed;\n      height: 100vh;\n      width: 100vw;\n      background-color: c.$white;\n      z-index: 999;\n    }\n  }\n}\n\n.header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 24px 32px;\n  box-sizing: border-box;\n\n  @include b.mobile {\n    :host(.mobile-nav-open) & {\n      border-bottom: 1px solid c.color('gray', 200);\n    }\n  }\n}\n\n.logo {\n  height: 36px;\n\n  @include b.mobile {\n    height: 20px;\n  }\n}\n\n.nav {\n  @include b.mobile {\n    flex: 1;\n    padding: 48px 24px;\n  }\n\n  &--list {\n    list-style-type: none;\n    padding: 0;\n    margin: 0;\n    display: flex;\n    gap: 8px;\n\n    @include b.mobile {\n      flex-direction: column;\n    }\n  }\n\n  &--link {\n    padding: 12px 0;\n    text-decoration: none;\n    color: inherit;\n    display: flex;\n    gap: 12px;\n    align-items: center;\n  }\n}\n",
+                    "data": "@use 'color' as c;\n@use 'typography' as t;\n@use 'breakpoints' as b;\n\n:host {\n  display: flex;\n  flex-direction: column;\n\n  @include b.mobile {\n    &.mobile-nav-open {\n      position: fixed;\n      height: 100vh;\n      width: 100vw;\n      background-color: c.$white;\n      z-index: 999;\n    }\n  }\n}\n\n.header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 24px 32px;\n  box-sizing: border-box;\n\n  @include b.mobile {\n    :host(.mobile-nav-open) & {\n      border-bottom: 1px solid c.color('gray', 200);\n    }\n  }\n}\n\n.logo {\n  height: 36px;\n\n  @include b.mobile {\n    height: 20px;\n  }\n}\n\n.nav {\n  @include b.mobile {\n    flex: 1;\n    padding: 48px 24px;\n  }\n\n  &--list {\n    list-style-type: none;\n    padding: 0;\n    margin: 0;\n    display: flex;\n    gap: 48px;\n\n    @include b.mobile {\n      flex-direction: column;\n      gap: 8px;\n    }\n  }\n\n  &--link {\n    padding: 12px 0;\n    text-decoration: none;\n    color: inherit;\n    display: flex;\n    gap: 12px;\n    align-items: center;\n  }\n}\n",
                     "styleUrl": "./landing-layout-header.component.scss"
                 }
             ],
@@ -3572,7 +3572,7 @@
                     }
                 }
             },
-            "templateData": "<header class=\"header\">\n  <lai-logo\n    *ngIf=\"this.service.logoPath$ | async as logoPath\"\n    class=\"logo\"\n    [logoPath]=\"logoPath\"\n    routerLink=\"/\"></lai-logo>\n\n  <ng-container *ngIf=\"!isHandset\">\n    <ng-container *ngTemplateOutlet=\"nav\"></ng-container>\n  </ng-container>\n\n  <lai-icon\n    *ngIf=\"isHandset; else actions\"\n    [glyph]=\"mobileNavIcon\"\n    size=\"sm\"\n    (click)=\"toggleMobileNav()\"></lai-icon>\n</header>\n\n<ng-container *ngIf=\"isHandset && isMobileNavOpen\">\n  <ng-container *ngTemplateOutlet=\"nav\"></ng-container>\n</ng-container>\n\n<ng-template #nav>\n  <nav class=\"nav\">\n    <ul class=\"nav--list\">\n      <li *ngFor=\"let category of service.landingLayoutCategories$ | async\">\n        <lai-label level=\"md\">\n          <a\n            class=\"nav--link\"\n            [routerLink]=\"category.route\"\n            (click)=\"closeMobileNav()\">\n            <lai-icon [glyph]=\"category.icon\" *ngIf=\"isHandset\"></lai-icon>\n            <span>{{ category.title }}</span>\n          </a>\n        </lai-label>\n      </li>\n    </ul>\n  </nav>\n</ng-template>\n\n<ng-template #actions>\n  <ng-container *ngIf=\"actionsRef\">\n    <ng-container *ngTemplateOutlet=\"actionsRef\"></ng-container>\n  </ng-container>\n</ng-template>\n"
+            "templateData": "<header class=\"header\">\n  <lai-logo\n    *ngIf=\"this.service.logoPath$ | async as logoPath\"\n    class=\"logo\"\n    [logoPath]=\"logoPath\"\n    [routerLink]=\"['./']\"></lai-logo>\n\n  <ng-container *ngIf=\"!isHandset\">\n    <ng-container *ngTemplateOutlet=\"nav\"></ng-container>\n  </ng-container>\n\n  <lai-icon\n    *ngIf=\"isHandset; else actions\"\n    [glyph]=\"mobileNavIcon\"\n    size=\"sm\"\n    (click)=\"toggleMobileNav()\"></lai-icon>\n</header>\n\n<ng-container *ngIf=\"isHandset && isMobileNavOpen\">\n  <ng-container *ngTemplateOutlet=\"nav\"></ng-container>\n</ng-container>\n\n<ng-template #nav>\n  <nav class=\"nav\">\n    <ul class=\"nav--list\">\n      <li *ngFor=\"let category of service.landingLayoutCategories$ | async\">\n        <lai-label level=\"md\">\n          <a\n            class=\"nav--link\"\n            [routerLink]=\"['./']\"\n            [fragment]=\"category.fragment\"\n            (click)=\"closeMobileNav()\">\n            <lai-icon [glyph]=\"category.icon\" *ngIf=\"isHandset\"></lai-icon>\n            <span>{{ category.title }}</span>\n          </a>\n        </lai-label>\n      </li>\n    </ul>\n  </nav>\n</ng-template>\n\n<ng-template #actions>\n  <ng-container *ngIf=\"actionsRef\">\n    <ng-container *ngTemplateOutlet=\"actionsRef\"></ng-container>\n  </ng-container>\n</ng-template>\n"
         },
         {
             "name": "LinkComponent",
@@ -7974,11 +7974,11 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
+                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "{\n  hierarchy: 'primary',\n  size: 'md',\n  color: 'primary',\n  disabled: false,\n} as Partial<ButtonComponent>"
+                "type": "Partial<AvatarComponent>",
+                "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
             },
             {
                 "name": "args",
@@ -7994,11 +7994,11 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Partial<AvatarComponent>",
-                "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
+                "type": "",
+                "defaultValue": "{\n  hierarchy: 'primary',\n  size: 'md',\n  color: 'primary',\n  disabled: false,\n} as Partial<ButtonComponent>"
             },
             {
                 "name": "args",
@@ -8584,11 +8584,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
+                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Button',\n  decorators: [\n    moduleMetadata({\n      imports: [ButtonComponent, IconComponent],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: BUTTON_SIZES,\n    },\n    hierarchy: {\n      control: { type: 'select' },\n      options: BUTTON_HIERARCHIES,\n    },\n    color: {\n      control: { type: 'select' },\n      options: BUTTON_COLORS,\n    },\n  },\n}"
+                "type": "Meta<AvatarComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -8604,11 +8604,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<AvatarComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
+                "type": "Meta<ButtonComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Button',\n  decorators: [\n    moduleMetadata({\n      imports: [ButtonComponent, IconComponent],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: BUTTON_SIZES,\n    },\n    hierarchy: {\n      control: { type: 'select' },\n      options: BUTTON_HIERARCHIES,\n    },\n    color: {\n      control: { type: 'select' },\n      options: BUTTON_COLORS,\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -9440,8 +9440,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
+                "rawtype": "StoryObj<AvatarComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -9462,8 +9462,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<AvatarComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                "rawtype": "StoryObj<ButtonComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -9761,6 +9761,90 @@
             }
         ],
         "groupedVariables": {
+            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<AvatarComponent>",
+                    "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
+                },
+                {
+                    "name": "Avatar",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args,\n  render: props => ({\n    props,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<AvatarComponent>",
+                    "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<BadgeComponent>",
+                    "defaultValue": "{\n  color: 'blue',\n  size: 'md',\n}"
+                },
+                {
+                    "name": "Badge",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args,\n  render: props => ({\n    props: {\n      ...props,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\"\n                 [size]=\"size\">\n        {{content}}\n      </lai-badge>\n  `,\n  }),\n}"
+                },
+                {
+                    "name": "BadgeWithPrefix",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args,\n  render: props => ({\n    props: {\n      ...props,\n      content: 'Lorem ipsum',\n      glyph: 'communication',\n    },\n    template: `\n      <lai-badge [color]=\"color\"\n                 [size]=\"size\">\n        <lai-icon [glyph]=\"glyph\"></lai-icon>\n        {{content}}\n      </lai-badge>\n  `,\n  }),\n}"
+                },
+                {
+                    "name": "BadgeWithSuffix",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args,\n  render: props => ({\n    props: {\n      ...props,\n      content: 'Lorem ipsum',\n      glyph: 'communication',\n    },\n    template: `\n      <lai-badge [color]=\"color\"\n                 [size]=\"size\">\n        {{content}}\n        <lai-icon [glyph]=\"glyph\"></lai-icon>\n      </lai-badge>\n  `,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<BadgeComponent>",
+                    "defaultValue": "{\n  title: 'Atoms/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent, IconComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    size: {\n      options: BADGE_SIZES,\n      control: { type: 'select' },\n    },\n  },\n}"
+                }
+            ],
             "projects/lendai-us/design-system/src/lib/button/button.stories.ts": [
                 {
                     "name": "args",
@@ -9821,90 +9905,6 @@
                     "deprecationMessage": "",
                     "type": "Meta<ButtonComponent>",
                     "defaultValue": "{\n  title: 'Atoms/Button',\n  decorators: [\n    moduleMetadata({\n      imports: [ButtonComponent, IconComponent],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: BUTTON_SIZES,\n    },\n    hierarchy: {\n      control: { type: 'select' },\n      options: BUTTON_HIERARCHIES,\n    },\n    color: {\n      control: { type: 'select' },\n      options: BUTTON_COLORS,\n    },\n  },\n}"
-                }
-            ],
-            "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<BadgeComponent>",
-                    "defaultValue": "{\n  color: 'blue',\n  size: 'md',\n}"
-                },
-                {
-                    "name": "Badge",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args,\n  render: props => ({\n    props: {\n      ...props,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\"\n                 [size]=\"size\">\n        {{content}}\n      </lai-badge>\n  `,\n  }),\n}"
-                },
-                {
-                    "name": "BadgeWithPrefix",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args,\n  render: props => ({\n    props: {\n      ...props,\n      content: 'Lorem ipsum',\n      glyph: 'communication',\n    },\n    template: `\n      <lai-badge [color]=\"color\"\n                 [size]=\"size\">\n        <lai-icon [glyph]=\"glyph\"></lai-icon>\n        {{content}}\n      </lai-badge>\n  `,\n  }),\n}"
-                },
-                {
-                    "name": "BadgeWithSuffix",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args,\n  render: props => ({\n    props: {\n      ...props,\n      content: 'Lorem ipsum',\n      glyph: 'communication',\n    },\n    template: `\n      <lai-badge [color]=\"color\"\n                 [size]=\"size\">\n        {{content}}\n        <lai-icon [glyph]=\"glyph\"></lai-icon>\n      </lai-badge>\n  `,\n  }),\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<BadgeComponent>",
-                    "defaultValue": "{\n  title: 'Atoms/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent, IconComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    size: {\n      options: BADGE_SIZES,\n      control: { type: 'select' },\n    },\n  },\n}"
-                }
-            ],
-            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<AvatarComponent>",
-                    "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
-                },
-                {
-                    "name": "Avatar",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args,\n  render: props => ({\n    props,\n  }),\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<AvatarComponent>",
-                    "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
                 }
             ],
             "projects/lendai-us/design-system/src/lib/card/card.stories.ts": [
@@ -11394,13 +11394,13 @@
                     "kind": 198
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/button/button.stories.ts": [
+            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<ButtonComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
+                    "rawtype": "StoryObj<AvatarComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -11420,13 +11420,13 @@
                     "kind": 180
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
+            "projects/lendai-us/design-system/src/lib/button/button.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<AvatarComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "rawtype": "StoryObj<ButtonComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",

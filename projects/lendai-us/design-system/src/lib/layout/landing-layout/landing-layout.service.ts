@@ -5,7 +5,7 @@ import { IconGlyph } from '../../icon';
 export interface LandingLayoutCategory {
   icon: IconGlyph;
   title: string;
-  route: string;
+  fragment: string;
 }
 
 export interface LandingLayoutService {
