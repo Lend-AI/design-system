@@ -205,19 +205,31 @@
         },
         {
             "name": "ImageCheckboxGroup",
-            "id": "interface-ImageCheckboxGroup-f702c8ace36ec695a5964d34dfba571bd4b3361cb03a74bb2cba10837e6271341f88bd076e19596c41ff1cbf22dc6bd95e918f1eb5820bb3f7dc4d15796685d8",
+            "id": "interface-ImageCheckboxGroup-915ef2b40d46759ea49831d1552009851c55f7f6bede5a12e1971423d3f3b8e88277bac0a621f42eab04d5da503fdf5b9661e0acd8ee538201d0d224e1764737",
             "file": "projects/lendai-us/design-system/src/lib/image-checkbox/image-checkbox-group/image-checkbox-group.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { InjectionToken } from '@angular/core';\n\nexport interface ImageCheckboxGroup<T> {\n  readonly name: string;\n  readonly initValue?: T;\n}\n\nexport const IMAGE_CHECKBOX_GROUP = new InjectionToken<\n  ImageCheckboxGroup<unknown>\n>('_IMAGE_CHECKBOX_GROUP');\n",
+            "sourceCode": "import { InjectionToken } from '@angular/core';\n\nexport interface ImageCheckboxGroup<T> {\n  readonly groupName: string;\n  readonly hideCheckboxes: boolean;\n  readonly initValue?: T;\n}\n\nexport const IMAGE_CHECKBOX_GROUP = new InjectionToken<\n  ImageCheckboxGroup<unknown>\n>('_IMAGE_CHECKBOX_GROUP');\n",
             "properties": [
                 {
-                    "name": "initValue",
+                    "name": "groupName",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "T",
-                    "optional": true,
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 4,
+                    "modifierKind": [
+                        146
+                    ]
+                },
+                {
+                    "name": "hideCheckboxes",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
                     "description": "",
                     "line": 5,
                     "modifierKind": [
@@ -225,13 +237,13 @@
                     ]
                 },
                 {
-                    "name": "name",
+                    "name": "initValue",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "string",
-                    "optional": false,
+                    "type": "T",
+                    "optional": true,
                     "description": "",
-                    "line": 4,
+                    "line": 6,
                     "modifierKind": [
                         146
                     ]
@@ -2473,7 +2485,7 @@
         },
         {
             "name": "ImageCheckboxComponent",
-            "id": "component-ImageCheckboxComponent-40a9308c5709a7e99fc1ce6790c3b17c6206cbbde6e21c5f758153314a953443393ba6a0d6447ba8aa324fb0ad6a8953e3fed8a9f3fd74ba8f8de980d176d4cd",
+            "id": "component-ImageCheckboxComponent-b580df59483327278f32fd8699821e01eff01295f7a8e2bb871209eed7e395dec0f90a5dc7d1161acf06a22559ab52fb355e64349689f060381a395ae12e83ef",
             "file": "projects/lendai-us/design-system/src/lib/image-checkbox/image-checkbox/image-checkbox.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2542,7 +2554,8 @@
                         }
                     ],
                     "modifierKind": [
-                        167
+                        167,
+                        122
                     ]
                 },
                 {
@@ -2614,9 +2627,12 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 82,
+                    "line": 86,
                     "deprecated": false,
-                    "deprecationMessage": ""
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        122
+                    ]
                 },
                 {
                     "name": "ngOnDestroy",
@@ -2624,7 +2640,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 78,
+                    "line": 82,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -2634,7 +2650,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 63,
+                    "line": 67,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -2644,7 +2660,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 49,
+                    "line": 53,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "decorators": [
@@ -2664,7 +2680,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 54,
+                    "line": 58,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "decorators": [
@@ -2684,7 +2700,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 59,
+                    "line": 63,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "decorators": [
@@ -2719,7 +2735,7 @@
                     "argsDecorator": [],
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 49
+                    "line": 53
                 },
                 {
                     "name": "mouseenter",
@@ -2727,7 +2743,7 @@
                     "argsDecorator": [],
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 54
+                    "line": 58
                 },
                 {
                     "name": "mouseleave",
@@ -2735,7 +2751,7 @@
                     "argsDecorator": [],
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 59
+                    "line": 63
                 }
             ],
             "standalone": false,
@@ -2743,7 +2759,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  HostBinding,\n  HostListener,\n  Input,\n  OnDestroy,\n  OnInit,\n  inject,\n} from '@angular/core';\nimport { UniqueSelectionDispatcher } from '@angular/cdk/collections';\nimport { IMAGE_CHECKBOX_GROUP } from '../image-checkbox-group/image-checkbox-group';\n\n@Component({\n  selector: 'lai-image-checkbox',\n  templateUrl: './image-checkbox.component.html',\n  styleUrls: ['./image-checkbox.component.scss'],\n})\nexport class ImageCheckboxComponent<T> implements OnInit, OnDestroy {\n  @Input() image!: string;\n  @Input() activeImage?: string;\n  @Input() label!: string;\n  @Input() value!: T;\n\n  @HostBinding('class.checked')\n  checked = false;\n\n  id = crypto.randomUUID();\n\n  private dispatcherListener!: () => void;\n\n  private parent = inject(IMAGE_CHECKBOX_GROUP);\n  private dispather = inject(UniqueSelectionDispatcher);\n\n  private isHovered = false;\n\n  get finalImage(): string {\n    return this.activeImage\n      ? this.checked || this.isHovered\n        ? this.activeImage\n        : this.image\n      : this.image;\n  }\n\n  private get name(): string {\n    return this.parent.name;\n  }\n\n  @HostListener('click')\n  private onClick(): void {\n    this.change();\n  }\n\n  @HostListener('mouseenter')\n  private onMouseEnter(): void {\n    this.isHovered = true;\n  }\n\n  @HostListener('mouseleave')\n  private onMouseLeave(): void {\n    this.isHovered = false;\n  }\n\n  ngOnInit(): void {\n    if (\n      this.parent.initValue !== undefined &&\n      this.parent.initValue === this.value\n    ) {\n      this.checked = true;\n    }\n\n    this.dispatcherListener = this.dispather.listen((id, name) => {\n      if (name === this.name && id !== this.id) {\n        this.checked = false;\n      }\n    });\n  }\n\n  ngOnDestroy(): void {\n    this.dispatcherListener();\n  }\n\n  change(): void {\n    this.checked = !this.checked;\n    this.dispather.notify(this.id, this.name);\n  }\n}\n",
+            "sourceCode": "import {\n  Component,\n  HostBinding,\n  HostListener,\n  Input,\n  OnDestroy,\n  OnInit,\n  inject,\n} from '@angular/core';\nimport { UniqueSelectionDispatcher } from '@angular/cdk/collections';\nimport { IMAGE_CHECKBOX_GROUP } from '../image-checkbox-group/image-checkbox-group';\n\n@Component({\n  selector: 'lai-image-checkbox',\n  templateUrl: './image-checkbox.component.html',\n  styleUrls: ['./image-checkbox.component.scss'],\n})\nexport class ImageCheckboxComponent<T> implements OnInit, OnDestroy {\n  @Input() image!: string;\n  @Input() activeImage?: string;\n  @Input() label!: string;\n  @Input() value!: T;\n\n  @HostBinding('class.checked')\n  protected checked = false;\n\n  id = crypto.randomUUID();\n\n  private dispatcherListener!: () => void;\n\n  private parent = inject(IMAGE_CHECKBOX_GROUP);\n  private dispather = inject(UniqueSelectionDispatcher);\n\n  private isHovered = false;\n\n  protected get finalImage(): string {\n    return this.activeImage\n      ? this.checked || this.isHovered\n        ? this.activeImage\n        : this.image\n      : this.image;\n  }\n\n  protected get hideCheckboxes(): boolean {\n    return this.parent.hideCheckboxes;\n  }\n\n  private get groupName(): string {\n    return this.parent.groupName;\n  }\n\n  @HostListener('click')\n  private onClick(): void {\n    this.change();\n  }\n\n  @HostListener('mouseenter')\n  private onMouseEnter(): void {\n    this.isHovered = true;\n  }\n\n  @HostListener('mouseleave')\n  private onMouseLeave(): void {\n    this.isHovered = false;\n  }\n\n  ngOnInit(): void {\n    if (\n      this.parent.initValue !== undefined &&\n      this.parent.initValue === this.value\n    ) {\n      this.checked = true;\n    }\n\n    this.dispatcherListener = this.dispather.listen((id, name) => {\n      if (name === this.groupName && id !== this.id) {\n        this.checked = false;\n      }\n    });\n  }\n\n  ngOnDestroy(): void {\n    this.dispatcherListener();\n  }\n\n  protected change(): void {\n    this.checked = !this.checked;\n    this.dispather.notify(this.id, this.groupName);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2766,21 +2782,30 @@
                         "line": 36
                     }
                 },
-                "name": {
-                    "name": "name",
+                "hideCheckboxes": {
+                    "name": "hideCheckboxes",
                     "getSignature": {
-                        "name": "name",
+                        "name": "hideCheckboxes",
+                        "type": "boolean",
+                        "returnType": "boolean",
+                        "line": 44
+                    }
+                },
+                "groupName": {
+                    "name": "groupName",
+                    "getSignature": {
+                        "name": "groupName",
                         "type": "string",
                         "returnType": "string",
-                        "line": 44
+                        "line": 48
                     }
                 }
             },
-            "templateData": "<img class=\"image\" [src]=\"finalImage\" />\n\n<lai-label class=\"label\" level=\"lg\">{{ label }}</lai-label>\n\n<mat-checkbox\n  [checked]=\"checked\"\n  (change)=\"change()\"\n  (click)=\"$event.stopPropagation()\"></mat-checkbox>\n"
+            "templateData": "<img class=\"image\" [src]=\"finalImage\" />\n\n<lai-label class=\"label\" level=\"lg\">{{ label }}</lai-label>\n\n<mat-checkbox\n  *ngIf=\"!hideCheckboxes\"\n  [checked]=\"checked\"\n  (change)=\"change()\"\n  (click)=\"$event.stopPropagation()\"></mat-checkbox>\n"
         },
         {
             "name": "ImageCheckboxGroupComponent",
-            "id": "component-ImageCheckboxGroupComponent-6e06df1867a37e920c9c409f877c5a68ec371bfef55dc7b2b037885e475068867ac74cd09af2c2896a13cbf4b7190f55f1bfc0abfda19aac4e60219a952b9b10",
+            "id": "component-ImageCheckboxGroupComponent-b60bf7b6071688b078d521d6e2b7fe2b4abbd7d4843c762a60f237784f9994ebc4890ff613d7065b0c20fa01368625392ae089673f4b7848a9dc36d05d50fbb2",
             "file": "projects/lendai-us/design-system/src/lib/image-checkbox/image-checkbox-group/image-checkbox-group.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2802,7 +2827,17 @@
             ],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "hideCheckboxes",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 36,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
             "outputsClass": [],
             "propertiesClass": [
                 {
@@ -2812,7 +2847,7 @@
                     "type": "QueryList<ImageCheckboxComponent<T>>",
                     "optional": false,
                     "description": "",
-                    "line": 36,
+                    "line": 39,
                     "decorators": [
                         {
                             "name": "ContentChildren",
@@ -2831,10 +2866,20 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 43,
+                    "line": 46,
                     "modifierKind": [
                         121
                     ]
+                },
+                {
+                    "name": "groupName",
+                    "defaultValue": "crypto.randomUUID()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 41
                 },
                 {
                     "name": "initValue",
@@ -2843,17 +2888,7 @@
                     "type": "T",
                     "optional": true,
                     "description": "",
-                    "line": 39
-                },
-                {
-                    "name": "name",
-                    "defaultValue": "crypto.randomUUID()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 38
+                    "line": 42
                 },
                 {
                     "name": "ngControl",
@@ -2862,7 +2897,7 @@
                     "type": "NgControl",
                     "optional": true,
                     "description": "",
-                    "line": 47,
+                    "line": 50,
                     "decorators": [
                         {
                             "name": "Optional",
@@ -2887,7 +2922,7 @@
                     "type": "function",
                     "optional": false,
                     "description": "",
-                    "line": 40
+                    "line": 43
                 },
                 {
                     "name": "onTouched",
@@ -2896,7 +2931,7 @@
                     "type": "function",
                     "optional": false,
                     "description": "",
-                    "line": 41
+                    "line": 44
                 },
                 {
                     "name": "sub$",
@@ -2906,7 +2941,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 45,
+                    "line": 48,
                     "modifierKind": [
                         121,
                         146
@@ -2920,7 +2955,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 53,
+                    "line": 56,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -2930,7 +2965,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 70,
+                    "line": 75,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -2955,7 +2990,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 77,
+                    "line": 82,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -2992,7 +3027,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 80,
+                    "line": 85,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -3021,7 +3056,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 74,
+                    "line": 79,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -3046,7 +3081,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  AfterContentInit,\n  Component,\n  Optional,\n  Self,\n  inject,\n} from '@angular/core';\nimport {\n  IMAGE_CHECKBOX_GROUP,\n  ImageCheckboxGroup,\n} from './image-checkbox-group';\nimport { ControlValueAccessor, NgControl } from '@angular/forms';\nimport { ContentChildren } from '@angular/core';\nimport { QueryList } from '@angular/core';\nimport { ImageCheckboxComponent } from '../image-checkbox/image-checkbox.component';\nimport { OnDestroy } from '@angular/core';\nimport { Subscription } from 'rxjs';\nimport { UniqueSelectionDispatcher } from '@angular/cdk/collections';\n\n@Component({\n  selector: 'lai-image-checkbox-group',\n  templateUrl: './image-checkbox-group.component.html',\n  styleUrls: ['./image-checkbox-group.component.scss'],\n  providers: [\n    { provide: IMAGE_CHECKBOX_GROUP, useExisting: ImageCheckboxGroupComponent },\n  ],\n})\nexport class ImageCheckboxGroupComponent<T>\n  implements\n    ControlValueAccessor,\n    ImageCheckboxGroup<T>,\n    AfterContentInit,\n    OnDestroy\n{\n  @ContentChildren(ImageCheckboxComponent)\n  checkboxes!: QueryList<ImageCheckboxComponent<T>>;\n\n  name = crypto.randomUUID();\n  initValue?: T;\n  onChange!: (value: unknown) => void;\n  onTouched!: () => void;\n\n  private dispather = inject(UniqueSelectionDispatcher);\n\n  private readonly sub$ = new Subscription();\n\n  constructor(@Optional() @Self() public readonly ngControl?: NgControl) {\n    if (this.ngControl) {\n      this.ngControl.valueAccessor = this;\n    }\n  }\n\n  ngAfterContentInit(): void {\n    this.dispather.listen((id, name) => {\n      if (name !== this.name) {\n        return;\n      }\n\n      const checkbox = this.checkboxes.find(checkbox => checkbox.id === id);\n      if (!checkbox) {\n        throw new Error(`Cannot find checkbox with id ${id}`);\n      }\n\n      const newValue =\n        checkbox.value === this.ngControl?.value ? null : checkbox.value;\n      this.onChange(newValue);\n    });\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n\n  writeValue(obj: T): void {\n    this.initValue = obj;\n  }\n  registerOnChange(fn: (value: unknown) => void): void {\n    this.onChange = fn;\n  }\n  registerOnTouched(fn: () => void): void {\n    this.registerOnTouched = fn;\n  }\n}\n",
+            "sourceCode": "import {\n  AfterContentInit,\n  Component,\n  Input,\n  Optional,\n  Self,\n  inject,\n} from '@angular/core';\nimport {\n  IMAGE_CHECKBOX_GROUP,\n  ImageCheckboxGroup,\n} from './image-checkbox-group';\nimport { ControlValueAccessor, NgControl } from '@angular/forms';\nimport { ContentChildren } from '@angular/core';\nimport { QueryList } from '@angular/core';\nimport { ImageCheckboxComponent } from '../image-checkbox/image-checkbox.component';\nimport { OnDestroy } from '@angular/core';\nimport { Subscription } from 'rxjs';\nimport { UniqueSelectionDispatcher } from '@angular/cdk/collections';\n\n@Component({\n  selector: 'lai-image-checkbox-group',\n  templateUrl: './image-checkbox-group.component.html',\n  styleUrls: ['./image-checkbox-group.component.scss'],\n  providers: [\n    { provide: IMAGE_CHECKBOX_GROUP, useExisting: ImageCheckboxGroupComponent },\n  ],\n})\nexport class ImageCheckboxGroupComponent<T>\n  implements\n    ControlValueAccessor,\n    ImageCheckboxGroup<T>,\n    AfterContentInit,\n    OnDestroy\n{\n  @Input() hideCheckboxes = false;\n\n  @ContentChildren(ImageCheckboxComponent)\n  checkboxes!: QueryList<ImageCheckboxComponent<T>>;\n\n  groupName = crypto.randomUUID();\n  initValue?: T;\n  onChange!: (value: unknown) => void;\n  onTouched!: () => void;\n\n  private dispather = inject(UniqueSelectionDispatcher);\n\n  private readonly sub$ = new Subscription();\n\n  constructor(@Optional() @Self() public readonly ngControl?: NgControl) {\n    if (this.ngControl) {\n      this.ngControl.valueAccessor = this;\n    }\n  }\n\n  ngAfterContentInit(): void {\n    this.dispather.listen((checkboxId, groupName) => {\n      if (groupName !== this.groupName) {\n        return;\n      }\n\n      const checkbox = this.checkboxes.find(\n        checkbox => checkbox.id === checkboxId\n      );\n      if (!checkbox) {\n        throw new Error(`Cannot find checkbox with id ${checkboxId}`);\n      }\n\n      const newValue =\n        checkbox.value === this.ngControl?.value ? null : checkbox.value;\n      this.onChange(newValue);\n    });\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n\n  writeValue(obj: T): void {\n    this.initValue = obj;\n  }\n  registerOnChange(fn: (value: unknown) => void): void {\n    this.onChange = fn;\n  }\n  registerOnTouched(fn: () => void): void {\n    this.registerOnTouched = fn;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -3069,7 +3104,7 @@
                         "optional": true
                     }
                 ],
-                "line": 45,
+                "line": 48,
                 "jsdoctags": [
                     {
                         "name": "ngControl",
@@ -6207,7 +6242,7 @@
         },
         {
             "name": "StepperComponent",
-            "id": "component-StepperComponent-2861de67d20246524e0ecee27ddbf28659a5a36b18f11c03cbc26816f2a1571bacaf1ace31dcbefc4b70821177a24e3a4de84e320505e7639e699cf806c334ce",
+            "id": "component-StepperComponent-f435d1814f1f7a3dd421ad901040fef0bae52fd974704e10a576605de3cc97b8c67b4db9ae88d8830a86b32f6082fe3488b9b1f3fe941c89bf1f16459bbeaf90",
             "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -6231,7 +6266,7 @@
                     "defaultValue": "new EventEmitter<number>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 17,
+                    "line": 18,
                     "type": "EventEmitter"
                 }
             ],
@@ -6244,7 +6279,7 @@
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 22,
+                    "line": 24,
                     "modifierKind": [
                         122
                     ]
@@ -6256,7 +6291,7 @@
                     "type": "StepComponent",
                     "optional": true,
                     "description": "",
-                    "line": 21,
+                    "line": 23,
                     "modifierKind": [
                         122
                     ]
@@ -6268,7 +6303,7 @@
                     "type": "QueryList<StepComponent>",
                     "optional": false,
                     "description": "",
-                    "line": 19,
+                    "line": 21,
                     "decorators": [
                         {
                             "name": "ContentChildren",
@@ -6288,7 +6323,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 24,
+                    "line": 28,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -6305,7 +6340,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 30,
+                    "line": 35,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -6330,7 +6365,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  AfterViewInit,\n  Component,\n  ContentChildren,\n  EventEmitter,\n  Output,\n  QueryList,\n} from '@angular/core';\nimport { StepComponent } from './stepper-step/step.component';\n\n@Component({\n  selector: 'lai-stepper',\n  templateUrl: './stepper.component.html',\n  styleUrls: ['./stepper.component.scss'],\n})\nexport class StepperComponent implements AfterViewInit {\n  @Output() selectedChange = new EventEmitter<number>();\n\n  @ContentChildren(StepComponent) protected steps!: QueryList<StepComponent>;\n\n  protected selectedStep?: StepComponent;\n  protected activeIndex = 0;\n\n  ngAfterViewInit(): void {\n    if (!this.selectedStep && this.steps.first) {\n      this.selectedStep = this.steps.first;\n    }\n  }\n\n  onSelectedChange(index: number): void {\n    this.activeIndex = index;\n    this.selectedStep = this.steps.get(index);\n    this.selectedChange.emit(index);\n  }\n}\n",
+            "sourceCode": "import {\n  AfterViewInit,\n  ChangeDetectorRef,\n  Component,\n  ContentChildren,\n  EventEmitter,\n  Output,\n  QueryList,\n} from '@angular/core';\nimport { StepComponent } from './stepper-step/step.component';\n\n@Component({\n  selector: 'lai-stepper',\n  templateUrl: './stepper.component.html',\n  styleUrls: ['./stepper.component.scss'],\n})\nexport class StepperComponent implements AfterViewInit {\n  @Output() selectedChange = new EventEmitter<number>();\n\n  @ContentChildren(StepComponent)\n  protected steps!: QueryList<StepComponent>;\n\n  protected selectedStep?: StepComponent;\n  protected activeIndex = 0;\n\n  constructor(private readonly cdRef: ChangeDetectorRef) {}\n\n  ngAfterViewInit(): void {\n    if (!this.selectedStep && this.steps.first) {\n      this.selectedStep = this.steps.first;\n      this.cdRef.detectChanges();\n    }\n  }\n\n  onSelectedChange(index: number): void {\n    this.activeIndex = index;\n    this.selectedStep = this.steps.get(index);\n    this.selectedChange.emit(index);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -6339,6 +6374,32 @@
                 }
             ],
             "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "cdRef",
+                        "type": "ChangeDetectorRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 24,
+                "jsdoctags": [
+                    {
+                        "name": "cdRef",
+                        "type": "ChangeDetectorRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
             "implements": [
                 "AfterViewInit"
             ],
@@ -8268,7 +8329,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "[]",
-                "defaultValue": "[\n  {\n    label: 'First label',\n    image: 'https://placehold.co/600x400',\n    activeImage: 'https://placehold.co/900x600',\n    value: 'first',\n  },\n  {\n    label: 'Second label',\n    image: 'https://placehold.co/600x400',\n    activeImage: 'https://placehold.co/900x600',\n    value: 'second',\n  },\n  {\n    label: 'Third label',\n    image: 'https://placehold.co/600x400',\n    activeImage: 'https://placehold.co/900x600',\n    value: 'third',\n  },\n]"
+                "defaultValue": "[\n  {\n    label: 'First label',\n    image: 'assets/images/image-checkbox/CASH_OUT_REFINANCE.svg',\n    activeImage: 'assets/images/image-checkbox/CASH_OUT_REFINANCE--active.svg',\n    value: 'first',\n  },\n  {\n    label: 'Second label',\n    image: 'assets/images/image-checkbox/NEW_PURCHASE.svg',\n    activeImage: 'assets/images/image-checkbox/NEW_PURCHASE--active.svg',\n    value: 'second',\n  },\n  {\n    label: 'Third label',\n    image: 'assets/images/image-checkbox/PRE_APPROVAL.svg',\n    activeImage: 'assets/images/image-checkbox/PRE_APPROVAL--active.svg',\n    value: 'third',\n  },\n]"
             },
             {
                 "name": "Disabled",
@@ -8448,7 +8509,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {},\n  render: args => ({\n    props: {\n      ...args,\n      data,\n    },\n    template: `\n      <lai-image-checkbox-group>\n        <lai-image-checkbox *ngFor=\"let item of data\"\n                            [label]=\"item.label\"\n                            [image]=\"item.image\"\n                            [activeImage]=\"item.activeImage\"\n                            [value]=\"item.value\"></lai-image-checkbox>\n      </lai-image-checkbox-group>\n    `,\n  }),\n}"
+                "defaultValue": "{\n  args: {\n    hideCheckboxes: false,\n  },\n  render: args => ({\n    props: {\n      ...args,\n      data,\n    },\n    template: `\n      <lai-image-checkbox-group [hideCheckboxes]=\"hideCheckboxes\">\n        <lai-image-checkbox *ngFor=\"let item of data\"\n                            [label]=\"item.label\"\n                            [image]=\"item.image\"\n                            [activeImage]=\"item.activeImage\"\n                            [value]=\"item.value\"></lai-image-checkbox>\n      </lai-image-checkbox-group>\n    `,\n  }),\n}"
             },
             {
                 "name": "Label",
@@ -8628,7 +8689,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ImageCheckboxGroupComponent<string>>",
-                "defaultValue": "{\n  title: 'WIP/ImageCheckbox',\n  decorators: [\n    moduleMetadata({\n      imports: [ImageCheckboxModule],\n    }),\n  ],\n}"
+                "defaultValue": "{\n  title: 'WIP/ImageCheckbox',\n  component: ImageCheckboxGroupComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [ImageCheckboxModule],\n    }),\n  ],\n}"
             },
             {
                 "name": "meta",
@@ -8764,21 +8825,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/typography/label/label.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<LabelComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Typography/Label',\n  decorators: [\n    moduleMetadata({\n      imports: [LabelComponent],\n    }),\n  ],\n  argTypes: {\n    level: {\n      options: LABEL_LEVELS,\n      control: { type: 'select' },\n    },\n    weight: {\n      options: LABEL_WEIGHTS,\n      control: { type: 'select' },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/typography/title/title.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<TitleComponent>",
                 "defaultValue": "{\n  title: 'Atoms/Typography/Title',\n  decorators: [\n    moduleMetadata({\n      imports: [TitleComponent],\n    }),\n  ],\n  argTypes: {\n    level: {\n      options: TITLE_LEVELS,\n      control: { type: 'select' },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/typography/label/label.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<LabelComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Typography/Label',\n  decorators: [\n    moduleMetadata({\n      imports: [LabelComponent],\n    }),\n  ],\n  argTypes: {\n    level: {\n      options: LABEL_LEVELS,\n      control: { type: 'select' },\n    },\n    weight: {\n      options: LABEL_WEIGHTS,\n      control: { type: 'select' },\n    },\n  },\n}"
             },
             {
                 "name": "OnlyTitle",
@@ -9638,8 +9699,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<LabelComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/typography/label/label.stories.ts",
+                "rawtype": "StoryObj<TitleComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/typography/title/title.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -9649,8 +9710,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<TitleComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/typography/title/title.stories.ts",
+                "rawtype": "StoryObj<LabelComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/typography/label/label.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -10282,7 +10343,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "[]",
-                    "defaultValue": "[\n  {\n    label: 'First label',\n    image: 'https://placehold.co/600x400',\n    activeImage: 'https://placehold.co/900x600',\n    value: 'first',\n  },\n  {\n    label: 'Second label',\n    image: 'https://placehold.co/600x400',\n    activeImage: 'https://placehold.co/900x600',\n    value: 'second',\n  },\n  {\n    label: 'Third label',\n    image: 'https://placehold.co/600x400',\n    activeImage: 'https://placehold.co/900x600',\n    value: 'third',\n  },\n]"
+                    "defaultValue": "[\n  {\n    label: 'First label',\n    image: 'assets/images/image-checkbox/CASH_OUT_REFINANCE.svg',\n    activeImage: 'assets/images/image-checkbox/CASH_OUT_REFINANCE--active.svg',\n    value: 'first',\n  },\n  {\n    label: 'Second label',\n    image: 'assets/images/image-checkbox/NEW_PURCHASE.svg',\n    activeImage: 'assets/images/image-checkbox/NEW_PURCHASE--active.svg',\n    value: 'second',\n  },\n  {\n    label: 'Third label',\n    image: 'assets/images/image-checkbox/PRE_APPROVAL.svg',\n    activeImage: 'assets/images/image-checkbox/PRE_APPROVAL--active.svg',\n    value: 'third',\n  },\n]"
                 },
                 {
                     "name": "ImageCheckbox",
@@ -10292,7 +10353,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {},\n  render: args => ({\n    props: {\n      ...args,\n      data,\n    },\n    template: `\n      <lai-image-checkbox-group>\n        <lai-image-checkbox *ngFor=\"let item of data\"\n                            [label]=\"item.label\"\n                            [image]=\"item.image\"\n                            [activeImage]=\"item.activeImage\"\n                            [value]=\"item.value\"></lai-image-checkbox>\n      </lai-image-checkbox-group>\n    `,\n  }),\n}"
+                    "defaultValue": "{\n  args: {\n    hideCheckboxes: false,\n  },\n  render: args => ({\n    props: {\n      ...args,\n      data,\n    },\n    template: `\n      <lai-image-checkbox-group [hideCheckboxes]=\"hideCheckboxes\">\n        <lai-image-checkbox *ngFor=\"let item of data\"\n                            [label]=\"item.label\"\n                            [image]=\"item.image\"\n                            [activeImage]=\"item.activeImage\"\n                            [value]=\"item.value\"></lai-image-checkbox>\n      </lai-image-checkbox-group>\n    `,\n  }),\n}"
                 },
                 {
                     "name": "meta",
@@ -10302,7 +10363,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<ImageCheckboxGroupComponent<string>>",
-                    "defaultValue": "{\n  title: 'WIP/ImageCheckbox',\n  decorators: [\n    moduleMetadata({\n      imports: [ImageCheckboxModule],\n    }),\n  ],\n}"
+                    "defaultValue": "{\n  title: 'WIP/ImageCheckbox',\n  component: ImageCheckboxGroupComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [ImageCheckboxModule],\n    }),\n  ],\n}"
                 }
             ],
             "projects/lendai-us/design-system/src/lib/typography/display/display.stories.ts": [
@@ -11628,19 +11689,6 @@
                     "kind": 180
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/typography/label/label.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<LabelComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/typography/label/label.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/typography/title/title.stories.ts": [
                 {
                     "name": "Story",
@@ -11648,6 +11696,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<TitleComponent>",
                     "file": "projects/lendai-us/design-system/src/lib/typography/title/title.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/typography/label/label.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<LabelComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/typography/label/label.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -12251,7 +12312,7 @@
                 "linktype": "component",
                 "name": "ImageCheckboxGroupComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/15",
+                "coverageCount": "0/16",
                 "status": "low"
             },
             {
@@ -12260,7 +12321,7 @@
                 "linktype": "interface",
                 "name": "ImageCheckboxGroup",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -13046,7 +13107,7 @@
                 "linktype": "component",
                 "name": "StepperComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/8",
                 "status": "low"
             },
             {

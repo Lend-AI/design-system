@@ -3,6 +3,7 @@
 <lai-label class="label" level="lg">{{ label }}</lai-label>
 
 <mat-checkbox
+  *ngIf="!hideCheckboxes"
   [checked]="checked"
   (change)="change()"
   (click)="$event.stopPropagation()"></mat-checkbox>

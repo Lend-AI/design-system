@@ -1,6 +1,7 @@
 import {
   AfterContentInit,
   Component,
+  Input,
   Optional,
   Self,
   inject,
@@ -32,10 +33,12 @@ export class ImageCheckboxGroupComponent<T>
     AfterContentInit,
     OnDestroy
 {
+  @Input() hideCheckboxes = false;
+
   @ContentChildren(ImageCheckboxComponent)
   checkboxes!: QueryList<ImageCheckboxComponent<T>>;
 
-  name = crypto.randomUUID();
+  groupName = crypto.randomUUID();
   initValue?: T;
   onChange!: (value: unknown) => void;
   onTouched!: () => void;
@@ -51,14 +54,16 @@ export class ImageCheckboxGroupComponent<T>
   }
 
   ngAfterContentInit(): void {
-    this.dispather.listen((id, name) => {
-      if (name !== this.name) {
+    this.dispather.listen((checkboxId, groupName) => {
+      if (groupName !== this.groupName) {
         return;
       }
 
-      const checkbox = this.checkboxes.find(checkbox => checkbox.id === id);
+      const checkbox = this.checkboxes.find(
+        checkbox => checkbox.id === checkboxId
+      );
       if (!checkbox) {
-        throw new Error(`Cannot find checkbox with id ${id}`);
+        throw new Error(`Cannot find checkbox with id ${checkboxId}`);
       }
 
       const newValue =

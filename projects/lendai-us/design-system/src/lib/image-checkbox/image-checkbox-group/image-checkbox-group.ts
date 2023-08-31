@@ -1,7 +1,8 @@
 import { InjectionToken } from '@angular/core';
 
 export interface ImageCheckboxGroup<T> {
-  readonly name: string;
+  readonly groupName: string;
+  readonly hideCheckboxes: boolean;
   readonly initValue?: T;
 }
 

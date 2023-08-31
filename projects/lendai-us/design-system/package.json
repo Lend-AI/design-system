@@ -1,6 +1,6 @@
 {
   "name": "@lendai-us/design-system",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "peerDependencies": {
     "@angular/cdk": "^15.2.9",
     "@angular/common": "^15.2.0",

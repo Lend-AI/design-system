@@ -22,7 +22,7 @@ export class ImageCheckboxComponent<T> implements OnInit, OnDestroy {
   @Input() value!: T;
 
   @HostBinding('class.checked')
-  checked = false;
+  protected checked = false;
 
   id = crypto.randomUUID();
 
@@ -33,7 +33,7 @@ export class ImageCheckboxComponent<T> implements OnInit, OnDestroy {
 
   private isHovered = false;
 
-  get finalImage(): string {
+  protected get finalImage(): string {
     return this.activeImage
       ? this.checked || this.isHovered
         ? this.activeImage
@@ -41,8 +41,12 @@ export class ImageCheckboxComponent<T> implements OnInit, OnDestroy {
       : this.image;
   }
 
-  private get name(): string {
-    return this.parent.name;
+  protected get hideCheckboxes(): boolean {
+    return this.parent.hideCheckboxes;
+  }
+
+  private get groupName(): string {
+    return this.parent.groupName;
   }
 
   @HostListener('click')
@@ -69,7 +73,7 @@ export class ImageCheckboxComponent<T> implements OnInit, OnDestroy {
     }
 
     this.dispatcherListener = this.dispather.listen((id, name) => {
-      if (name === this.name && id !== this.id) {
+      if (name === this.groupName && id !== this.id) {
         this.checked = false;
       }
     });
@@ -79,8 +83,8 @@ export class ImageCheckboxComponent<T> implements OnInit, OnDestroy {
     this.dispatcherListener();
   }
 
-  change(): void {
+  protected change(): void {
     this.checked = !this.checked;
-    this.dispather.notify(this.id, this.name);
+    this.dispather.notify(this.id, this.groupName);
   }
 }
