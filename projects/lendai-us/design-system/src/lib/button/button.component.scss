@@ -82,6 +82,10 @@ $colors: ('primary', 'error', 'success', 'gray');
 
       &[laiIconButton] {
         padding: map.get($config, 'padding-y');
+
+        &[hierarchy='tertiary'] {
+          padding: 0;
+        }
       }
     }
   }
