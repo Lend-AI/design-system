@@ -18,8 +18,8 @@
   }
 
   @include b.mobile {
-    width: 156px;
-    padding: 12px;
+    min-width: 156px;
+    padding: 10px 12px;
     gap: 12px;
   }
 }
