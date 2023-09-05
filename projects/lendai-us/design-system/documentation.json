@@ -327,6 +327,79 @@
             "methods": []
         },
         {
+            "name": "LanguageSwitcherOption",
+            "id": "interface-LanguageSwitcherOption-d003df226437422a214e3a869dfe5d9d737c021548bcc6cba2b83a1bdbc16a34be4d0e9ac4f3ca5adae1694ef9ea4d89f94e06d38aa9a3a3f12b7208e3c2851f",
+            "file": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.service.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\n\nexport interface LanguageSwitcherService {\n  options$: Observable<LanguageSwitcherOption[]>;\n  currentLanguage$: Observable<string>;\n}\n\nexport interface LanguageSwitcherOption {\n  flag: string;\n  label: string;\n  value: string;\n}\n\nexport const LANGUAGE_SWITCHER_SERVICE =\n  new InjectionToken<LanguageSwitcherService>('_LANGUAGE_SWITCHER_SERVICE');\n",
+            "properties": [
+                {
+                    "name": "flag",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                },
+                {
+                    "name": "value",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 168,
+            "methods": []
+        },
+        {
+            "name": "LanguageSwitcherService",
+            "id": "interface-LanguageSwitcherService-d003df226437422a214e3a869dfe5d9d737c021548bcc6cba2b83a1bdbc16a34be4d0e9ac4f3ca5adae1694ef9ea4d89f94e06d38aa9a3a3f12b7208e3c2851f",
+            "file": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.service.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\n\nexport interface LanguageSwitcherService {\n  options$: Observable<LanguageSwitcherOption[]>;\n  currentLanguage$: Observable<string>;\n}\n\nexport interface LanguageSwitcherOption {\n  flag: string;\n  label: string;\n  value: string;\n}\n\nexport const LANGUAGE_SWITCHER_SERVICE =\n  new InjectionToken<LanguageSwitcherService>('_LANGUAGE_SWITCHER_SERVICE');\n",
+            "properties": [
+                {
+                    "name": "currentLanguage$",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Observable<string>",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "options$",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Observable<LanguageSwitcherOption[]>",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 168,
+            "methods": []
+        },
+        {
             "name": "SidenavLayoutCategory",
             "id": "interface-SidenavLayoutCategory-0470d2b23e10c76a9d12d93ba943557eb9ad06011f345cd5476602b4e1198704080bebb9ecbbb8e447f8a1ab0527d5589b617c69ad36991f4426cfba1837c749",
             "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.service.ts",
@@ -512,7 +585,47 @@
     "classes": [
         {
             "name": "DummyService",
-            "id": "class-DummyService-899bac6fc6980be51e70ac0fdd26275f52c0f3851ae382997a0b6a60368dfc9c3234ce023042107cf674135c3aadc5413f845541d66dc0c3353e998957d1fdc6",
+            "id": "class-DummyService-3421f06cb99be5f6b5140ebd6d7f62448fc7e705ff1e0d6128587bb074de069b9a5e72aa9ebf87d6c725edf67ed98f70d78b9733bde2eaac4e09362384ea35e1",
+            "file": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.stories.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';\nimport { of } from 'rxjs';\nimport {\n  LANGUAGE_SWITCHER_SERVICE,\n  LanguageSwitcherService,\n} from './language-switcher.service';\nimport { LanguageSwitcherComponent } from './language-switcher.component';\n\nclass DummyService implements LanguageSwitcherService {\n  options$ = of([\n    {\n      flag: 'il',\n      label: 'Hebrew',\n      value: 'il',\n    },\n    {\n      flag: 'us',\n      label: 'English',\n      value: 'us',\n    },\n  ]);\n  currentLanguage$ = of('il');\n}\n\nconst meta: Meta<LanguageSwitcherComponent> = {\n  title: 'Molecules/LanguageSwitcher',\n  component: LanguageSwitcherComponent,\n  decorators: [\n    moduleMetadata({\n      providers: [\n        {\n          provide: LANGUAGE_SWITCHER_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n};\nexport default meta;\ntype Story = StoryObj<LanguageSwitcherComponent>;\n\nexport const LanguageSwitcher: Story = {\n  args: {},\n  render: props => ({\n    props,\n  }),\n};\n",
+            "properties": [
+                {
+                    "name": "currentLanguage$",
+                    "defaultValue": "of('il')",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 22
+                },
+                {
+                    "name": "options$",
+                    "defaultValue": "of([\n    {\n      flag: 'il',\n      label: 'Hebrew',\n      value: 'il',\n    },\n    {\n      flag: 'us',\n      label: 'English',\n      value: 'us',\n    },\n  ])",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "implements": [
+                "LanguageSwitcherService"
+            ]
+        },
+        {
+            "name": "DummyService",
+            "id": "class-DummyService-899bac6fc6980be51e70ac0fdd26275f52c0f3851ae382997a0b6a60368dfc9c3234ce023042107cf674135c3aadc5413f845541d66dc0c3353e998957d1fdc6-1",
             "file": "projects/lendai-us/design-system/src/lib/layout/clean-layout/clean-layout.stories.ts",
             "deprecated": false,
             "deprecationMessage": "",
@@ -538,11 +651,14 @@
             "hostListeners": [],
             "implements": [
                 "CleanLayoutService"
-            ]
+            ],
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "DummyService-1"
         },
         {
             "name": "DummyService",
-            "id": "class-DummyService-eb9993736d3e2e6a19c20683bffbc272d1213b40893ea3d92c85d09c2480eedad3ba944e61e387446ae0f232d7a8e628ae8faeec5c5e48700dac0142802f4821-1",
+            "id": "class-DummyService-eb9993736d3e2e6a19c20683bffbc272d1213b40893ea3d92c85d09c2480eedad3ba944e61e387446ae0f232d7a8e628ae8faeec5c5e48700dac0142802f4821-2",
             "file": "projects/lendai-us/design-system/src/lib/layout/landing-layout/landing-layout.stories.ts",
             "deprecated": false,
             "deprecationMessage": "",
@@ -580,12 +696,12 @@
                 "LandingLayoutService"
             ],
             "isDuplicate": true,
-            "duplicateId": 1,
-            "duplicateName": "DummyService-1"
+            "duplicateId": 2,
+            "duplicateName": "DummyService-2"
         },
         {
             "name": "DummyService",
-            "id": "class-DummyService-7fa96eb01816954abc65f56d45ae67f9e145255261515a464a66d989a1fffb9be5233c8842ad9e7b706d6737fb54d39ab95717c018135f2e139880ecd15abd0b-2",
+            "id": "class-DummyService-7fa96eb01816954abc65f56d45ae67f9e145255261515a464a66d989a1fffb9be5233c8842ad9e7b706d6737fb54d39ab95717c018135f2e139880ecd15abd0b-3",
             "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts",
             "deprecated": false,
             "deprecationMessage": "",
@@ -690,8 +806,8 @@
                 "SidenavLayoutService"
             ],
             "isDuplicate": true,
-            "duplicateId": 2,
-            "duplicateName": "DummyService-2"
+            "duplicateId": 3,
+            "duplicateName": "DummyService-3"
         }
     ],
     "directives": [
@@ -2476,7 +2592,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'sass:map';\n\n$glyphs: (\n  'back': '\\e900',\n  'comments': '\\e901',\n  'communication': '\\e902',\n  'edit': '\\e903',\n  'dashboard': '\\e904',\n  'filter': '\\e905',\n  'forward': '\\e906',\n  'logout': '\\e907',\n  'trash': '\\e908',\n  'upload': '\\e909',\n  'loan-policy': '\\e90a',\n  'cv': '\\e90b',\n  'external-link': '\\e90c',\n  'close': '\\e90d',\n  'loan-applications': '\\e90e',\n  'calendar': '\\e90f',\n  'mail': '\\e910',\n  'phone': '\\e911',\n  'close-circle': '\\e912',\n  'checkmark': '\\e913',\n  'add': '\\e914',\n  'remove': '\\e915',\n  'info': '\\e916',\n  'error': '\\e917',\n  'expand-arrow': '\\e918',\n  'collapse-arrow': '\\e91b',\n  'reset': '\\e919',\n  'bars': '\\e91a',\n  'help': '\\e91c',\n  'briefcase': '\\e91d',\n  'wallet': '\\e91e',\n);\n\n$sizes: (\n  'xs': 12px,\n  'sm': 16px,\n  'md': 20px,\n  'lg': 24px,\n  'xl': 28px,\n  'xxl': 32px,\n);\n\n@font-face {\n  font-family: icomoon;\n  src: url('../../../assets/fonts/icomoon.eot?' + length($glyphs));\n  src:\n    url('../../../assets/fonts/icomoon.eot?' + length($glyphs) + ('#iefix'))\n      format('embedded-opentype'),\n    url('../../../assets/fonts/icomoon.ttf?' + length($glyphs))\n      format('truetype'),\n    url('../../../assets/fonts/icomoon.woff?' + length($glyphs)) format('woff'),\n    url('../../../assets/fonts/icomoon.svg?' + length($glyphs) + ('#icomoon'))\n      format('svg');\n  font-weight: normal;\n  font-style: normal;\n  font-display: block;\n}\n\n:host {\n  /* use !important to prevent issues with browser extensions that change fonts */\n  font-family: icomoon !important;\n  font-style: normal;\n  font-weight: normal;\n  font-variant: normal;\n  text-transform: none;\n  line-height: 1;\n\n  /* Better Font Rendering =========== */\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  display: inline;\n\n  @each $key, $value in $glyphs {\n    &[glyph='#{$key}']:before {\n      content: $value;\n    }\n  }\n\n  @each $key, $value in $sizes {\n    &[size='#{$key}'] {\n      font-size: $value;\n    }\n  }\n}\n",
+                    "data": "@use 'sass:map';\n\n$glyphs: (\n  'back': '\\e900',\n  'comments': '\\e901',\n  'communication': '\\e902',\n  'edit': '\\e903',\n  'dashboard': '\\e904',\n  'filter': '\\e905',\n  'forward': '\\e906',\n  'logout': '\\e907',\n  'trash': '\\e908',\n  'upload': '\\e909',\n  'loan-policy': '\\e90a',\n  'cv': '\\e90b',\n  'external-link': '\\e90c',\n  'close': '\\e90d',\n  'loan-applications': '\\e90e',\n  'calendar': '\\e90f',\n  'mail': '\\e910',\n  'phone': '\\e911',\n  'close-circle': '\\e912',\n  'checkmark': '\\e913',\n  'add': '\\e914',\n  'remove': '\\e915',\n  'info': '\\e916',\n  'error': '\\e917',\n  'expand-arrow': '\\e918',\n  'collapse-arrow': '\\e91b',\n  'reset': '\\e919',\n  'bars': '\\e91a',\n  'help': '\\e91c',\n  'briefcase': '\\e91d',\n  'wallet': '\\e91e',\n  'done': '\\e920',\n);\n\n$sizes: (\n  'xs': 12px,\n  'sm': 16px,\n  'md': 20px,\n  'lg': 24px,\n  'xl': 28px,\n  'xxl': 32px,\n);\n\n@font-face {\n  font-family: icomoon;\n  src: url('../../../assets/fonts/icomoon.eot?' + length($glyphs));\n  src:\n    url('../../../assets/fonts/icomoon.eot?' + length($glyphs) + ('#iefix'))\n      format('embedded-opentype'),\n    url('../../../assets/fonts/icomoon.ttf?' + length($glyphs))\n      format('truetype'),\n    url('../../../assets/fonts/icomoon.woff?' + length($glyphs)) format('woff'),\n    url('../../../assets/fonts/icomoon.svg?' + length($glyphs) + ('#icomoon'))\n      format('svg');\n  font-weight: normal;\n  font-style: normal;\n  font-display: block;\n}\n\n:host {\n  /* use !important to prevent issues with browser extensions that change fonts */\n  font-family: icomoon !important;\n  font-style: normal;\n  font-weight: normal;\n  font-variant: normal;\n  text-transform: none;\n  line-height: 1;\n\n  /* Better Font Rendering =========== */\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  display: inline;\n\n  @each $key, $value in $glyphs {\n    &[glyph='#{$key}']:before {\n      content: $value;\n    }\n  }\n\n  @each $key, $value in $sizes {\n    &[size='#{$key}'] {\n      font-size: $value;\n    }\n  }\n}\n",
                     "styleUrl": "./icon.component.scss"
                 }
             ],
@@ -2763,7 +2879,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'color' as c;\n@use 'breakpoints' as b;\n\n:host {\n  cursor: pointer;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  border: 1px solid c.color('gray', 200);\n  padding: 12px 16px;\n  width: 220px;\n  box-sizing: border-box;\n  gap: 16px;\n  border-radius: 12px;\n\n  &.checked {\n    border-color: c.$primary;\n  }\n\n  @include b.mobile {\n    width: 156px;\n    padding: 12px;\n    gap: 12px;\n  }\n}\n\n.image {\n  height: var(--image-checkbox-height, 60px);\n  width: var(--image-checkbox-width, 132px);\n\n  @include b.mobile {\n    height: var(--image-checkbox-height-mobile, 40px);\n    width: var(--image-checkbox-width-mobile, 88px);\n  }\n}\n\n.label {\n  text-align: center;\n  flex: 1;\n}\n",
+                    "data": "@use 'color' as c;\n@use 'breakpoints' as b;\n\n:host {\n  cursor: pointer;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  border: 1px solid c.color('gray', 200);\n  padding: 12px 16px;\n  width: 220px;\n  box-sizing: border-box;\n  gap: 16px;\n  border-radius: 12px;\n\n  &.checked {\n    border-color: c.$primary;\n  }\n\n  @include b.mobile {\n    min-width: 156px;\n    padding: 10px 12px;\n    gap: 12px;\n  }\n}\n\n.image {\n  height: var(--image-checkbox-height, 60px);\n  width: var(--image-checkbox-width, 132px);\n\n  @include b.mobile {\n    height: var(--image-checkbox-height-mobile, 40px);\n    width: var(--image-checkbox-width-mobile, 88px);\n  }\n}\n\n.label {\n  text-align: center;\n  flex: 1;\n}\n",
                     "styleUrl": "./image-checkbox.component.scss"
                 }
             ],
@@ -2801,7 +2917,7 @@
                     }
                 }
             },
-            "templateData": "<img class=\"image\" [src]=\"finalImage\" />\n\n<lai-label class=\"label\" level=\"lg\">{{ label }}</lai-label>\n\n<mat-checkbox\n  *ngIf=\"!hideCheckboxes\"\n  [checked]=\"checked\"\n  (change)=\"change()\"\n  (click)=\"$event.stopPropagation()\"></mat-checkbox>\n"
+            "templateData": "<img class=\"image\" [src]=\"finalImage\" />\n\n<lai-title class=\"label\" level=\"3\">{{ label }}</lai-title>\n\n<mat-checkbox\n  *ngIf=\"!hideCheckboxes\"\n  [checked]=\"checked\"\n  (change)=\"change()\"\n  (click)=\"$event.stopPropagation()\"></mat-checkbox>\n"
         },
         {
             "name": "ImageCheckboxGroupComponent",
@@ -3608,6 +3724,194 @@
                 }
             },
             "templateData": "<header class=\"header\">\n  <lai-logo\n    *ngIf=\"this.service.logoPath$ | async as logoPath\"\n    class=\"logo\"\n    [logoPath]=\"logoPath\"\n    [routerLink]=\"['./']\"></lai-logo>\n\n  <ng-container *ngIf=\"!isHandset\">\n    <ng-container *ngTemplateOutlet=\"nav\"></ng-container>\n  </ng-container>\n\n  <lai-icon\n    *ngIf=\"isHandset; else actions\"\n    [glyph]=\"mobileNavIcon\"\n    size=\"sm\"\n    (click)=\"toggleMobileNav()\"></lai-icon>\n</header>\n\n<ng-container *ngIf=\"isHandset && isMobileNavOpen\">\n  <ng-container *ngTemplateOutlet=\"nav\"></ng-container>\n</ng-container>\n\n<ng-template #nav>\n  <nav class=\"nav\">\n    <ul class=\"nav--list\">\n      <li *ngFor=\"let category of service.landingLayoutCategories$ | async\">\n        <lai-label level=\"md\">\n          <a\n            class=\"nav--link\"\n            [routerLink]=\"['./']\"\n            [fragment]=\"category.fragment\"\n            (click)=\"closeMobileNav()\">\n            <lai-icon [glyph]=\"category.icon\" *ngIf=\"isHandset\"></lai-icon>\n            <span>{{ category.title }}</span>\n          </a>\n        </lai-label>\n      </li>\n    </ul>\n  </nav>\n</ng-template>\n\n<ng-template #actions>\n  <ng-container *ngIf=\"actionsRef\">\n    <ng-container *ngTemplateOutlet=\"actionsRef\"></ng-container>\n  </ng-container>\n</ng-template>\n"
+        },
+        {
+            "name": "LanguageSwitcherComponent",
+            "id": "component-LanguageSwitcherComponent-8c3c1de40c08c7311c204fdb70bba59b0da95e0aeeed101f96d1c853c7069f2be8a5e4806bdf6868c8cac19756fc3af9d02ac699c564b93ba9c228905b35593e",
+            "file": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lai-language-switcher",
+            "styleUrls": [
+                "./language-switcher.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./language-switcher.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "currentLanguage",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 33,
+                    "modifierKind": [
+                        122
+                    ]
+                },
+                {
+                    "name": "currentOption",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "LanguageSwitcherOption",
+                    "optional": true,
+                    "description": "",
+                    "line": 31,
+                    "modifierKind": [
+                        122
+                    ]
+                },
+                {
+                    "name": "isOpen",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 34,
+                    "modifierKind": [
+                        122
+                    ]
+                },
+                {
+                    "name": "options",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "LanguageSwitcherOption[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 32,
+                    "modifierKind": [
+                        122
+                    ]
+                },
+                {
+                    "name": "sub$",
+                    "defaultValue": "new Subscription()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 36,
+                    "modifierKind": [
+                        121,
+                        146
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 59,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 43,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "IconComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "FlagComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "ButtonComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "OverlayModule",
+                    "type": "module"
+                },
+                {
+                    "name": "CardComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "LabelComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Inject, OnDestroy, OnInit } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport {\n  LANGUAGE_SWITCHER_SERVICE,\n  LanguageSwitcherOption,\n  LanguageSwitcherService,\n} from './language-switcher.service';\nimport { Subscription, merge, tap } from 'rxjs';\nimport { FlagComponent, IconComponent } from '../icon';\nimport { ButtonComponent } from '../button';\nimport { OverlayModule } from '@angular/cdk/overlay';\nimport { CardComponent } from '../card';\nimport { LabelComponent } from '../typography';\n\n@Component({\n  selector: 'lai-language-switcher',\n  standalone: true,\n  imports: [\n    CommonModule,\n    IconComponent,\n    FlagComponent,\n    ButtonComponent,\n    OverlayModule,\n    CardComponent,\n    LabelComponent,\n  ],\n  templateUrl: './language-switcher.component.html',\n  styleUrls: ['./language-switcher.component.scss'],\n})\nexport class LanguageSwitcherComponent implements OnInit, OnDestroy {\n  protected currentOption?: LanguageSwitcherOption;\n  protected options: LanguageSwitcherOption[] = [];\n  protected currentLanguage?: string;\n  protected isOpen = false;\n\n  private readonly sub$ = new Subscription();\n\n  constructor(\n    @Inject(LANGUAGE_SWITCHER_SERVICE)\n    private readonly service: LanguageSwitcherService\n  ) {}\n\n  ngOnInit(): void {\n    this.sub$.add(\n      merge(\n        this.service.currentLanguage$.pipe(\n          tap(currentLanguage => (this.currentLanguage = currentLanguage))\n        ),\n        this.service.options$.pipe(tap(options => (this.options = options)))\n      ).subscribe(() => {\n        console.log(this.currentLanguage, this.options);\n        this.currentOption = this.options.find(\n          ({ value }) => value === this.currentLanguage\n        );\n      })\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@use 'color' as c;\n\nlai-card.card {\n  padding: 12px 0;\n  width: 224px;\n}\n\n.list {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n.list-item {\n  padding: 8px 16px;\n  display: flex;\n  gap: 8px;\n\n  lai-label {\n    flex: 1;\n    color: c.color('gray', 500);\n  }\n}\n\n.checkmark {\n  color: c.color('success', 600);\n}\n",
+                    "styleUrl": "./language-switcher.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "service",
+                        "type": "LanguageSwitcherService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 36,
+                "jsdoctags": [
+                    {
+                        "name": "service",
+                        "type": "LanguageSwitcherService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit",
+                "OnDestroy"
+            ],
+            "templateData": "<ng-container *ngIf=\"currentOption\">\n  <button\n    laiButton\n    hierarchy=\"tertiary\"\n    color=\"gray\"\n    cdkOverlayOrigin\n    #trigger=\"cdkOverlayOrigin\"\n    (click)=\"isOpen = !isOpen\">\n    <lai-flag [country]=\"currentOption.flag\"></lai-flag>\n    {{ currentOption.label }}\n    <lai-icon glyph=\"expand-arrow\"></lai-icon>\n  </button>\n\n  <ng-template\n    cdkConnectedOverlay\n    [cdkConnectedOverlayOrigin]=\"trigger\"\n    [cdkConnectedOverlayOpen]=\"isOpen\">\n    <lai-card class=\"card\">\n      <ul class=\"list\">\n        <li *ngFor=\"let option of options\" class=\"list-item\">\n          <lai-flag [country]=\"option.flag\"></lai-flag>\n          <lai-label>\n            {{ option.label }}\n          </lai-label>\n\n          <lai-icon\n            class=\"checkmark\"\n            *ngIf=\"option.value === currentLanguage\"\n            glyph=\"checkmark\"></lai-icon>\n        </li>\n      </ul>\n    </lai-card>\n  </ng-template>\n</ng-container>\n"
         },
         {
             "name": "LinkComponent",
@@ -7451,13 +7755,13 @@
         },
         {
             "name": "ImageCheckboxModule",
-            "id": "module-ImageCheckboxModule-285f90aa3123afa357acfdb9a52c379f0d4c8c25b2d72baec4b013ba8a8a8c654b3fd2b5eac1f403d481c994be11e0854a123e50769f3e98fb8cb3ffe611e0c9",
+            "id": "module-ImageCheckboxModule-e022f962a324f603fea93a1fc66bd31e8e55258d02b95c5ab085b5ee489ed38db4e5335b201ba676b94bb45330f1c6441a855346ce8af59de811f2f17ef70644",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/lendai-us/design-system/src/lib/image-checkbox/image-checkbox.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ImageCheckboxGroupComponent } from './image-checkbox-group/image-checkbox-group.component';\nimport { ImageCheckboxComponent } from './image-checkbox/image-checkbox.component';\nimport { LabelComponent } from '../typography';\nimport { MatCheckboxModule } from '@angular/material/checkbox';\n\n@NgModule({\n  declarations: [ImageCheckboxGroupComponent, ImageCheckboxComponent],\n  imports: [CommonModule, LabelComponent, MatCheckboxModule],\n  exports: [ImageCheckboxGroupComponent, ImageCheckboxComponent],\n})\nexport class ImageCheckboxModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ImageCheckboxGroupComponent } from './image-checkbox-group/image-checkbox-group.component';\nimport { ImageCheckboxComponent } from './image-checkbox/image-checkbox.component';\nimport { TitleComponent } from '../typography';\nimport { MatCheckboxModule } from '@angular/material/checkbox';\n\n@NgModule({\n  declarations: [ImageCheckboxGroupComponent, ImageCheckboxComponent],\n  imports: [CommonModule, TitleComponent, MatCheckboxModule],\n  exports: [ImageCheckboxGroupComponent, ImageCheckboxComponent],\n})\nexport class ImageCheckboxModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -7478,7 +7782,7 @@
                     "type": "imports",
                     "elements": [
                         {
-                            "name": "LabelComponent"
+                            "name": "TitleComponent"
                         }
                     ]
                 },
@@ -8055,21 +8359,21 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "{\n  hierarchy: 'primary',\n  size: 'md',\n  color: 'primary',\n  disabled: false,\n} as Partial<ButtonComponent>"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Partial<CardComponent>",
                 "defaultValue": "{\n  radius: 'sm',\n  size: 'md',\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "{\n  hierarchy: 'primary',\n  size: 'md',\n  color: 'primary',\n  disabled: false,\n} as Partial<ButtonComponent>"
             },
             {
                 "name": "args",
@@ -8562,6 +8866,26 @@
                 "defaultValue": "{\n  render: props => ({\n    props,\n    template: `\n      <lai-landing-layout>\n        <lai-landing-layout-actions>\n          <button laiButton>\n            \"Lang-switcher\"\n          </button>\n          <button laiButton class=\"apply\">\n            Apply Now\n          </button>\n        </lai-landing-layout-actions>\n        <lai-landing-layout-content>\n          Some content\n        </lai-landing-layout-content>\n      </lai-landing-layout>\n  `,\n  }),\n}"
             },
             {
+                "name": "LANGUAGE_SWITCHER_SERVICE",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.service.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "new InjectionToken<LanguageSwitcherService>('_LANGUAGE_SWITCHER_SERVICE')"
+            },
+            {
+                "name": "LanguageSwitcher",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {},\n  render: props => ({\n    props,\n  }),\n}"
+            },
+            {
                 "name": "Link",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -8665,16 +8989,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Button',\n  decorators: [\n    moduleMetadata({\n      imports: [ButtonComponent, IconComponent],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: BUTTON_SIZES,\n    },\n    hierarchy: {\n      control: { type: 'select' },\n      options: BUTTON_HIERARCHIES,\n    },\n    color: {\n      control: { type: 'select' },\n      options: BUTTON_COLORS,\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -8685,11 +8999,31 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ButtonComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Button',\n  decorators: [\n    moduleMetadata({\n      imports: [ButtonComponent, IconComponent],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: BUTTON_SIZES,\n    },\n    hierarchy: {\n      control: { type: 'select' },\n      options: BUTTON_HIERARCHIES,\n    },\n    color: {\n      control: { type: 'select' },\n      options: BUTTON_COLORS,\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/image-checkbox/image-checkbox.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ImageCheckboxGroupComponent<string>>",
                 "defaultValue": "{\n  title: 'WIP/ImageCheckbox',\n  component: ImageCheckboxGroupComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [ImageCheckboxModule],\n    }),\n  ],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<LanguageSwitcherComponent>",
+                "defaultValue": "{\n  title: 'Molecules/LanguageSwitcher',\n  component: LanguageSwitcherComponent,\n  decorators: [\n    moduleMetadata({\n      providers: [\n        {\n          provide: LANGUAGE_SWITCHER_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n}"
             },
             {
                 "name": "meta",
@@ -9523,17 +9857,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<CardComponent>",
                 "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
                 "deprecated": false,
@@ -9545,8 +9868,30 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<ButtonComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<ImageCheckboxGroupComponent<string>>",
                 "file": "projects/lendai-us/design-system/src/lib/image-checkbox/image-checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<LanguageSwitcherComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -9906,6 +10251,38 @@
                     "defaultValue": "{\n  title: 'Atoms/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent, IconComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    size: {\n      options: BADGE_SIZES,\n      control: { type: 'select' },\n    },\n  },\n}"
                 }
             ],
+            "projects/lendai-us/design-system/src/lib/card/card.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<CardComponent>",
+                    "defaultValue": "{\n  radius: 'sm',\n  size: 'md',\n}"
+                },
+                {
+                    "name": "Card",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args,\n  render: props => ({\n    props,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<CardComponent>",
+                    "defaultValue": "{\n  title: 'WIP/Card',\n  component: CardComponent,\n  decorators: [\n    componentWrapperDecorator(story => {\n      return `<style>\n          lai-card {\n            width: 100px;\n            height: 100px;\n          }\n        </style>\n        ${story}`;\n    }),\n  ],\n  argTypes: {\n    radius: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n    size: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n  },\n}"
+                }
+            ],
             "projects/lendai-us/design-system/src/lib/button/button.stories.ts": [
                 {
                     "name": "args",
@@ -9966,38 +10343,6 @@
                     "deprecationMessage": "",
                     "type": "Meta<ButtonComponent>",
                     "defaultValue": "{\n  title: 'Atoms/Button',\n  decorators: [\n    moduleMetadata({\n      imports: [ButtonComponent, IconComponent],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: BUTTON_SIZES,\n    },\n    hierarchy: {\n      control: { type: 'select' },\n      options: BUTTON_HIERARCHIES,\n    },\n    color: {\n      control: { type: 'select' },\n      options: BUTTON_COLORS,\n    },\n  },\n}"
-                }
-            ],
-            "projects/lendai-us/design-system/src/lib/card/card.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<CardComponent>",
-                    "defaultValue": "{\n  radius: 'sm',\n  size: 'md',\n}"
-                },
-                {
-                    "name": "Card",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args,\n  render: props => ({\n    props,\n  }),\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<CardComponent>",
-                    "defaultValue": "{\n  title: 'WIP/Card',\n  component: CardComponent,\n  decorators: [\n    componentWrapperDecorator(story => {\n      return `<style>\n          lai-card {\n            width: 100px;\n            height: 100px;\n          }\n        </style>\n        ${story}`;\n    }),\n  ],\n  argTypes: {\n    radius: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n    size: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n  },\n}"
                 }
             ],
             "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts": [
@@ -10754,6 +11099,40 @@
                     "defaultValue": "{\n  title: 'Templates/LandingLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [LandingLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: LANDING_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n}"
                 }
             ],
+            "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.service.ts": [
+                {
+                    "name": "LANGUAGE_SWITCHER_SERVICE",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.service.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "new InjectionToken<LanguageSwitcherService>('_LANGUAGE_SWITCHER_SERVICE')"
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.stories.ts": [
+                {
+                    "name": "LanguageSwitcher",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {},\n  render: props => ({\n    props,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<LanguageSwitcherComponent>",
+                    "defaultValue": "{\n  title: 'Molecules/LanguageSwitcher',\n  component: LanguageSwitcherComponent,\n  decorators: [\n    moduleMetadata({\n      providers: [\n        {\n          provide: LANGUAGE_SWITCHER_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n}"
+                }
+            ],
             "projects/lendai-us/design-system/src/lib/link/link.stories.ts": [
                 {
                     "name": "Link",
@@ -11481,19 +11860,6 @@
                     "kind": 180
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/button/button.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ButtonComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/card/card.stories.ts": [
                 {
                     "name": "Story",
@@ -11507,6 +11873,19 @@
                     "kind": 180
                 }
             ],
+            "projects/lendai-us/design-system/src/lib/button/button.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ButtonComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
             "projects/lendai-us/design-system/src/lib/image-checkbox/image-checkbox.stories.ts": [
                 {
                     "name": "Story",
@@ -11514,6 +11893,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ImageCheckboxGroupComponent<string>>",
                     "file": "projects/lendai-us/design-system/src/lib/image-checkbox/image-checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<LanguageSwitcherComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -12371,6 +12763,72 @@
                 "name": "ImageCheckboxComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/21",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LanguageSwitcherComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.service.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "LanguageSwitcherOption",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.service.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "LanguageSwitcherService",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.service.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LANGUAGE_SWITCHER_SERVICE",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.stories.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "DummyService",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LanguageSwitcher",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {

@@ -1,0 +1,43 @@
+<ng-container *ngIf="currentOption">
+  <button
+    laiButton
+    hierarchy="tertiary"
+    color="gray"
+    cdkOverlayOrigin
+    #trigger="cdkOverlayOrigin"
+    (click)="toggleDropdown()">
+    <lai-flag [country]="currentOption.flag"></lai-flag>
+    {{ currentOption.label }}
+    <lai-icon glyph="expand-arrow"></lai-icon>
+  </button>
+
+  <ng-template
+    cdkConnectedOverlay
+    [cdkConnectedOverlayOrigin]="trigger"
+    [cdkConnectedOverlayOpen]="isOpen">
+    <lai-card class="card">
+      <lai-label
+        class="label"
+        *ngIf="labelText$ | async as labelText"
+        weight="semibold">
+        {{ labelText }}
+      </lai-label>
+      <ul class="list">
+        <li
+          *ngFor="let option of options"
+          class="list-item"
+          (click)="changeLanguage(option)">
+          <lai-flag [country]="option.flag"></lai-flag>
+          <lai-label>
+            {{ option.label }}
+          </lai-label>
+
+          <lai-icon
+            class="checkmark"
+            *ngIf="option.value === currentLanguage"
+            glyph="done"></lai-icon>
+        </li>
+      </ul>
+    </lai-card>
+  </ng-template>
+</ng-container>

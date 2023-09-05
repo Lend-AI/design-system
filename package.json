@@ -5,7 +5,7 @@
     "ng": "ng",
     "build": "ng build @lendai-us/design-system",
     "test": "ng test",
-    "storybook": "ng run @lendai-us/design-system:storybook",
+    "storybook": "ng run @lendai-us/design-system:storybook --no-open",
     "build-storybook": "ng run @lendai-us/design-system:build-storybook",
     "prepare": "husky install",
     "lint": "ng lint",
