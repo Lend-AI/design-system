@@ -1,4 +1,11 @@
-import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  Inject,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   LANGUAGE_SWITCHER_SERVICE,
@@ -37,11 +44,21 @@ export class LanguageSwitcherComponent implements OnInit, OnDestroy {
 
   constructor(
     @Inject(LANGUAGE_SWITCHER_SERVICE)
-    private readonly service: LanguageSwitcherService
+    private readonly service: LanguageSwitcherService,
+    private readonly elRef: ElementRef
   ) {}
 
   protected get labelText$(): Observable<string> {
     return this.service.labelText$;
+  }
+
+  @HostListener('document:click', ['$event'])
+  private closeDropdown(event?: MouseEvent): void {
+    if (event && this.elRef.nativeElement.contains(event.target)) {
+      return;
+    }
+
+    this.isOpen = false;
   }
 
   ngOnInit(): void {
@@ -52,7 +69,6 @@ export class LanguageSwitcherComponent implements OnInit, OnDestroy {
         ),
         this.service.options$.pipe(tap(options => (this.options = options)))
       ).subscribe(() => {
-        console.log(this.currentLanguage, this.options);
         this.currentOption = this.options.find(
           ({ value }) => value === this.currentLanguage
         );
@@ -70,6 +86,6 @@ export class LanguageSwitcherComponent implements OnInit, OnDestroy {
 
   changeLanguage(option: LanguageSwitcherOption): void {
     this.service.changeLanguageCallback(option.value);
-    this.isOpen = false;
+    this.closeDropdown();
   }
 }

@@ -12,12 +12,12 @@ class DummyService implements LanguageSwitcherService {
     {
       flag: 'il',
       label: 'Hebrew',
-      value: 'il',
+      value: 'he',
     },
     {
       flag: 'us',
       label: 'English',
-      value: 'us',
+      value: 'en',
     },
   ]);
   currentLanguage$ = this._currentLanguage$.asObservable();
