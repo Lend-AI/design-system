@@ -1,5 +1,5 @@
 import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
-import { of } from 'rxjs';
+import { BehaviorSubject, of } from 'rxjs';
 import {
   LANGUAGE_SWITCHER_SERVICE,
   LanguageSwitcherService,
@@ -7,6 +7,7 @@ import {
 import { LanguageSwitcherComponent } from './language-switcher.component';
 
 class DummyService implements LanguageSwitcherService {
+  _currentLanguage$ = new BehaviorSubject('il');
   options$ = of([
     {
       flag: 'il',
@@ -19,8 +20,11 @@ class DummyService implements LanguageSwitcherService {
       value: 'us',
     },
   ]);
-  currentLanguage$ = of('il');
+  currentLanguage$ = this._currentLanguage$.asObservable();
   labelText$ = of('Languages');
+  changeLanguageCallback(value: string): void {
+    this._currentLanguage$.next(value);
+  }
 }
 
 const meta: Meta<LanguageSwitcherComponent> = {

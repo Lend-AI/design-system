@@ -1,11 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  Inject,
-  OnDestroy,
-  OnInit,
-  Output,
-} from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   LANGUAGE_SWITCHER_SERVICE,
@@ -35,8 +28,6 @@ import { LabelComponent } from '../typography';
   styleUrls: ['./language-switcher.component.scss'],
 })
 export class LanguageSwitcherComponent implements OnInit, OnDestroy {
-  @Output() readonly languageChanged = new EventEmitter<string>();
-
   protected currentOption?: LanguageSwitcherOption;
   protected options: LanguageSwitcherOption[] = [];
   protected currentLanguage?: string;
@@ -78,7 +69,7 @@ export class LanguageSwitcherComponent implements OnInit, OnDestroy {
   }
 
   changeLanguage(option: LanguageSwitcherOption): void {
-    this.languageChanged.emit(option.value);
+    this.service.changeLanguageCallback(option.value);
     this.isOpen = false;
   }
 }

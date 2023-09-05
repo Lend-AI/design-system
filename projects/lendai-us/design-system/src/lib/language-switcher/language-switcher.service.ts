@@ -5,6 +5,7 @@ export interface LanguageSwitcherService {
   options$: Observable<LanguageSwitcherOption[]>;
   currentLanguage$: Observable<string>;
   labelText$: Observable<string>;
+  changeLanguageCallback: (value: string) => void;
 }
 
 export interface LanguageSwitcherOption {
