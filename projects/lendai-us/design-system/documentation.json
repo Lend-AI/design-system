@@ -328,12 +328,12 @@
         },
         {
             "name": "LanguageSwitcherOption",
-            "id": "interface-LanguageSwitcherOption-d003df226437422a214e3a869dfe5d9d737c021548bcc6cba2b83a1bdbc16a34be4d0e9ac4f3ca5adae1694ef9ea4d89f94e06d38aa9a3a3f12b7208e3c2851f",
+            "id": "interface-LanguageSwitcherOption-90f070fe6bbb8278c6c0ae85670007082fdf6c3baf1086e566774dbe0d049f5b0c2924069257ae00d68cfb2b058640fa1fa82f1a87d68742bb52cabb622e0b6a",
             "file": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.service.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\n\nexport interface LanguageSwitcherService {\n  options$: Observable<LanguageSwitcherOption[]>;\n  currentLanguage$: Observable<string>;\n}\n\nexport interface LanguageSwitcherOption {\n  flag: string;\n  label: string;\n  value: string;\n}\n\nexport const LANGUAGE_SWITCHER_SERVICE =\n  new InjectionToken<LanguageSwitcherService>('_LANGUAGE_SWITCHER_SERVICE');\n",
+            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\n\nexport interface LanguageSwitcherService {\n  options$: Observable<LanguageSwitcherOption[]>;\n  currentLanguage$: Observable<string>;\n  labelText$: Observable<string>;\n  changeLanguageCallback: (value: string) => void;\n}\n\nexport interface LanguageSwitcherOption {\n  flag: string;\n  label: string;\n  value: string;\n}\n\nexport const LANGUAGE_SWITCHER_SERVICE =\n  new InjectionToken<LanguageSwitcherService>('_LANGUAGE_SWITCHER_SERVICE');\n",
             "properties": [
                 {
                     "name": "flag",
@@ -342,7 +342,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 10
+                    "line": 12
                 },
                 {
                     "name": "label",
@@ -351,7 +351,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 11
+                    "line": 13
                 },
                 {
                     "name": "value",
@@ -360,7 +360,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 12
+                    "line": 14
                 }
             ],
             "indexSignatures": [],
@@ -369,13 +369,22 @@
         },
         {
             "name": "LanguageSwitcherService",
-            "id": "interface-LanguageSwitcherService-d003df226437422a214e3a869dfe5d9d737c021548bcc6cba2b83a1bdbc16a34be4d0e9ac4f3ca5adae1694ef9ea4d89f94e06d38aa9a3a3f12b7208e3c2851f",
+            "id": "interface-LanguageSwitcherService-90f070fe6bbb8278c6c0ae85670007082fdf6c3baf1086e566774dbe0d049f5b0c2924069257ae00d68cfb2b058640fa1fa82f1a87d68742bb52cabb622e0b6a",
             "file": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.service.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\n\nexport interface LanguageSwitcherService {\n  options$: Observable<LanguageSwitcherOption[]>;\n  currentLanguage$: Observable<string>;\n}\n\nexport interface LanguageSwitcherOption {\n  flag: string;\n  label: string;\n  value: string;\n}\n\nexport const LANGUAGE_SWITCHER_SERVICE =\n  new InjectionToken<LanguageSwitcherService>('_LANGUAGE_SWITCHER_SERVICE');\n",
+            "sourceCode": "import { InjectionToken } from '@angular/core';\nimport { Observable } from 'rxjs';\n\nexport interface LanguageSwitcherService {\n  options$: Observable<LanguageSwitcherOption[]>;\n  currentLanguage$: Observable<string>;\n  labelText$: Observable<string>;\n  changeLanguageCallback: (value: string) => void;\n}\n\nexport interface LanguageSwitcherOption {\n  flag: string;\n  label: string;\n  value: string;\n}\n\nexport const LANGUAGE_SWITCHER_SERVICE =\n  new InjectionToken<LanguageSwitcherService>('_LANGUAGE_SWITCHER_SERVICE');\n",
             "properties": [
+                {
+                    "name": "changeLanguageCallback",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "function",
+                    "optional": false,
+                    "description": "",
+                    "line": 8
+                },
                 {
                     "name": "currentLanguage$",
                     "deprecated": false,
@@ -384,6 +393,15 @@
                     "optional": false,
                     "description": "",
                     "line": 6
+                },
+                {
+                    "name": "labelText$",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Observable<string>",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
                 },
                 {
                     "name": "options$",
@@ -579,41 +597,165 @@
             "methods": []
         }
     ],
-    "injectables": [],
+    "injectables": [
+        {
+            "name": "LoadingService",
+            "id": "injectable-LoadingService-088ca4ae04ced4fb03dc41f8fee8712f95453c1b35a75332f35ce19efcbd8227ca2b4bdaa0943d61b55e29067a6b8bf214989b1fc41c1e7c1938757f52a1c9ed",
+            "file": "projects/lendai-us/design-system/src/lib/loading/loading.service.ts",
+            "properties": [
+                {
+                    "name": "dialogRef",
+                    "defaultValue": "null",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "DialogRef<void | FullScreenLoadingOverlayComponent> | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "modifierKind": [
+                        121
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "close",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 23,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "open",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 14,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Dialog, DialogRef } from '@angular/cdk/dialog';\nimport { Injectable } from '@angular/core';\nimport { FullScreenLoadingOverlayComponent } from './full-screen-loading-overlay/full-screen-loading-overlay.component';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class LoadingService {\n  private dialogRef: DialogRef<void, FullScreenLoadingOverlayComponent> | null =\n    null;\n\n  constructor(private readonly dialog: Dialog) {}\n\n  open(): void {\n    if (this.dialogRef) {\n      console.warn('loading is already opened');\n      return;\n    }\n\n    this.dialogRef = this.dialog.open(FullScreenLoadingOverlayComponent);\n  }\n\n  close(): void {\n    if (!this.dialogRef) {\n      console.warn('loading is not opened');\n      return;\n    }\n\n    this.dialogRef.close();\n    this.dialogRef = null;\n  }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "dialog",
+                        "type": "Dialog",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 10,
+                "jsdoctags": [
+                    {
+                        "name": "dialog",
+                        "type": "Dialog",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "type": "injectable"
+        }
+    ],
     "guards": [],
     "interceptors": [],
     "classes": [
         {
             "name": "DummyService",
-            "id": "class-DummyService-3421f06cb99be5f6b5140ebd6d7f62448fc7e705ff1e0d6128587bb074de069b9a5e72aa9ebf87d6c725edf67ed98f70d78b9733bde2eaac4e09362384ea35e1",
+            "id": "class-DummyService-10f7d54bd30b8d8ed6e6595bb9949dbe15a0146739670f972cbcd0e289b9229d60583d3ef83b40a46047a5f2fd89c47dd93b3d899b8873a81c59563232141c82",
             "file": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.stories.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';\nimport { of } from 'rxjs';\nimport {\n  LANGUAGE_SWITCHER_SERVICE,\n  LanguageSwitcherService,\n} from './language-switcher.service';\nimport { LanguageSwitcherComponent } from './language-switcher.component';\n\nclass DummyService implements LanguageSwitcherService {\n  options$ = of([\n    {\n      flag: 'il',\n      label: 'Hebrew',\n      value: 'il',\n    },\n    {\n      flag: 'us',\n      label: 'English',\n      value: 'us',\n    },\n  ]);\n  currentLanguage$ = of('il');\n}\n\nconst meta: Meta<LanguageSwitcherComponent> = {\n  title: 'Molecules/LanguageSwitcher',\n  component: LanguageSwitcherComponent,\n  decorators: [\n    moduleMetadata({\n      providers: [\n        {\n          provide: LANGUAGE_SWITCHER_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n};\nexport default meta;\ntype Story = StoryObj<LanguageSwitcherComponent>;\n\nexport const LanguageSwitcher: Story = {\n  args: {},\n  render: props => ({\n    props,\n  }),\n};\n",
+            "sourceCode": "import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';\nimport { BehaviorSubject, of } from 'rxjs';\nimport {\n  LANGUAGE_SWITCHER_SERVICE,\n  LanguageSwitcherService,\n} from './language-switcher.service';\nimport { LanguageSwitcherComponent } from './language-switcher.component';\n\nclass DummyService implements LanguageSwitcherService {\n  _currentLanguage$ = new BehaviorSubject('il');\n  options$ = of([\n    {\n      flag: 'il',\n      label: 'Hebrew',\n      value: 'he',\n    },\n    {\n      flag: 'us',\n      label: 'English',\n      value: 'en',\n    },\n  ]);\n  currentLanguage$ = this._currentLanguage$.asObservable();\n  labelText$ = of('Languages');\n  changeLanguageCallback(value: string): void {\n    this._currentLanguage$.next(value);\n  }\n}\n\nconst meta: Meta<LanguageSwitcherComponent> = {\n  title: 'Molecules/LanguageSwitcher',\n  component: LanguageSwitcherComponent,\n  decorators: [\n    moduleMetadata({\n      providers: [\n        {\n          provide: LANGUAGE_SWITCHER_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n};\nexport default meta;\ntype Story = StoryObj<LanguageSwitcherComponent>;\n\nexport const LanguageSwitcher: Story = {\n  args: {},\n  render: props => ({\n    props,\n  }),\n};\n",
             "properties": [
                 {
-                    "name": "currentLanguage$",
-                    "defaultValue": "of('il')",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 22
-                },
-                {
-                    "name": "options$",
-                    "defaultValue": "of([\n    {\n      flag: 'il',\n      label: 'Hebrew',\n      value: 'il',\n    },\n    {\n      flag: 'us',\n      label: 'English',\n      value: 'us',\n    },\n  ])",
+                    "name": "_currentLanguage$",
+                    "defaultValue": "new BehaviorSubject('il')",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
                     "optional": false,
                     "description": "",
                     "line": 10
+                },
+                {
+                    "name": "currentLanguage$",
+                    "defaultValue": "this._currentLanguage$.asObservable()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 23
+                },
+                {
+                    "name": "labelText$",
+                    "defaultValue": "of('Languages')",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 24
+                },
+                {
+                    "name": "options$",
+                    "defaultValue": "of([\n    {\n      flag: 'il',\n      label: 'Hebrew',\n      value: 'he',\n    },\n    {\n      flag: 'us',\n      label: 'English',\n      value: 'en',\n    },\n  ])",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
                 }
             ],
-            "methods": [],
+            "methods": [
+                {
+                    "name": "changeLanguageCallback",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 25,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
             "indexSignatures": [],
             "inputsClass": [],
             "outputsClass": [],
@@ -2423,6 +2565,49 @@
             "templateData": ""
         },
         {
+            "name": "FullScreenLoadingOverlayComponent",
+            "id": "component-FullScreenLoadingOverlayComponent-6cf2805feb5361519780d81a4dac64349208933c022a8c7f0c2412f8b39d522bb392aca0126886fc369da060760bb56c14f85013942f29d37931db9a6abb6e55",
+            "file": "projects/lendai-us/design-system/src/lib/loading/full-screen-loading-overlay/full-screen-loading-overlay.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lai-full-screen-loading-overlay",
+            "styleUrls": [
+                "./full-screen-loading-overlay.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./full-screen-loading-overlay.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lai-full-screen-loading-overlay',\n  templateUrl: './full-screen-loading-overlay.component.html',\n  styleUrls: ['./full-screen-loading-overlay.component.scss']\n})\nexport class FullScreenLoadingOverlayComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./full-screen-loading-overlay.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<p>full-screen-loading-overlay works!</p>\n"
+        },
+        {
             "name": "HeadlineComponent",
             "id": "component-HeadlineComponent-3c4bed11ef40aab80f4a2e725d7f18ea8d9ac0541da5d3cc3f11f97425d1f3977b750ea276d3e545688ad1c747458ef3dcf69ecb62bd1d0de6259409afa1cbbc",
             "file": "projects/lendai-us/design-system/src/lib/typography/headline/headline.component.ts",
@@ -2536,7 +2721,7 @@
         },
         {
             "name": "IconComponent",
-            "id": "component-IconComponent-5e3e69be125b24bebbf45a2b18cd7877932bd735eb865f21a744806502e49d9e4f0c819b516084ee036dfc4f7c94946e5d48a875eb7da0931a06ea6d69c2fdf3",
+            "id": "component-IconComponent-256eba664f1f7d0bed47a23be81f410e8af58b41d761dabd58fe90f554c9d19ab7d202ed2793868636861d771e23c22a090f3a59cd1763426ade4121eea629ef",
             "file": "projects/lendai-us/design-system/src/lib/icon/icon/icon.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2588,7 +2773,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'lai-icon',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './icon.component.html',\n  styleUrls: ['./icon.component.scss'],\n})\nexport class IconComponent {\n  @HostBinding('attr.glyph')\n  @Input()\n  glyph!: IconGlyph;\n\n  @HostBinding('attr.size')\n  @Input()\n  size?: IconSize;\n}\n\nexport const ICON_GLYPHS = [\n  'back',\n  'comments',\n  'communication',\n  'edit',\n  'dashboard',\n  'filter',\n  'forward',\n  'logout',\n  'trash',\n  'upload',\n  'loan-policy',\n  'cv',\n  'external-link',\n  'close',\n  'loan-applications',\n  'calendar',\n  'mail',\n  'phone',\n  'close-circle',\n  'checkmark',\n  'add',\n  'remove',\n  'info',\n  'error',\n  'expand-arrow',\n  'collapse-arrow',\n  'reset',\n  'bars',\n  'help',\n  'briefcase',\n  'wallet',\n] as const;\nexport type IconGlyph = (typeof ICON_GLYPHS)[number];\n\nexport const ICON_SIZES = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;\nexport type IconSize = (typeof ICON_SIZES)[number];\n",
+            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'lai-icon',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './icon.component.html',\n  styleUrls: ['./icon.component.scss'],\n})\nexport class IconComponent {\n  @HostBinding('attr.glyph')\n  @Input()\n  glyph!: IconGlyph;\n\n  @HostBinding('attr.size')\n  @Input()\n  size?: IconSize;\n}\n\nexport const ICON_GLYPHS = [\n  'back',\n  'comments',\n  'communication',\n  'edit',\n  'dashboard',\n  'filter',\n  'forward',\n  'logout',\n  'trash',\n  'upload',\n  'loan-policy',\n  'cv',\n  'external-link',\n  'close',\n  'loan-applications',\n  'calendar',\n  'mail',\n  'phone',\n  'close-circle',\n  'checkmark',\n  'add',\n  'remove',\n  'info',\n  'error',\n  'expand-arrow',\n  'collapse-arrow',\n  'reset',\n  'bars',\n  'help',\n  'briefcase',\n  'wallet',\n  'done',\n] as const;\nexport type IconGlyph = (typeof ICON_GLYPHS)[number];\n\nexport const ICON_SIZES = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;\nexport type IconSize = (typeof ICON_SIZES)[number];\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -3376,7 +3561,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".wrapper {\n  display: flex;\n  gap: 24px;\n}\n",
+                    "data": ".wrapper {\n  display: flex;\n  gap: 24px;\n  align-items: center;\n}\n",
                     "styleUrl": "./landing-layout-actions.component.scss"
                 }
             ],
@@ -3727,7 +3912,7 @@
         },
         {
             "name": "LanguageSwitcherComponent",
-            "id": "component-LanguageSwitcherComponent-8c3c1de40c08c7311c204fdb70bba59b0da95e0aeeed101f96d1c853c7069f2be8a5e4806bdf6868c8cac19756fc3af9d02ac699c564b93ba9c228905b35593e",
+            "id": "component-LanguageSwitcherComponent-58aa46e6471011c1dda0fe5ddd8d2dedfb6a60dcb059123327d6020e6cd259705c1a24e4a935623cc93d75a34a6b7aeddef09e3904075bac8c6504362b567cc6",
             "file": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -3754,7 +3939,7 @@
                     "type": "string",
                     "optional": true,
                     "description": "",
-                    "line": 33,
+                    "line": 40,
                     "modifierKind": [
                         122
                     ]
@@ -3766,7 +3951,7 @@
                     "type": "LanguageSwitcherOption",
                     "optional": true,
                     "description": "",
-                    "line": 31,
+                    "line": 38,
                     "modifierKind": [
                         122
                     ]
@@ -3779,7 +3964,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 34,
+                    "line": 41,
                     "modifierKind": [
                         122
                     ]
@@ -3792,7 +3977,7 @@
                     "type": "LanguageSwitcherOption[]",
                     "optional": false,
                     "description": "",
-                    "line": 32,
+                    "line": 39,
                     "modifierKind": [
                         122
                     ]
@@ -3805,7 +3990,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 36,
+                    "line": 43,
                     "modifierKind": [
                         121,
                         146
@@ -3814,12 +3999,80 @@
             ],
             "methodsClass": [
                 {
+                    "name": "changeLanguage",
+                    "args": [
+                        {
+                            "name": "option",
+                            "type": "LanguageSwitcherOption",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 87,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "option",
+                            "type": "LanguageSwitcherOption",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "closeDropdown",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 56,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "HostListener",
+                            "stringifiedArguments": "'document:click', ['$event']"
+                        }
+                    ],
+                    "modifierKind": [
+                        167,
+                        121
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true,
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "ngOnDestroy",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 59,
+                    "line": 79,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -3829,7 +4082,17 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 43,
+                    "line": 64,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "toggleDropdown",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 83,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -3837,7 +4100,26 @@
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
-            "hostListeners": [],
+            "hostListeners": [
+                {
+                    "name": "document:click",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true
+                        }
+                    ],
+                    "argsDecorator": [
+                        "$event"
+                    ],
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 56
+                }
+            ],
             "standalone": true,
             "imports": [
                 {
@@ -3872,11 +4154,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Inject, OnDestroy, OnInit } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport {\n  LANGUAGE_SWITCHER_SERVICE,\n  LanguageSwitcherOption,\n  LanguageSwitcherService,\n} from './language-switcher.service';\nimport { Subscription, merge, tap } from 'rxjs';\nimport { FlagComponent, IconComponent } from '../icon';\nimport { ButtonComponent } from '../button';\nimport { OverlayModule } from '@angular/cdk/overlay';\nimport { CardComponent } from '../card';\nimport { LabelComponent } from '../typography';\n\n@Component({\n  selector: 'lai-language-switcher',\n  standalone: true,\n  imports: [\n    CommonModule,\n    IconComponent,\n    FlagComponent,\n    ButtonComponent,\n    OverlayModule,\n    CardComponent,\n    LabelComponent,\n  ],\n  templateUrl: './language-switcher.component.html',\n  styleUrls: ['./language-switcher.component.scss'],\n})\nexport class LanguageSwitcherComponent implements OnInit, OnDestroy {\n  protected currentOption?: LanguageSwitcherOption;\n  protected options: LanguageSwitcherOption[] = [];\n  protected currentLanguage?: string;\n  protected isOpen = false;\n\n  private readonly sub$ = new Subscription();\n\n  constructor(\n    @Inject(LANGUAGE_SWITCHER_SERVICE)\n    private readonly service: LanguageSwitcherService\n  ) {}\n\n  ngOnInit(): void {\n    this.sub$.add(\n      merge(\n        this.service.currentLanguage$.pipe(\n          tap(currentLanguage => (this.currentLanguage = currentLanguage))\n        ),\n        this.service.options$.pipe(tap(options => (this.options = options)))\n      ).subscribe(() => {\n        console.log(this.currentLanguage, this.options);\n        this.currentOption = this.options.find(\n          ({ value }) => value === this.currentLanguage\n        );\n      })\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n}\n",
+            "sourceCode": "import {\n  Component,\n  ElementRef,\n  HostListener,\n  Inject,\n  OnDestroy,\n  OnInit,\n} from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport {\n  LANGUAGE_SWITCHER_SERVICE,\n  LanguageSwitcherOption,\n  LanguageSwitcherService,\n} from './language-switcher.service';\nimport { Observable, Subscription, merge, tap } from 'rxjs';\nimport { FlagComponent, IconComponent } from '../icon';\nimport { ButtonComponent } from '../button';\nimport { OverlayModule } from '@angular/cdk/overlay';\nimport { CardComponent } from '../card';\nimport { LabelComponent } from '../typography';\n\n@Component({\n  selector: 'lai-language-switcher',\n  standalone: true,\n  imports: [\n    CommonModule,\n    IconComponent,\n    FlagComponent,\n    ButtonComponent,\n    OverlayModule,\n    CardComponent,\n    LabelComponent,\n  ],\n  templateUrl: './language-switcher.component.html',\n  styleUrls: ['./language-switcher.component.scss'],\n})\nexport class LanguageSwitcherComponent implements OnInit, OnDestroy {\n  protected currentOption?: LanguageSwitcherOption;\n  protected options: LanguageSwitcherOption[] = [];\n  protected currentLanguage?: string;\n  protected isOpen = false;\n\n  private readonly sub$ = new Subscription();\n\n  constructor(\n    @Inject(LANGUAGE_SWITCHER_SERVICE)\n    private readonly service: LanguageSwitcherService,\n    private readonly elRef: ElementRef\n  ) {}\n\n  protected get labelText$(): Observable<string> {\n    return this.service.labelText$;\n  }\n\n  @HostListener('document:click', ['$event'])\n  private closeDropdown(event?: MouseEvent): void {\n    if (event && this.elRef.nativeElement.contains(event.target)) {\n      return;\n    }\n\n    this.isOpen = false;\n  }\n\n  ngOnInit(): void {\n    this.sub$.add(\n      merge(\n        this.service.currentLanguage$.pipe(\n          tap(currentLanguage => (this.currentLanguage = currentLanguage))\n        ),\n        this.service.options$.pipe(tap(options => (this.options = options)))\n      ).subscribe(() => {\n        this.currentOption = this.options.find(\n          ({ value }) => value === this.currentLanguage\n        );\n      })\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n\n  toggleDropdown(): void {\n    this.isOpen = !this.isOpen;\n  }\n\n  changeLanguage(option: LanguageSwitcherOption): void {\n    this.service.changeLanguageCallback(option.value);\n    this.closeDropdown();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'color' as c;\n\nlai-card.card {\n  padding: 12px 0;\n  width: 224px;\n}\n\n.list {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n.list-item {\n  padding: 8px 16px;\n  display: flex;\n  gap: 8px;\n\n  lai-label {\n    flex: 1;\n    color: c.color('gray', 500);\n  }\n}\n\n.checkmark {\n  color: c.color('success', 600);\n}\n",
+                    "data": "@use 'color' as c;\n\nlai-card.card {\n  padding: 12px 0;\n  width: 224px;\n  gap: 12px;\n}\n\n.list {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n.label {\n  padding: 0 16px;\n  color: c.$black;\n}\n\n.list-item {\n  padding: 8px 16px;\n  display: flex;\n  gap: 8px;\n  cursor: pointer;\n\n  &:hover {\n    background-color: c.color('gray', 100);\n  }\n\n  lai-label {\n    flex: 1;\n    color: c.color('gray', 500);\n  }\n}\n\n.checkmark {\n  color: c.color('success', 600);\n}\n",
                     "styleUrl": "./language-switcher.component.scss"
                 }
             ],
@@ -3892,13 +4174,28 @@
                         "type": "LanguageSwitcherService",
                         "deprecated": false,
                         "deprecationMessage": ""
+                    },
+                    {
+                        "name": "elRef",
+                        "type": "ElementRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
                     }
                 ],
-                "line": 36,
+                "line": 43,
                 "jsdoctags": [
                     {
                         "name": "service",
                         "type": "LanguageSwitcherService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "elRef",
+                        "type": "ElementRef",
                         "deprecated": false,
                         "deprecationMessage": "",
                         "tagName": {
@@ -3911,7 +4208,18 @@
                 "OnInit",
                 "OnDestroy"
             ],
-            "templateData": "<ng-container *ngIf=\"currentOption\">\n  <button\n    laiButton\n    hierarchy=\"tertiary\"\n    color=\"gray\"\n    cdkOverlayOrigin\n    #trigger=\"cdkOverlayOrigin\"\n    (click)=\"isOpen = !isOpen\">\n    <lai-flag [country]=\"currentOption.flag\"></lai-flag>\n    {{ currentOption.label }}\n    <lai-icon glyph=\"expand-arrow\"></lai-icon>\n  </button>\n\n  <ng-template\n    cdkConnectedOverlay\n    [cdkConnectedOverlayOrigin]=\"trigger\"\n    [cdkConnectedOverlayOpen]=\"isOpen\">\n    <lai-card class=\"card\">\n      <ul class=\"list\">\n        <li *ngFor=\"let option of options\" class=\"list-item\">\n          <lai-flag [country]=\"option.flag\"></lai-flag>\n          <lai-label>\n            {{ option.label }}\n          </lai-label>\n\n          <lai-icon\n            class=\"checkmark\"\n            *ngIf=\"option.value === currentLanguage\"\n            glyph=\"checkmark\"></lai-icon>\n        </li>\n      </ul>\n    </lai-card>\n  </ng-template>\n</ng-container>\n"
+            "accessors": {
+                "labelText$": {
+                    "name": "labelText$",
+                    "getSignature": {
+                        "name": "labelText$",
+                        "type": "",
+                        "returnType": "Observable<string>",
+                        "line": 51
+                    }
+                }
+            },
+            "templateData": "<ng-container *ngIf=\"currentOption\">\n  <button\n    laiButton\n    hierarchy=\"tertiary\"\n    color=\"gray\"\n    cdkOverlayOrigin\n    #trigger=\"cdkOverlayOrigin\"\n    (click)=\"toggleDropdown()\">\n    <lai-flag [country]=\"currentOption.flag\"></lai-flag>\n    {{ currentOption.label }}\n    <lai-icon glyph=\"expand-arrow\"></lai-icon>\n  </button>\n\n  <ng-template\n    cdkConnectedOverlay\n    [cdkConnectedOverlayOrigin]=\"trigger\"\n    [cdkConnectedOverlayOpen]=\"isOpen\">\n    <lai-card class=\"card\">\n      <lai-label\n        class=\"label\"\n        *ngIf=\"labelText$ | async as labelText\"\n        weight=\"semibold\">\n        {{ labelText }}\n      </lai-label>\n      <ul class=\"list\">\n        <li\n          *ngFor=\"let option of options\"\n          class=\"list-item\"\n          (click)=\"changeLanguage(option)\">\n          <lai-flag [country]=\"option.flag\"></lai-flag>\n          <lai-label>\n            {{ option.label }}\n          </lai-label>\n\n          <lai-icon\n            class=\"checkmark\"\n            *ngIf=\"option.value === currentLanguage\"\n            glyph=\"done\"></lai-icon>\n        </li>\n      </ul>\n    </lai-card>\n  </ng-template>\n</ng-container>\n"
         },
         {
             "name": "LinkComponent",
@@ -4525,8 +4833,8 @@
         },
         {
             "name": "LoadingSpinnerComponent",
-            "id": "component-LoadingSpinnerComponent-e38f0e5e7f7a57d55aefe905e0d6bacce187a256b7ebb90210a2d84772b58c73b9fe1007e0461a4877906821d5ced89eba3ccbae63e0f3eb7a24da75fb9b1583",
-            "file": "projects/lendai-us/design-system/src/lib/loading-spinner/loading-spinner.component.ts",
+            "id": "component-LoadingSpinnerComponent-70b2cf9dac9bf8ba6765618f5a7f27cd183e46fec09aa032f54bd13d2629c2a00213bf0028cb7122eccc1461e9d7aa44ae65e184dbb7ca088024bb0e108dac10",
+            "file": "projects/lendai-us/design-system/src/lib/loading/loading-spinner/loading-spinner.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -4550,17 +4858,12 @@
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
-            "standalone": true,
-            "imports": [
-                {
-                    "name": "CommonModule",
-                    "type": "module"
-                }
-            ],
+            "standalone": false,
+            "imports": [],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'lai-loading-spinner',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './loading-spinner.component.html',\n  styleUrls: ['./loading-spinner.component.scss'],\n})\nexport class LoadingSpinnerComponent {}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'lai-loading-spinner',\n  templateUrl: './loading-spinner.component.html',\n  styleUrls: ['./loading-spinner.component.scss'],\n})\nexport class LoadingSpinnerComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -4702,6 +5005,73 @@
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": ""
+        },
+        {
+            "name": "ParentComponent",
+            "id": "component-ParentComponent-bf03b81d626f298499cbd1effa2930d54e33df655836bfbf519d2c99aa66c34ad1ffa59a449a4cdbb33ec9e51b522f7dbb75abc584dd645352bb29ba22c8f8d4-1",
+            "file": "projects/lendai-us/design-system/src/lib/loading/full-screen-loading-overlay/full-screen-loading-overlay.stories.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "styleUrls": [],
+            "styles": [],
+            "template": "<button laiButton (click)=\"open()\">Open</button>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "loading",
+                    "defaultValue": "inject(LoadingService)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "open",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 15,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "ButtonComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "LoadingModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';\nimport { ButtonComponent } from '../../button';\nimport { Component, inject } from '@angular/core';\nimport { LoadingModule } from '../loading.module';\nimport { LoadingService } from '../loading.service';\n\n@Component({\n  standalone: true,\n  template: `<button laiButton (click)=\"open()\">Open</button>`,\n  styles: [],\n  imports: [ButtonComponent, LoadingModule],\n})\nclass ParentComponent {\n  loading = inject(LoadingService);\n  open(): void {\n    this.loading.open();\n    setTimeout(() => this.loading.close(), 3000);\n  }\n}\n\nconst meta: Meta<ParentComponent> = {\n  title: 'WIP/Loading/FullScreenLoadingOverlay',\n  component: ParentComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [],\n    }),\n  ],\n};\nexport default meta;\ntype Story = StoryObj<ParentComponent>;\n\nexport const FullScreenLoadingOverlay: Story = {\n  args: {},\n  render: props => ({\n    props,\n  }),\n};\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "ParentComponent-1"
         },
         {
             "name": "PhoneInputComponent",
@@ -7976,6 +8346,53 @@
             ]
         },
         {
+            "name": "LoadingModule",
+            "id": "module-LoadingModule-93470514e74ebecb7560a40b660cb1ac0d73194881b4d085ec762a3f25f28bbbe6c6ced1d8d5dfa21ae38b30ad99fd553cb5f572ae5a35f5eeda14ff62a68946",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/lendai-us/design-system/src/lib/loading/loading.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';\nimport { FullScreenLoadingOverlayComponent } from './full-screen-loading-overlay/full-screen-loading-overlay.component';\nimport { DialogModule } from '@angular/cdk/dialog';\n\n@NgModule({\n  declarations: [LoadingSpinnerComponent, FullScreenLoadingOverlayComponent],\n  imports: [CommonModule, DialogModule],\n  exports: [LoadingSpinnerComponent],\n})\nexport class LoadingModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "FullScreenLoadingOverlayComponent"
+                        },
+                        {
+                            "name": "LoadingSpinnerComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "LoadingSpinnerComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "SideDrawerModule",
             "id": "module-SideDrawerModule-f65b0dcd88dd3facea4415db180e9395d412fe6ff3c46d7dd3676e8c1e403fc7e7f8563e260beec1da5176b7d363bdcb0db15d147d4ea31a2cd2fc8a76ce7f67",
             "description": "",
@@ -8349,16 +8766,6 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<BadgeComponent>",
-                "defaultValue": "{\n  color: 'blue',\n  size: 'md',\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -8374,6 +8781,16 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "{\n  hierarchy: 'primary',\n  size: 'md',\n  color: 'primary',\n  disabled: false,\n} as Partial<ButtonComponent>"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<BadgeComponent>",
+                "defaultValue": "{\n  color: 'blue',\n  size: 'md',\n}"
             },
             {
                 "name": "args",
@@ -8529,7 +8946,7 @@
                 "name": "Button",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/loading-spinner/loading-spinner.stories.ts",
+                "file": "projects/lendai-us/design-system/src/lib/loading/loading-spinner/loading-spinner.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -8716,6 +9133,16 @@
                 "defaultValue": "args => ({\n  props: args,\n  template: `\n    <lai-list-tile-group [size]=\"size\">\n      <lai-list-tile-item>\n        <lai-list-tile-avatar>\n          <lai-flag [country]=\"country\" [type]=\"type\"></lai-flag>\n        </lai-list-tile-avatar>\n        <lai-list-tile-title>{{contentTitle}}</lai-list-tile-title>\n        <lai-list-tile-subtitle>{{contentSubTitle}}</lai-list-tile-subtitle>\n        <lai-list-tile-description>{{contentText}}</lai-list-tile-description>\n      </lai-list-tile-item>\n      <lai-list-tile-item>\n        <lai-list-tile-avatar>\n          <lai-flag [country]=\"country\" [type]=\"type\"></lai-flag>\n        </lai-list-tile-avatar>\n        <lai-list-tile-title>{{contentTitle}}</lai-list-tile-title>\n        <lai-list-tile-subtitle>{{contentSubTitle}}</lai-list-tile-subtitle>\n        <lai-list-tile-description>{{contentText}}</lai-list-tile-description>\n      </lai-list-tile-item>\n    </lai-list-tile-group>\n  `,\n})"
             },
             {
+                "name": "FullScreenLoadingOverlay",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/loading/full-screen-loading-overlay/full-screen-loading-overlay.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {},\n  render: props => ({\n    props,\n  }),\n}"
+            },
+            {
                 "name": "Headline",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -8773,7 +9200,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "[\n  'back',\n  'comments',\n  'communication',\n  'edit',\n  'dashboard',\n  'filter',\n  'forward',\n  'logout',\n  'trash',\n  'upload',\n  'loan-policy',\n  'cv',\n  'external-link',\n  'close',\n  'loan-applications',\n  'calendar',\n  'mail',\n  'phone',\n  'close-circle',\n  'checkmark',\n  'add',\n  'remove',\n  'info',\n  'error',\n  'expand-arrow',\n  'collapse-arrow',\n  'reset',\n  'bars',\n  'help',\n  'briefcase',\n  'wallet',\n] as const"
+                "defaultValue": "[\n  'back',\n  'comments',\n  'communication',\n  'edit',\n  'dashboard',\n  'filter',\n  'forward',\n  'logout',\n  'trash',\n  'upload',\n  'loan-policy',\n  'cv',\n  'external-link',\n  'close',\n  'loan-applications',\n  'calendar',\n  'mail',\n  'phone',\n  'close-circle',\n  'checkmark',\n  'add',\n  'remove',\n  'info',\n  'error',\n  'expand-arrow',\n  'collapse-arrow',\n  'reset',\n  'bars',\n  'help',\n  'briefcase',\n  'wallet',\n  'done',\n] as const"
             },
             {
                 "name": "ICON_SIZES",
@@ -8949,7 +9376,7 @@
                 "name": "LoadingSpinner",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/loading-spinner/loading-spinner.stories.ts",
+                "file": "projects/lendai-us/design-system/src/lib/loading/loading-spinner/loading-spinner.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -8979,16 +9406,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<BadgeComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent, IconComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    size: {\n      options: BADGE_SIZES,\n      control: { type: 'select' },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -9009,6 +9426,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<BadgeComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent, IconComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    size: {\n      options: BADGE_SIZES,\n      control: { type: 'select' },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/image-checkbox/image-checkbox.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -9024,16 +9451,6 @@
                 "deprecationMessage": "",
                 "type": "Meta<LanguageSwitcherComponent>",
                 "defaultValue": "{\n  title: 'Molecules/LanguageSwitcher',\n  component: LanguageSwitcherComponent,\n  decorators: [\n    moduleMetadata({\n      providers: [\n        {\n          provide: LANGUAGE_SWITCHER_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/loading-spinner/loading-spinner.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<LoadingSpinnerComponent>",
-                "defaultValue": "{\n  title: 'WIP/LoadingSpinner',\n  decorators: [\n    moduleMetadata({\n      imports: [ButtonComponent],\n    }),\n  ],\n  component: LoadingSpinnerComponent,\n}"
             },
             {
                 "name": "meta",
@@ -9124,6 +9541,26 @@
                 "deprecationMessage": "",
                 "type": "Meta<SidenavLayoutComponent>",
                 "defaultValue": "{\n  title: 'Templates/SidenavLayout',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [SidenavLayoutModule, ButtonComponent, RouterTestingModule],\n      providers: [\n        {\n          provide: SIDENAV_LAYOUT_SERVICE,\n          useClass: DummyService,\n        },\n      ],\n    }),\n  ],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/loading/full-screen-loading-overlay/full-screen-loading-overlay.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ParentComponent>",
+                "defaultValue": "{\n  title: 'WIP/Loading/FullScreenLoadingOverlay',\n  component: ParentComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [],\n    }),\n  ],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/loading/loading-spinner/loading-spinner.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<LoadingSpinnerComponent>",
+                "defaultValue": "{\n  title: 'WIP/Loading/LoadingSpinner',\n  decorators: [\n    moduleMetadata({\n      imports: [ButtonComponent],\n    }),\n  ],\n  component: LoadingSpinnerComponent,\n}"
             },
             {
                 "name": "meta",
@@ -9846,17 +10283,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<BadgeComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<CardComponent>",
                 "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
                 "deprecated": false,
@@ -9879,6 +10305,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<BadgeComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<ImageCheckboxGroupComponent<string>>",
                 "file": "projects/lendai-us/design-system/src/lib/image-checkbox/image-checkbox.stories.ts",
                 "deprecated": false,
@@ -9892,17 +10329,6 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<LanguageSwitcherComponent>",
                 "file": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<LoadingSpinnerComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/loading-spinner/loading-spinner.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -10002,6 +10428,28 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<SidenavLayoutComponent>",
                 "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ParentComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/loading/full-screen-loading-overlay/full-screen-loading-overlay.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<LoadingSpinnerComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/loading/loading-spinner/loading-spinner.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -10199,58 +10647,6 @@
                     "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<BadgeComponent>",
-                    "defaultValue": "{\n  color: 'blue',\n  size: 'md',\n}"
-                },
-                {
-                    "name": "Badge",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args,\n  render: props => ({\n    props: {\n      ...props,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\"\n                 [size]=\"size\">\n        {{content}}\n      </lai-badge>\n  `,\n  }),\n}"
-                },
-                {
-                    "name": "BadgeWithPrefix",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args,\n  render: props => ({\n    props: {\n      ...props,\n      content: 'Lorem ipsum',\n      glyph: 'communication',\n    },\n    template: `\n      <lai-badge [color]=\"color\"\n                 [size]=\"size\">\n        <lai-icon [glyph]=\"glyph\"></lai-icon>\n        {{content}}\n      </lai-badge>\n  `,\n  }),\n}"
-                },
-                {
-                    "name": "BadgeWithSuffix",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args,\n  render: props => ({\n    props: {\n      ...props,\n      content: 'Lorem ipsum',\n      glyph: 'communication',\n    },\n    template: `\n      <lai-badge [color]=\"color\"\n                 [size]=\"size\">\n        {{content}}\n        <lai-icon [glyph]=\"glyph\"></lai-icon>\n      </lai-badge>\n  `,\n  }),\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<BadgeComponent>",
-                    "defaultValue": "{\n  title: 'Atoms/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent, IconComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    size: {\n      options: BADGE_SIZES,\n      control: { type: 'select' },\n    },\n  },\n}"
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/card/card.stories.ts": [
                 {
                     "name": "args",
@@ -10343,6 +10739,58 @@
                     "deprecationMessage": "",
                     "type": "Meta<ButtonComponent>",
                     "defaultValue": "{\n  title: 'Atoms/Button',\n  decorators: [\n    moduleMetadata({\n      imports: [ButtonComponent, IconComponent],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: BUTTON_SIZES,\n    },\n    hierarchy: {\n      control: { type: 'select' },\n      options: BUTTON_HIERARCHIES,\n    },\n    color: {\n      control: { type: 'select' },\n      options: BUTTON_COLORS,\n    },\n  },\n}"
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<BadgeComponent>",
+                    "defaultValue": "{\n  color: 'blue',\n  size: 'md',\n}"
+                },
+                {
+                    "name": "Badge",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args,\n  render: props => ({\n    props: {\n      ...props,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\"\n                 [size]=\"size\">\n        {{content}}\n      </lai-badge>\n  `,\n  }),\n}"
+                },
+                {
+                    "name": "BadgeWithPrefix",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args,\n  render: props => ({\n    props: {\n      ...props,\n      content: 'Lorem ipsum',\n      glyph: 'communication',\n    },\n    template: `\n      <lai-badge [color]=\"color\"\n                 [size]=\"size\">\n        <lai-icon [glyph]=\"glyph\"></lai-icon>\n        {{content}}\n      </lai-badge>\n  `,\n  }),\n}"
+                },
+                {
+                    "name": "BadgeWithSuffix",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args,\n  render: props => ({\n    props: {\n      ...props,\n      content: 'Lorem ipsum',\n      glyph: 'communication',\n    },\n    template: `\n      <lai-badge [color]=\"color\"\n                 [size]=\"size\">\n        {{content}}\n        <lai-icon [glyph]=\"glyph\"></lai-icon>\n      </lai-badge>\n  `,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<BadgeComponent>",
+                    "defaultValue": "{\n  title: 'Atoms/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent, IconComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    size: {\n      options: BADGE_SIZES,\n      control: { type: 'select' },\n    },\n  },\n}"
                 }
             ],
             "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts": [
@@ -10569,12 +11017,12 @@
                     "defaultValue": "['regular', 'medium', 'semibold'] as const"
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/loading-spinner/loading-spinner.stories.ts": [
+            "projects/lendai-us/design-system/src/lib/loading/loading-spinner/loading-spinner.stories.ts": [
                 {
                     "name": "Button",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/loading-spinner/loading-spinner.stories.ts",
+                    "file": "projects/lendai-us/design-system/src/lib/loading/loading-spinner/loading-spinner.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -10584,7 +11032,7 @@
                     "name": "LoadingSpinner",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/loading-spinner/loading-spinner.stories.ts",
+                    "file": "projects/lendai-us/design-system/src/lib/loading/loading-spinner/loading-spinner.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -10594,11 +11042,11 @@
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/loading-spinner/loading-spinner.stories.ts",
+                    "file": "projects/lendai-us/design-system/src/lib/loading/loading-spinner/loading-spinner.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<LoadingSpinnerComponent>",
-                    "defaultValue": "{\n  title: 'WIP/LoadingSpinner',\n  decorators: [\n    moduleMetadata({\n      imports: [ButtonComponent],\n    }),\n  ],\n  component: LoadingSpinnerComponent,\n}"
+                    "defaultValue": "{\n  title: 'WIP/Loading/LoadingSpinner',\n  decorators: [\n    moduleMetadata({\n      imports: [ButtonComponent],\n    }),\n  ],\n  component: LoadingSpinnerComponent,\n}"
                 }
             ],
             "projects/lendai-us/design-system/src/lib/button/button.component.ts": [
@@ -10931,6 +11379,28 @@
                     "defaultValue": "args => ({\n  props: args,\n  template: `\n    <lai-list-tile-group [size]=\"size\">\n      <lai-list-tile-item>\n        <lai-list-tile-avatar>\n          <lai-flag [country]=\"country\" [type]=\"type\"></lai-flag>\n        </lai-list-tile-avatar>\n        <lai-list-tile-title>{{contentTitle}}</lai-list-tile-title>\n        <lai-list-tile-subtitle>{{contentSubTitle}}</lai-list-tile-subtitle>\n      </lai-list-tile-item>\n      <lai-list-tile-item>\n        <lai-list-tile-avatar>\n          <lai-flag [country]=\"country\" [type]=\"type\"></lai-flag>\n        </lai-list-tile-avatar>\n        <lai-list-tile-title>{{contentTitle}}</lai-list-tile-title>\n        <lai-list-tile-subtitle>{{contentSubTitle}}</lai-list-tile-subtitle>\n      </lai-list-tile-item>\n    </lai-list-tile-group>\n  `,\n})"
                 }
             ],
+            "projects/lendai-us/design-system/src/lib/loading/full-screen-loading-overlay/full-screen-loading-overlay.stories.ts": [
+                {
+                    "name": "FullScreenLoadingOverlay",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/loading/full-screen-loading-overlay/full-screen-loading-overlay.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {},\n  render: props => ({\n    props,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/loading/full-screen-loading-overlay/full-screen-loading-overlay.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ParentComponent>",
+                    "defaultValue": "{\n  title: 'WIP/Loading/FullScreenLoadingOverlay',\n  component: ParentComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [],\n    }),\n  ],\n}"
+                }
+            ],
             "projects/lendai-us/design-system/src/lib/typography/headline/headline.stories.ts": [
                 {
                     "name": "Headline",
@@ -10996,7 +11466,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "[\n  'back',\n  'comments',\n  'communication',\n  'edit',\n  'dashboard',\n  'filter',\n  'forward',\n  'logout',\n  'trash',\n  'upload',\n  'loan-policy',\n  'cv',\n  'external-link',\n  'close',\n  'loan-applications',\n  'calendar',\n  'mail',\n  'phone',\n  'close-circle',\n  'checkmark',\n  'add',\n  'remove',\n  'info',\n  'error',\n  'expand-arrow',\n  'collapse-arrow',\n  'reset',\n  'bars',\n  'help',\n  'briefcase',\n  'wallet',\n] as const"
+                    "defaultValue": "[\n  'back',\n  'comments',\n  'communication',\n  'edit',\n  'dashboard',\n  'filter',\n  'forward',\n  'logout',\n  'trash',\n  'upload',\n  'loan-policy',\n  'cv',\n  'external-link',\n  'close',\n  'loan-applications',\n  'calendar',\n  'mail',\n  'phone',\n  'close-circle',\n  'checkmark',\n  'add',\n  'remove',\n  'info',\n  'error',\n  'expand-arrow',\n  'collapse-arrow',\n  'reset',\n  'bars',\n  'help',\n  'briefcase',\n  'wallet',\n  'done',\n] as const"
                 },
                 {
                     "name": "ICON_SIZES",
@@ -11847,19 +12317,6 @@
                     "kind": 180
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<BadgeComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/card/card.stories.ts": [
                 {
                     "name": "Story",
@@ -11886,6 +12343,19 @@
                     "kind": 180
                 }
             ],
+            "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<BadgeComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
             "projects/lendai-us/design-system/src/lib/image-checkbox/image-checkbox.stories.ts": [
                 {
                     "name": "Story",
@@ -11906,19 +12376,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<LanguageSwitcherComponent>",
                     "file": "projects/lendai-us/design-system/src/lib/language-switcher/language-switcher.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "projects/lendai-us/design-system/src/lib/loading-spinner/loading-spinner.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<LoadingSpinnerComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/loading-spinner/loading-spinner.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -12036,6 +12493,32 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<SidenavLayoutComponent>",
                     "file": "projects/lendai-us/design-system/src/lib/layout/sidenav-layout/sidenav-layout.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/loading/full-screen-loading-overlay/full-screen-loading-overlay.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ParentComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/loading/full-screen-loading-overlay/full-screen-loading-overlay.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/loading/loading-spinner/loading-spinner.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<LoadingSpinnerComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/loading/loading-spinner/loading-spinner.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -12771,7 +13254,7 @@
                 "linktype": "component",
                 "name": "LanguageSwitcherComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/9",
+                "coverageCount": "0/13",
                 "status": "low"
             },
             {
@@ -12789,7 +13272,7 @@
                 "linktype": "interface",
                 "name": "LanguageSwitcherService",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -12808,7 +13291,7 @@
                 "linktype": "classe",
                 "name": "DummyService",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -13381,7 +13864,45 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/lendai-us/design-system/src/lib/loading-spinner/loading-spinner.component.ts",
+                "filePath": "projects/lendai-us/design-system/src/lib/loading/full-screen-loading-overlay/full-screen-loading-overlay.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FullScreenLoadingOverlayComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/loading/full-screen-loading-overlay/full-screen-loading-overlay.stories.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ParentComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/loading/full-screen-loading-overlay/full-screen-loading-overlay.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "FullScreenLoadingOverlay",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/loading/full-screen-loading-overlay/full-screen-loading-overlay.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/loading/loading-spinner/loading-spinner.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "LoadingSpinnerComponent",
@@ -13390,7 +13911,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/lendai-us/design-system/src/lib/loading-spinner/loading-spinner.stories.ts",
+                "filePath": "projects/lendai-us/design-system/src/lib/loading/loading-spinner/loading-spinner.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -13400,7 +13921,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/lendai-us/design-system/src/lib/loading-spinner/loading-spinner.stories.ts",
+                "filePath": "projects/lendai-us/design-system/src/lib/loading/loading-spinner/loading-spinner.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -13410,13 +13931,22 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/lendai-us/design-system/src/lib/loading-spinner/loading-spinner.stories.ts",
+                "filePath": "projects/lendai-us/design-system/src/lib/loading/loading-spinner/loading-spinner.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/loading/loading.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "LoadingService",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {

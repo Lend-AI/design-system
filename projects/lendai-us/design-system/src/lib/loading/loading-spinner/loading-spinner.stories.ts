@@ -1,9 +1,9 @@
 import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
 import { LoadingSpinnerComponent } from './loading-spinner.component';
-import { ButtonComponent } from '../button';
+import { ButtonComponent } from '../../button';
 
 const meta: Meta<LoadingSpinnerComponent> = {
-  title: 'WIP/LoadingSpinner',
+  title: 'WIP/Loading/LoadingSpinner',
   decorators: [
     moduleMetadata({
       imports: [ButtonComponent],

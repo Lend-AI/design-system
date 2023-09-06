@@ -18,7 +18,7 @@ export * from './lib/typography';
 export * from './lib/list-tile';
 export * from './lib/icon/flag';
 export * from './lib/image-checkbox';
-export * from './lib/loading-spinner';
+export * from './lib/loading';
 export * from './lib/layout';
 export * from './lib/stepper';
 export * from './lib/foundations';
