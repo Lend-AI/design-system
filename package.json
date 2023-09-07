@@ -50,6 +50,7 @@
     "@storybook/angular": "^7.2.1",
     "@storybook/blocks": "^7.2.1",
     "@storybook/testing-library": "^0.0.14-next.2",
+    "@types/google.maps": "^3.54.0",
     "@types/jasmine": "~4.3.0",
     "@typescript-eslint/eslint-plugin": "5.48.2",
     "@typescript-eslint/parser": "5.48.2",

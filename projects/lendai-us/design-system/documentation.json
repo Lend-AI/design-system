@@ -85,39 +85,7 @@
         },
         {
             "name": "DummyItem",
-            "id": "interface-DummyItem-da98bce407e97c210339eefd4475dc8b6451c8d953bfe0094fd342178e73aaa503108887df6950f2b1cbc819b6fc06895db5ad40b7f19a402fc646441f79bb1d",
-            "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
-            "deprecated": false,
-            "deprecationMessage": "",
-            "type": "interface",
-            "sourceCode": "import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';\nimport { StepperModule } from './stepper.module';\nimport { StepperComponent } from './stepper.component';\n\nconst meta: Meta<StepperComponent> = {\n  title: 'WIP/Stepper',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [StepperModule],\n    }),\n  ],\n  argTypes: {\n    selectedChange: { action: 'onSelectedChange' },\n  },\n};\nexport default meta;\ntype Story = StoryObj<StepperComponent>;\n\ninterface DummyItem {\n  label: string;\n  content: string;\n}\nconst args: Partial<StepperComponent> & { data: DummyItem[] } = {\n  data: [\n    {\n      label: 'First label',\n      content: 'First content',\n    },\n    {\n      label: 'Second label',\n      content: 'Second content',\n    },\n    {\n      label: 'Third label',\n      content: 'Third content',\n    },\n  ],\n};\n\nexport const Stepper: Story = {\n  args,\n  render: props => ({\n    props,\n    template: `\n    <div style=\"display: flex; flex-direction: column;\">\n      <lai-stepper (selectedChange)=\"selectedChange($event)\">\n        <lai-step *ngFor=\"let item of data\"\n                 [label]=\"item.label\">\n          {{ item.content }}\n        </lai-step>\n      </lai-stepper>\n    </div>\n    `,\n  }),\n};\n",
-            "properties": [
-                {
-                    "name": "content",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 24
-                },
-                {
-                    "name": "label",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 23
-                }
-            ],
-            "indexSignatures": [],
-            "kind": 168,
-            "methods": []
-        },
-        {
-            "name": "DummyItem",
-            "id": "interface-DummyItem-b088d9e323227e51ea2f4ea48777c526f92fa1159fc94c4632393045899e3fd2653098cc81b93f4d82b6031f16ee7a789c3751e3bc7ddfb2488edadb76943c6b-1",
+            "id": "interface-DummyItem-b088d9e323227e51ea2f4ea48777c526f92fa1159fc94c4632393045899e3fd2653098cc81b93f4d82b6031f16ee7a789c3751e3bc7ddfb2488edadb76943c6b",
             "file": "projects/lendai-us/design-system/src/lib/tabs/tab-group.stories.ts",
             "deprecated": false,
             "deprecationMessage": "",
@@ -154,14 +122,11 @@
             ],
             "indexSignatures": [],
             "kind": 168,
-            "methods": [],
-            "isDuplicate": true,
-            "duplicateId": 1,
-            "duplicateName": "DummyItem-1"
+            "methods": []
         },
         {
             "name": "DummyItem",
-            "id": "interface-DummyItem-1a36ee42ee1799122224175e6e67561dd4db3454ba9cff58df82cbbb5eeccaa456f5ff3d389460c41bb26569d86402bb021a57a325c69566d952802523b97900-2",
+            "id": "interface-DummyItem-1a36ee42ee1799122224175e6e67561dd4db3454ba9cff58df82cbbb5eeccaa456f5ff3d389460c41bb26569d86402bb021a57a325c69566d952802523b97900-1",
             "file": "projects/lendai-us/design-system/src/lib/tabs/tab-nav-bar.stories.ts",
             "deprecated": false,
             "deprecationMessage": "",
@@ -194,6 +159,41 @@
                     "optional": false,
                     "description": "",
                     "line": 46
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 168,
+            "methods": [],
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "DummyItem-1"
+        },
+        {
+            "name": "DummyItem",
+            "id": "interface-DummyItem-da98bce407e97c210339eefd4475dc8b6451c8d953bfe0094fd342178e73aaa503108887df6950f2b1cbc819b6fc06895db5ad40b7f19a402fc646441f79bb1d-2",
+            "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';\nimport { StepperModule } from './stepper.module';\nimport { StepperComponent } from './stepper.component';\n\nconst meta: Meta<StepperComponent> = {\n  title: 'WIP/Stepper',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [StepperModule],\n    }),\n  ],\n  argTypes: {\n    selectedChange: { action: 'onSelectedChange' },\n  },\n};\nexport default meta;\ntype Story = StoryObj<StepperComponent>;\n\ninterface DummyItem {\n  label: string;\n  content: string;\n}\nconst args: Partial<StepperComponent> & { data: DummyItem[] } = {\n  data: [\n    {\n      label: 'First label',\n      content: 'First content',\n    },\n    {\n      label: 'Second label',\n      content: 'Second content',\n    },\n    {\n      label: 'Third label',\n      content: 'Third content',\n    },\n  ],\n};\n\nexport const Stepper: Story = {\n  args,\n  render: props => ({\n    props,\n    template: `\n    <div style=\"display: flex; flex-direction: column;\">\n      <lai-stepper (selectedChange)=\"selectedChange($event)\">\n        <lai-step *ngFor=\"let item of data\"\n                 [label]=\"item.label\">\n          {{ item.content }}\n        </lai-step>\n      </lai-stepper>\n    </div>\n    `,\n  }),\n};\n",
+            "properties": [
+                {
+                    "name": "content",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 24
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 23
                 }
             ],
             "indexSignatures": [],
@@ -600,7 +600,7 @@
     "injectables": [
         {
             "name": "LoadingService",
-            "id": "injectable-LoadingService-088ca4ae04ced4fb03dc41f8fee8712f95453c1b35a75332f35ce19efcbd8227ca2b4bdaa0943d61b55e29067a6b8bf214989b1fc41c1e7c1938757f52a1c9ed",
+            "id": "injectable-LoadingService-615ff4969dbd2951b4ec653c4cb9a35586143b9ebc59c941f2a349675baeaf709f453e38f36885ea5aec77c9e6f6b91d624f6112c4625c69054197b7407b48d9",
             "file": "projects/lendai-us/design-system/src/lib/loading/loading.service.ts",
             "properties": [
                 {
@@ -611,7 +611,7 @@
                     "type": "DialogRef<void | FullScreenLoadingOverlayComponent> | null",
                     "optional": false,
                     "description": "",
-                    "line": 9,
+                    "line": 7,
                     "modifierKind": [
                         121
                     ]
@@ -634,7 +634,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 14,
+                    "line": 12,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -643,7 +643,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Dialog, DialogRef } from '@angular/cdk/dialog';\nimport { Injectable } from '@angular/core';\nimport { FullScreenLoadingOverlayComponent } from './full-screen-loading-overlay/full-screen-loading-overlay.component';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class LoadingService {\n  private dialogRef: DialogRef<void, FullScreenLoadingOverlayComponent> | null =\n    null;\n\n  constructor(private readonly dialog: Dialog) {}\n\n  open(): void {\n    if (this.dialogRef) {\n      console.warn('loading is already opened');\n      return;\n    }\n\n    this.dialogRef = this.dialog.open(FullScreenLoadingOverlayComponent);\n  }\n\n  close(): void {\n    if (!this.dialogRef) {\n      console.warn('loading is not opened');\n      return;\n    }\n\n    this.dialogRef.close();\n    this.dialogRef = null;\n  }\n}\n",
+            "sourceCode": "import { Dialog, DialogRef } from '@angular/cdk/dialog';\nimport { Injectable } from '@angular/core';\nimport { FullScreenLoadingOverlayComponent } from './full-screen-loading-overlay/full-screen-loading-overlay.component';\n\n@Injectable()\nexport class LoadingService {\n  private dialogRef: DialogRef<void, FullScreenLoadingOverlayComponent> | null =\n    null;\n\n  constructor(private readonly dialog: Dialog) {}\n\n  open(): void {\n    if (this.dialogRef) {\n      console.warn('loading is already opened');\n      return;\n    }\n\n    this.dialogRef = this.dialog.open(FullScreenLoadingOverlayComponent, {\n      hasBackdrop: false,\n    });\n  }\n\n  close(): void {\n    if (!this.dialogRef) {\n      console.warn('loading is not opened');\n      return;\n    }\n\n    this.dialogRef.close();\n    this.dialogRef = null;\n  }\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -657,7 +657,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 10,
+                "line": 8,
                 "jsdoctags": [
                     {
                         "name": "dialog",
@@ -2566,7 +2566,7 @@
         },
         {
             "name": "FullScreenLoadingOverlayComponent",
-            "id": "component-FullScreenLoadingOverlayComponent-6cf2805feb5361519780d81a4dac64349208933c022a8c7f0c2412f8b39d522bb392aca0126886fc369da060760bb56c14f85013942f29d37931db9a6abb6e55",
+            "id": "component-FullScreenLoadingOverlayComponent-b83b41e2c36e2c8edbd825b803d154697837108d23e534d05fbb4c57315167128a1669f14a165d0b0a570b1ff32d4ec8b582d7bcb06068ce64a907c34c5eb80e",
             "file": "projects/lendai-us/design-system/src/lib/loading/full-screen-loading-overlay/full-screen-loading-overlay.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2596,16 +2596,16 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lai-full-screen-loading-overlay',\n  templateUrl: './full-screen-loading-overlay.component.html',\n  styleUrls: ['./full-screen-loading-overlay.component.scss']\n})\nexport class FullScreenLoadingOverlayComponent {\n\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lai-full-screen-loading-overlay',\n  templateUrl: './full-screen-loading-overlay.component.html',\n  styleUrls: ['./full-screen-loading-overlay.component.scss'],\n})\nexport class FullScreenLoadingOverlayComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": "@use 'color' as c;\n\n:host {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  height: 100vh;\n  width: 100vw;\n  background-color: rgba(c.$white, 0.7);\n}\n",
                     "styleUrl": "./full-screen-loading-overlay.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<p>full-screen-loading-overlay works!</p>\n"
+            "templateData": "<mat-spinner></mat-spinner>\n"
         },
         {
             "name": "HeadlineComponent",
@@ -4833,7 +4833,7 @@
         },
         {
             "name": "LoadingSpinnerComponent",
-            "id": "component-LoadingSpinnerComponent-70b2cf9dac9bf8ba6765618f5a7f27cd183e46fec09aa032f54bd13d2629c2a00213bf0028cb7122eccc1461e9d7aa44ae65e184dbb7ca088024bb0e108dac10",
+            "id": "component-LoadingSpinnerComponent-0b978f7adc5913adc108de1f4cb402147774bb67c4407df1a9e4b8b29d3439325c3866fbead3246d3bd983e4ece250262b39dcb76a0a546602bef304fc4fec2e",
             "file": "projects/lendai-us/design-system/src/lib/loading/loading-spinner/loading-spinner.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -4863,7 +4863,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'lai-loading-spinner',\n  templateUrl: './loading-spinner.component.html',\n  styleUrls: ['./loading-spinner.component.scss'],\n})\nexport class LoadingSpinnerComponent {}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lai-loading-spinner',\n  templateUrl: './loading-spinner.component.html',\n  styleUrls: ['./loading-spinner.component.scss'],\n})\nexport class LoadingSpinnerComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -4944,7 +4944,60 @@
         },
         {
             "name": "ParentComponent",
-            "id": "component-ParentComponent-9b19f94365a12a0e0a1d81ec00fae3203c357e903a7a8bf06dfb68f7647c49746df9b46a731c6addbda85048930b936672705dbdbb152ae6cef9ed0d4c79bf7f",
+            "id": "component-ParentComponent-fc61127202fbf9d55d6a0e4270684dd8d77f226068791a6818d01dc6db4f57132102a20e3a67919d4561c49099c26f54d5bd9b056b63237d2ef2afaf840089e9",
+            "file": "projects/lendai-us/design-system/src/lib/phone-input/loading-spinner.stories.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "styleUrls": [],
+            "styles": [],
+            "template": "<lai-phone-input [formControl]=\"control\"></lai-phone-input>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "control",
+                    "defaultValue": "inject(FormBuilder).control('+972559256908')",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "ReactiveFormsModule",
+                    "type": "module"
+                },
+                {
+                    "name": "PhoneInputComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';\nimport { PhoneInputComponent } from './phone-input.component';\nimport { FormBuilder, ReactiveFormsModule } from '@angular/forms';\nimport { Component, inject } from '@angular/core';\nimport { COUNTRY_LIST } from '../country-select';\nimport { provideNgxMask } from 'ngx-mask';\nimport { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';\n\n@Component({\n  standalone: true,\n  template: `<lai-phone-input [formControl]=\"control\"></lai-phone-input>`,\n  styles: [],\n  imports: [ReactiveFormsModule, PhoneInputComponent],\n})\nclass ParentComponent {\n  control = inject(FormBuilder).control('+972559256908');\n}\n\nconst meta: Meta<ParentComponent> = {\n  title: 'WIP/PhoneInput',\n  decorators: [\n    moduleMetadata({\n      imports: [],\n      providers: [\n        { provide: COUNTRY_LIST, useValue: [] },\n        provideNgxMask(),\n        {\n          provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,\n          useValue: { appearance: 'outline' },\n        },\n      ],\n    }),\n  ],\n  component: ParentComponent,\n};\nexport default meta;\ntype Story = StoryObj<ParentComponent>;\n\nexport const PhoneInput: Story = {\n  args: {},\n  render: props => ({\n    props,\n  }),\n};\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ""
+        },
+        {
+            "name": "ParentComponent",
+            "id": "component-ParentComponent-9b19f94365a12a0e0a1d81ec00fae3203c357e903a7a8bf06dfb68f7647c49746df9b46a731c6addbda85048930b936672705dbdbb152ae6cef9ed0d4c79bf7f-1",
             "file": "projects/lendai-us/design-system/src/lib/side-drawer/side-drawer.stories.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -5004,11 +5057,14 @@
             "sourceCode": "import { Component, inject } from '@angular/core';\nimport { Meta, StoryObj, moduleMetadata } from '@storybook/angular';\nimport { ButtonComponent } from '../button';\nimport { Dialog, DialogModule } from '@angular/cdk/dialog';\nimport { SideDrawerModule } from './side-drawer.module';\n\n@Component({\n  standalone: true,\n  template: `\n    <lai-side-drawer>\n      <lai-side-drawer-header>\n        header of the side drawer goes here!\n      </lai-side-drawer-header>\n      content of the side drawer goes here!\n    </lai-side-drawer>\n  `,\n  styles: [],\n  imports: [SideDrawerModule],\n})\nclass ChildComponent {}\n\n@Component({\n  standalone: true,\n  template: `<button laiButton (click)=\"open()\">Open</button> `,\n  styles: [],\n  imports: [ButtonComponent, DialogModule],\n})\nclass ParentComponent {\n  dialog = inject(Dialog);\n  open(): void {\n    this.dialog.open(ChildComponent);\n  }\n}\n\nconst meta: Meta<ParentComponent> = {\n  title: 'WIP/SideDrawer',\n  component: ParentComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [ChildComponent],\n    }),\n  ],\n};\nexport default meta;\ntype Story = StoryObj<ParentComponent>;\n\nexport const SideDrawer: Story = {\n  args: {},\n  render: props => ({\n    props,\n  }),\n};\n",
             "assetsDirs": [],
             "styleUrlsData": "",
-            "stylesData": ""
+            "stylesData": "",
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "ParentComponent-1"
         },
         {
             "name": "ParentComponent",
-            "id": "component-ParentComponent-bf03b81d626f298499cbd1effa2930d54e33df655836bfbf519d2c99aa66c34ad1ffa59a449a4cdbb33ec9e51b522f7dbb75abc584dd645352bb29ba22c8f8d4-1",
+            "id": "component-ParentComponent-bf03b81d626f298499cbd1effa2930d54e33df655836bfbf519d2c99aa66c34ad1ffa59a449a4cdbb33ec9e51b522f7dbb75abc584dd645352bb29ba22c8f8d4-2",
             "file": "projects/lendai-us/design-system/src/lib/loading/full-screen-loading-overlay/full-screen-loading-overlay.stories.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -5070,8 +5126,8 @@
             "styleUrlsData": "",
             "stylesData": "",
             "isDuplicate": true,
-            "duplicateId": 1,
-            "duplicateName": "ParentComponent-1"
+            "duplicateId": 2,
+            "duplicateName": "ParentComponent-2"
         },
         {
             "name": "PhoneInputComponent",
@@ -8347,17 +8403,21 @@
         },
         {
             "name": "LoadingModule",
-            "id": "module-LoadingModule-93470514e74ebecb7560a40b660cb1ac0d73194881b4d085ec762a3f25f28bbbe6c6ced1d8d5dfa21ae38b30ad99fd553cb5f572ae5a35f5eeda14ff62a68946",
+            "id": "module-LoadingModule-9d0de4f6c316b851c4a78ba8f9d58677ab70f6ed500797cdc8dbf4a60471c8be6790f355e716a7e1426c73ac3a9b7814db0f347f9cef02d7b7b3481cb7d12ab1",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/lendai-us/design-system/src/lib/loading/loading.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';\nimport { FullScreenLoadingOverlayComponent } from './full-screen-loading-overlay/full-screen-loading-overlay.component';\nimport { DialogModule } from '@angular/cdk/dialog';\n\n@NgModule({\n  declarations: [LoadingSpinnerComponent, FullScreenLoadingOverlayComponent],\n  imports: [CommonModule, DialogModule],\n  exports: [LoadingSpinnerComponent],\n})\nexport class LoadingModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';\nimport { FullScreenLoadingOverlayComponent } from './full-screen-loading-overlay/full-screen-loading-overlay.component';\nimport { DialogModule } from '@angular/cdk/dialog';\nimport { LoadingService } from './loading.service';\nimport { MatProgressSpinnerModule } from '@angular/material/progress-spinner';\n\n@NgModule({\n  declarations: [LoadingSpinnerComponent, FullScreenLoadingOverlayComponent],\n  imports: [CommonModule, DialogModule, MatProgressSpinnerModule],\n  exports: [LoadingSpinnerComponent],\n  providers: [LoadingService],\n})\nexport class LoadingModule {}\n",
             "children": [
                 {
                     "type": "providers",
-                    "elements": []
+                    "elements": [
+                        {
+                            "name": "LoadingService"
+                        }
+                    ]
                 },
                 {
                     "type": "declarations",
@@ -8766,16 +8826,6 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<CardComponent>",
-                "defaultValue": "{\n  radius: 'sm',\n  size: 'md',\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -8796,11 +8846,11 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
+                "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "{\n  data: [\n    {\n      label: 'First label',\n      content: 'First content',\n    },\n    {\n      label: 'Second label',\n      content: 'Second content',\n    },\n    {\n      label: 'Third label',\n      content: 'Third content',\n    },\n  ],\n}"
+                "type": "Partial<CardComponent>",
+                "defaultValue": "{\n  radius: 'sm',\n  size: 'md',\n}"
             },
             {
                 "name": "args",
@@ -8821,6 +8871,16 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "{\n  size: 'md',\n  type: 'line',\n  data: [\n    {\n      link: '/first-route',\n      content: 'First content',\n      iconGlyph: 'dashboard',\n    },\n    {\n      link: '/second-route',\n      content: 'Second content',\n      iconGlyph: 'loan-applications',\n    },\n    {\n      link: '/third-route',\n      content: 'Third content',\n      iconGlyph: 'loan-policy',\n    },\n  ],\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "{\n  data: [\n    {\n      label: 'First label',\n      content: 'First content',\n    },\n    {\n      label: 'Second label',\n      content: 'Second content',\n    },\n    {\n      label: 'Third label',\n      content: 'Third content',\n    },\n  ],\n}"
             },
             {
                 "name": "Avatar",
@@ -9406,16 +9466,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<CardComponent>",
-                "defaultValue": "{\n  title: 'WIP/Card',\n  component: CardComponent,\n  decorators: [\n    componentWrapperDecorator(story => {\n      return `<style>\n          lai-card {\n            width: 100px;\n            height: 100px;\n          }\n        </style>\n        ${story}`;\n    }),\n  ],\n  argTypes: {\n    radius: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n    size: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -9431,6 +9481,16 @@
                 "deprecationMessage": "",
                 "type": "Meta<BadgeComponent>",
                 "defaultValue": "{\n  title: 'Atoms/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent, IconComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    size: {\n      options: BADGE_SIZES,\n      control: { type: 'select' },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<CardComponent>",
+                "defaultValue": "{\n  title: 'WIP/Card',\n  component: CardComponent,\n  decorators: [\n    componentWrapperDecorator(story => {\n      return `<style>\n          lai-card {\n            width: 100px;\n            height: 100px;\n          }\n        </style>\n        ${story}`;\n    }),\n  ],\n  argTypes: {\n    radius: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n    size: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -9456,21 +9516,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/side-drawer/side-drawer.stories.ts",
+                "file": "projects/lendai-us/design-system/src/lib/phone-input/loading-spinner.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ParentComponent>",
-                "defaultValue": "{\n  title: 'WIP/SideDrawer',\n  component: ParentComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [ChildComponent],\n    }),\n  ],\n}"
+                "defaultValue": "{\n  title: 'WIP/PhoneInput',\n  decorators: [\n    moduleMetadata({\n      imports: [],\n      providers: [\n        { provide: COUNTRY_LIST, useValue: [] },\n        provideNgxMask(),\n        {\n          provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,\n          useValue: { appearance: 'outline' },\n        },\n      ],\n    }),\n  ],\n  component: ParentComponent,\n}"
             },
             {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
+                "file": "projects/lendai-us/design-system/src/lib/side-drawer/side-drawer.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<StepperComponent>",
-                "defaultValue": "{\n  title: 'WIP/Stepper',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [StepperModule],\n    }),\n  ],\n  argTypes: {\n    selectedChange: { action: 'onSelectedChange' },\n  },\n}"
+                "type": "Meta<ParentComponent>",
+                "defaultValue": "{\n  title: 'WIP/SideDrawer',\n  component: ParentComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [ChildComponent],\n    }),\n  ],\n}"
             },
             {
                 "name": "meta",
@@ -9491,6 +9551,16 @@
                 "deprecationMessage": "",
                 "type": "Meta<TabNavBarComponent>",
                 "defaultValue": "{\n  title: 'Molecules/Tabs/TabNavBar',\n  decorators: [\n    moduleMetadata({\n      imports: [\n        RoutedComponent,\n        TabsModule,\n        RouterTestingModule.withRoutes([\n          { path: 'first-route', component: RoutedComponent },\n          { path: 'second-route', component: RoutedComponent },\n          { path: 'third-route', component: RoutedComponent },\n        ]),\n      ],\n    }),\n  ],\n  argTypes: {\n    size: {\n      options: ['md', 'lg'],\n      control: { type: 'select' },\n    },\n    type: {\n      options: ['line', 'contained'],\n      control: { type: 'select' },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<StepperComponent>",
+                "defaultValue": "{\n  title: 'WIP/Stepper',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [StepperModule],\n    }),\n  ],\n  argTypes: {\n    selectedChange: { action: 'onSelectedChange' },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -9631,6 +9701,16 @@
                 "deprecationMessage": "",
                 "type": "StoryFn",
                 "defaultValue": "args => ({\n  props: args,\n  template: `\n    <lai-list-tile-group [size]=\"size\">\n      <lai-list-tile-item>\n        <lai-list-tile-title>{{contentTitle}}</lai-list-tile-title>\n      </lai-list-tile-item>\n      <lai-list-tile-item>\n        <lai-list-tile-title>{{contentTitle}}</lai-list-tile-title>\n      </lai-list-tile-item>\n    </lai-list-tile-group>\n  `,\n})"
+            },
+            {
+                "name": "PhoneInput",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/phone-input/loading-spinner.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {},\n  render: props => ({\n    props,\n  }),\n}"
             },
             {
                 "name": "preview",
@@ -10283,17 +10363,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<CardComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<ButtonComponent>",
                 "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
                 "deprecated": false,
@@ -10307,6 +10376,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<BadgeComponent>",
                 "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<CardComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -10339,7 +10419,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "StoryObj<ParentComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/side-drawer/side-drawer.stories.ts",
+                "file": "projects/lendai-us/design-system/src/lib/phone-input/loading-spinner.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -10349,8 +10429,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<StepperComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
+                "rawtype": "StoryObj<ParentComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/side-drawer/side-drawer.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -10373,6 +10453,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<TabNavBarComponent>",
                 "file": "projects/lendai-us/design-system/src/lib/tabs/tab-nav-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<StepperComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -10647,38 +10738,6 @@
                     "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/card/card.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<CardComponent>",
-                    "defaultValue": "{\n  radius: 'sm',\n  size: 'md',\n}"
-                },
-                {
-                    "name": "Card",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args,\n  render: props => ({\n    props,\n  }),\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<CardComponent>",
-                    "defaultValue": "{\n  title: 'WIP/Card',\n  component: CardComponent,\n  decorators: [\n    componentWrapperDecorator(story => {\n      return `<style>\n          lai-card {\n            width: 100px;\n            height: 100px;\n          }\n        </style>\n        ${story}`;\n    }),\n  ],\n  argTypes: {\n    radius: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n    size: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n  },\n}"
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/button/button.stories.ts": [
                 {
                     "name": "args",
@@ -10793,36 +10852,36 @@
                     "defaultValue": "{\n  title: 'Atoms/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent, IconComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    size: {\n      options: BADGE_SIZES,\n      control: { type: 'select' },\n    },\n  },\n}"
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts": [
+            "projects/lendai-us/design-system/src/lib/card/card.stories.ts": [
                 {
                     "name": "args",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
+                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "{\n  data: [\n    {\n      label: 'First label',\n      content: 'First content',\n    },\n    {\n      label: 'Second label',\n      content: 'Second content',\n    },\n    {\n      label: 'Third label',\n      content: 'Third content',\n    },\n  ],\n}"
+                    "type": "Partial<CardComponent>",
+                    "defaultValue": "{\n  radius: 'sm',\n  size: 'md',\n}"
+                },
+                {
+                    "name": "Card",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args,\n  render: props => ({\n    props,\n  }),\n}"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
+                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<StepperComponent>",
-                    "defaultValue": "{\n  title: 'WIP/Stepper',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [StepperModule],\n    }),\n  ],\n  argTypes: {\n    selectedChange: { action: 'onSelectedChange' },\n  },\n}"
-                },
-                {
-                    "name": "Stepper",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args,\n  render: props => ({\n    props,\n    template: `\n    <div style=\"display: flex; flex-direction: column;\">\n      <lai-stepper (selectedChange)=\"selectedChange($event)\">\n        <lai-step *ngFor=\"let item of data\"\n                 [label]=\"item.label\">\n          {{ item.content }}\n        </lai-step>\n      </lai-stepper>\n    </div>\n    `,\n  }),\n}"
+                    "type": "Meta<CardComponent>",
+                    "defaultValue": "{\n  title: 'WIP/Card',\n  component: CardComponent,\n  decorators: [\n    componentWrapperDecorator(story => {\n      return `<style>\n          lai-card {\n            width: 100px;\n            height: 100px;\n          }\n        </style>\n        ${story}`;\n    }),\n  ],\n  argTypes: {\n    radius: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n    size: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n  },\n}"
                 }
             ],
             "projects/lendai-us/design-system/src/lib/tabs/tab-group.stories.ts": [
@@ -10927,6 +10986,38 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\n  args,\n  render: props => ({\n    props,\n    template: `\n      <nav laiTabNavBar\n           [size]=\"size\"\n           [type]=\"type\">\n        <a *ngFor=\"let item of data\"\n           laiTabNavBarLink\n           [iconGlyph]=\"item.iconGlyph\"\n           [routerLink]=\"item.link\"\n           routerLinkActive=\"active\">\n          {{ item.content }}\n        </a>\n      </nav>\n      <router-outlet></router-outlet>\n    `,\n  }),\n}"
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "{\n  data: [\n    {\n      label: 'First label',\n      content: 'First content',\n    },\n    {\n      label: 'Second label',\n      content: 'Second content',\n    },\n    {\n      label: 'Third label',\n      content: 'Third content',\n    },\n  ],\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<StepperComponent>",
+                    "defaultValue": "{\n  title: 'WIP/Stepper',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [StepperModule],\n    }),\n  ],\n  argTypes: {\n    selectedChange: { action: 'onSelectedChange' },\n  },\n}"
+                },
+                {
+                    "name": "Stepper",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args,\n  render: props => ({\n    props,\n    template: `\n    <div style=\"display: flex; flex-direction: column;\">\n      <lai-stepper (selectedChange)=\"selectedChange($event)\">\n        <lai-step *ngFor=\"let item of data\"\n                 [label]=\"item.label\">\n          {{ item.content }}\n        </lai-step>\n      </lai-stepper>\n    </div>\n    `,\n  }),\n}"
                 }
             ],
             "projects/lendai-us/design-system/src/lib/avatar/avatar.component.ts": [
@@ -11705,6 +11796,28 @@
                     "defaultValue": "args => ({\n  props: args,\n})"
                 }
             ],
+            "projects/lendai-us/design-system/src/lib/phone-input/loading-spinner.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/phone-input/loading-spinner.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ParentComponent>",
+                    "defaultValue": "{\n  title: 'WIP/PhoneInput',\n  decorators: [\n    moduleMetadata({\n      imports: [],\n      providers: [\n        { provide: COUNTRY_LIST, useValue: [] },\n        provideNgxMask(),\n        {\n          provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,\n          useValue: { appearance: 'outline' },\n        },\n      ],\n    }),\n  ],\n  component: ParentComponent,\n}"
+                },
+                {
+                    "name": "PhoneInput",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/phone-input/loading-spinner.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {},\n  render: props => ({\n    props,\n  }),\n}"
+                }
+            ],
             "projects/lendai-us/design-system/src/lib/side-drawer/side-drawer.stories.ts": [
                 {
                     "name": "meta",
@@ -12317,19 +12430,6 @@
                     "kind": 180
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/card/card.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<CardComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/button/button.stories.ts": [
                 {
                     "name": "Story",
@@ -12350,6 +12450,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<BadgeComponent>",
                     "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/card/card.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<CardComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -12382,6 +12495,19 @@
                     "kind": 180
                 }
             ],
+            "projects/lendai-us/design-system/src/lib/phone-input/loading-spinner.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ParentComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/phone-input/loading-spinner.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
             "projects/lendai-us/design-system/src/lib/side-drawer/side-drawer.stories.ts": [
                 {
                     "name": "Story",
@@ -12389,19 +12515,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ParentComponent>",
                     "file": "projects/lendai-us/design-system/src/lib/side-drawer/side-drawer.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<StepperComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -12428,6 +12541,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<TabNavBarComponent>",
                     "file": "projects/lendai-us/design-system/src/lib/tabs/tab-nav-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<StepperComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -13974,6 +14100,35 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/phone-input/loading-spinner.stories.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ParentComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/phone-input/loading-spinner.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/lendai-us/design-system/src/lib/phone-input/loading-spinner.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "PhoneInput",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
