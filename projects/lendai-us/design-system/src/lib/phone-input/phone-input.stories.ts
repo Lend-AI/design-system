@@ -5,6 +5,7 @@ import { Component, inject } from '@angular/core';
 import { COUNTRY_LIST } from '../country-select';
 import { provideNgxMask } from 'ngx-mask';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
   standalone: true,
@@ -20,7 +21,7 @@ const meta: Meta<ParentComponent> = {
   title: 'WIP/PhoneInput',
   decorators: [
     moduleMetadata({
-      imports: [],
+      imports: [BrowserAnimationsModule],
       providers: [
         { provide: COUNTRY_LIST, useValue: [] },
         provideNgxMask(),
