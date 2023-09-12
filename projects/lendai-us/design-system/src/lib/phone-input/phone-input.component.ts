@@ -10,10 +10,12 @@ import {
 import {
   AbstractControl,
   ControlValueAccessor,
+  FormBuilder,
   FormsModule,
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
   NgModel,
+  ReactiveFormsModule,
   ValidationErrors,
   Validator,
 } from '@angular/forms';
@@ -41,6 +43,7 @@ import {
   fromEvent,
   tap,
 } from 'rxjs';
+import { FilterPipe } from '@lendai-us/cdk';
 
 @Component({
   selector: 'lai-phone-input',
@@ -56,6 +59,8 @@ import {
     MatButtonModule,
     IconComponent,
     MatMenuModule,
+    FilterPipe,
+    ReactiveFormsModule,
   ],
   templateUrl: './phone-input.component.html',
   styleUrls: ['./phone-input.component.scss'],
@@ -83,19 +88,36 @@ export class PhoneInputComponent
   onChange!: (value: unknown) => void;
   onTouched!: () => void;
   onValidatorChange!: () => void;
+  searchControl = this.fb.control('', { nonNullable: true });
 
   protected readonly countries = inject(COUNTRY_LIST);
   // template binding is via template driven forms and not via render.setProperty,
   // because of ngx-mask, that is overriding inner input value and resets it in case it is default to 1
   protected value = '';
   protected isDisabled = false;
+  protected isSelected = false;
   protected readonly placeholder = '16135550194';
   protected flag = '';
+  protected code = '';
+  protected selectedCountry = '';
+  protected searchText = '';
   protected readonly mask =
     '0 000 000 00 00||000 00 000 0000||00 0 00 0000 0000';
-
+  protected filteredList = this.countries.slice();
   private readonly externalFormat: NumberFormat = 'E.164';
   private readonly sub$ = new Subscription();
+  constructor(private fb: FormBuilder) {}
+
+  // getFilteredData(rawData: Country[]): Country[] {
+  //   const searchValue = this.searchControl.value.trim().toLowerCase();
+  //   if (!searchValue) {
+  //     console.log('s: ' + searchValue);
+  //     console.log('r: ' + rawData);
+  //     return [...rawData];
+  //   } else {
+  //     return this.countries;
+  //   }
+  // }
 
   ngOnInit(): void {
     this.sub$.add(
@@ -168,8 +190,11 @@ export class PhoneInputComponent
     this.isDisabled = isDisabled;
   }
 
-  protected countrySelected({ alpha2Code, callingCode }: Country): void {
+  protected countrySelected({ alpha2Code, callingCode, name }: Country): void {
+    this.selectedCountry = name;
+    console.log(this.selectedCountry);
     this.flag = alpha2Code;
+    this.code = callingCode;
 
     const number = parseNumber(`+${this.value}`);
     if (!isParsedNumber(number)) {
@@ -188,7 +213,6 @@ export class PhoneInputComponent
       this.flag = '';
       return;
     }
-
     this.flag = number.country;
   }
 
