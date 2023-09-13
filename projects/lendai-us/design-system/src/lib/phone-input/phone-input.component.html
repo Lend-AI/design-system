@@ -16,9 +16,9 @@
 </mat-form-field>
 
 <mat-menu #countriesMenu class="phone-input__countries-menu">
-  <input matInput placeholder="Search" [formControl]="searchControl" (click)="$event.stopPropagation()"/>
+  <input matInput placeholder="Search" (keyup)="applySearchFilter($any($event.target).value)" (click)="$event.stopPropagation()"/>
   <button (keydown)="$event.stopPropagation()" mat-menu-item *ngFor="let country of filteredList"
-    (click)="countrySelected(country)" [value]="country.name" >
+    (click)="countrySelected(country)" [value]="country.name">
     <lai-flag [country]="country.alpha2Code"></lai-flag>
     {{ country.name }} ({{ country.callingCode }})
   </button>

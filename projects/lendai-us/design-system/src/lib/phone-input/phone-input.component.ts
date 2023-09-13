@@ -10,7 +10,6 @@ import {
 import {
   AbstractControl,
   ControlValueAccessor,
-  FormBuilder,
   FormsModule,
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
@@ -88,36 +87,20 @@ export class PhoneInputComponent
   onChange!: (value: unknown) => void;
   onTouched!: () => void;
   onValidatorChange!: () => void;
-  searchControl = this.fb.control('', { nonNullable: true });
 
   protected readonly countries = inject(COUNTRY_LIST);
   // template binding is via template driven forms and not via render.setProperty,
   // because of ngx-mask, that is overriding inner input value and resets it in case it is default to 1
   protected value = '';
   protected isDisabled = false;
-  protected isSelected = false;
   protected readonly placeholder = '16135550194';
   protected flag = '';
   protected code = '';
-  protected selectedCountry = '';
-  protected searchText = '';
   protected readonly mask =
     '0 000 000 00 00||000 00 000 0000||00 0 00 0000 0000';
   protected filteredList = this.countries.slice();
   private readonly externalFormat: NumberFormat = 'E.164';
   private readonly sub$ = new Subscription();
-  constructor(private fb: FormBuilder) {}
-
-  // getFilteredData(rawData: Country[]): Country[] {
-  //   const searchValue = this.searchControl.value.trim().toLowerCase();
-  //   if (!searchValue) {
-  //     console.log('s: ' + searchValue);
-  //     console.log('r: ' + rawData);
-  //     return [...rawData];
-  //   } else {
-  //     return this.countries;
-  //   }
-  // }
 
   ngOnInit(): void {
     this.sub$.add(
@@ -134,6 +117,18 @@ export class PhoneInputComponent
 
   ngOnDestroy(): void {
     this.sub$.unsubscribe();
+  }
+
+  applySearchFilter(searchText: string): void {
+    this.filteredList = this.countries.filter(item => {
+      if (
+        item.name.toString().toLowerCase().indexOf(searchText.toLowerCase()) !==
+        -1
+      ) {
+        return true;
+      }
+      return false;
+    });
   }
 
   writeValue(value: string): void {
@@ -190,9 +185,7 @@ export class PhoneInputComponent
     this.isDisabled = isDisabled;
   }
 
-  protected countrySelected({ alpha2Code, callingCode, name }: Country): void {
-    this.selectedCountry = name;
-    console.log(this.selectedCountry);
+  protected countrySelected({ alpha2Code, callingCode }: Country): void {
     this.flag = alpha2Code;
     this.code = callingCode;
 
