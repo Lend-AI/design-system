@@ -6,6 +6,7 @@
   <button type="button" mat-button class="countries-button" matPrefix [disabled]="isDisabled || isReadonly"
     [matMenuTriggerFor]="countriesMenu" (click)="!isDisabled && onTouched(); $event.stopPropagation()">
     <lai-flag [country]="flag"></lai-flag>
+    {{ code }}
     <lai-icon glyph="expand-arrow"></lai-icon>
   </button>
 
@@ -16,11 +17,15 @@
 </mat-form-field>
 
 <mat-menu #countriesMenu class="phone-input__countries-menu">
-  <input matInput placeholder="Search" (keyup)="applySearchFilter($any($event.target).value)"
-    (click)="$event.stopPropagation()" (keydown)="$event.stopPropagation()" />
+  <mat-form-field (click)="$event.stopPropagation()" class="search">
+    <lai-icon glyph="search"></lai-icon>
+    <input matInput placeholder="Search" (keyup)="applySearchFilter($any($event.target).value)"
+       (keydown)="$event.stopPropagation()" class="search-input" />
+  </mat-form-field>
   <button (keydown)="$event.stopPropagation()" mat-menu-item *ngFor="let country of filteredList"
     (click)="countrySelected(country)" [value]="country.name">
     <lai-flag [country]="country.alpha2Code"></lai-flag>
-    {{ country.name }} ({{ country.callingCode }})
+    <lai-body [level]="5">{{ country.name }}</lai-body>
+    <lai-body [level]="6" class="country-list-code"> {{ country.callingCode }}</lai-body>
   </button>
 </mat-menu>

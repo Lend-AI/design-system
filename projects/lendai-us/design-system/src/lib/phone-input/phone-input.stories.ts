@@ -19,7 +19,7 @@ class ParentComponent {
   control = inject(FormBuilder).control('+972559256908');
 }
 
-export const COUNTRY_LIST_VALUE: Country[] = [
+const COUNTRY_LIST_VALUE: Country[] = [
   {
     name: 'Argentina',
     alpha2Code: 'AR',

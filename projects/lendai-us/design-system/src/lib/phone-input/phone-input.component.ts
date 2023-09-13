@@ -25,6 +25,7 @@ import {
   parseNumber,
   ParsedNumber,
   CountryCode,
+  CountryCallingCode,
 } from 'libphonenumber-js';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -43,6 +44,7 @@ import {
   tap,
 } from 'rxjs';
 import { FilterPipe } from '@lendai-us/cdk';
+import { BodyComponent } from '../typography';
 
 @Component({
   selector: 'lai-phone-input',
@@ -60,6 +62,7 @@ import { FilterPipe } from '@lendai-us/cdk';
     MatMenuModule,
     FilterPipe,
     ReactiveFormsModule,
+    BodyComponent,
   ],
   templateUrl: './phone-input.component.html',
   styleUrls: ['./phone-input.component.scss'],
@@ -92,10 +95,10 @@ export class PhoneInputComponent
   // template binding is via template driven forms and not via render.setProperty,
   // because of ngx-mask, that is overriding inner input value and resets it in case it is default to 1
   protected value = '';
+  protected flag = '';
+  protected code: string | undefined = '+1';
   protected isDisabled = false;
   protected readonly placeholder = '16135550194';
-  protected flag = '';
-  protected code = '';
   protected readonly mask =
     '0 000 000 00 00||000 00 000 0000||00 0 00 0000 0000';
   protected filteredList = this.countries.slice();
@@ -139,6 +142,8 @@ export class PhoneInputComponent
 
     const formatted = formatNumber(number, this.externalFormat);
     this.flag = number.country;
+    this.code = number.countryCallingCode;
+    console.log(number.countryCallingCode + number.country);
     this.value = formatted.substring(1);
   }
 
@@ -196,6 +201,7 @@ export class PhoneInputComponent
     }
 
     number.country = alpha2Code as CountryCode;
+    number.countryCallingCode = callingCode as CountryCallingCode;
     const formatted = formatNumber(number, this.externalFormat);
     this.value = formatted;
   }
@@ -207,6 +213,7 @@ export class PhoneInputComponent
       return;
     }
     this.flag = number.country;
+    this.code = number.countryCallingCode;
   }
 
   private updateExternalControl(): void {
