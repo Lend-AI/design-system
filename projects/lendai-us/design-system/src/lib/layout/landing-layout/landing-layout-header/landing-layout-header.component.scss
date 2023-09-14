@@ -67,3 +67,9 @@
     align-items: center;
   }
 }
+
+.mobile-actions {
+  border-top: 1px solid c.color('gray', 200);
+  box-sizing: border-box;
+  padding: 16px;
+}

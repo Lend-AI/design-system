@@ -20,6 +20,10 @@
   <ng-container *ngTemplateOutlet="nav"></ng-container>
 </ng-container>
 
+<div class="mobile-actions" *ngIf="isHandset && isMobileNavOpen">
+  <ng-container *ngTemplateOutlet="actions"></ng-container>
+</div>
+
 <ng-template #nav>
   <nav class="nav">
     <ul class="nav--list">
