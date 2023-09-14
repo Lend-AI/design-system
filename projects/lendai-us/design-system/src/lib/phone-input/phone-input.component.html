@@ -10,9 +10,7 @@
     <lai-icon glyph="expand-arrow"></lai-icon>
   </button>
 
-  <span matTextPrefix>+</span>
-
-  <input #input matInput [(ngModel)]="value" [disabled]="isDisabled" [readonly]="isReadonly" [required]="isRequired"
+  <input #input matInput [(ngModel)]="phone" [disabled]="isDisabled" [readonly]="isReadonly" [required]="isRequired"
     [placeholder]="placeholder | mask : mask" (blur)="onTouched()" autocomplete="new-password" [mask]="mask" />
 </mat-form-field>
 

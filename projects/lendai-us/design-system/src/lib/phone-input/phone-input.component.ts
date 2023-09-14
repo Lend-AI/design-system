@@ -96,9 +96,10 @@ export class PhoneInputComponent
   // because of ngx-mask, that is overriding inner input value and resets it in case it is default to 1
   protected value = '';
   protected flag = '';
-  protected code: string | undefined = '+1';
+  protected code: string | undefined = '';
+  protected phone = '';
   protected isDisabled = false;
-  protected readonly placeholder = '16135550194';
+  protected readonly placeholder = '6135550194';
   protected readonly mask =
     '0 000 000 00 00||000 00 000 0000||00 0 00 0000 0000';
   protected filteredList = this.countries.slice();
@@ -142,8 +143,13 @@ export class PhoneInputComponent
 
     const formatted = formatNumber(number, this.externalFormat);
     this.flag = number.country;
-    this.code = number.countryCallingCode;
-    console.log(number.countryCallingCode + number.country);
+    this.countries.filter(item => {
+      if (item.alpha2Code === number.country) {
+        this.code = item.callingCode.toString();
+      }
+      return '';
+    });
+    this.phone = number.phone;
     this.value = formatted.substring(1);
   }
 
@@ -213,7 +219,6 @@ export class PhoneInputComponent
       return;
     }
     this.flag = number.country;
-    this.code = number.countryCallingCode;
   }
 
   private updateExternalControl(): void {
