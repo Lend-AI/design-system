@@ -9,20 +9,14 @@
     <ng-container *ngTemplateOutlet="nav"></ng-container>
   </ng-container>
 
-  <lai-icon
-    *ngIf="isHandset; else actions"
-    [glyph]="mobileNavIcon"
-    size="sm"
-    (click)="toggleMobileNav()"></lai-icon>
+  <div>
+    <ng-container *ngTemplateOutlet="actions"></ng-container>
+  </div>
 </header>
 
 <ng-container *ngIf="isHandset && isMobileNavOpen">
   <ng-container *ngTemplateOutlet="nav"></ng-container>
 </ng-container>
-
-<div class="mobile-actions" *ngIf="isHandset && isMobileNavOpen">
-  <ng-container *ngTemplateOutlet="actions"></ng-container>
-</div>
 
 <ng-template #nav>
   <nav class="nav">
