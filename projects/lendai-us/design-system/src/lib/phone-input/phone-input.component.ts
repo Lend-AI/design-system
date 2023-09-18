@@ -94,14 +94,13 @@ export class PhoneInputComponent
   protected readonly countries = inject(COUNTRY_LIST);
   // template binding is via template driven forms and not via render.setProperty,
   // because of ngx-mask, that is overriding inner input value and resets it in case it is default to 1
-  protected value = '';
   protected flag = '';
-  protected code: string | undefined = '';
+  protected code = '';
   protected phone = '';
+  protected value = '';
   protected isDisabled = false;
   protected readonly placeholder = '6135550194';
-  protected readonly mask =
-    '0 000 000 00 00||000 00 000 0000||00 0 00 0000 0000';
+  protected readonly mask = '000 000 00 00||00 000 0000||0 00 0000 0000';
   protected filteredList = this.countries.slice();
   private readonly externalFormat: NumberFormat = 'E.164';
   private readonly sub$ = new Subscription();
@@ -112,7 +111,7 @@ export class PhoneInputComponent
         .pipe(
           debounceTime(300),
           distinctUntilChanged(),
-          tap(this.updateFlag.bind(this)),
+          // tap(this.updateFlag.bind(this)),
           tap(this.updateExternalControl.bind(this))
         )
         .subscribe()
@@ -135,13 +134,13 @@ export class PhoneInputComponent
     });
   }
 
-  writeValue(value: string): void {
-    const number = parseNumber(value ?? '');
+  writeValue(phone: string): void {
+    const number = parseNumber(this.code + phone ?? '');
     if (!isParsedNumber(number)) {
       return;
     }
 
-    const formatted = formatNumber(number, this.externalFormat);
+    // const formatted = formatNumber(number, this.externalFormat);
     this.flag = number.country;
     this.countries.filter(item => {
       if (item.alpha2Code === number.country) {
@@ -150,12 +149,12 @@ export class PhoneInputComponent
       return '';
     });
     this.phone = number.phone;
-    this.value = formatted.substring(1);
   }
 
   validate({
     value,
   }: AbstractControl<string, string>): ValidationErrors | null {
+    value = this.code + this.phone;
     if (!value) {
       return null;
     }
@@ -172,6 +171,7 @@ export class PhoneInputComponent
 
     const errors = this.ngModel.control.errors;
     if (!errors) {
+      this.value = value;
       return null;
     }
 
@@ -202,7 +202,7 @@ export class PhoneInputComponent
 
     const number = parseNumber(`+${this.value}`);
     if (!isParsedNumber(number)) {
-      this.value = callingCode.substring(1);
+      // this.value = callingCode.substring(1);
       return;
     }
 
@@ -212,23 +212,15 @@ export class PhoneInputComponent
     this.value = formatted;
   }
 
-  private updateFlag(): void {
-    const number = parseNumber(`+${this.value}`);
-    if (!isParsedNumber(number)) {
-      this.flag = '';
-      return;
-    }
-    this.flag = number.country;
-  }
-
   private updateExternalControl(): void {
     const number = parseNumber(`+${this.value}`);
     if (!isParsedNumber(number)) {
-      this.onChange(this.value);
+      this.onChange(this.phone);
       return;
     }
 
     const formatted = formatNumber(number, this.externalFormat);
+
     this.onChange(formatted);
   }
 }
