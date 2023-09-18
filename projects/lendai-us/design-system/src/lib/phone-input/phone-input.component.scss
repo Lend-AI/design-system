@@ -69,7 +69,35 @@
     padding: 0 !important
   }
 
+  & .search .mdc-notched-outline,
+  .search .mat-mdc-form-field-subscript-wrapper {
+    display: none;
+  }
+
+  & .mat-mdc-menu-panel.mat-mdc-menu-panel {
+    position: relative;
+    border: 1px solid;
+    border-color: c.color('gray', 300);
+    border-radius: 12px;
+    box-shadow: none;
+    margin-top: 4px;
+
+    &::-webkit-scrollbar {
+      width: 12px;
+      border-radius: 12px;
+    }
+
+    &::-webkit-scrollbar-track {
+      margin-top: 71px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: c.color('gray', 300);
+      border-radius: 12px;
+    }
+  }
+
   & .mat-mdc-menu-content {
-    padding: 8px !important;
+    padding: 0 !important;
   }
 }

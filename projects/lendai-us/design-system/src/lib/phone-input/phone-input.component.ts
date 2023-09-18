@@ -45,6 +45,7 @@ import {
 } from 'rxjs';
 import { FilterPipe } from '@lendai-us/cdk';
 import { BodyComponent } from '../typography';
+import { DividerComponent } from '../divider';
 
 @Component({
   selector: 'lai-phone-input',
@@ -63,6 +64,7 @@ import { BodyComponent } from '../typography';
     FilterPipe,
     ReactiveFormsModule,
     BodyComponent,
+    DividerComponent,
   ],
   templateUrl: './phone-input.component.html',
   styleUrls: ['./phone-input.component.scss'],

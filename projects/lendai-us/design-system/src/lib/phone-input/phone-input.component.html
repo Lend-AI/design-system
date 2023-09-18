@@ -20,6 +20,7 @@
     <input matInput placeholder="Search" (keyup)="applySearchFilter($any($event.target).value)"
        (keydown)="$event.stopPropagation()" class="search-input" />
   </mat-form-field>
+  <lai-divider></lai-divider>
   <button (keydown)="$event.stopPropagation()" mat-menu-item *ngFor="let country of filteredList"
     (click)="countrySelected(country)" [value]="country.name">
     <lai-flag [country]="country.alpha2Code"></lai-flag>
