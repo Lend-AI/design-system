@@ -137,7 +137,7 @@ export class PhoneInputComponent
   }
 
   writeValue(phone: string): void {
-    const number = parseNumber(this.code + phone ?? '');
+    const number = parseNumber(this.code && phone ? this.code + phone : '');
     if (!isParsedNumber(number)) {
       return;
     }
