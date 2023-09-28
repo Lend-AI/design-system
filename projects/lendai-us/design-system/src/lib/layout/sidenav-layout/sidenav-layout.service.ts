@@ -20,5 +20,5 @@ export interface SidenavLayoutService {
 }
 
 export const SIDENAV_LAYOUT_SERVICE = new InjectionToken<SidenavLayoutService>(
-  `_SIDENAV_LAYOUT_SERVICE`
+  `_SIDENAV_LAYOUT_SERVICE`,
 );

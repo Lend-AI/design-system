@@ -16,14 +16,14 @@ export class LetDirective<T> {
   constructor(
     @Inject(ViewContainerRef) private readonly viewContainer: ViewContainerRef,
     @Inject(TemplateRef)
-    private readonly templateRef: TemplateRef<LetContext<T>>
+    private readonly templateRef: TemplateRef<LetContext<T>>,
   ) {
     viewContainer.createEmbeddedView(this.templateRef, new LetContext<T>(this));
   }
 
   static ngTemplateContextGuard<T>(
     _dir: LetDirective<T>,
-    _ctx: unknown
+    _ctx: unknown,
   ): _ctx is LetContext<T> {
     return true;
   }

@@ -18,7 +18,7 @@ export class HiddenDirective implements OnChanges, AfterViewInit {
 
   constructor(
     private readonly elRef: ElementRef,
-    private readonly rendered: Renderer2
+    private readonly rendered: Renderer2,
   ) {}
 
   @Input('laiHidden')

@@ -39,7 +39,7 @@ export const CleanLayout: Story = {
     title: 'Your title',
     backgroundImage: 'auth-background.png',
   },
-  render: props => ({
+  render: (props) => ({
     props,
     template: `
     <lai-clean-layout>

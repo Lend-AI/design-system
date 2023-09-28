@@ -6,5 +6,5 @@ export interface CleanLayoutService {
 }
 
 export const CLEAN_LAYOUT_SERVICE = new InjectionToken<CleanLayoutService>(
-  `_CLEAN_LAYOUT_SERVICE`
+  `_CLEAN_LAYOUT_SERVICE`,
 );

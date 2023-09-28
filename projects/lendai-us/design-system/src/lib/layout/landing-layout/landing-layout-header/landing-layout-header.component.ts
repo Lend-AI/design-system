@@ -39,7 +39,9 @@ export class LandingLayoutHeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.sub$.add(this.isHandset$.subscribe(value => (this.isHandset = value)));
+    this.sub$.add(
+      this.isHandset$.subscribe((value) => (this.isHandset = value)),
+    );
   }
 
   ngOnDestroy(): void {

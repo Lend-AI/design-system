@@ -28,7 +28,7 @@ export const Label: Story = {
     weight: 'regular',
     underline: false,
   },
-  render: props => ({
+  render: (props) => ({
     props: {
       ...props,
       content: 'Lorem ipsum',

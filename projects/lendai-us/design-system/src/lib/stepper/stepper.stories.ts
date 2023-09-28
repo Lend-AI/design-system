@@ -42,7 +42,7 @@ const args: Partial<StepperComponent> & { data: DummyItem[] } = {
 
 export const Stepper: Story = {
   args,
-  render: props => ({
+  render: (props) => ({
     props,
     template: `
     <div style="display: flex; flex-direction: column;">

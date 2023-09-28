@@ -32,24 +32,24 @@ export class ListTileAvatarComponent implements AfterContentInit, OnDestroy {
     this.sub$.add(
       this.parent.sizeChanged$
         .pipe(startWith(this.parent.size))
-        .subscribe(size => {
+        .subscribe((size) => {
           if (!this.flag) {
             return;
           }
 
           this.flag.size = LIST_TILE_SIZE_TO_FLAG[size];
-        })
+        }),
     );
     this.sub$.add(
       this.parent.sizeChanged$
         .pipe(startWith(this.parent.size))
-        .subscribe(size => {
+        .subscribe((size) => {
           if (!this.usFlag) {
             return;
           }
 
           this.usFlag.size = LIST_TILE_SIZE_TO_US_FLAG_SIZE[size];
-        })
+        }),
     );
     this.sub$.add(
       this.parent.avatarTypeChanged$
@@ -60,7 +60,7 @@ export class ListTileAvatarComponent implements AfterContentInit, OnDestroy {
           }
 
           this.flag.type = this.parent.avatarType;
-        })
+        }),
     );
   }
 

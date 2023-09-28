@@ -28,7 +28,9 @@
             [routerLink]="['./']"
             [fragment]="category.fragment"
             (click)="closeMobileNav()">
-            <lai-icon [glyph]="category.icon" *ngIf="isHandset"></lai-icon>
+            <lai-icon
+              [glyph]="category.icon"
+              *ngIf="isHandset"></lai-icon>
             <span>{{ category.title }}</span>
           </a>
         </lai-label>

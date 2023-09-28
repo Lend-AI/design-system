@@ -6,7 +6,13 @@ import { LoadingService } from '../loading.service';
 
 @Component({
   standalone: true,
-  template: `<button laiButton (click)="open()">Open</button>`,
+  template: `
+    <button
+      laiButton
+      (click)="open()">
+      Open
+    </button>
+  `,
   styles: [],
   imports: [ButtonComponent, LoadingModule],
 })
@@ -32,7 +38,7 @@ type Story = StoryObj<ParentComponent>;
 
 export const FullScreenLoadingOverlay: Story = {
   args: {},
-  render: props => ({
+  render: (props) => ({
     props,
   }),
 };

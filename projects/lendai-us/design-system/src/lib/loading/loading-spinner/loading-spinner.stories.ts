@@ -16,14 +16,14 @@ type Story = StoryObj<LoadingSpinnerComponent>;
 
 export const LoadingSpinner: Story = {
   args: {},
-  render: props => ({
+  render: (props) => ({
     props,
   }),
 };
 
 export const Button: Story = {
   args: {},
-  render: props => ({
+  render: (props) => ({
     props,
     template: `
     <button laiButton disabled>

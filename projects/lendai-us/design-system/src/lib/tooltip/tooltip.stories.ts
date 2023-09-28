@@ -24,7 +24,7 @@ export const Tooltip: Story = {
   args: {
     style: 'dark',
   },
-  render: props => ({
+  render: (props) => ({
     props,
     template: `
     <div laiTooltip="Hello World!"

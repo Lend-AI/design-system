@@ -55,7 +55,7 @@ const args: Partial<TabGroupComponent> & { data: DummyItem[] } = {
 
 export const Text: Story = {
   args,
-  render: props => ({
+  render: (props) => ({
     props,
     template: `
       <lai-tab-group [size]="size"
@@ -72,7 +72,7 @@ export const Text: Story = {
 
 export const TextWithIcons: Story = {
   args,
-  render: props => ({
+  render: (props) => ({
     props,
     template: `
       <lai-tab-group [size]="size"
@@ -90,7 +90,7 @@ export const TextWithIcons: Story = {
 
 export const Removable: Story = {
   args,
-  render: props => ({
+  render: (props) => ({
     props,
     template: `
       <lai-tab-group [size]="size"
@@ -109,7 +109,7 @@ export const Removable: Story = {
 
 export const Disabled: Story = {
   args,
-  render: props => ({
+  render: (props) => ({
     props,
     template: `
       <lai-tab-group [size]="size"

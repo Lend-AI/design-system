@@ -12,5 +12,5 @@ export const WINDOW = new InjectionToken<Window & typeof globalThis>(
 
       return defaultView;
     },
-  }
+  },
 );

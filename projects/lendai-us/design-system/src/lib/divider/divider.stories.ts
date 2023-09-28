@@ -11,7 +11,7 @@ export default {
   ],
 } as Meta;
 
-const HorizontalDividerTemplate: StoryFn = args => ({
+const HorizontalDividerTemplate: StoryFn = (args) => ({
   props: args,
   template: `
     <style>
@@ -31,7 +31,7 @@ const HorizontalDividerTemplate: StoryFn = args => ({
 });
 export const HorizontalDivider = HorizontalDividerTemplate.bind({});
 
-const DividerWithTextTemplate: StoryFn = args => ({
+const DividerWithTextTemplate: StoryFn = (args) => ({
   props: args,
   template: `
     <style>
@@ -54,7 +54,7 @@ DividerWithText.args = {
   content: 'content',
 };
 
-const VerticalDividerTemplate: StoryFn = args => ({
+const VerticalDividerTemplate: StoryFn = (args) => ({
   props: args,
   template: `
     <style>

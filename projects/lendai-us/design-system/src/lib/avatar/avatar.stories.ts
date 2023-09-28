@@ -21,7 +21,7 @@ const args: Partial<AvatarComponent> = {
 
 export const Avatar: Story = {
   args,
-  render: props => ({
+  render: (props) => ({
     props,
   }),
 };

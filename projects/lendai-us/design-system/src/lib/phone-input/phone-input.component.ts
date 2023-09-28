@@ -104,9 +104,9 @@ export class PhoneInputComponent
           debounceTime(300),
           distinctUntilChanged(),
           tap(this.updateFlag.bind(this)),
-          tap(this.updateExternalControl.bind(this))
+          tap(this.updateExternalControl.bind(this)),
         )
-        .subscribe()
+        .subscribe(),
     );
   }
 

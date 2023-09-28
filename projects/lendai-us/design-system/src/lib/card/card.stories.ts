@@ -5,7 +5,7 @@ const meta: Meta<CardComponent> = {
   title: 'WIP/Card',
   component: CardComponent,
   decorators: [
-    componentWrapperDecorator(story => {
+    componentWrapperDecorator((story) => {
       return `<style>
           lai-card {
             width: 100px;
@@ -36,7 +36,7 @@ const args: Partial<CardComponent> = {
 
 export const Card: Story = {
   args,
-  render: props => ({
+  render: (props) => ({
     props,
   }),
 };
