@@ -41,7 +41,7 @@ const args = {
 
 export const Button: Story = {
   args,
-  render: props => ({
+  render: (props) => ({
     props: {
       ...props,
       content: 'Lorem ipsum',
@@ -60,7 +60,7 @@ export const Button: Story = {
 
 export const IconButton: Story = {
   args,
-  render: props => ({
+  render: (props) => ({
     props: {
       ...props,
       glyph: 'communication',
@@ -79,7 +79,7 @@ export const IconButton: Story = {
 
 export const ButtonWithPrefix: Story = {
   args,
-  render: props => ({
+  render: (props) => ({
     props: {
       ...props,
       content: 'Lorem ipsum',
@@ -100,7 +100,7 @@ export const ButtonWithPrefix: Story = {
 
 export const ButtonWithSuffix: Story = {
   args,
-  render: props => ({
+  render: (props) => ({
     props: {
       ...props,
       content: 'Lorem ipsum',

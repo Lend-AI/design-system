@@ -331,7 +331,7 @@ type Story = StoryObj<ParentComponent>;
 
 export const PhoneInput: Story = {
   args: {},
-  render: props => ({
+  render: (props) => ({
     props,
   }),
 };

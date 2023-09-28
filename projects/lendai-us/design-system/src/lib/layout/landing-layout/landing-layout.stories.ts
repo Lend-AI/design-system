@@ -53,7 +53,7 @@ export default meta;
 type Story = StoryObj<LandingLayoutComponent>;
 
 export const LandingLayout: Story = {
-  render: props => ({
+  render: (props) => ({
     props,
     template: `
       <lai-landing-layout>

@@ -64,7 +64,7 @@ export default meta;
 type Story = StoryObj<SidenavLayoutComponent>;
 
 export const SidenavLayout: Story = {
-  render: props => ({
+  render: (props) => ({
     props,
     template: `
     <lai-sidenav-layout>

@@ -27,7 +27,7 @@ export const Body: Story = {
     level: 4,
     weight: 'regular',
   },
-  render: props => ({
+  render: (props) => ({
     props: {
       ...props,
       content: 'Lorem ipsum',

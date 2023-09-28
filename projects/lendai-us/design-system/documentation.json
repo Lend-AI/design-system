@@ -8973,21 +8973,21 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<BadgeComponent>",
-                "defaultValue": "{\n  color: 'blue',\n  size: 'md',\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Partial<AvatarComponent>",
                 "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<BadgeComponent>",
+                "defaultValue": "{\n  color: 'blue',\n  size: 'md',\n}"
             },
             {
                 "name": "args",
@@ -9613,21 +9613,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<BadgeComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent, IconComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    size: {\n      options: BADGE_SIZES,\n      control: { type: 'select' },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<AvatarComponent>",
                 "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<BadgeComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent, IconComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    size: {\n      options: BADGE_SIZES,\n      control: { type: 'select' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -10509,8 +10509,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<BadgeComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                "rawtype": "StoryObj<AvatarComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -10520,8 +10520,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<AvatarComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                "rawtype": "StoryObj<BadgeComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -10863,6 +10863,38 @@
             }
         ],
         "groupedVariables": {
+            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<AvatarComponent>",
+                    "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
+                },
+                {
+                    "name": "Avatar",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args,\n  render: props => ({\n    props,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<AvatarComponent>",
+                    "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
+                }
+            ],
             "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
                 {
                     "name": "args",
@@ -10913,38 +10945,6 @@
                     "deprecationMessage": "",
                     "type": "Meta<BadgeComponent>",
                     "defaultValue": "{\n  title: 'Atoms/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent, IconComponent],\n    }),\n  ],\n  render: args => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    size: {\n      options: BADGE_SIZES,\n      control: { type: 'select' },\n    },\n  },\n}"
-                }
-            ],
-            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<AvatarComponent>",
-                    "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
-                },
-                {
-                    "name": "Avatar",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args,\n  render: props => ({\n    props,\n  }),\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<AvatarComponent>",
-                    "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
                 }
             ],
             "projects/lendai-us/design-system/src/lib/button/button.stories.ts": [
@@ -12574,19 +12574,6 @@
                     "kind": 198
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<BadgeComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
                 {
                     "name": "Story",
@@ -12594,6 +12581,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<AvatarComponent>",
                     "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<BadgeComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",

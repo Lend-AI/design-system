@@ -41,7 +41,7 @@ export class CountrySelectComponent implements ControlValueAccessor {
   constructor(
     @Inject(COUNTRY_LIST)
     public readonly countryList: Country[],
-    @Optional() @Self() private readonly ngControl: NgControl
+    @Optional() @Self() private readonly ngControl: NgControl,
   ) {
     if (this.ngControl) {
       this.ngControl.valueAccessor = this;
@@ -58,7 +58,7 @@ export class CountrySelectComponent implements ControlValueAccessor {
     }
 
     this.selectedCountry = this.countryList.find(
-      country => country.alpha2Code === obj
+      (country) => country.alpha2Code === obj,
     );
   }
 
@@ -72,7 +72,7 @@ export class CountrySelectComponent implements ControlValueAccessor {
 
   change(event: MatSelectChange): void {
     this.selectedCountry = this.countryList.find(
-      country => country.alpha2Code === event.value
+      (country) => country.alpha2Code === event.value,
     );
     this.onChange(event.value);
   }

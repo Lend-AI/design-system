@@ -23,7 +23,7 @@ export class PlacesAutocompleteDirective implements AfterViewInit, OnDestroy {
 
   constructor(
     private readonly elRef: ElementRef,
-    private readonly zone: NgZone
+    private readonly zone: NgZone,
   ) {}
 
   ngAfterViewInit(): void {
@@ -42,7 +42,7 @@ export class PlacesAutocompleteDirective implements AfterViewInit, OnDestroy {
           componentRestrictions: { country: this.country },
           fields: ['address_components'],
           types: ['address'],
-        }
+        },
       );
 
       this.listener = this.instance.addListener('place_changed', () => {

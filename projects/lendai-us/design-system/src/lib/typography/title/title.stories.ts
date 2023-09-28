@@ -22,7 +22,7 @@ export const Title: Story = {
   args: {
     level: 1,
   },
-  render: props => ({
+  render: (props) => ({
     props: {
       ...props,
       content: 'Lorem ipsum',

@@ -114,9 +114,9 @@ export class PhoneInputComponent
           debounceTime(300),
           distinctUntilChanged(),
           // tap(this.updateFlag.bind(this)),
-          tap(this.updateExternalControl.bind(this))
+          tap(this.updateExternalControl.bind(this)),
         )
-        .subscribe()
+        .subscribe(),
     );
   }
 
@@ -125,7 +125,7 @@ export class PhoneInputComponent
   }
 
   applySearchFilter(searchText: string): void {
-    this.filteredList = this.countries.filter(item => {
+    this.filteredList = this.countries.filter((item) => {
       if (
         item.name.toString().toLowerCase().indexOf(searchText.toLowerCase()) !==
         -1
@@ -144,7 +144,7 @@ export class PhoneInputComponent
 
     // const formatted = formatNumber(number, this.externalFormat);
     this.flag = number.country;
-    this.countries.filter(item => {
+    this.countries.filter((item) => {
       if (item.alpha2Code === number.country) {
         this.code = item.callingCode.toString();
       }

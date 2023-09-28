@@ -39,7 +39,7 @@ export const ImageCheckbox: Story = {
   args: {
     hideCheckboxes: false,
   },
-  render: args => ({
+  render: (args) => ({
     props: {
       ...args,
       data,

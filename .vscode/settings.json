@@ -1,6 +1,5 @@
 {
   "explorer.excludeGitIgnore": false,
   "typescript.preferences.importModuleSpecifier": "relative",
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  "eslint.run": "onSave"
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }

@@ -71,7 +71,7 @@ const args: Partial<TabNavBarComponent> & { data: DummyItem[] } = {
 
 export const Text: Story = {
   args,
-  render: props => ({
+  render: (props) => ({
     props,
     template: `
       <nav laiTabNavBar
@@ -91,7 +91,7 @@ export const Text: Story = {
 
 export const TextWithIcons: Story = {
   args,
-  render: props => ({
+  render: (props) => ({
     props,
     template: `
       <nav laiTabNavBar

@@ -60,7 +60,7 @@ export class ImageCheckboxGroupComponent<T>
       }
 
       const checkbox = this.checkboxes.find(
-        checkbox => checkbox.id === checkboxId
+        (checkbox) => checkbox.id === checkboxId,
       );
       if (!checkbox) {
         throw new Error(`Cannot find checkbox with id ${checkboxId}`);

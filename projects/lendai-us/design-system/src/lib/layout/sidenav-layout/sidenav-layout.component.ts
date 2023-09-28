@@ -57,30 +57,34 @@ export class SidenavLayoutComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.sub$.add(
-      this.service.logoPath$.subscribe(logoPath => (this.logoPath = logoPath))
+      this.service.logoPath$.subscribe(
+        (logoPath) => (this.logoPath = logoPath),
+      ),
     );
     this.sub$.add(
       this.service.firstName$.subscribe(
-        firstName => (this.firstName = firstName)
-      )
+        (firstName) => (this.firstName = firstName),
+      ),
     );
     this.sub$.add(
-      this.service.lastName$.subscribe(lastName => (this.lastName = lastName))
+      this.service.lastName$.subscribe(
+        (lastName) => (this.lastName = lastName),
+      ),
     );
     this.sub$.add(
-      this.isHandset$.subscribe(isHandset => {
+      this.isHandset$.subscribe((isHandset) => {
         this.status = !isHandset;
-      })
+      }),
     );
     this.sub$.add(
       this.service.accountInfo$.subscribe(
-        accountInfo => (this.accountInfo = accountInfo)
-      )
+        (accountInfo) => (this.accountInfo = accountInfo),
+      ),
     );
     this.sub$.add(
       this.service.logOutText$.subscribe(
-        logOutText => (this.logOutText = logOutText)
-      )
+        (logOutText) => (this.logOutText = logOutText),
+      ),
     );
   }
 

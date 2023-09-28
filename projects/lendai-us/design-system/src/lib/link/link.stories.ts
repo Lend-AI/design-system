@@ -16,7 +16,7 @@ export default {
   },
 } as Meta;
 
-const Template: StoryFn = args => ({
+const Template: StoryFn = (args) => ({
   props: args,
   template: `
   <a laiLink [type]="type" [level]="level" routerLink="/">

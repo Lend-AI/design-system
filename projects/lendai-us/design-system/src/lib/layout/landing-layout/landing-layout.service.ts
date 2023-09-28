@@ -14,5 +14,5 @@ export interface LandingLayoutService {
 }
 
 export const LANDING_LAYOUT_SERVICE = new InjectionToken<LandingLayoutService>(
-  `_LANDING_LAYOUT_SERVICE`
+  `_LANDING_LAYOUT_SERVICE`,
 );

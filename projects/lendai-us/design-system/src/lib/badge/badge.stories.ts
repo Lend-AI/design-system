@@ -9,7 +9,7 @@ const meta: Meta<BadgeComponent> = {
       imports: [BadgeComponent, IconComponent],
     }),
   ],
-  render: args => ({
+  render: (args) => ({
     props: {
       ...args,
       content: 'Lorem ipsum',
@@ -41,7 +41,7 @@ const args: Partial<BadgeComponent> = {
 
 export const Badge: Story = {
   args,
-  render: props => ({
+  render: (props) => ({
     props: {
       ...props,
       content: 'Lorem ipsum',
@@ -57,7 +57,7 @@ export const Badge: Story = {
 
 export const BadgeWithPrefix: Story = {
   args,
-  render: props => ({
+  render: (props) => ({
     props: {
       ...props,
       content: 'Lorem ipsum',
@@ -75,7 +75,7 @@ export const BadgeWithPrefix: Story = {
 
 export const BadgeWithSuffix: Story = {
   args,
-  render: props => ({
+  render: (props) => ({
     props: {
       ...props,
       content: 'Lorem ipsum',

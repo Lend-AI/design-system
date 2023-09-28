@@ -20,7 +20,7 @@ export class SideDrawerComponent {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private dialogRef: DialogRef
+    private dialogRef: DialogRef,
   ) {}
 
   protected close(): void {

@@ -27,7 +27,7 @@ export const UsFlag: Story = {
     state: 'GA',
     size: 'm',
   },
-  render: props => ({
+  render: (props) => ({
     props,
     template: `
       <lai-us-flag [state]="state" [size]="size"></lai-us-flag>

@@ -19,8 +19,8 @@ export class SidenavLayoutCategoriesComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.sub$.add(
       this.service.sidenavCategories$.subscribe(
-        sidenavCategories => (this.sidenavCategories = sidenavCategories)
-      )
+        (sidenavCategories) => (this.sidenavCategories = sidenavCategories),
+      ),
     );
   }
 

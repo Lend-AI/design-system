@@ -38,7 +38,9 @@ export class CleanLayoutLeftComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.sub$.add(
-      this.service.logoPath$.subscribe(logoPath => (this.logoPath = logoPath))
+      this.service.logoPath$.subscribe(
+        (logoPath) => (this.logoPath = logoPath),
+      ),
     );
   }
 

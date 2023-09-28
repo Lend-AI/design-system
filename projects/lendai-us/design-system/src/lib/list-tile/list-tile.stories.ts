@@ -17,7 +17,7 @@ export default {
   },
 } as Meta;
 
-const OnlyTitleTemplate: StoryFn = args => ({
+const OnlyTitleTemplate: StoryFn = (args) => ({
   props: args,
   template: `
     <lai-list-tile-group [size]="size">
@@ -38,7 +38,7 @@ OnlyTitle.args = {
   size: 'md',
 };
 
-const TitleWiteAvatarTemplate: StoryFn = args => ({
+const TitleWiteAvatarTemplate: StoryFn = (args) => ({
   props: args,
   template: `
     <lai-list-tile-group [size]="size">
@@ -67,7 +67,7 @@ TitleWiteAvatar.args = {
   country: 'IL',
 };
 
-const TitleWithSubtitleTemplate: StoryFn = args => ({
+const TitleWithSubtitleTemplate: StoryFn = (args) => ({
   props: args,
   template: `
     <lai-list-tile-group [size]="size">
@@ -99,7 +99,7 @@ TitleWithSubtitle.args = {
   country: 'IL',
 };
 
-const TitleWithDescriptionTemplate: StoryFn = args => ({
+const TitleWithDescriptionTemplate: StoryFn = (args) => ({
   props: args,
   template: `
   <lai-list-tile-group [size]="size">
@@ -131,7 +131,7 @@ TitleWithDescription.args = {
   country: 'IL',
 };
 
-const FullListTileTemplate: StoryFn = args => ({
+const FullListTileTemplate: StoryFn = (args) => ({
   props: args,
   template: `
     <lai-list-tile-group [size]="size">

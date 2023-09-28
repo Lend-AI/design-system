@@ -45,7 +45,7 @@ export class LanguageSwitcherComponent implements OnInit, OnDestroy {
   constructor(
     @Inject(LANGUAGE_SWITCHER_SERVICE)
     private readonly service: LanguageSwitcherService,
-    private readonly elRef: ElementRef
+    private readonly elRef: ElementRef,
   ) {}
 
   protected get labelText$(): Observable<string> {
@@ -65,14 +65,14 @@ export class LanguageSwitcherComponent implements OnInit, OnDestroy {
     this.sub$.add(
       merge(
         this.service.currentLanguage$.pipe(
-          tap(currentLanguage => (this.currentLanguage = currentLanguage))
+          tap((currentLanguage) => (this.currentLanguage = currentLanguage)),
         ),
-        this.service.options$.pipe(tap(options => (this.options = options)))
+        this.service.options$.pipe(tap((options) => (this.options = options))),
       ).subscribe(() => {
         this.currentOption = this.options.find(
-          ({ value }) => value === this.currentLanguage
+          ({ value }) => value === this.currentLanguage,
         );
-      })
+      }),
     );
   }
 

@@ -27,7 +27,7 @@ export class TooltipDirective implements OnDestroy {
     private readonly injector: Injector,
     private readonly vcRef: ViewContainerRef,
     private readonly elRef: ElementRef,
-    @Inject(DOCUMENT) private readonly document: Document
+    @Inject(DOCUMENT) private readonly document: Document,
   ) {}
 
   @HostListener('mouseenter')

@@ -46,7 +46,7 @@ type Story = StoryObj<LanguageSwitcherComponent>;
 
 export const LanguageSwitcher: Story = {
   args: {},
-  render: props => ({
+  render: (props) => ({
     props,
   }),
 };

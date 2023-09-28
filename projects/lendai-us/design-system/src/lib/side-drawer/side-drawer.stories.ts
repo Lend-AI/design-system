@@ -21,7 +21,13 @@ class ChildComponent {}
 
 @Component({
   standalone: true,
-  template: `<button laiButton (click)="open()">Open</button> `,
+  template: `
+    <button
+      laiButton
+      (click)="open()">
+      Open
+    </button>
+  `,
   styles: [],
   imports: [ButtonComponent, DialogModule],
 })
@@ -46,7 +52,7 @@ type Story = StoryObj<ParentComponent>;
 
 export const SideDrawer: Story = {
   args: {},
-  render: props => ({
+  render: (props) => ({
     props,
   }),
 };
