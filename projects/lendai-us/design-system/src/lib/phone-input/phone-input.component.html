@@ -3,7 +3,7 @@
     {{ label }}
   </mat-label>
 
-  <button type="button" mat-button class="countries-button" matPrefix [disabled]="isDisabled || isReadonly"
+  <button mat-button type="button" class="countries-button" matPrefix [disabled]="isDisabled || isReadonly"
     [matMenuTriggerFor]="countriesMenu" (click)="!isDisabled && onTouched(); $event.stopPropagation()">
     <lai-flag [country]="flag"></lai-flag>
     {{ code }}
@@ -18,7 +18,7 @@
   <mat-form-field (click)="$event.stopPropagation()" class="search">
     <lai-icon glyph="search"></lai-icon>
     <input matInput placeholder="Search" (keyup)="applySearchFilter($any($event.target).value)"
-       (keydown)="$event.stopPropagation()" class="search-input" />
+      (keydown)="$event.stopPropagation()" class="search-input" />
   </mat-form-field>
   <lai-divider></lai-divider>
   <button (keydown)="$event.stopPropagation()" mat-menu-item *ngFor="let country of filteredList"

@@ -43,7 +43,6 @@ import {
   fromEvent,
   tap,
 } from 'rxjs';
-import { FilterPipe } from '@lendai-us/cdk';
 import { BodyComponent } from '../typography';
 import { DividerComponent } from '../divider';
 
@@ -61,7 +60,6 @@ import { DividerComponent } from '../divider';
     MatButtonModule,
     IconComponent,
     MatMenuModule,
-    FilterPipe,
     ReactiveFormsModule,
     BodyComponent,
     DividerComponent,
@@ -125,14 +123,10 @@ export class PhoneInputComponent
   }
 
   applySearchFilter(searchText: string): void {
+    searchText = searchText.toLowerCase();
     this.filteredList = this.countries.filter((item) => {
-      if (
-        item.name.toString().toLowerCase().indexOf(searchText.toLowerCase()) !==
-        -1
-      ) {
-        return true;
-      }
-      return false;
+      const name = item.name.toString().toLowerCase();
+      return name.indexOf(searchText) !== -1;
     });
   }
 
@@ -142,14 +136,7 @@ export class PhoneInputComponent
       return;
     }
 
-    // const formatted = formatNumber(number, this.externalFormat);
     this.flag = number.country;
-    this.countries.filter((item) => {
-      if (item.alpha2Code === number.country) {
-        this.code = item.callingCode.toString();
-      }
-      return '';
-    });
     this.phone = number.phone;
   }
 

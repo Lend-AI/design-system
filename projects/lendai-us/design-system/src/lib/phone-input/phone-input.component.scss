@@ -5,6 +5,80 @@
   flex-direction: column;
 }
 
+.phone-input__countries-menu {
+  max-height: 300px !important;
+  width: 318px;
+  max-width: 500px !important;
+}
+
+.phone-input__countries-menu {
+    & .mat-mdc-form-field-icon-prefix {
+      align-self: stretch !important;
+    }
+
+
+
+    & .mdc-list-item__primary-text {
+      display: flex;
+      width: 100%;
+      gap: 8px;
+
+    }
+
+    lai-body:not(.country-list-code) {
+      color: c.color('info', 800) !important;
+      font-weight: 500 !important;
+    }
+
+    & .search .mat-mdc-form-field-infix {
+      padding: 8px;
+      display: inline-flex;
+      align-items: center;
+      width: 100% !important;
+      gap: 4px;
+      background-color: c.color('gray', 100);
+      margin: 8px;
+      border-radius: 10px;
+    }
+
+    & .search .mdc-text-field {
+      padding: 0 !important
+    }
+
+    & .search .mdc-notched-outline,
+    .search .mat-mdc-form-field-subscript-wrapper {
+      display: none;
+    }
+
+    & .mat-mdc-menu-panel.mat-mdc-menu-panel {
+      position: relative;
+      border: 1px solid;
+      border-color: c.color('gray', 300);
+      border-radius: 12px;
+      box-shadow: none;
+      margin-top: 4px;
+
+      &::-webkit-scrollbar {
+        width: 12px;
+        border-radius: 12px;
+      }
+
+      &::-webkit-scrollbar-track {
+        margin-top: 71px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: c.color('gray', 300);
+        border-radius: 12px;
+      }
+    }
+
+    & .mat-mdc-menu-content {
+      padding: 0 !important;
+    }
+  }
+
+
 .countries-button {
   background-color: c.color('gray', 300);
   height: 100%;
@@ -29,75 +103,4 @@
 
 .search {
   width: 100%;
-}
-
-::ng-deep {
-  & .mat-mdc-form-field-icon-prefix {
-    align-self: stretch !important;
-  }
-
-  & .phone-input__countries-menu {
-    max-height: 300px !important;
-    width: 318px;
-    max-width: 500px !important;
-  }
-
-  & .mdc-list-item__primary-text {
-    display: flex;
-    width: 100%;
-    gap: 8px;
-
-  }
-
-  lai-body:not(.country-list-code) {
-    color: c.color('info', 800) !important;
-    font-weight: 500 !important;
-  }
-
-  & .search .mat-mdc-form-field-infix {
-    padding: 8px;
-    display: inline-flex;
-    align-items: center;
-    width: 100% !important;
-    gap: 4px;
-    background-color: c.color('gray', 100);
-    margin: 8px;
-    border-radius: 10px;
-  }
-
-  & .search .mdc-text-field {
-    padding: 0 !important
-  }
-
-  & .search .mdc-notched-outline,
-  .search .mat-mdc-form-field-subscript-wrapper {
-    display: none;
-  }
-
-  & .mat-mdc-menu-panel.mat-mdc-menu-panel {
-    position: relative;
-    border: 1px solid;
-    border-color: c.color('gray', 300);
-    border-radius: 12px;
-    box-shadow: none;
-    margin-top: 4px;
-
-    &::-webkit-scrollbar {
-      width: 12px;
-      border-radius: 12px;
-    }
-
-    &::-webkit-scrollbar-track {
-      margin-top: 71px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: c.color('gray', 300);
-      border-radius: 12px;
-    }
-  }
-
-  & .mat-mdc-menu-content {
-    padding: 0 !important;
-  }
 }
