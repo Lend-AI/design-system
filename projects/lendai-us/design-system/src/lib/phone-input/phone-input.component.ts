@@ -14,6 +14,7 @@ import {
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
   NgModel,
+  ReactiveFormsModule,
   ValidationErrors,
   Validator,
 } from '@angular/forms';
@@ -24,6 +25,7 @@ import {
   parseNumber,
   ParsedNumber,
   CountryCode,
+  CountryCallingCode,
 } from 'libphonenumber-js';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -41,6 +43,8 @@ import {
   fromEvent,
   tap,
 } from 'rxjs';
+import { BodyComponent } from '../typography';
+import { DividerComponent } from '../divider';
 
 @Component({
   selector: 'lai-phone-input',
@@ -56,6 +60,9 @@ import {
     MatButtonModule,
     IconComponent,
     MatMenuModule,
+    ReactiveFormsModule,
+    BodyComponent,
+    DividerComponent,
   ],
   templateUrl: './phone-input.component.html',
   styleUrls: ['./phone-input.component.scss'],
@@ -87,13 +94,14 @@ export class PhoneInputComponent
   protected readonly countries = inject(COUNTRY_LIST);
   // template binding is via template driven forms and not via render.setProperty,
   // because of ngx-mask, that is overriding inner input value and resets it in case it is default to 1
+  protected flag = '';
+  protected code = '';
+  protected phone = '';
   protected value = '';
   protected isDisabled = false;
-  protected readonly placeholder = '16135550194';
-  protected flag = '';
-  protected readonly mask =
-    '0 000 000 00 00||000 00 000 0000||00 0 00 0000 0000';
-
+  protected readonly placeholder = '6135550194';
+  protected readonly mask = '000 000 00 00||00 000 0000||0 00 0000 0000';
+  protected filteredList = this.countries.slice();
   private readonly externalFormat: NumberFormat = 'E.164';
   private readonly sub$ = new Subscription();
 
@@ -103,7 +111,7 @@ export class PhoneInputComponent
         .pipe(
           debounceTime(300),
           distinctUntilChanged(),
-          tap(this.updateFlag.bind(this)),
+          // tap(this.updateFlag.bind(this)),
           tap(this.updateExternalControl.bind(this)),
         )
         .subscribe(),
@@ -114,20 +122,28 @@ export class PhoneInputComponent
     this.sub$.unsubscribe();
   }
 
-  writeValue(value: string): void {
-    const number = parseNumber(value ?? '');
+  applySearchFilter(searchText: string): void {
+    searchText = searchText.toLowerCase();
+    this.filteredList = this.countries.filter((item) => {
+      const name = item.name.toString().toLowerCase();
+      return name.indexOf(searchText) !== -1;
+    });
+  }
+
+  writeValue(phone: string): void {
+    const number = parseNumber(this.code && phone ? this.code + phone : '');
     if (!isParsedNumber(number)) {
       return;
     }
 
-    const formatted = formatNumber(number, this.externalFormat);
     this.flag = number.country;
-    this.value = formatted.substring(1);
+    this.phone = number.phone;
   }
 
   validate({
     value,
   }: AbstractControl<string, string>): ValidationErrors | null {
+    value = this.code + this.phone;
     if (!value) {
       return null;
     }
@@ -144,6 +160,7 @@ export class PhoneInputComponent
 
     const errors = this.ngModel.control.errors;
     if (!errors) {
+      this.value = value;
       return null;
     }
 
@@ -170,36 +187,29 @@ export class PhoneInputComponent
 
   protected countrySelected({ alpha2Code, callingCode }: Country): void {
     this.flag = alpha2Code;
+    this.code = callingCode;
 
     const number = parseNumber(`+${this.value}`);
     if (!isParsedNumber(number)) {
-      this.value = callingCode.substring(1);
+      // this.value = callingCode.substring(1);
       return;
     }
 
     number.country = alpha2Code as CountryCode;
+    number.countryCallingCode = callingCode as CountryCallingCode;
     const formatted = formatNumber(number, this.externalFormat);
     this.value = formatted;
-  }
-
-  private updateFlag(): void {
-    const number = parseNumber(`+${this.value}`);
-    if (!isParsedNumber(number)) {
-      this.flag = '';
-      return;
-    }
-
-    this.flag = number.country;
   }
 
   private updateExternalControl(): void {
     const number = parseNumber(`+${this.value}`);
     if (!isParsedNumber(number)) {
-      this.onChange(this.value);
+      this.onChange(this.phone);
       return;
     }
 
     const formatted = formatNumber(number, this.externalFormat);
+
     this.onChange(formatted);
   }
 }
