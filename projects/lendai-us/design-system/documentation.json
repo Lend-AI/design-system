@@ -5288,7 +5288,7 @@
         },
         {
             "name": "PhoneInputComponent",
-            "id": "component-PhoneInputComponent-d01bfa21b6db3c1b882ac8f5622f71728c96244692d0d5d4d25f675f96c365ddc4be6f78c5f0086d7867c050c6d3806ae7f766d394956105a199c575c00c7308",
+            "id": "component-PhoneInputComponent-96bd530dc92cfd1be73f3f2aabfd86e6495399bf67b9ee3c0c7c25c7f4d9ea023d39d21e44fd71f2fd3948e2ee749c20f4348d87058790b9a193e05f78a298fa",
             "file": "projects/lendai-us/design-system/src/lib/phone-input/phone-input.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -5901,11 +5901,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  ElementRef,\n  Input,\n  OnDestroy,\n  OnInit,\n  ViewChild,\n  inject,\n} from '@angular/core';\nimport {\n  AbstractControl,\n  ControlValueAccessor,\n  FormsModule,\n  NG_VALIDATORS,\n  NG_VALUE_ACCESSOR,\n  NgModel,\n  ReactiveFormsModule,\n  ValidationErrors,\n  Validator,\n} from '@angular/forms';\nimport {\n  NumberFormat,\n  formatNumber,\n  isValidPhoneNumber,\n  parseNumber,\n  ParsedNumber,\n  CountryCode,\n  CountryCallingCode,\n} from 'libphonenumber-js';\nimport { CommonModule } from '@angular/common';\nimport { MatFormFieldModule } from '@angular/material/form-field';\nimport { MatInputModule } from '@angular/material/input';\nimport { FlagComponent } from '../icon/flag/flag.component';\nimport { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';\nimport { MatButtonModule } from '@angular/material/button';\nimport { IconComponent } from '../icon';\nimport { MatMenuModule } from '@angular/material/menu';\nimport { COUNTRY_LIST, Country } from '../country-select';\nimport {\n  Subscription,\n  debounceTime,\n  distinctUntilChanged,\n  fromEvent,\n  tap,\n} from 'rxjs';\nimport { BodyComponent } from '../typography';\nimport { DividerComponent } from '../divider';\n\n@Component({\n  selector: 'lai-phone-input',\n  standalone: true,\n  imports: [\n    CommonModule,\n    MatFormFieldModule,\n    MatInputModule,\n    FormsModule,\n    FlagComponent,\n    NgxMaskDirective,\n    NgxMaskPipe,\n    MatButtonModule,\n    IconComponent,\n    MatMenuModule,\n    ReactiveFormsModule,\n    BodyComponent,\n    DividerComponent,\n  ],\n  templateUrl: './phone-input.component.html',\n  styleUrls: ['./phone-input.component.scss'],\n  providers: [\n    {\n      provide: NG_VALUE_ACCESSOR,\n      useExisting: PhoneInputComponent,\n      multi: true,\n    },\n    { provide: NG_VALIDATORS, useExisting: PhoneInputComponent, multi: true },\n  ],\n})\nexport class PhoneInputComponent\n  implements OnInit, OnDestroy, ControlValueAccessor, Validator\n{\n  @Input() label = '';\n  @Input() isReadonly = false;\n  @Input() isRequired = false;\n\n  @ViewChild('input', { static: true })\n  private readonly inputRef!: ElementRef<HTMLInputElement>;\n  @ViewChild(NgModel, { static: true })\n  private readonly ngModel!: NgModel;\n\n  onChange!: (value: unknown) => void;\n  onTouched!: () => void;\n  onValidatorChange!: () => void;\n\n  protected readonly countries = inject(COUNTRY_LIST);\n  // template binding is via template driven forms and not via render.setProperty,\n  // because of ngx-mask, that is overriding inner input value and resets it in case it is default to 1\n  protected flag = '';\n  protected code = '';\n  protected phone = '';\n  protected value = '';\n  protected isDisabled = false;\n  protected readonly placeholder = '6135550194';\n  protected readonly mask = '000 000 00 00||00 000 0000||0 00 0000 0000';\n  protected filteredList = this.countries.slice();\n  private readonly externalFormat: NumberFormat = 'E.164';\n  private readonly sub$ = new Subscription();\n\n  ngOnInit(): void {\n    this.sub$.add(\n      fromEvent(this.inputRef.nativeElement, 'input')\n        .pipe(\n          debounceTime(300),\n          distinctUntilChanged(),\n          // tap(this.updateFlag.bind(this)),\n          tap(this.updateExternalControl.bind(this)),\n        )\n        .subscribe(),\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n\n  applySearchFilter(searchText: string): void {\n    searchText = searchText.toLowerCase();\n    this.filteredList = this.countries.filter(item => {\n      const name = item.name.toString().toLowerCase();\n      return name.indexOf(searchText) !== -1;\n    });\n  }\n\n  writeValue(phone: string): void {\n    const number = parseNumber(this.code && phone ? this.code + phone : '');\n    if (!isParsedNumber(number)) {\n      return;\n    }\n\n    this.flag = number.country;\n    this.phone = number.phone;\n  }\n\n  validate({\n    value,\n  }: AbstractControl<string, string>): ValidationErrors | null {\n    value = this.code + this.phone;\n    if (!value) {\n      return null;\n    }\n\n    const isValid = isValidPhoneNumber(value);\n    if (!isValid) {\n      const errors = {\n        ...this.ngModel.control.errors,\n        phoneValidator: true,\n      };\n      this.ngModel.control.setErrors(errors);\n      return errors;\n    }\n\n    const errors = this.ngModel.control.errors;\n    if (!errors) {\n      this.value = value;\n      return null;\n    }\n\n    const { phoneValidator: _, ...other } = errors;\n    this.ngModel.control.setErrors(other);\n    return null;\n  }\n\n  registerOnChange(fn: (value: unknown) => void): void {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn: () => void): void {\n    this.onTouched = fn;\n  }\n\n  registerOnValidatorChange(fn: () => void): void {\n    this.onValidatorChange = fn;\n  }\n\n  setDisabledState(isDisabled: boolean): void {\n    this.isDisabled = isDisabled;\n  }\n\n  protected countrySelected({ alpha2Code, callingCode }: Country): void {\n    this.flag = alpha2Code;\n    this.code = callingCode;\n\n    const number = parseNumber(`+${this.value}`);\n    if (!isParsedNumber(number)) {\n      // this.value = callingCode.substring(1);\n      return;\n    }\n\n    number.country = alpha2Code as CountryCode;\n    number.countryCallingCode = callingCode as CountryCallingCode;\n    const formatted = formatNumber(number, this.externalFormat);\n    this.value = formatted;\n  }\n\n  private updateExternalControl(): void {\n    const number = parseNumber(`+${this.value}`);\n    if (!isParsedNumber(number)) {\n      this.onChange(this.phone);\n      return;\n    }\n\n    const formatted = formatNumber(number, this.externalFormat);\n\n    this.onChange(formatted);\n  }\n}\n\nfunction isParsedNumber(obj: ParsedNumber | object): obj is ParsedNumber {\n  return Object.hasOwn(obj, 'phone');\n}\n",
+            "sourceCode": "import {\n  Component,\n  ElementRef,\n  Input,\n  OnDestroy,\n  OnInit,\n  ViewChild,\n  inject,\n} from '@angular/core';\nimport {\n  AbstractControl,\n  ControlValueAccessor,\n  FormsModule,\n  NG_VALIDATORS,\n  NG_VALUE_ACCESSOR,\n  NgModel,\n  ReactiveFormsModule,\n  ValidationErrors,\n  Validator,\n} from '@angular/forms';\nimport {\n  NumberFormat,\n  formatNumber,\n  isValidPhoneNumber,\n  parseNumber,\n  ParsedNumber,\n  CountryCode,\n  CountryCallingCode,\n} from 'libphonenumber-js';\nimport { CommonModule } from '@angular/common';\nimport { MatFormFieldModule } from '@angular/material/form-field';\nimport { MatInputModule } from '@angular/material/input';\nimport { FlagComponent } from '../icon/flag/flag.component';\nimport { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';\nimport { MatButtonModule } from '@angular/material/button';\nimport { IconComponent } from '../icon';\nimport { MatMenuModule } from '@angular/material/menu';\nimport { COUNTRY_LIST, Country } from '../country-select';\nimport {\n  Subscription,\n  debounceTime,\n  distinctUntilChanged,\n  fromEvent,\n  tap,\n} from 'rxjs';\nimport { BodyComponent } from '../typography';\nimport { DividerComponent } from '../divider';\n\n@Component({\n  selector: 'lai-phone-input',\n  standalone: true,\n  imports: [\n    CommonModule,\n    MatFormFieldModule,\n    MatInputModule,\n    FormsModule,\n    FlagComponent,\n    NgxMaskDirective,\n    NgxMaskPipe,\n    MatButtonModule,\n    IconComponent,\n    MatMenuModule,\n    ReactiveFormsModule,\n    BodyComponent,\n    DividerComponent,\n  ],\n  templateUrl: './phone-input.component.html',\n  styleUrls: ['./phone-input.component.scss'],\n  providers: [\n    {\n      provide: NG_VALUE_ACCESSOR,\n      useExisting: PhoneInputComponent,\n      multi: true,\n    },\n    { provide: NG_VALIDATORS, useExisting: PhoneInputComponent, multi: true },\n  ],\n})\nexport class PhoneInputComponent\n  implements OnInit, OnDestroy, ControlValueAccessor, Validator\n{\n  @Input() label = '';\n  @Input() isReadonly = false;\n  @Input() isRequired = false;\n\n  @ViewChild('input', { static: true })\n  private readonly inputRef!: ElementRef<HTMLInputElement>;\n  @ViewChild(NgModel, { static: true })\n  private readonly ngModel!: NgModel;\n\n  onChange!: (value: unknown) => void;\n  onTouched!: () => void;\n  onValidatorChange!: () => void;\n\n  protected readonly countries = inject(COUNTRY_LIST);\n  // template binding is via template driven forms and not via render.setProperty,\n  // because of ngx-mask, that is overriding inner input value and resets it in case it is default to 1\n  protected flag = '';\n  protected code = '';\n  protected phone = '';\n  protected value = '';\n  protected isDisabled = false;\n  protected readonly placeholder = '6135550194';\n  protected readonly mask = '000 000 00 00||00 000 0000||0 00 0000 0000';\n  protected filteredList = this.countries.slice();\n  private readonly externalFormat: NumberFormat = 'E.164';\n  private readonly sub$ = new Subscription();\n\n  ngOnInit(): void {\n    this.sub$.add(\n      fromEvent(this.inputRef.nativeElement, 'input')\n        .pipe(\n          debounceTime(300),\n          distinctUntilChanged(),\n          // tap(this.updateFlag.bind(this)),\n          tap(this.updateExternalControl.bind(this)),\n        )\n        .subscribe(),\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n\n  applySearchFilter(searchText: string): void {\n    searchText = searchText.toLowerCase();\n    this.filteredList = this.countries.filter((item) => {\n      const name = item.name.toString().toLowerCase();\n      return name.indexOf(searchText) !== -1;\n    });\n  }\n\n  writeValue(phone: string): void {\n    const number = parseNumber(this.code && phone ? this.code + phone : '');\n    if (!isParsedNumber(number)) {\n      return;\n    }\n\n    this.flag = number.country;\n    this.phone = number.phone;\n  }\n\n  validate({\n    value,\n  }: AbstractControl<string, string>): ValidationErrors | null {\n    value = this.code + this.phone;\n    if (!value) {\n      return null;\n    }\n\n    const isValid = isValidPhoneNumber(value);\n    if (!isValid) {\n      const errors = {\n        ...this.ngModel.control.errors,\n        phoneValidator: true,\n      };\n      this.ngModel.control.setErrors(errors);\n      return errors;\n    }\n\n    const errors = this.ngModel.control.errors;\n    if (!errors) {\n      this.value = value;\n      return null;\n    }\n\n    const { phoneValidator: _, ...other } = errors;\n    this.ngModel.control.setErrors(other);\n    return null;\n  }\n\n  registerOnChange(fn: (value: unknown) => void): void {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn: () => void): void {\n    this.onTouched = fn;\n  }\n\n  registerOnValidatorChange(fn: () => void): void {\n    this.onValidatorChange = fn;\n  }\n\n  setDisabledState(isDisabled: boolean): void {\n    this.isDisabled = isDisabled;\n  }\n\n  protected countrySelected({ alpha2Code, callingCode }: Country): void {\n    this.flag = alpha2Code;\n    this.code = callingCode;\n\n    const number = parseNumber(`+${this.value}`);\n    if (!isParsedNumber(number)) {\n      // this.value = callingCode.substring(1);\n      return;\n    }\n\n    number.country = alpha2Code as CountryCode;\n    number.countryCallingCode = callingCode as CountryCallingCode;\n    const formatted = formatNumber(number, this.externalFormat);\n    this.value = formatted;\n  }\n\n  private updateExternalControl(): void {\n    const number = parseNumber(`+${this.value}`);\n    if (!isParsedNumber(number)) {\n      this.onChange(this.phone);\n      return;\n    }\n\n    const formatted = formatNumber(number, this.externalFormat);\n\n    this.onChange(formatted);\n  }\n}\n\nfunction isParsedNumber(obj: ParsedNumber | object): obj is ParsedNumber {\n  return Object.hasOwn(obj, 'phone');\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'color' as c;\n\n:host {\n  display: flex;\n  flex-direction: column;\n}\n\n.phone-input__countries-menu {\n  max-height: 300px !important;\n  width: 318px;\n  max-width: 500px !important;\n}\n\n.phone-input__countries-menu {\n    & .mat-mdc-form-field-icon-prefix {\n      align-self: stretch !important;\n    }\n\n\n\n    & .mdc-list-item__primary-text {\n      display: flex;\n      width: 100%;\n      gap: 8px;\n\n    }\n\n    lai-body:not(.country-list-code) {\n      color: c.color('info', 800) !important;\n      font-weight: 500 !important;\n    }\n\n    & .search .mat-mdc-form-field-infix {\n      padding: 8px;\n      display: inline-flex;\n      align-items: center;\n      width: 100% !important;\n      gap: 4px;\n      background-color: c.color('gray', 100);\n      margin: 8px;\n      border-radius: 10px;\n    }\n\n    & .search .mdc-text-field {\n      padding: 0 !important\n    }\n\n    & .search .mdc-notched-outline,\n    .search .mat-mdc-form-field-subscript-wrapper {\n      display: none;\n    }\n\n    & .mat-mdc-menu-panel.mat-mdc-menu-panel {\n      position: relative;\n      border: 1px solid;\n      border-color: c.color('gray', 300);\n      border-radius: 12px;\n      box-shadow: none;\n      margin-top: 4px;\n\n      &::-webkit-scrollbar {\n        width: 12px;\n        border-radius: 12px;\n      }\n\n      &::-webkit-scrollbar-track {\n        margin-top: 71px;\n      }\n\n      &::-webkit-scrollbar-thumb {\n        background-color: c.color('gray', 300);\n        border-radius: 12px;\n      }\n    }\n\n    & .mat-mdc-menu-content {\n      padding: 0 !important;\n    }\n  }\n\n\n.countries-button {\n  background-color: c.color('gray', 300);\n  height: 100%;\n  min-width: 118px;\n\n  ::ng-deep {\n    & .mdc-button__label {\n      display: flex;\n      align-items: center;\n      width: 100%;\n      justify-content: space-between;\n      padding: 8px;\n      gap: 5px;\n    }\n  }\n}\n\n.country-list-code {\n  flex-grow: 1;\n  text-align: right;\n}\n\n.search {\n  width: 100%;\n}",
+                    "data": "@use 'color' as c;\n\n:host {\n  display: flex;\n  flex-direction: column;\n}\n\n.phone-input__countries-menu {\n  max-height: 300px !important;\n  width: 318px;\n  max-width: 500px !important;\n}\n\n.countries-button {\n  background-color: c.color('gray', 300);\n  height: 100%;\n  min-width: 118px;\n\n  ::ng-deep {\n    & .mdc-button__label {\n      display: flex;\n      align-items: center;\n      width: 100%;\n      justify-content: space-between;\n      padding: 8px;\n      gap: 5px;\n    }\n  }\n}\n\n.country-list-code {\n  flex-grow: 1;\n  text-align: right;\n}\n\n.search {\n  width: 100%;\n}\n\n\n\n:ng-deep {\n\n  .phone-input__countries-menu {\n    & .mat-mdc-form-field-icon-prefix {\n      align-self: stretch !important;\n    }\n\n\n\n    & .mdc-list-item__primary-text {\n      display: flex;\n      width: 100%;\n      gap: 8px;\n\n    }\n\n    lai-body:not(.country-list-code) {\n      color: c.color('info', 800) !important;\n      font-weight: 500 !important;\n    }\n\n    & .search .mat-mdc-form-field-infix {\n      padding: 8px;\n      display: inline-flex;\n      align-items: center;\n      width: 100% !important;\n      gap: 4px;\n      background-color: c.color('gray', 100);\n      margin: 8px;\n      border-radius: 10px;\n    }\n\n    & .search .mdc-text-field {\n      padding: 0 !important\n    }\n\n    & .search .mdc-notched-outline,\n    .search .mat-mdc-form-field-subscript-wrapper {\n      display: none;\n    }\n\n    & .mat-mdc-menu-panel.mat-mdc-menu-panel {\n      position: relative;\n      border: 1px solid;\n      border-color: c.color('gray', 300);\n      border-radius: 12px;\n      box-shadow: none;\n      margin-top: 4px;\n\n      &::-webkit-scrollbar {\n        width: 12px;\n        border-radius: 12px;\n      }\n\n      &::-webkit-scrollbar-track {\n        margin-top: 71px;\n      }\n\n      &::-webkit-scrollbar-thumb {\n        background-color: c.color('gray', 300);\n        border-radius: 12px;\n      }\n    }\n    & .mat-mdc-menu-content {\n      padding: 0 !important;\n    }\n  }\n}",
                     "styleUrl": "./phone-input.component.scss"
                 }
             ],
@@ -5916,7 +5916,7 @@
                 "ControlValueAccessor",
                 "Validator"
             ],
-            "templateData": "<mat-form-field floatLabel=\"always\">\n  <mat-label>\n    {{ label }}\n  </mat-label>\n\n  <button type=\"button\" mat-button class=\"countries-button\" matPrefix [disabled]=\"isDisabled || isReadonly\"\n    [matMenuTriggerFor]=\"countriesMenu\" (click)=\"!isDisabled && onTouched(); $event.stopPropagation()\">\n    <lai-flag [country]=\"flag\"></lai-flag>\n    {{ code }}\n    <lai-icon glyph=\"expand-arrow\"></lai-icon>\n  </button>\n\n  <input #input matInput [(ngModel)]=\"phone\" [disabled]=\"isDisabled\" [readonly]=\"isReadonly\" [required]=\"isRequired\"\n    [placeholder]=\"placeholder | mask : mask\" (blur)=\"onTouched()\" autocomplete=\"new-password\" [mask]=\"mask\" />\n</mat-form-field>\n\n<mat-menu #countriesMenu class=\"phone-input__countries-menu\">\n  <mat-form-field (click)=\"$event.stopPropagation()\" class=\"search\">\n    <lai-icon glyph=\"search\"></lai-icon>\n    <input matInput placeholder=\"Search\" (keyup)=\"applySearchFilter($any($event.target).value)\"\n      (keydown)=\"$event.stopPropagation()\" class=\"search-input\" />\n  </mat-form-field>\n  <lai-divider></lai-divider>\n  <button (keydown)=\"$event.stopPropagation()\" mat-menu-item *ngFor=\"let country of filteredList\"\n    (click)=\"countrySelected(country)\" [value]=\"country.name\">\n    <lai-flag [country]=\"country.alpha2Code\"></lai-flag>\n    <lai-body [level]=\"5\">{{ country.name }}</lai-body>\n    <lai-body [level]=\"6\" class=\"country-list-code\"> {{ country.callingCode }}</lai-body>\n  </button>\n</mat-menu>"
+            "templateData": "<mat-form-field floatLabel=\"always\">\n  <mat-label>\n    {{ label }}\n  </mat-label>\n\n  <button mat-button type=\"button\" class=\"countries-button\" matPrefix [disabled]=\"isDisabled || isReadonly\"\n    [matMenuTriggerFor]=\"countriesMenu\" (click)=\"!isDisabled && onTouched(); $event.stopPropagation()\">\n    <lai-flag [country]=\"flag\"></lai-flag>\n    {{ code }}\n    <lai-icon glyph=\"expand-arrow\"></lai-icon>\n  </button>\n\n  <input #input matInput [(ngModel)]=\"phone\" [disabled]=\"isDisabled\" [readonly]=\"isReadonly\" [required]=\"isRequired\"\n    [placeholder]=\"placeholder | mask : mask\" (blur)=\"onTouched()\" autocomplete=\"new-password\" [mask]=\"mask\" />\n</mat-form-field>\n\n<mat-menu #countriesMenu class=\"phone-input__countries-menu\" backdropClass=\"sg-vertical-sub-menu\">\n  <mat-form-field (click)=\"$event.stopPropagation()\" class=\"search\">\n    <lai-icon glyph=\"search\"></lai-icon>\n    <input matInput placeholder=\"Search\" (keyup)=\"applySearchFilter($any($event.target).value)\"\n      (keydown)=\"$event.stopPropagation()\" class=\"search-input\" />\n  </mat-form-field>\n  <lai-divider></lai-divider>\n  <button (keydown)=\"$event.stopPropagation()\" mat-menu-item *ngFor=\"let country of filteredList\"\n    (click)=\"countrySelected(country)\" [value]=\"country.name\">\n    <lai-flag [country]=\"country.alpha2Code\"></lai-flag>\n    <lai-body [level]=\"5\">{{ country.name }}</lai-body>\n    <lai-body [level]=\"6\" class=\"country-list-code\"> {{ country.callingCode }}</lai-body>\n  </button>\n</mat-menu>"
         },
         {
             "name": "RoutedComponent",
@@ -9039,21 +9039,21 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<AvatarComponent>",
-                "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Partial<BadgeComponent>",
                 "defaultValue": "{\n  color: 'blue',\n  size: 'md',\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<AvatarComponent>",
+                "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
             },
             {
                 "name": "args",
@@ -9689,21 +9689,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<AvatarComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<BadgeComponent>",
                 "defaultValue": "{\n  title: 'Atoms/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent, IconComponent],\n    }),\n  ],\n  render: (args) => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    size: {\n      options: BADGE_SIZES,\n      control: { type: 'select' },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<AvatarComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -10585,8 +10585,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<AvatarComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                "rawtype": "StoryObj<BadgeComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -10596,8 +10596,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<BadgeComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                "rawtype": "StoryObj<AvatarComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -10939,38 +10939,6 @@
             }
         ],
         "groupedVariables": {
-            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<AvatarComponent>",
-                    "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
-                },
-                {
-                    "name": "Avatar",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args,\n  render: (props) => ({\n    props,\n  }),\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<AvatarComponent>",
-                    "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
                 {
                     "name": "args",
@@ -11021,6 +10989,38 @@
                     "deprecationMessage": "",
                     "type": "Meta<BadgeComponent>",
                     "defaultValue": "{\n  title: 'Atoms/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent, IconComponent],\n    }),\n  ],\n  render: (args) => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    size: {\n      options: BADGE_SIZES,\n      control: { type: 'select' },\n    },\n  },\n}"
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<AvatarComponent>",
+                    "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
+                },
+                {
+                    "name": "Avatar",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args,\n  render: (props) => ({\n    props,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<AvatarComponent>",
+                    "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
                 }
             ],
             "projects/lendai-us/design-system/src/lib/button/button.stories.ts": [
@@ -12660,19 +12660,6 @@
                     "kind": 198
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<AvatarComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
                 {
                     "name": "Story",
@@ -12680,6 +12667,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<BadgeComponent>",
                     "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<AvatarComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",

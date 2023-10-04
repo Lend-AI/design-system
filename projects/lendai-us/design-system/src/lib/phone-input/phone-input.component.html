@@ -14,7 +14,7 @@
     [placeholder]="placeholder | mask : mask" (blur)="onTouched()" autocomplete="new-password" [mask]="mask" />
 </mat-form-field>
 
-<mat-menu #countriesMenu class="phone-input__countries-menu">
+<mat-menu #countriesMenu class="phone-input__countries-menu" backdropClass="countries-menu">
   <mat-form-field (click)="$event.stopPropagation()" class="search">
     <lai-icon glyph="search"></lai-icon>
     <input matInput placeholder="Search" (keyup)="applySearchFilter($any($event.target).value)"
