@@ -54,19 +54,19 @@ jobs:
       - run: npm run build-storybook
 
       - uses: actions/upload-pages-artifact@v1.0.4
-        if: ${{ needs.version.outputs.previous-version != needs.version.outputs.current-version }}
+        if: ${{ needs.version.outputs.previous-version != needs.version.outputs.current-version && github.ref == 'refs/heads/main' }}
         with:
           path: storybook-static
 
       - uses: actions/upload-artifact@v3
-        if: ${{ needs.version.outputs.previous-version != needs.version.outputs.current-version }}
+        if: ${{ needs.version.outputs.previous-version != needs.version.outputs.current-version && github.ref == 'refs/heads/main' }}
         with:
           name: design-system
           path: dist/lendai-us/design-system
 
   deploy:
     runs-on: ubuntu-latest
-    if: ${{ needs.version.outputs.previous-version != needs.version.outputs.current-version }}
+    if: ${{ needs.version.outputs.previous-version != needs.version.outputs.current-version && github.ref == 'refs/heads/main' }}
     needs:
       - version
       - build
