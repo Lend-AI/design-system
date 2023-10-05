@@ -1,11 +1,12 @@
 import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
 import { PhoneInputComponent } from './phone-input.component';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { COUNTRY_LIST, Country } from '../country-select';
 import { provideNgxMask } from 'ngx-mask';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { startWith } from 'rxjs';
 
 @Component({
   standalone: true,
@@ -15,8 +16,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   styles: [],
   imports: [ReactiveFormsModule, PhoneInputComponent],
 })
-class ParentComponent {
+class ParentComponent implements OnInit {
   control = inject(FormBuilder).control('+972559256908');
+
+  ngOnInit(): void {
+    this.control.valueChanges
+      .pipe(startWith(this.control.value))
+      .subscribe((value) => {
+        console.log(value);
+        console.log(JSON.stringify(this.control.errors, null, 2));
+      });
+  }
 }
 
 const COUNTRY_LIST_VALUE: Country[] = [

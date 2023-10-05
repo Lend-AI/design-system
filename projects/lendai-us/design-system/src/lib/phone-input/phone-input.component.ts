@@ -24,8 +24,6 @@ import {
   isValidPhoneNumber,
   parseNumber,
   ParsedNumber,
-  CountryCode,
-  CountryCallingCode,
 } from 'libphonenumber-js';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -97,7 +95,6 @@ export class PhoneInputComponent
   protected flag = '';
   protected code = '';
   protected phone = '';
-  protected value = '';
   protected isDisabled = false;
   protected readonly placeholder = '6135550194';
   protected readonly mask = '000 000 00 00||00 000 0000||0 00 0000 0000';
@@ -111,7 +108,6 @@ export class PhoneInputComponent
         .pipe(
           debounceTime(300),
           distinctUntilChanged(),
-          // tap(this.updateFlag.bind(this)),
           tap(this.updateExternalControl.bind(this)),
         )
         .subscribe(),
@@ -131,23 +127,30 @@ export class PhoneInputComponent
   }
 
   writeValue(phone: string): void {
-    const number = parseNumber(this.code && phone ? this.code + phone : '');
+    const number = parseNumber(phone ? this.code + phone : '');
     if (!isParsedNumber(number)) {
       return;
     }
+    const country = this.countries.find(
+      (country) => country.alpha2Code === number.country,
+    );
+    if (!country) {
+      return;
+    }
 
-    this.flag = number.country;
+    this.flag = country.alpha2Code;
     this.phone = number.phone;
+    this.code = country.callingCode;
   }
 
   validate({
     value,
   }: AbstractControl<string, string>): ValidationErrors | null {
-    value = this.code + this.phone;
     if (!value) {
       return null;
     }
 
+    value = this.code + this.phone;
     const isValid = isValidPhoneNumber(value);
     if (!isValid) {
       const errors = {
@@ -160,7 +163,6 @@ export class PhoneInputComponent
 
     const errors = this.ngModel.control.errors;
     if (!errors) {
-      this.value = value;
       return null;
     }
 
@@ -188,23 +190,22 @@ export class PhoneInputComponent
   protected countrySelected({ alpha2Code, callingCode }: Country): void {
     this.flag = alpha2Code;
     this.code = callingCode;
+    const value = this.code + this.phone;
 
-    const number = parseNumber(`+${this.value}`);
+    const number = parseNumber(value);
     if (!isParsedNumber(number)) {
-      // this.value = callingCode.substring(1);
       return;
     }
 
-    number.country = alpha2Code as CountryCode;
-    number.countryCallingCode = callingCode as CountryCallingCode;
-    const formatted = formatNumber(number, this.externalFormat);
-    this.value = formatted;
+    this.updateExternalControl();
   }
 
   private updateExternalControl(): void {
-    const number = parseNumber(`+${this.value}`);
+    const value = this.code + this.phone;
+
+    const number = parseNumber(value);
     if (!isParsedNumber(number)) {
-      this.onChange(this.phone);
+      this.onChange(value);
       return;
     }
 
