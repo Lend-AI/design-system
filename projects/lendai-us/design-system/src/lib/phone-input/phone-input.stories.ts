@@ -310,7 +310,7 @@ const COUNTRY_LIST_VALUE: Country[] = [
 ];
 
 const meta: Meta<ParentComponent> = {
-  title: 'WIP/PhoneInput',
+  title: 'Molecules/PhoneInput',
   decorators: [
     moduleMetadata({
       imports: [BrowserAnimationsModule],
