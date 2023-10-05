@@ -27,6 +27,7 @@
             class="nav--link"
             [routerLink]="['./']"
             [fragment]="category.fragment"
+            queryParamsHandling="merge"
             (click)="closeMobileNav()">
             <lai-icon
               [glyph]="category.icon"
