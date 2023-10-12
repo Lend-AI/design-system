@@ -5101,7 +5101,7 @@
         },
         {
             "name": "ParentComponent",
-            "id": "component-ParentComponent-ef6fd1dd576d0e152ccb3062a693d14b9e222d52783e9757b2d57202469486a54b16025924b8869bf3cad099d66d81b43f5798176aa2c38cff73f7d0333ce929",
+            "id": "component-ParentComponent-03b8ca8e28990bce6aece3553ef72b046af04c4401ec0cea638d169e903435cadf7f60a1de389cbc608eba7458889b1e482815021df1e45daa6819b576e22dbc",
             "file": "projects/lendai-us/design-system/src/lib/phone-input/phone-input.stories.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -5125,10 +5125,21 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 19
+                    "line": 20
                 }
             ],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 22,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -5147,10 +5158,13 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';\nimport { PhoneInputComponent } from './phone-input.component';\nimport { FormBuilder, ReactiveFormsModule } from '@angular/forms';\nimport { Component, inject } from '@angular/core';\nimport { COUNTRY_LIST, Country } from '../country-select';\nimport { provideNgxMask } from 'ngx-mask';\nimport { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\n\n@Component({\n  standalone: true,\n  template: ` <lai-phone-input\n    [formControl]=\"control\"\n    label=\"phone\"></lai-phone-input>`,\n  styles: [],\n  imports: [ReactiveFormsModule, PhoneInputComponent],\n})\nclass ParentComponent {\n  control = inject(FormBuilder).control('+972559256908');\n}\n\nconst COUNTRY_LIST_VALUE: Country[] = [\n  {\n    name: 'Argentina',\n    alpha2Code: 'AR',\n    alpha3Code: 'ARG',\n    numericCode: '032',\n    callingCode: '+54',\n  },\n  {\n    name: 'Azerbaijan',\n    alpha2Code: 'AZ',\n    alpha3Code: 'AZE',\n    numericCode: '031',\n    callingCode: '+994',\n  },\n  {\n    name: 'Brazil',\n    alpha2Code: 'BR',\n    alpha3Code: 'BRA',\n    numericCode: '076',\n    callingCode: '+55',\n  },\n  {\n    name: 'Bulgaria',\n    alpha2Code: 'BG',\n    alpha3Code: 'BGR',\n    numericCode: '100',\n    callingCode: '+359',\n  },\n  {\n    name: 'Canada',\n    alpha2Code: 'CA',\n    alpha3Code: 'CAN',\n    numericCode: '124',\n    callingCode: '+1',\n  },\n  {\n    name: 'Cyprus',\n    alpha2Code: 'CY',\n    alpha3Code: 'CYP',\n    numericCode: '196',\n    callingCode: '+357',\n  },\n  {\n    name: 'Czech Republic',\n    alpha2Code: 'CZ',\n    alpha3Code: 'CZE',\n    numericCode: '203',\n    callingCode: '+420',\n  },\n  {\n    name: 'Denmark',\n    alpha2Code: 'DK',\n    alpha3Code: 'DNK',\n    numericCode: '208',\n    callingCode: '+45',\n  },\n  {\n    name: 'Egypt',\n    alpha2Code: 'EG',\n    alpha3Code: 'EGY',\n    numericCode: '818',\n    callingCode: '+20',\n  },\n  {\n    name: 'France',\n    alpha2Code: 'FR',\n    alpha3Code: 'FRA',\n    numericCode: '250',\n    callingCode: '+33',\n  },\n  {\n    name: 'Germany',\n    alpha2Code: 'DE',\n    alpha3Code: 'DEU',\n    numericCode: '276',\n    callingCode: '+49',\n  },\n  {\n    name: 'Greece',\n    alpha2Code: 'GR',\n    alpha3Code: 'GRC',\n    numericCode: '300',\n    callingCode: '+30',\n  },\n  {\n    name: 'Guatemala',\n    alpha2Code: 'GT',\n    alpha3Code: 'GTM',\n    numericCode: '320',\n    callingCode: '+502',\n  },\n  {\n    name: 'Hong Kong',\n    alpha2Code: 'HK',\n    alpha3Code: 'HKG',\n    numericCode: '344',\n    callingCode: '+852',\n  },\n  {\n    name: 'Israel',\n    alpha2Code: 'IL',\n    alpha3Code: 'ISR',\n    numericCode: '376',\n    callingCode: '+972',\n  },\n  {\n    name: 'Italy',\n    alpha2Code: 'IT',\n    alpha3Code: 'ITA',\n    numericCode: '380',\n    callingCode: '+39',\n  },\n  {\n    name: 'Jordan',\n    alpha2Code: 'JO',\n    alpha3Code: 'JOR',\n    numericCode: '400',\n    callingCode: '+962',\n  },\n  {\n    name: 'Kuwait',\n    alpha2Code: 'KW',\n    alpha3Code: 'KWT',\n    numericCode: '414',\n    callingCode: '+965',\n  },\n  {\n    name: 'Latvia',\n    alpha2Code: 'LV',\n    alpha3Code: 'LVA',\n    numericCode: '428',\n    callingCode: '+371',\n  },\n  {\n    name: 'Luxembourg',\n    alpha2Code: 'LU',\n    alpha3Code: 'LUX',\n    numericCode: '442',\n    callingCode: '+352',\n  },\n  {\n    name: 'Monaco',\n    alpha2Code: 'MC',\n    alpha3Code: 'MCO',\n    numericCode: '492',\n    callingCode: '+377',\n  },\n  {\n    name: 'Morocco',\n    alpha2Code: 'MA',\n    alpha3Code: 'MAR',\n    numericCode: '504',\n    callingCode: '+212',\n  },\n  {\n    name: 'New Zealand',\n    alpha2Code: 'NZ',\n    alpha3Code: 'NZL',\n    numericCode: '554',\n    callingCode: '+64',\n  },\n  {\n    name: \"Korea (Democratic People's Republic of)\",\n    alpha2Code: 'KP',\n    alpha3Code: 'PRK',\n    numericCode: '408',\n    callingCode: '+850',\n  },\n  {\n    name: 'Norway',\n    alpha2Code: 'NO',\n    alpha3Code: 'NOR',\n    numericCode: '578',\n    callingCode: '+47',\n  },\n  {\n    name: 'Oman',\n    alpha2Code: 'OM',\n    alpha3Code: 'OMN',\n    numericCode: '512',\n    callingCode: '+968',\n  },\n  {\n    name: 'Peru',\n    alpha2Code: 'PE',\n    alpha3Code: 'PER',\n    numericCode: '604',\n    callingCode: '+51',\n  },\n  {\n    name: 'Philippines',\n    alpha2Code: 'PH',\n    alpha3Code: 'PHL',\n    numericCode: '608',\n    callingCode: '+63',\n  },\n  {\n    name: 'Romania',\n    alpha2Code: 'RO',\n    alpha3Code: 'ROU',\n    numericCode: '642',\n    callingCode: '+40',\n  },\n  {\n    name: 'Russian Federation',\n    alpha2Code: 'RU',\n    alpha3Code: 'RUS',\n    numericCode: '643',\n    callingCode: '+7',\n  },\n  {\n    name: 'Rwanda',\n    alpha2Code: 'RW',\n    alpha3Code: 'RWA',\n    numericCode: '646',\n    callingCode: '+250',\n  },\n  {\n    name: 'Saint Lucia',\n    alpha2Code: 'LC',\n    alpha3Code: 'LCA',\n    numericCode: '662',\n    callingCode: '+1758',\n  },\n  {\n    name: 'Spain',\n    alpha2Code: 'ES',\n    alpha3Code: 'ESP',\n    numericCode: '724',\n    callingCode: '+34',\n  },\n  {\n    name: 'Sweden',\n    alpha2Code: 'SE',\n    alpha3Code: 'SWE',\n    numericCode: '752',\n    callingCode: '+46',\n  },\n  {\n    name: 'Tunisia',\n    alpha2Code: 'TN',\n    alpha3Code: 'TUN',\n    numericCode: '788',\n    callingCode: '+216',\n  },\n  {\n    name: 'Turkey',\n    alpha2Code: 'TR',\n    alpha3Code: 'TUR',\n    numericCode: '792',\n    callingCode: '+90',\n  },\n  {\n    name: 'United States of America',\n    alpha2Code: 'US',\n    alpha3Code: 'USA',\n    numericCode: '840',\n    callingCode: '+1',\n  },\n  {\n    name: 'Venezuela (Bolivarian Republic of)',\n    alpha2Code: 'VE',\n    alpha3Code: 'VEN',\n    numericCode: '862',\n    callingCode: '+58',\n  },\n  {\n    name: 'Western Sahara',\n    alpha2Code: 'EH',\n    alpha3Code: 'ESH',\n    numericCode: '732',\n    callingCode: '+212',\n  },\n  {\n    name: 'Yemen',\n    alpha2Code: 'YE',\n    alpha3Code: 'YEM',\n    numericCode: '887',\n    callingCode: '+967',\n  },\n  {\n    name: 'Zimbabwe',\n    alpha2Code: 'ZW',\n    alpha3Code: 'ZWE',\n    numericCode: '716',\n    callingCode: '+263',\n  },\n];\n\nconst meta: Meta<ParentComponent> = {\n  title: 'WIP/PhoneInput',\n  decorators: [\n    moduleMetadata({\n      imports: [BrowserAnimationsModule],\n      providers: [\n        { provide: COUNTRY_LIST, useValue: COUNTRY_LIST_VALUE },\n        provideNgxMask(),\n        {\n          provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,\n          useValue: { appearance: 'outline' },\n        },\n      ],\n    }),\n  ],\n  component: ParentComponent,\n};\nexport default meta;\ntype Story = StoryObj<ParentComponent>;\n\nexport const PhoneInput: Story = {\n  args: {},\n  render: (props) => ({\n    props,\n  }),\n};\n",
+            "sourceCode": "import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';\nimport { PhoneInputComponent } from './phone-input.component';\nimport { FormBuilder, ReactiveFormsModule } from '@angular/forms';\nimport { Component, OnInit, inject } from '@angular/core';\nimport { COUNTRY_LIST, Country } from '../country-select';\nimport { provideNgxMask } from 'ngx-mask';\nimport { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { startWith } from 'rxjs';\n\n@Component({\n  standalone: true,\n  template: ` <lai-phone-input\n    [formControl]=\"control\"\n    label=\"phone\"></lai-phone-input>`,\n  styles: [],\n  imports: [ReactiveFormsModule, PhoneInputComponent],\n})\nclass ParentComponent implements OnInit {\n  control = inject(FormBuilder).control('+972559256908');\n\n  ngOnInit(): void {\n    this.control.valueChanges\n      .pipe(startWith(this.control.value))\n      .subscribe((value) => {\n        console.log(value);\n        console.log(JSON.stringify(this.control.errors, null, 2));\n      });\n  }\n}\n\nconst COUNTRY_LIST_VALUE: Country[] = [\n  {\n    name: 'Argentina',\n    alpha2Code: 'AR',\n    alpha3Code: 'ARG',\n    numericCode: '032',\n    callingCode: '+54',\n  },\n  {\n    name: 'Azerbaijan',\n    alpha2Code: 'AZ',\n    alpha3Code: 'AZE',\n    numericCode: '031',\n    callingCode: '+994',\n  },\n  {\n    name: 'Brazil',\n    alpha2Code: 'BR',\n    alpha3Code: 'BRA',\n    numericCode: '076',\n    callingCode: '+55',\n  },\n  {\n    name: 'Bulgaria',\n    alpha2Code: 'BG',\n    alpha3Code: 'BGR',\n    numericCode: '100',\n    callingCode: '+359',\n  },\n  {\n    name: 'Canada',\n    alpha2Code: 'CA',\n    alpha3Code: 'CAN',\n    numericCode: '124',\n    callingCode: '+1',\n  },\n  {\n    name: 'Cyprus',\n    alpha2Code: 'CY',\n    alpha3Code: 'CYP',\n    numericCode: '196',\n    callingCode: '+357',\n  },\n  {\n    name: 'Czech Republic',\n    alpha2Code: 'CZ',\n    alpha3Code: 'CZE',\n    numericCode: '203',\n    callingCode: '+420',\n  },\n  {\n    name: 'Denmark',\n    alpha2Code: 'DK',\n    alpha3Code: 'DNK',\n    numericCode: '208',\n    callingCode: '+45',\n  },\n  {\n    name: 'Egypt',\n    alpha2Code: 'EG',\n    alpha3Code: 'EGY',\n    numericCode: '818',\n    callingCode: '+20',\n  },\n  {\n    name: 'France',\n    alpha2Code: 'FR',\n    alpha3Code: 'FRA',\n    numericCode: '250',\n    callingCode: '+33',\n  },\n  {\n    name: 'Germany',\n    alpha2Code: 'DE',\n    alpha3Code: 'DEU',\n    numericCode: '276',\n    callingCode: '+49',\n  },\n  {\n    name: 'Greece',\n    alpha2Code: 'GR',\n    alpha3Code: 'GRC',\n    numericCode: '300',\n    callingCode: '+30',\n  },\n  {\n    name: 'Guatemala',\n    alpha2Code: 'GT',\n    alpha3Code: 'GTM',\n    numericCode: '320',\n    callingCode: '+502',\n  },\n  {\n    name: 'Hong Kong',\n    alpha2Code: 'HK',\n    alpha3Code: 'HKG',\n    numericCode: '344',\n    callingCode: '+852',\n  },\n  {\n    name: 'Israel',\n    alpha2Code: 'IL',\n    alpha3Code: 'ISR',\n    numericCode: '376',\n    callingCode: '+972',\n  },\n  {\n    name: 'Italy',\n    alpha2Code: 'IT',\n    alpha3Code: 'ITA',\n    numericCode: '380',\n    callingCode: '+39',\n  },\n  {\n    name: 'Jordan',\n    alpha2Code: 'JO',\n    alpha3Code: 'JOR',\n    numericCode: '400',\n    callingCode: '+962',\n  },\n  {\n    name: 'Kuwait',\n    alpha2Code: 'KW',\n    alpha3Code: 'KWT',\n    numericCode: '414',\n    callingCode: '+965',\n  },\n  {\n    name: 'Latvia',\n    alpha2Code: 'LV',\n    alpha3Code: 'LVA',\n    numericCode: '428',\n    callingCode: '+371',\n  },\n  {\n    name: 'Luxembourg',\n    alpha2Code: 'LU',\n    alpha3Code: 'LUX',\n    numericCode: '442',\n    callingCode: '+352',\n  },\n  {\n    name: 'Monaco',\n    alpha2Code: 'MC',\n    alpha3Code: 'MCO',\n    numericCode: '492',\n    callingCode: '+377',\n  },\n  {\n    name: 'Morocco',\n    alpha2Code: 'MA',\n    alpha3Code: 'MAR',\n    numericCode: '504',\n    callingCode: '+212',\n  },\n  {\n    name: 'New Zealand',\n    alpha2Code: 'NZ',\n    alpha3Code: 'NZL',\n    numericCode: '554',\n    callingCode: '+64',\n  },\n  {\n    name: \"Korea (Democratic People's Republic of)\",\n    alpha2Code: 'KP',\n    alpha3Code: 'PRK',\n    numericCode: '408',\n    callingCode: '+850',\n  },\n  {\n    name: 'Norway',\n    alpha2Code: 'NO',\n    alpha3Code: 'NOR',\n    numericCode: '578',\n    callingCode: '+47',\n  },\n  {\n    name: 'Oman',\n    alpha2Code: 'OM',\n    alpha3Code: 'OMN',\n    numericCode: '512',\n    callingCode: '+968',\n  },\n  {\n    name: 'Peru',\n    alpha2Code: 'PE',\n    alpha3Code: 'PER',\n    numericCode: '604',\n    callingCode: '+51',\n  },\n  {\n    name: 'Philippines',\n    alpha2Code: 'PH',\n    alpha3Code: 'PHL',\n    numericCode: '608',\n    callingCode: '+63',\n  },\n  {\n    name: 'Romania',\n    alpha2Code: 'RO',\n    alpha3Code: 'ROU',\n    numericCode: '642',\n    callingCode: '+40',\n  },\n  {\n    name: 'Russian Federation',\n    alpha2Code: 'RU',\n    alpha3Code: 'RUS',\n    numericCode: '643',\n    callingCode: '+7',\n  },\n  {\n    name: 'Rwanda',\n    alpha2Code: 'RW',\n    alpha3Code: 'RWA',\n    numericCode: '646',\n    callingCode: '+250',\n  },\n  {\n    name: 'Saint Lucia',\n    alpha2Code: 'LC',\n    alpha3Code: 'LCA',\n    numericCode: '662',\n    callingCode: '+1758',\n  },\n  {\n    name: 'Spain',\n    alpha2Code: 'ES',\n    alpha3Code: 'ESP',\n    numericCode: '724',\n    callingCode: '+34',\n  },\n  {\n    name: 'Sweden',\n    alpha2Code: 'SE',\n    alpha3Code: 'SWE',\n    numericCode: '752',\n    callingCode: '+46',\n  },\n  {\n    name: 'Tunisia',\n    alpha2Code: 'TN',\n    alpha3Code: 'TUN',\n    numericCode: '788',\n    callingCode: '+216',\n  },\n  {\n    name: 'Turkey',\n    alpha2Code: 'TR',\n    alpha3Code: 'TUR',\n    numericCode: '792',\n    callingCode: '+90',\n  },\n  {\n    name: 'United States of America',\n    alpha2Code: 'US',\n    alpha3Code: 'USA',\n    numericCode: '840',\n    callingCode: '+1',\n  },\n  {\n    name: 'Venezuela (Bolivarian Republic of)',\n    alpha2Code: 'VE',\n    alpha3Code: 'VEN',\n    numericCode: '862',\n    callingCode: '+58',\n  },\n  {\n    name: 'Western Sahara',\n    alpha2Code: 'EH',\n    alpha3Code: 'ESH',\n    numericCode: '732',\n    callingCode: '+212',\n  },\n  {\n    name: 'Yemen',\n    alpha2Code: 'YE',\n    alpha3Code: 'YEM',\n    numericCode: '887',\n    callingCode: '+967',\n  },\n  {\n    name: 'Zimbabwe',\n    alpha2Code: 'ZW',\n    alpha3Code: 'ZWE',\n    numericCode: '716',\n    callingCode: '+263',\n  },\n];\n\nconst meta: Meta<ParentComponent> = {\n  title: 'Molecules/PhoneInput',\n  decorators: [\n    moduleMetadata({\n      imports: [BrowserAnimationsModule],\n      providers: [\n        { provide: COUNTRY_LIST, useValue: COUNTRY_LIST_VALUE },\n        provideNgxMask(),\n        {\n          provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,\n          useValue: { appearance: 'outline' },\n        },\n      ],\n    }),\n  ],\n  component: ParentComponent,\n};\nexport default meta;\ntype Story = StoryObj<ParentComponent>;\n\nexport const PhoneInput: Story = {\n  args: {},\n  render: (props) => ({\n    props,\n  }),\n};\n",
             "assetsDirs": [],
             "styleUrlsData": "",
-            "stylesData": ""
+            "stylesData": "",
+            "implements": [
+                "OnInit"
+            ]
         },
         {
             "name": "ParentComponent",
@@ -5288,7 +5302,7 @@
         },
         {
             "name": "PhoneInputComponent",
-            "id": "component-PhoneInputComponent-96bd530dc92cfd1be73f3f2aabfd86e6495399bf67b9ee3c0c7c25c7f4d9ea023d39d21e44fd71f2fd3948e2ee749c20f4348d87058790b9a193e05f78a298fa",
+            "id": "component-PhoneInputComponent-59d418bba959659964fac7ac9d42f9f511590b1559ad00b3472bf50243eb744ff3fca93e9cdc4164f75f618a2c194ce86f784517bece547d30edb97f1a14e44e",
             "file": "projects/lendai-us/design-system/src/lib/phone-input/phone-input.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -5320,7 +5334,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 82,
+                    "line": 80,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -5329,7 +5343,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 83,
+                    "line": 81,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -5338,7 +5352,7 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 81,
+                    "line": 79,
                     "type": "string",
                     "decorators": []
                 }
@@ -5353,7 +5367,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 98,
+                    "line": 96,
                     "modifierKind": [
                         122
                     ]
@@ -5366,7 +5380,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 94,
+                    "line": 92,
                     "modifierKind": [
                         122,
                         146
@@ -5380,7 +5394,7 @@
                     "type": "NumberFormat",
                     "optional": false,
                     "description": "",
-                    "line": 105,
+                    "line": 102,
                     "modifierKind": [
                         121,
                         146
@@ -5394,7 +5408,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 104,
+                    "line": 101,
                     "modifierKind": [
                         122
                     ]
@@ -5407,7 +5421,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 97,
+                    "line": 95,
                     "modifierKind": [
                         122
                     ]
@@ -5419,7 +5433,7 @@
                     "type": "ElementRef<HTMLInputElement>",
                     "optional": false,
                     "description": "",
-                    "line": 86,
+                    "line": 84,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -5440,7 +5454,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 101,
+                    "line": 98,
                     "modifierKind": [
                         122
                     ]
@@ -5453,7 +5467,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 103,
+                    "line": 100,
                     "modifierKind": [
                         122,
                         146
@@ -5466,7 +5480,7 @@
                     "type": "NgModel",
                     "optional": false,
                     "description": "",
-                    "line": 88,
+                    "line": 86,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -5486,7 +5500,7 @@
                     "type": "function",
                     "optional": false,
                     "description": "",
-                    "line": 90
+                    "line": 88
                 },
                 {
                     "name": "onTouched",
@@ -5495,7 +5509,7 @@
                     "type": "function",
                     "optional": false,
                     "description": "",
-                    "line": 91
+                    "line": 89
                 },
                 {
                     "name": "onValidatorChange",
@@ -5504,7 +5518,7 @@
                     "type": "function",
                     "optional": false,
                     "description": "",
-                    "line": 92
+                    "line": 90
                 },
                 {
                     "name": "phone",
@@ -5514,7 +5528,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 99,
+                    "line": 97,
                     "modifierKind": [
                         122
                     ]
@@ -5527,7 +5541,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 102,
+                    "line": 99,
                     "modifierKind": [
                         122,
                         146
@@ -5541,23 +5555,10 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 106,
+                    "line": 103,
                     "modifierKind": [
                         121,
                         146
-                    ]
-                },
-                {
-                    "name": "value",
-                    "defaultValue": "''",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 100,
-                    "modifierKind": [
-                        122
                     ]
                 }
             ],
@@ -5575,7 +5576,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 125,
+                    "line": 121,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -5602,7 +5603,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 188,
+                    "line": 190,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -5625,7 +5626,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 121,
+                    "line": 117,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -5635,7 +5636,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 108,
+                    "line": 105,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -5660,7 +5661,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 172,
+                    "line": 174,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -5697,7 +5698,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 176,
+                    "line": 178,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -5727,7 +5728,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 180,
+                    "line": 182,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -5756,7 +5757,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 184,
+                    "line": 186,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -5777,7 +5778,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 204,
+                    "line": 203,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -5796,7 +5797,7 @@
                     "optional": false,
                     "returnType": "ValidationErrors | null",
                     "typeParameters": [],
-                    "line": 143,
+                    "line": 146,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -5823,7 +5824,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 133,
+                    "line": 129,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -5901,7 +5902,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  ElementRef,\n  Input,\n  OnDestroy,\n  OnInit,\n  ViewChild,\n  inject,\n} from '@angular/core';\nimport {\n  AbstractControl,\n  ControlValueAccessor,\n  FormsModule,\n  NG_VALIDATORS,\n  NG_VALUE_ACCESSOR,\n  NgModel,\n  ReactiveFormsModule,\n  ValidationErrors,\n  Validator,\n} from '@angular/forms';\nimport {\n  NumberFormat,\n  formatNumber,\n  isValidPhoneNumber,\n  parseNumber,\n  ParsedNumber,\n  CountryCode,\n  CountryCallingCode,\n} from 'libphonenumber-js';\nimport { CommonModule } from '@angular/common';\nimport { MatFormFieldModule } from '@angular/material/form-field';\nimport { MatInputModule } from '@angular/material/input';\nimport { FlagComponent } from '../icon/flag/flag.component';\nimport { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';\nimport { MatButtonModule } from '@angular/material/button';\nimport { IconComponent } from '../icon';\nimport { MatMenuModule } from '@angular/material/menu';\nimport { COUNTRY_LIST, Country } from '../country-select';\nimport {\n  Subscription,\n  debounceTime,\n  distinctUntilChanged,\n  fromEvent,\n  tap,\n} from 'rxjs';\nimport { BodyComponent } from '../typography';\nimport { DividerComponent } from '../divider';\n\n@Component({\n  selector: 'lai-phone-input',\n  standalone: true,\n  imports: [\n    CommonModule,\n    MatFormFieldModule,\n    MatInputModule,\n    FormsModule,\n    FlagComponent,\n    NgxMaskDirective,\n    NgxMaskPipe,\n    MatButtonModule,\n    IconComponent,\n    MatMenuModule,\n    ReactiveFormsModule,\n    BodyComponent,\n    DividerComponent,\n  ],\n  templateUrl: './phone-input.component.html',\n  styleUrls: ['./phone-input.component.scss'],\n  providers: [\n    {\n      provide: NG_VALUE_ACCESSOR,\n      useExisting: PhoneInputComponent,\n      multi: true,\n    },\n    { provide: NG_VALIDATORS, useExisting: PhoneInputComponent, multi: true },\n  ],\n})\nexport class PhoneInputComponent\n  implements OnInit, OnDestroy, ControlValueAccessor, Validator\n{\n  @Input() label = '';\n  @Input() isReadonly = false;\n  @Input() isRequired = false;\n\n  @ViewChild('input', { static: true })\n  private readonly inputRef!: ElementRef<HTMLInputElement>;\n  @ViewChild(NgModel, { static: true })\n  private readonly ngModel!: NgModel;\n\n  onChange!: (value: unknown) => void;\n  onTouched!: () => void;\n  onValidatorChange!: () => void;\n\n  protected readonly countries = inject(COUNTRY_LIST);\n  // template binding is via template driven forms and not via render.setProperty,\n  // because of ngx-mask, that is overriding inner input value and resets it in case it is default to 1\n  protected flag = '';\n  protected code = '';\n  protected phone = '';\n  protected value = '';\n  protected isDisabled = false;\n  protected readonly placeholder = '6135550194';\n  protected readonly mask = '000 000 00 00||00 000 0000||0 00 0000 0000';\n  protected filteredList = this.countries.slice();\n  private readonly externalFormat: NumberFormat = 'E.164';\n  private readonly sub$ = new Subscription();\n\n  ngOnInit(): void {\n    this.sub$.add(\n      fromEvent(this.inputRef.nativeElement, 'input')\n        .pipe(\n          debounceTime(300),\n          distinctUntilChanged(),\n          // tap(this.updateFlag.bind(this)),\n          tap(this.updateExternalControl.bind(this)),\n        )\n        .subscribe(),\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n\n  applySearchFilter(searchText: string): void {\n    searchText = searchText.toLowerCase();\n    this.filteredList = this.countries.filter((item) => {\n      const name = item.name.toString().toLowerCase();\n      return name.indexOf(searchText) !== -1;\n    });\n  }\n\n  writeValue(phone: string): void {\n    const number = parseNumber(this.code && phone ? this.code + phone : '');\n    if (!isParsedNumber(number)) {\n      return;\n    }\n\n    this.flag = number.country;\n    this.phone = number.phone;\n  }\n\n  validate({\n    value,\n  }: AbstractControl<string, string>): ValidationErrors | null {\n    value = this.code + this.phone;\n    if (!value) {\n      return null;\n    }\n\n    const isValid = isValidPhoneNumber(value);\n    if (!isValid) {\n      const errors = {\n        ...this.ngModel.control.errors,\n        phoneValidator: true,\n      };\n      this.ngModel.control.setErrors(errors);\n      return errors;\n    }\n\n    const errors = this.ngModel.control.errors;\n    if (!errors) {\n      this.value = value;\n      return null;\n    }\n\n    const { phoneValidator: _, ...other } = errors;\n    this.ngModel.control.setErrors(other);\n    return null;\n  }\n\n  registerOnChange(fn: (value: unknown) => void): void {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn: () => void): void {\n    this.onTouched = fn;\n  }\n\n  registerOnValidatorChange(fn: () => void): void {\n    this.onValidatorChange = fn;\n  }\n\n  setDisabledState(isDisabled: boolean): void {\n    this.isDisabled = isDisabled;\n  }\n\n  protected countrySelected({ alpha2Code, callingCode }: Country): void {\n    this.flag = alpha2Code;\n    this.code = callingCode;\n\n    const number = parseNumber(`+${this.value}`);\n    if (!isParsedNumber(number)) {\n      // this.value = callingCode.substring(1);\n      return;\n    }\n\n    number.country = alpha2Code as CountryCode;\n    number.countryCallingCode = callingCode as CountryCallingCode;\n    const formatted = formatNumber(number, this.externalFormat);\n    this.value = formatted;\n  }\n\n  private updateExternalControl(): void {\n    const number = parseNumber(`+${this.value}`);\n    if (!isParsedNumber(number)) {\n      this.onChange(this.phone);\n      return;\n    }\n\n    const formatted = formatNumber(number, this.externalFormat);\n\n    this.onChange(formatted);\n  }\n}\n\nfunction isParsedNumber(obj: ParsedNumber | object): obj is ParsedNumber {\n  return Object.hasOwn(obj, 'phone');\n}\n",
+            "sourceCode": "import {\n  Component,\n  ElementRef,\n  Input,\n  OnDestroy,\n  OnInit,\n  ViewChild,\n  inject,\n} from '@angular/core';\nimport {\n  AbstractControl,\n  ControlValueAccessor,\n  FormsModule,\n  NG_VALIDATORS,\n  NG_VALUE_ACCESSOR,\n  NgModel,\n  ReactiveFormsModule,\n  ValidationErrors,\n  Validator,\n} from '@angular/forms';\nimport {\n  NumberFormat,\n  formatNumber,\n  isValidPhoneNumber,\n  parseNumber,\n  ParsedNumber,\n} from 'libphonenumber-js';\nimport { CommonModule } from '@angular/common';\nimport { MatFormFieldModule } from '@angular/material/form-field';\nimport { MatInputModule } from '@angular/material/input';\nimport { FlagComponent } from '../icon/flag/flag.component';\nimport { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';\nimport { MatButtonModule } from '@angular/material/button';\nimport { IconComponent } from '../icon';\nimport { MatMenuModule } from '@angular/material/menu';\nimport { COUNTRY_LIST, Country } from '../country-select';\nimport {\n  Subscription,\n  debounceTime,\n  distinctUntilChanged,\n  fromEvent,\n  tap,\n} from 'rxjs';\nimport { BodyComponent } from '../typography';\nimport { DividerComponent } from '../divider';\n\n@Component({\n  selector: 'lai-phone-input',\n  standalone: true,\n  imports: [\n    CommonModule,\n    MatFormFieldModule,\n    MatInputModule,\n    FormsModule,\n    FlagComponent,\n    NgxMaskDirective,\n    NgxMaskPipe,\n    MatButtonModule,\n    IconComponent,\n    MatMenuModule,\n    ReactiveFormsModule,\n    BodyComponent,\n    DividerComponent,\n  ],\n  templateUrl: './phone-input.component.html',\n  styleUrls: ['./phone-input.component.scss'],\n  providers: [\n    {\n      provide: NG_VALUE_ACCESSOR,\n      useExisting: PhoneInputComponent,\n      multi: true,\n    },\n    { provide: NG_VALIDATORS, useExisting: PhoneInputComponent, multi: true },\n  ],\n})\nexport class PhoneInputComponent\n  implements OnInit, OnDestroy, ControlValueAccessor, Validator\n{\n  @Input() label = '';\n  @Input() isReadonly = false;\n  @Input() isRequired = false;\n\n  @ViewChild('input', { static: true })\n  private readonly inputRef!: ElementRef<HTMLInputElement>;\n  @ViewChild(NgModel, { static: true })\n  private readonly ngModel!: NgModel;\n\n  onChange!: (value: unknown) => void;\n  onTouched!: () => void;\n  onValidatorChange!: () => void;\n\n  protected readonly countries = inject(COUNTRY_LIST);\n  // template binding is via template driven forms and not via render.setProperty,\n  // because of ngx-mask, that is overriding inner input value and resets it in case it is default to 1\n  protected flag = '';\n  protected code = '';\n  protected phone = '';\n  protected isDisabled = false;\n  protected readonly placeholder = '6135550194';\n  protected readonly mask = '000 000 00 00||00 000 0000||0 00 0000 0000';\n  protected filteredList = this.countries.slice();\n  private readonly externalFormat: NumberFormat = 'E.164';\n  private readonly sub$ = new Subscription();\n\n  ngOnInit(): void {\n    this.sub$.add(\n      fromEvent(this.inputRef.nativeElement, 'input')\n        .pipe(\n          debounceTime(300),\n          distinctUntilChanged(),\n          tap(this.updateExternalControl.bind(this)),\n        )\n        .subscribe(),\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.sub$.unsubscribe();\n  }\n\n  applySearchFilter(searchText: string): void {\n    searchText = searchText.toLowerCase();\n    this.filteredList = this.countries.filter((item) => {\n      const name = item.name.toString().toLowerCase();\n      return name.indexOf(searchText) !== -1;\n    });\n  }\n\n  writeValue(phone: string): void {\n    const number = parseNumber(phone ? this.code + phone : '');\n    if (!isParsedNumber(number)) {\n      return;\n    }\n    const country = this.countries.find(\n      (country) => country.alpha2Code === number.country,\n    );\n    if (!country) {\n      return;\n    }\n\n    this.flag = country.alpha2Code;\n    this.phone = number.phone;\n    this.code = country.callingCode;\n  }\n\n  validate({\n    value,\n  }: AbstractControl<string, string>): ValidationErrors | null {\n    if (!value) {\n      return null;\n    }\n\n    value = this.code + this.phone;\n    const isValid = isValidPhoneNumber(value);\n    if (!isValid) {\n      const errors = {\n        ...this.ngModel.control.errors,\n        phoneValidator: true,\n      };\n      this.ngModel.control.setErrors(errors);\n      return errors;\n    }\n\n    const errors = this.ngModel.control.errors;\n    if (!errors) {\n      return null;\n    }\n\n    const { phoneValidator: _, ...other } = errors;\n    this.ngModel.control.setErrors(other);\n    return null;\n  }\n\n  registerOnChange(fn: (value: unknown) => void): void {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn: () => void): void {\n    this.onTouched = fn;\n  }\n\n  registerOnValidatorChange(fn: () => void): void {\n    this.onValidatorChange = fn;\n  }\n\n  setDisabledState(isDisabled: boolean): void {\n    this.isDisabled = isDisabled;\n  }\n\n  protected countrySelected({ alpha2Code, callingCode }: Country): void {\n    this.flag = alpha2Code;\n    this.code = callingCode;\n    const value = this.code + this.phone;\n\n    const number = parseNumber(value);\n    if (!isParsedNumber(number)) {\n      return;\n    }\n\n    this.updateExternalControl();\n  }\n\n  private updateExternalControl(): void {\n    const value = this.code + this.phone;\n\n    const number = parseNumber(value);\n    if (!isParsedNumber(number)) {\n      this.onChange(value);\n      return;\n    }\n\n    const formatted = formatNumber(number, this.externalFormat);\n\n    this.onChange(formatted);\n  }\n}\n\nfunction isParsedNumber(obj: ParsedNumber | object): obj is ParsedNumber {\n  return Object.hasOwn(obj, 'phone');\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -9049,21 +9050,21 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<AvatarComponent>",
-                "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "{\n  hierarchy: 'primary',\n  size: 'md',\n  color: 'primary',\n  disabled: false,\n} as Partial<ButtonComponent>"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<AvatarComponent>",
+                "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
             },
             {
                 "name": "args",
@@ -9699,21 +9700,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<AvatarComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ButtonComponent>",
                 "defaultValue": "{\n  title: 'Atoms/Button',\n  decorators: [\n    moduleMetadata({\n      imports: [ButtonComponent, IconComponent],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: BUTTON_SIZES,\n    },\n    hierarchy: {\n      control: { type: 'select' },\n      options: BUTTON_HIERARCHIES,\n    },\n    color: {\n      control: { type: 'select' },\n      options: BUTTON_COLORS,\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<AvatarComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -9753,17 +9754,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ParentComponent>",
-                "defaultValue": "{\n  title: 'WIP/PhoneInput',\n  decorators: [\n    moduleMetadata({\n      imports: [BrowserAnimationsModule],\n      providers: [\n        { provide: COUNTRY_LIST, useValue: COUNTRY_LIST_VALUE },\n        provideNgxMask(),\n        {\n          provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,\n          useValue: { appearance: 'outline' },\n        },\n      ],\n    }),\n  ],\n  component: ParentComponent,\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<StepperComponent>",
-                "defaultValue": "{\n  title: 'WIP/Stepper',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [StepperModule],\n    }),\n  ],\n  argTypes: {\n    selectedChange: { action: 'onSelectedChange' },\n  },\n}"
+                "defaultValue": "{\n  title: 'Molecules/PhoneInput',\n  decorators: [\n    moduleMetadata({\n      imports: [BrowserAnimationsModule],\n      providers: [\n        { provide: COUNTRY_LIST, useValue: COUNTRY_LIST_VALUE },\n        provideNgxMask(),\n        {\n          provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,\n          useValue: { appearance: 'outline' },\n        },\n      ],\n    }),\n  ],\n  component: ParentComponent,\n}"
             },
             {
                 "name": "meta",
@@ -9774,6 +9765,16 @@
                 "deprecationMessage": "",
                 "type": "Meta<ParentComponent>",
                 "defaultValue": "{\n  title: 'WIP/SideDrawer',\n  component: ParentComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [ChildComponent],\n    }),\n  ],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<StepperComponent>",
+                "defaultValue": "{\n  title: 'WIP/Stepper',\n  parameters: {\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [StepperModule],\n    }),\n  ],\n  argTypes: {\n    selectedChange: { action: 'onSelectedChange' },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -10596,8 +10597,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<AvatarComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                "rawtype": "StoryObj<ButtonComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -10607,8 +10608,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
+                "rawtype": "StoryObj<AvatarComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -10662,8 +10663,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<StepperComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
+                "rawtype": "StoryObj<ParentComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/side-drawer/side-drawer.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -10673,8 +10674,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ParentComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/side-drawer/side-drawer.stories.ts",
+                "rawtype": "StoryObj<StepperComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -10991,38 +10992,6 @@
                     "defaultValue": "{\n  title: 'Atoms/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent, IconComponent],\n    }),\n  ],\n  render: (args) => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    size: {\n      options: BADGE_SIZES,\n      control: { type: 'select' },\n    },\n  },\n}"
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<AvatarComponent>",
-                    "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
-                },
-                {
-                    "name": "Avatar",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args,\n  render: (props) => ({\n    props,\n  }),\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<AvatarComponent>",
-                    "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/button/button.stories.ts": [
                 {
                     "name": "args",
@@ -11083,6 +11052,38 @@
                     "deprecationMessage": "",
                     "type": "Meta<ButtonComponent>",
                     "defaultValue": "{\n  title: 'Atoms/Button',\n  decorators: [\n    moduleMetadata({\n      imports: [ButtonComponent, IconComponent],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: BUTTON_SIZES,\n    },\n    hierarchy: {\n      control: { type: 'select' },\n      options: BUTTON_HIERARCHIES,\n    },\n    color: {\n      control: { type: 'select' },\n      options: BUTTON_COLORS,\n    },\n  },\n}"
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<AvatarComponent>",
+                    "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
+                },
+                {
+                    "name": "Avatar",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args,\n  render: (props) => ({\n    props,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<AvatarComponent>",
+                    "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
                 }
             ],
             "projects/lendai-us/design-system/src/lib/card/card.stories.ts": [
@@ -11470,7 +11471,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<ParentComponent>",
-                    "defaultValue": "{\n  title: 'WIP/PhoneInput',\n  decorators: [\n    moduleMetadata({\n      imports: [BrowserAnimationsModule],\n      providers: [\n        { provide: COUNTRY_LIST, useValue: COUNTRY_LIST_VALUE },\n        provideNgxMask(),\n        {\n          provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,\n          useValue: { appearance: 'outline' },\n        },\n      ],\n    }),\n  ],\n  component: ParentComponent,\n}"
+                    "defaultValue": "{\n  title: 'Molecules/PhoneInput',\n  decorators: [\n    moduleMetadata({\n      imports: [BrowserAnimationsModule],\n      providers: [\n        { provide: COUNTRY_LIST, useValue: COUNTRY_LIST_VALUE },\n        provideNgxMask(),\n        {\n          provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,\n          useValue: { appearance: 'outline' },\n        },\n      ],\n    }),\n  ],\n  component: ParentComponent,\n}"
                 },
                 {
                     "name": "PhoneInput",
@@ -12673,19 +12674,6 @@
                     "kind": 180
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<AvatarComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/button/button.stories.ts": [
                 {
                     "name": "Story",
@@ -12693,6 +12681,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ButtonComponent>",
                     "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<AvatarComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -12751,19 +12752,6 @@
                     "kind": 180
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<StepperComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/side-drawer/side-drawer.stories.ts": [
                 {
                     "name": "Story",
@@ -12771,6 +12759,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ParentComponent>",
                     "file": "projects/lendai-us/design-system/src/lib/side-drawer/side-drawer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<StepperComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -14353,7 +14354,7 @@
                 "linktype": "component",
                 "name": "PhoneInputComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/31",
+                "coverageCount": "0/30",
                 "status": "low"
             },
             {
@@ -14372,7 +14373,7 @@
                 "linktype": "component",
                 "name": "ParentComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
