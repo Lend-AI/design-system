@@ -3,15 +3,24 @@
 :host {
   display: flex;
   flex-direction: column;
-}
 
-.phone-input__countries-menu {
-  max-height: 300px !important;
-  width: 318px;
-  max-width: 500px !important;
+  ::ng-deep {
+    .mat-mdc-form-field-icon-prefix {
+      align-self: stretch !important;
+    }
+  }
 }
 
 ::ng-deep .phone-input__countries-menu {
+  max-height: 300px !important;
+  width: 318px;
+  max-width: 500px !important;
+  border: 1px solid!important;
+  border-color: c.color('gray', 300)!important;
+  border-radius: 12px!important;
+  box-shadow: none!important;
+  margin-top: 4px!important;
+
   & .mat-mdc-form-field-icon-prefix {
     align-self: stretch !important;
   }
@@ -47,7 +56,7 @@
     display: none;
   }
 
-  & .mat-mdc-menu-panel.mat-mdc-menu-panel {
+  & .cdk-overlay-pane.mat-mdc-menu-panel {
     position: relative;
     border: 1px solid;
     border-color: c.color('gray', 300);
