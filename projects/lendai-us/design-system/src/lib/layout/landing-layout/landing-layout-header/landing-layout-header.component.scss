@@ -32,10 +32,10 @@
 }
 
 .logo {
-  height: 36px;
+  height: 72px;
 
   @include b.mobile {
-    height: 20px;
+    height: 40px;
   }
 }
 
