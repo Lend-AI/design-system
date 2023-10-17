@@ -5906,7 +5906,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'color' as c;\n\n:host {\n  display: flex;\n  flex-direction: column;\n}\n\n.phone-input__countries-menu {\n  max-height: 300px !important;\n  width: 318px;\n  max-width: 500px !important;\n}\n\n::ng-deep .phone-input__countries-menu {\n  & .mat-mdc-form-field-icon-prefix {\n    align-self: stretch !important;\n  }\n\n  & .mdc-list-item__primary-text {\n    display: flex;\n    width: 100%;\n    gap: 8px;\n  }\n\n  lai-body:not(.country-list-code) {\n    color: c.color('info', 800) !important;\n    font-weight: 500 !important;\n  }\n\n  & .search .mat-mdc-form-field-infix {\n    padding: 8px;\n    display: inline-flex;\n    align-items: center;\n    width: 100% !important;\n    gap: 4px;\n    background-color: c.color('gray', 100);\n    margin: 8px;\n    border-radius: 10px;\n  }\n\n  & .search .mdc-text-field {\n    padding: 0 !important;\n  }\n\n  & .search .mdc-notched-outline,\n  .search .mat-mdc-form-field-subscript-wrapper {\n    display: none;\n  }\n\n  & .mat-mdc-menu-panel.mat-mdc-menu-panel {\n    position: relative;\n    border: 1px solid;\n    border-color: c.color('gray', 300);\n    border-radius: 12px;\n    box-shadow: none;\n    margin-top: 4px;\n\n    &::-webkit-scrollbar {\n      width: 12px;\n      border-radius: 12px;\n    }\n\n    &::-webkit-scrollbar-track {\n      margin-top: 71px;\n    }\n\n    &::-webkit-scrollbar-thumb {\n      background-color: c.color('gray', 300);\n      border-radius: 12px;\n    }\n  }\n\n  & .mat-mdc-menu-content {\n    padding: 0 !important;\n  }\n}\n\n.countries-button {\n  background-color: c.color('gray', 300);\n  height: 100%;\n  min-width: 118px;\n\n  ::ng-deep {\n    & .mdc-button__label {\n      display: flex;\n      align-items: center;\n      width: 100%;\n      justify-content: space-between;\n      padding: 8px;\n      gap: 5px;\n    }\n  }\n}\n\n.country-list-code {\n  flex-grow: 1;\n  text-align: right;\n}\n\n.search {\n  width: 100%;\n}\n",
+                    "data": "@use 'color' as c;\n\n:host {\n  display: flex;\n  flex-direction: column;\n\n  ::ng-deep {\n    .mat-mdc-form-field-icon-prefix {\n      align-self: stretch !important;\n    }\n  }\n}\n\n::ng-deep .phone-input__countries-menu {\n  max-height: 300px !important;\n  width: 318px;\n  max-width: 500px !important;\n  border: 1px solid!important;\n  border-color: c.color('gray', 300)!important;\n  border-radius: 12px!important;\n  box-shadow: none!important;\n  margin-top: 4px!important;\n\n  & .mat-mdc-form-field-icon-prefix {\n    align-self: stretch !important;\n  }\n\n  & .mdc-list-item__primary-text {\n    display: flex;\n    width: 100%;\n    gap: 8px;\n  }\n\n  lai-body:not(.country-list-code) {\n    color: c.color('info', 800) !important;\n    font-weight: 500 !important;\n  }\n\n  & .search .mat-mdc-form-field-infix {\n    padding: 8px;\n    display: inline-flex;\n    align-items: center;\n    width: 100% !important;\n    gap: 4px;\n    background-color: c.color('gray', 100);\n    margin: 8px;\n    border-radius: 10px;\n  }\n\n  & .search .mdc-text-field {\n    padding: 0 !important;\n  }\n\n  & .search .mdc-notched-outline,\n  .search .mat-mdc-form-field-subscript-wrapper {\n    display: none;\n  }\n\n  & .cdk-overlay-pane.mat-mdc-menu-panel {\n    position: relative;\n    border: 1px solid;\n    border-color: c.color('gray', 300);\n    border-radius: 12px;\n    box-shadow: none;\n    margin-top: 4px;\n\n    &::-webkit-scrollbar {\n      width: 12px;\n      border-radius: 12px;\n    }\n\n    &::-webkit-scrollbar-track {\n      margin-top: 71px;\n    }\n\n    &::-webkit-scrollbar-thumb {\n      background-color: c.color('gray', 300);\n      border-radius: 12px;\n    }\n  }\n\n  & .mat-mdc-menu-content {\n    padding: 0 !important;\n  }\n}\n\n.countries-button {\n  background-color: c.color('gray', 300);\n  height: 100%;\n  min-width: 118px;\n\n  ::ng-deep {\n    & .mdc-button__label {\n      display: flex;\n      align-items: center;\n      width: 100%;\n      justify-content: space-between;\n      padding: 8px;\n      gap: 5px;\n    }\n  }\n}\n\n.country-list-code {\n  flex-grow: 1;\n  text-align: right;\n}\n\n.search {\n  width: 100%;\n}",
                     "styleUrl": "./phone-input.component.scss"
                 }
             ],
@@ -9040,26 +9040,6 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<BadgeComponent>",
-                "defaultValue": "{\n  color: 'blue',\n  size: 'md',\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "{\n  hierarchy: 'primary',\n  size: 'md',\n  color: 'primary',\n  disabled: false,\n} as Partial<ButtonComponent>"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -9075,6 +9055,26 @@
                 "deprecationMessage": "",
                 "type": "Partial<CardComponent>",
                 "defaultValue": "{\n  radius: 'sm',\n  size: 'md',\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<BadgeComponent>",
+                "defaultValue": "{\n  color: 'blue',\n  size: 'md',\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "{\n  hierarchy: 'primary',\n  size: 'md',\n  color: 'primary',\n  disabled: false,\n} as Partial<ButtonComponent>"
             },
             {
                 "name": "args",
@@ -9690,26 +9690,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<BadgeComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent, IconComponent],\n    }),\n  ],\n  render: (args) => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    size: {\n      options: BADGE_SIZES,\n      control: { type: 'select' },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Button',\n  decorators: [\n    moduleMetadata({\n      imports: [ButtonComponent, IconComponent],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: BUTTON_SIZES,\n    },\n    hierarchy: {\n      control: { type: 'select' },\n      options: BUTTON_HIERARCHIES,\n    },\n    color: {\n      control: { type: 'select' },\n      options: BUTTON_COLORS,\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -9725,6 +9705,26 @@
                 "deprecationMessage": "",
                 "type": "Meta<CardComponent>",
                 "defaultValue": "{\n  title: 'WIP/Card',\n  component: CardComponent,\n  decorators: [\n    componentWrapperDecorator((story) => {\n      return `<style>\n          lai-card {\n            width: 100px;\n            height: 100px;\n          }\n        </style>\n        ${story}`;\n    }),\n  ],\n  argTypes: {\n    radius: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n    size: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<BadgeComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent, IconComponent],\n    }),\n  ],\n  render: (args) => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    size: {\n      options: BADGE_SIZES,\n      control: { type: 'select' },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ButtonComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Button',\n  decorators: [\n    moduleMetadata({\n      imports: [ButtonComponent, IconComponent],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: BUTTON_SIZES,\n    },\n    hierarchy: {\n      control: { type: 'select' },\n      options: BUTTON_HIERARCHIES,\n    },\n    color: {\n      control: { type: 'select' },\n      options: BUTTON_COLORS,\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -10586,28 +10586,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<BadgeComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<AvatarComponent>",
                 "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
                 "deprecated": false,
@@ -10621,6 +10599,28 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<CardComponent>",
                 "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<BadgeComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ButtonComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -10940,6 +10940,70 @@
             }
         ],
         "groupedVariables": {
+            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<AvatarComponent>",
+                    "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
+                },
+                {
+                    "name": "Avatar",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args,\n  render: (props) => ({\n    props,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<AvatarComponent>",
+                    "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/card/card.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<CardComponent>",
+                    "defaultValue": "{\n  radius: 'sm',\n  size: 'md',\n}"
+                },
+                {
+                    "name": "Card",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args,\n  render: (props) => ({\n    props,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<CardComponent>",
+                    "defaultValue": "{\n  title: 'WIP/Card',\n  component: CardComponent,\n  decorators: [\n    componentWrapperDecorator((story) => {\n      return `<style>\n          lai-card {\n            width: 100px;\n            height: 100px;\n          }\n        </style>\n        ${story}`;\n    }),\n  ],\n  argTypes: {\n    radius: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n    size: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n  },\n}"
+                }
+            ],
             "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
                 {
                     "name": "args",
@@ -11052,70 +11116,6 @@
                     "deprecationMessage": "",
                     "type": "Meta<ButtonComponent>",
                     "defaultValue": "{\n  title: 'Atoms/Button',\n  decorators: [\n    moduleMetadata({\n      imports: [ButtonComponent, IconComponent],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: BUTTON_SIZES,\n    },\n    hierarchy: {\n      control: { type: 'select' },\n      options: BUTTON_HIERARCHIES,\n    },\n    color: {\n      control: { type: 'select' },\n      options: BUTTON_COLORS,\n    },\n  },\n}"
-                }
-            ],
-            "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<AvatarComponent>",
-                    "defaultValue": "{\n  size: 'md',\n  initials: 'MD',\n}"
-                },
-                {
-                    "name": "Avatar",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args,\n  render: (props) => ({\n    props,\n  }),\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<AvatarComponent>",
-                    "defaultValue": "{\n  title: 'Atoms/Avatar',\n  component: AvatarComponent,\n  argTypes: {\n    size: {\n      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],\n      control: { type: 'select' },\n    },\n  },\n}"
-                }
-            ],
-            "projects/lendai-us/design-system/src/lib/card/card.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<CardComponent>",
-                    "defaultValue": "{\n  radius: 'sm',\n  size: 'md',\n}"
-                },
-                {
-                    "name": "Card",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args,\n  render: (props) => ({\n    props,\n  }),\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<CardComponent>",
-                    "defaultValue": "{\n  title: 'WIP/Card',\n  component: CardComponent,\n  decorators: [\n    componentWrapperDecorator((story) => {\n      return `<style>\n          lai-card {\n            width: 100px;\n            height: 100px;\n          }\n        </style>\n        ${story}`;\n    }),\n  ],\n  argTypes: {\n    radius: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n    size: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n  },\n}"
                 }
             ],
             "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts": [
@@ -12661,32 +12661,6 @@
                     "kind": 198
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<BadgeComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "projects/lendai-us/design-system/src/lib/button/button.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ButtonComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/avatar/avatar.stories.ts": [
                 {
                     "name": "Story",
@@ -12707,6 +12681,32 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<CardComponent>",
                     "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<BadgeComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/button/button.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ButtonComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",

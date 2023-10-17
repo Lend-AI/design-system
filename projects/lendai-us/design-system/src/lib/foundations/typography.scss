@@ -2,7 +2,7 @@
 @use 'breakpoints' as b;
 
 @mixin typography($typography) {
-  font-family: Poppins;
+  font-family: Poppins, 'Open Sans', sans-serif;;
   font-style: normal;
   font-size: map.get($typography, 'desktop', 'font-size');
   line-height: map.get($typography, 'desktop', 'line-height');
