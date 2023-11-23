@@ -1,10 +1,10 @@
-@use "breakpoints" as b;
+@use 'breakpoints' as b;
 
 :host {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   height: 100vh;
-  width: 100vw;
+  width: 100%;
 
   @include b.mobile {
     display: flex;
