@@ -52,6 +52,7 @@ export const ICON_GLYPHS = [
   'wallet',
   'done',
   'search',
+  'brief',
 ] as const;
 export type IconGlyph = (typeof ICON_GLYPHS)[number];
 
