@@ -2878,7 +2878,7 @@
         },
         {
             "name": "IconComponent",
-            "id": "component-IconComponent-eb7a912aa7831956de690f150a475a22509fa128ddc4164bc4032156a77cf719826b49bf5676a0cd0338f262cc859cdbc44f782633661f98efdb1a235b9e0fb5",
+            "id": "component-IconComponent-82848a3cf8af53e3b4b08bd55bf8ff864b46c98ad3165060e1c666dfde7cb2895fc96cc0d9a248cf5afb828c4df8332ec59704b2f1c66b42bc32bf62a0d1e25f",
             "file": "projects/lendai-us/design-system/src/lib/icon/icon/icon.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2930,11 +2930,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'lai-icon',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './icon.component.html',\n  styleUrls: ['./icon.component.scss'],\n})\nexport class IconComponent {\n  @HostBinding('attr.glyph')\n  @Input()\n  glyph!: IconGlyph;\n\n  @HostBinding('attr.size')\n  @Input()\n  size?: IconSize;\n}\n\nexport const ICON_GLYPHS = [\n  'back',\n  'comments',\n  'communication',\n  'edit',\n  'dashboard',\n  'filter',\n  'forward',\n  'logout',\n  'trash',\n  'upload',\n  'loan-policy',\n  'cv',\n  'external-link',\n  'close',\n  'loan-applications',\n  'calendar',\n  'mail',\n  'phone',\n  'close-circle',\n  'checkmark',\n  'add',\n  'remove',\n  'info',\n  'error',\n  'expand-arrow',\n  'collapse-arrow',\n  'reset',\n  'bars',\n  'help',\n  'briefcase',\n  'wallet',\n  'done',\n  'search',\n  'brief',\n] as const;\nexport type IconGlyph = (typeof ICON_GLYPHS)[number];\n\nexport const ICON_SIZES = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;\nexport type IconSize = (typeof ICON_SIZES)[number];\n",
+            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'lai-icon',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './icon.component.html',\n  styleUrls: ['./icon.component.scss'],\n})\nexport class IconComponent {\n  @HostBinding('attr.glyph')\n  @Input()\n  glyph!: IconGlyph;\n\n  @HostBinding('attr.size')\n  @Input()\n  size?: IconSize;\n}\n\nexport const ICON_GLYPHS = [\n  'back',\n  'comments',\n  'communication',\n  'edit',\n  'dashboard',\n  'filter',\n  'forward',\n  'logout',\n  'trash',\n  'upload',\n  'loan-policy',\n  'cv',\n  'external-link',\n  'close',\n  'loan-applications',\n  'calendar',\n  'mail',\n  'phone',\n  'close-circle',\n  'checkmark',\n  'add',\n  'remove',\n  'info',\n  'error',\n  'expand-arrow',\n  'collapse-arrow',\n  'reset',\n  'bars',\n  'help',\n  'briefcase',\n  'wallet',\n  'done',\n  'brief',\n  'download',\n  'search',\n] as const;\nexport type IconGlyph = (typeof ICON_GLYPHS)[number];\n\nexport const ICON_SIZES = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;\nexport type IconSize = (typeof ICON_SIZES)[number];\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'sass:map';\n\n$glyphs: (\n  'back': '\\e900',\n  'comments': '\\e901',\n  'communication': '\\e902',\n  'edit': '\\e903',\n  'dashboard': '\\e904',\n  'filter': '\\e905',\n  'forward': '\\e906',\n  'logout': '\\e907',\n  'trash': '\\e908',\n  'upload': '\\e909',\n  'loan-policy': '\\e90a',\n  'cv': '\\e90b',\n  'external-link': '\\e90c',\n  'close': '\\e90d',\n  'loan-applications': '\\e90e',\n  'calendar': '\\e90f',\n  'mail': '\\e910',\n  'phone': '\\e911',\n  'close-circle': '\\e912',\n  'checkmark': '\\e913',\n  'add': '\\e914',\n  'remove': '\\e915',\n  'info': '\\e916',\n  'error': '\\e917',\n  'expand-arrow': '\\e918',\n  'collapse-arrow': '\\e91b',\n  'reset': '\\e919',\n  'bars': '\\e91a',\n  'help': '\\e91c',\n  'briefcase': '\\e91d',\n  'wallet': '\\e91e',\n  'done': '\\e920',\n  'search': '\\e91f',\n  'brief': '\\e91f',\n);\n\n$sizes: (\n  'xs': 12px,\n  'sm': 16px,\n  'md': 20px,\n  'lg': 24px,\n  'xl': 28px,\n  'xxl': 32px,\n);\n\n@font-face {\n  font-family: icomoon;\n  src: url('../../../assets/fonts/icomoon.eot?' + length($glyphs));\n  src:\n    url('../../../assets/fonts/icomoon.eot?' + length($glyphs) + ('#iefix'))\n      format('embedded-opentype'),\n    url('../../../assets/fonts/icomoon.ttf?' + length($glyphs))\n      format('truetype'),\n    url('../../../assets/fonts/icomoon.woff?' + length($glyphs)) format('woff'),\n    url('../../../assets/fonts/icomoon.svg?' + length($glyphs) + ('#icomoon'))\n      format('svg');\n  font-weight: normal;\n  font-style: normal;\n  font-display: block;\n}\n\n:host {\n  /* use !important to prevent issues with browser extensions that change fonts */\n  font-family: icomoon !important;\n  font-style: normal;\n  font-weight: normal;\n  font-variant: normal;\n  text-transform: none;\n  line-height: 1;\n\n  /* Better Font Rendering =========== */\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  display: inline;\n\n  @each $key, $value in $glyphs {\n    &[glyph='#{$key}']:before {\n      content: $value;\n    }\n  }\n\n  @each $key, $value in $sizes {\n    &[size='#{$key}'] {\n      font-size: $value;\n    }\n  }\n}\n",
+                    "data": "@use 'sass:map';\n\n$glyphs: (\n  'back': '\\e900',\n  'comments': '\\e901',\n  'communication': '\\e902',\n  'edit': '\\e903',\n  'dashboard': '\\e904',\n  'filter': '\\e905',\n  'forward': '\\e906',\n  'logout': '\\e907',\n  'trash': '\\e908',\n  'upload': '\\e909',\n  'loan-policy': '\\e90a',\n  'cv': '\\e90b',\n  'external-link': '\\e90c',\n  'close': '\\e90d',\n  'loan-applications': '\\e90e',\n  'calendar': '\\e90f',\n  'mail': '\\e910',\n  'phone': '\\e911',\n  'close-circle': '\\e912',\n  'checkmark': '\\e913',\n  'add': '\\e914',\n  'remove': '\\e915',\n  'info': '\\e916',\n  'error': '\\e917',\n  'expand-arrow': '\\e918',\n  'collapse-arrow': '\\e91b',\n  'reset': '\\e919',\n  'bars': '\\e91a',\n  'help': '\\e91c',\n  'briefcase': '\\e91d',\n  'wallet': '\\e91e',\n  'done': '\\e920',\n  'brief': '\\e91f',\n  'download': '\\e921',\n  'search': '\\e912',\n);\n\n$sizes: (\n  'xs': 12px,\n  'sm': 16px,\n  'md': 20px,\n  'lg': 24px,\n  'xl': 28px,\n  'xxl': 32px,\n);\n\n@font-face {\n  font-family: icomoon;\n  src: url('../../../assets/fonts/icomoon.eot?' + length($glyphs));\n  src:\n    url('../../../assets/fonts/icomoon.eot?' + length($glyphs) + ('#iefix'))\n      format('embedded-opentype'),\n    url('../../../assets/fonts/icomoon.ttf?' + length($glyphs))\n      format('truetype'),\n    url('../../../assets/fonts/icomoon.woff?' + length($glyphs)) format('woff'),\n    url('../../../assets/fonts/icomoon.svg?' + length($glyphs) + ('#icomoon'))\n      format('svg');\n  font-weight: normal;\n  font-style: normal;\n  font-display: block;\n}\n\n:host {\n  /* use !important to prevent issues with browser extensions that change fonts */\n  font-family: icomoon !important;\n  font-style: normal;\n  font-weight: normal;\n  font-variant: normal;\n  text-transform: none;\n  line-height: 1;\n\n  /* Better Font Rendering =========== */\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  display: inline;\n\n  @each $key, $value in $glyphs {\n    &[glyph='#{$key}']:before {\n      content: $value;\n    }\n  }\n\n  @each $key, $value in $sizes {\n    &[size='#{$key}'] {\n      font-size: $value;\n    }\n  }\n}\n",
                     "styleUrl": "./icon.component.scss"
                 }
             ],
@@ -9060,21 +9060,21 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<CardComponent>",
-                "defaultValue": "{\n  radius: 'sm',\n  size: 'md',\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "{\n  hierarchy: 'primary',\n  size: 'md',\n  color: 'primary',\n  disabled: false,\n} as Partial<ButtonComponent>"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<CardComponent>",
+                "defaultValue": "{\n  radius: 'sm',\n  size: 'md',\n}"
             },
             {
                 "name": "args",
@@ -9494,7 +9494,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "[\n  'back',\n  'comments',\n  'communication',\n  'edit',\n  'dashboard',\n  'filter',\n  'forward',\n  'logout',\n  'trash',\n  'upload',\n  'loan-policy',\n  'cv',\n  'external-link',\n  'close',\n  'loan-applications',\n  'calendar',\n  'mail',\n  'phone',\n  'close-circle',\n  'checkmark',\n  'add',\n  'remove',\n  'info',\n  'error',\n  'expand-arrow',\n  'collapse-arrow',\n  'reset',\n  'bars',\n  'help',\n  'briefcase',\n  'wallet',\n  'done',\n  'search',\n  'brief',\n] as const"
+                "defaultValue": "[\n  'back',\n  'comments',\n  'communication',\n  'edit',\n  'dashboard',\n  'filter',\n  'forward',\n  'logout',\n  'trash',\n  'upload',\n  'loan-policy',\n  'cv',\n  'external-link',\n  'close',\n  'loan-applications',\n  'calendar',\n  'mail',\n  'phone',\n  'close-circle',\n  'checkmark',\n  'add',\n  'remove',\n  'info',\n  'error',\n  'expand-arrow',\n  'collapse-arrow',\n  'reset',\n  'bars',\n  'help',\n  'briefcase',\n  'wallet',\n  'done',\n  'brief',\n  'download',\n  'search',\n] as const"
             },
             {
                 "name": "ICON_SIZES",
@@ -9710,21 +9710,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<CardComponent>",
-                "defaultValue": "{\n  title: 'WIP/Card',\n  component: CardComponent,\n  decorators: [\n    componentWrapperDecorator((story) => {\n      return `<style>\n          lai-card {\n            width: 100px;\n            height: 100px;\n          }\n        </style>\n        ${story}`;\n    }),\n  ],\n  argTypes: {\n    radius: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n    size: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ButtonComponent>",
                 "defaultValue": "{\n  title: 'Atoms/Button',\n  decorators: [\n    moduleMetadata({\n      imports: [ButtonComponent, IconComponent],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: BUTTON_SIZES,\n    },\n    hierarchy: {\n      control: { type: 'select' },\n      options: BUTTON_HIERARCHIES,\n    },\n    color: {\n      control: { type: 'select' },\n      options: BUTTON_COLORS,\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<CardComponent>",
+                "defaultValue": "{\n  title: 'WIP/Card',\n  component: CardComponent,\n  decorators: [\n    componentWrapperDecorator((story) => {\n      return `<style>\n          lai-card {\n            width: 100px;\n            height: 100px;\n          }\n        </style>\n        ${story}`;\n    }),\n  ],\n  argTypes: {\n    radius: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n    size: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -10608,8 +10608,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<CardComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
+                "rawtype": "StoryObj<ButtonComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -10619,8 +10619,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonComponent>",
-                "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
+                "rawtype": "StoryObj<CardComponent>",
+                "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -11024,38 +11024,6 @@
                     "defaultValue": "{\n  title: 'Atoms/Badge',\n  decorators: [\n    moduleMetadata({\n      imports: [BadgeComponent, IconComponent],\n    }),\n  ],\n  render: (args) => ({\n    props: {\n      ...args,\n      content: 'Lorem ipsum',\n    },\n    template: `\n      <lai-badge [color]=\"color\" [radius]=\"radius\" [type]=\"type\">\n        {{content}}\n      </lai-badge>\n    `,\n  }),\n  argTypes: {\n    color: {\n      options: BADGE_COLORS,\n      control: { type: 'select' },\n    },\n    size: {\n      options: BADGE_SIZES,\n      control: { type: 'select' },\n    },\n  },\n}"
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/card/card.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<CardComponent>",
-                    "defaultValue": "{\n  radius: 'sm',\n  size: 'md',\n}"
-                },
-                {
-                    "name": "Card",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args,\n  render: (props) => ({\n    props,\n  }),\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<CardComponent>",
-                    "defaultValue": "{\n  title: 'WIP/Card',\n  component: CardComponent,\n  decorators: [\n    componentWrapperDecorator((story) => {\n      return `<style>\n          lai-card {\n            width: 100px;\n            height: 100px;\n          }\n        </style>\n        ${story}`;\n    }),\n  ],\n  argTypes: {\n    radius: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n    size: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n  },\n}"
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/button/button.stories.ts": [
                 {
                     "name": "args",
@@ -11116,6 +11084,38 @@
                     "deprecationMessage": "",
                     "type": "Meta<ButtonComponent>",
                     "defaultValue": "{\n  title: 'Atoms/Button',\n  decorators: [\n    moduleMetadata({\n      imports: [ButtonComponent, IconComponent],\n    }),\n  ],\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: BUTTON_SIZES,\n    },\n    hierarchy: {\n      control: { type: 'select' },\n      options: BUTTON_HIERARCHIES,\n    },\n    color: {\n      control: { type: 'select' },\n      options: BUTTON_COLORS,\n    },\n  },\n}"
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/card/card.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<CardComponent>",
+                    "defaultValue": "{\n  radius: 'sm',\n  size: 'md',\n}"
+                },
+                {
+                    "name": "Card",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args,\n  render: (props) => ({\n    props,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<CardComponent>",
+                    "defaultValue": "{\n  title: 'WIP/Card',\n  component: CardComponent,\n  decorators: [\n    componentWrapperDecorator((story) => {\n      return `<style>\n          lai-card {\n            width: 100px;\n            height: 100px;\n          }\n        </style>\n        ${story}`;\n    }),\n  ],\n  argTypes: {\n    radius: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n    size: {\n      options: ['sm', 'md'],\n      control: { type: 'select' },\n    },\n  },\n}"
                 }
             ],
             "projects/lendai-us/design-system/src/lib/stepper/stepper.stories.ts": [
@@ -11823,7 +11823,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "[\n  'back',\n  'comments',\n  'communication',\n  'edit',\n  'dashboard',\n  'filter',\n  'forward',\n  'logout',\n  'trash',\n  'upload',\n  'loan-policy',\n  'cv',\n  'external-link',\n  'close',\n  'loan-applications',\n  'calendar',\n  'mail',\n  'phone',\n  'close-circle',\n  'checkmark',\n  'add',\n  'remove',\n  'info',\n  'error',\n  'expand-arrow',\n  'collapse-arrow',\n  'reset',\n  'bars',\n  'help',\n  'briefcase',\n  'wallet',\n  'done',\n  'search',\n  'brief',\n] as const"
+                    "defaultValue": "[\n  'back',\n  'comments',\n  'communication',\n  'edit',\n  'dashboard',\n  'filter',\n  'forward',\n  'logout',\n  'trash',\n  'upload',\n  'loan-policy',\n  'cv',\n  'external-link',\n  'close',\n  'loan-applications',\n  'calendar',\n  'mail',\n  'phone',\n  'close-circle',\n  'checkmark',\n  'add',\n  'remove',\n  'info',\n  'error',\n  'expand-arrow',\n  'collapse-arrow',\n  'reset',\n  'bars',\n  'help',\n  'briefcase',\n  'wallet',\n  'done',\n  'brief',\n  'download',\n  'search',\n] as const"
                 },
                 {
                     "name": "ICON_SIZES",
@@ -12687,19 +12687,6 @@
                     "kind": 180
                 }
             ],
-            "projects/lendai-us/design-system/src/lib/card/card.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<CardComponent>",
-                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "projects/lendai-us/design-system/src/lib/button/button.stories.ts": [
                 {
                     "name": "Story",
@@ -12707,6 +12694,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ButtonComponent>",
                     "file": "projects/lendai-us/design-system/src/lib/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "projects/lendai-us/design-system/src/lib/card/card.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<CardComponent>",
+                    "file": "projects/lendai-us/design-system/src/lib/card/card.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",

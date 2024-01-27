@@ -18,7 +18,7 @@ jobs:
       current-version: ${{ steps.current-version.outputs.CURRENT_VERSION }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: '2'
 
@@ -38,9 +38,9 @@ jobs:
       - version
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: 'npm'
@@ -53,12 +53,12 @@ jobs:
 
       - run: npm run build-storybook
 
-      - uses: actions/upload-pages-artifact@v1.0.4
+      - uses: actions/upload-pages-artifact@v2
         if: ${{ needs.version.outputs.previous-version != needs.version.outputs.current-version && github.ref == 'refs/heads/main' }}
         with:
           path: storybook-static
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: ${{ needs.version.outputs.previous-version != needs.version.outputs.current-version && github.ref == 'refs/heads/main' }}
         with:
           name: design-system
@@ -72,9 +72,9 @@ jobs:
       - build
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: 'npm'
@@ -82,7 +82,7 @@ jobs:
 
       - run: npm ci
 
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: design-system
           path: dist/lendai-us/design-system
@@ -93,6 +93,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
-      - uses: actions/deploy-pages@v1
+      - uses: actions/deploy-pages@v4
         with:
           token: ${{ github.token }}
