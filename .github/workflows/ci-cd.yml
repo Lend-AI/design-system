@@ -6,9 +6,9 @@ permissions:
 
 on:
   push:
-    branches: ['main']
+    branches: ["main"]
   pull_request:
-    branches: ['main']
+    branches: ["main"]
 
 jobs:
   version:
@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: '2'
+          fetch-depth: "2"
 
       - id: previous-version
         run: |
@@ -43,7 +43,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: 'npm'
+          cache: "npm"
 
       - run: npm ci
 
@@ -53,7 +53,7 @@ jobs:
 
       - run: npm run build-storybook
 
-      - uses: actions/upload-pages-artifact@v2
+      - uses: actions/upload-pages-artifact@v3
         if: ${{ needs.version.outputs.previous-version != needs.version.outputs.current-version && github.ref == 'refs/heads/main' }}
         with:
           path: storybook-static
@@ -77,8 +77,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: 'npm'
-          registry-url: 'https://registry.npmjs.org'
+          cache: "npm"
+          registry-url: "https://registry.npmjs.org"
 
       - run: npm ci
 
