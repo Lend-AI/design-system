@@ -1,4 +1,1 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-npm run lint
+/Users/gennady/.nvm/versions/node/v20.12.2/bin/npm run lint
