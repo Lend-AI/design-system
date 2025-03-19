@@ -20,6 +20,7 @@ import { Breakpoints } from '../../../foundations';
 })
 export class LandingLayoutHeaderComponent implements OnInit, OnDestroy {
   @Input() actionsRef?: TemplateRef<unknown>;
+  @Input() logoClass?: string;
 
   @HostBinding('class.mobile-nav-open')
   protected isMobileNavOpen = false;

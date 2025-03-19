@@ -1,7 +1,7 @@
 <header class="header">
   <lai-logo
     *ngIf="this.service.logoPath$ | async as logoPath"
-    class="logo"
+    [class]="logoClass || 'logo'"
     [logoPath]="logoPath"
     [routerLink]="['./']"></lai-logo>
 
